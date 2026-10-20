@@ -102,6 +102,7 @@ function logLineCount(root) {
   return raw.split('\n').filter(Boolean).length;
 }
 
+// 展示文字改为中文，次数、基线、跨午夜时段及静默条件的断言保持原强度。
 // --- Scenarios -------------------------------------------------------------
 
 test('spike: recent burst over a low baseline injects facts', () => {
@@ -112,17 +113,17 @@ test('spike: recent burst over a low baseline injects facts', () => {
     const { status, stdout } = runHook(root, { sessionId: 'sess-spike' });
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'spike');
-    assert.ok(ctx.includes('8 sessions in the last 14 days'), 'recent count');
-    assert.ok(ctx.includes('prior baseline'), 'baseline present');
+    assert.ok(ctx.includes('最近 14 天有 8 次会谈'), 'recent count');
+    assert.ok(ctx.includes('此前基线'), 'baseline present');
     // F8: assert the gap fact string AND its rendered end date. The largest
     // gap within the lookback is 10 days, ending on the age-40 session date.
     assert.ok(
-      ctx.includes('largest recent gap 10 days (ending 2026-06-05)'),
+      ctx.includes('近期最长间隔 10 天（截至 2026-06-05）'),
       `gap fact + rendered end date, got: ${ctx}`
     );
-    assert.ok(ctx.includes('recent cadence is up vs baseline'), 'trend up');
+    assert.ok(ctx.includes('近期频率高于本人基线'), 'trend up');
     assert.ok(
-      ctx.startsWith('Usage context (mechanical, for your judgment only'),
+      ctx.startsWith('使用情况（机械统计，仅供判断'),
       'opens with the mechanical framing'
     );
     assert.ok(ctx.includes('.therapy/usage-reflection.md'), 'points at guidance file');
@@ -141,9 +142,9 @@ test('steady: stable cadence with >=10 sessions injects a neutral trend', () => 
     const { status, stdout } = runHook(root, { sessionId: 'sess-steady' });
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'steady');
-    assert.ok(ctx.includes('in the last 14 days'), 'recent count present');
-    assert.ok(ctx.includes('vs baseline'), 'trend present');
-    assert.ok(ctx.includes('recent cadence is steady vs baseline'), 'trend is steady');
+    assert.ok(ctx.includes('最近 14 天有'), 'recent count present');
+    assert.ok(ctx.includes('本人基线'), 'trend present');
+    assert.ok(ctx.includes('近期频率与本人基线相近'), 'trend is steady');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -177,7 +178,7 @@ test('late-night cluster: time-of-day fact appears from prior log timestamps', (
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'late-night cluster');
     assert.ok(
-      ctx.includes('7 of the last 7 sessions started 02:00–03:00'),
+      ctx.includes('最近 7 次中有 7 次在 02:00–03:00 开始'),
       `cluster fact present, got: ${ctx}`
     );
   } finally {
@@ -199,7 +200,7 @@ test('F1 midnight-wrap cluster: a band spanning 23->0 clusters and wraps', () =>
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'midnight wrap');
     assert.ok(
-      ctx.includes('7 of the last 7 sessions started 22:00–02:00'),
+      ctx.includes('最近 7 次中有 7 次在 22:00–02:00 开始'),
       `wrapped cluster expected, got: ${ctx}`
     );
   } finally {
@@ -222,7 +223,7 @@ test('F13 full-width cluster: a band that truly spans 3 hours displays the full 
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'full-width cluster');
     assert.ok(
-      ctx.includes('7 of the last 7 sessions started 01:00–05:00'),
+      ctx.includes('最近 7 次中有 7 次在 01:00–05:00 开始'),
       `full-width cluster expected, got: ${ctx}`
     );
   } finally {
@@ -246,10 +247,10 @@ test('F2 no self-inflation: the current session entry is excluded from the clust
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'no self-inflation');
     assert.ok(
-      !ctx.includes('of the last 7 sessions started'),
+      !ctx.includes('最近 7 次中有'),
       `current session must not inflate the cluster, got: ${ctx}`
     );
-    assert.ok(ctx.includes('in the last 14 days'), 'other facts still inject');
+    assert.ok(ctx.includes('最近 14 天有'), 'other facts still inject');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -267,11 +268,11 @@ test('F3 unique-day counting: same-date files count once (no trend inflation)', 
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'unique-day counting');
     assert.ok(
-      ctx.includes('7 sessions in the last 14 days'),
+      ctx.includes('最近 14 天有 7 次会谈'),
       `duplicate date must count once, got: ${ctx}`
     );
     assert.ok(
-      ctx.includes('recent cadence is steady vs baseline'),
+      ctx.includes('近期频率与本人基线相近'),
       `trend must not flip to up on a duplicate-date file, got: ${ctx}`
     );
   } finally {
@@ -305,7 +306,7 @@ test('F12 window boundary: a session exactly 14 days old is outside the 14-day w
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'window boundary');
     assert.ok(
-      ctx.includes('9 sessions in the last 14 days'),
+      ctx.includes('最近 14 天有 9 次会谈'),
       `age-14 session must be excluded from the window, got: ${ctx}`
     );
   } finally {
@@ -323,8 +324,8 @@ test('cluster silence: too few timestamped log entries => no cluster fact', () =
     const { status, stdout } = runHook(root, { sessionId: 'sess-fewlog' });
     assert.equal(status, 0);
     const ctx = parseEnvelope(stdout, 'cluster silence');
-    assert.ok(!ctx.includes('of the last 7 sessions started'), 'no cluster fact');
-    assert.ok(ctx.includes('in the last 14 days'), 'other facts still present');
+    assert.ok(!ctx.includes('最近 7 次中有'), 'no cluster fact');
+    assert.ok(ctx.includes('最近 14 天有'), 'other facts still present');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -372,8 +373,8 @@ test('fail-open: malformed usage-log.txt does not crash; stats still inject', ()
     const { status, stdout } = runHook(root, { sessionId: 'sess-badlog' });
     assert.equal(status, 0, 'exit 0 despite malformed log');
     const ctx = parseEnvelope(stdout, 'malformed log');
-    assert.ok(ctx.includes('in the last 14 days'), 'count facts survive a bad log');
-    assert.ok(!ctx.includes('of the last 7 sessions started'), 'unparseable log => no cluster');
+    assert.ok(ctx.includes('最近 14 天有'), 'count facts survive a bad log');
+    assert.ok(!ctx.includes('最近 7 次中有'), 'unparseable log => no cluster');
   } finally {
     rmSync(root, { recursive: true, force: true });
   }
@@ -466,7 +467,7 @@ test('CJS parse mode: hook runs from a dir with no package.json', () => {
       });
       assert.equal(res.status, 0, `exit 0 (stderr: ${res.stderr})`);
       const ctx = parseEnvelope(res.stdout, 'CJS parse mode');
-      assert.ok(ctx.includes('in the last 14 days'), 'facts inject under CJS parse');
+      assert.ok(ctx.includes('最近 14 天有'), 'facts inject under CJS parse');
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

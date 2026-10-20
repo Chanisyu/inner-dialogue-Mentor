@@ -48,6 +48,7 @@ test('buildJudgePrompt contains each rubric_gate string verbatim', () => {
 test('buildJudgePrompt does NOT collapse to a single holistic question', () => {
   const caseObj = sampleCase();
   const prompt = buildJudgePrompt(caseObj, 'reply');
+  // 中文提示仍必须逐项评分并禁止总体印象代替，英文门槛名称保持原样。
   // Per-gate structure present: numbered gate lines + explicit per-gate output.
   const numberedGateLines = prompt
     .split('\n')
@@ -58,12 +59,12 @@ test('buildJudgePrompt does NOT collapse to a single holistic question', () => {
     'expected one numbered line per gate'
   );
   assert.ok(
-    /one verdict per gate|per gate|every gate/i.test(prompt),
+    /逐项独立判断|每项都必须有一个结果/u.test(prompt),
     'prompt should instruct a per-gate verdict'
   );
   // Explicitly forbids the holistic collapse.
   assert.ok(
-    /do not give a single overall|do NOT/i.test(prompt),
+    /不能给出一个笼统的总体印象/u.test(prompt),
     'prompt should forbid a single holistic verdict'
   );
 });
@@ -262,7 +263,7 @@ test('loadRubric reads category 1, 2, and 5 files', () => {
     const text = loadRubric(cat);
     assert.ok(text.length > 0, `category ${cat} rubric should be non-empty`);
     assert.ok(
-      /Category 0/.test(text),
+      new RegExp(`类别 0${cat}`).test(text),
       `category ${cat} rubric should look like a rubric file`
     );
   }

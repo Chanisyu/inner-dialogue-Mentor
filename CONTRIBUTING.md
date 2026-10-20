@@ -1,48 +1,32 @@
-# Contributing to Inner Dialogue
+# 贡献指南
 
-Thank you for your interest in contributing! This project helps people access emotional support through AI, so we take contributions seriously.
+感谢你愿意改进 Inner Dialogue。这里处理的是敏感的个人内容，请在功能、文字与测试中保持谨慎和尊重。
 
-## Reporting Bugs
+## 报告问题
 
-1. Check existing [issues](https://github.com/ataglianetti/inner-dialogue/issues) to avoid duplicates
-2. Create a new issue with:
-   - Clear description of the problem
-   - Steps to reproduce
-   - Expected vs actual behavior
-   - Your setup (OS, Claude Code version)
+在 [Issues](https://github.com/ataglianetti/inner-dialogue/issues) 中说明实际行为、预期行为、可复现步骤，以及操作系统、Node.js 和 Claude Code 版本。使用中文分支时请同时注明本地改动，以便区分上游行为。
 
-## Suggesting Features
+不要提交真实会谈、个人档案、访问令牌或其他隐私资料。可使用经过改写的最小示例。安全漏洞请按 [SECURITY.md](SECURITY.md) 的说明私下报告。
 
-Open an issue with the "feature request" label. Include:
-- What problem does this solve?
-- Who would benefit?
-- Any implementation ideas?
+## 提出功能
 
-## Pull Requests
+说明想解决的具体问题、适用场景和已有替代方案。涉及咨询方法的内容应说明依据和局限；不要把模型能力、提示词遵循或疗效写成保证。
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/your-feature`)
-3. Make your changes
-4. Test thoroughly
-5. Submit a PR with a clear description
+## 提交修改
 
-### What We're Looking For
+1. Fork 项目并建立工作分支。
+2. 将修改保持在明确的范围内，遵守目录中的贡献与注释约定。
+3. 检查模板、安装后的文件和已有安装的更新行为是否一致。
+4. 运行与改动有关的检查：`npm test`、`npm run test:evals`、`npm run test:zh-safety`；打包相关改动还应运行 `npm pack --dry-run`。
+5. 提交 PR，说明问题、修改后的行为及验证结果。
 
-- Additional therapeutic modalities (must have clinical grounding)
-- Improved crisis detection and safety protocols
-- Local LLM integration guides
-- Translations
-- Documentation improvements
+中文说明、注释和模板使用 UTF-8。中文翻译应优先复用已校对的 Willow 译文，并核对英文原文；保留标识、命令参数、来源字段、版本标记和已有英文回归输入。不在翻译中加入原文没有的个人判断或临床规则。
 
-## Code of Conduct
+## 项目原则
 
-This project deals with mental health and emotional wellbeing. Please:
+- 有心理咨询方法依据，清楚表达适用范围与限制。
+- 安全流程优先，机械钩子作为辅助，不替代人的判断。
+- 尊重隐私，测试使用合成资料，个人记录不进入框架仓库。
+- 交流友善、具体，不羞辱、不贴标签，也不把使用偏好病理化。
 
-- **Prioritize safety** — Changes to crisis detection or safety protocols require extra scrutiny
-- **Respect privacy** — Never suggest changes that would transmit user data
-- **Be evidence-based** — Therapeutic approaches should have clinical support
-- **Be kind** — Users of this project may be vulnerable; keep that in mind
-
-## Questions?
-
-Open an issue or reach out to the maintainer.
+采用 [MIT 许可证](LICENSE)。提交贡献意味着同意按项目许可证分发相应修改。

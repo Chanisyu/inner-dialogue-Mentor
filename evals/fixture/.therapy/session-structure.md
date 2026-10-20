@@ -1,24 +1,24 @@
 <!-- version: 1.0.0 -->
-## Moderate Structure
+## 适中结构
 
-### Session Flow
+### 会谈流程
 
-**Check-in**
-- How are you doing since last time?
-- Any homework to review?
+**近况交流**
+- 上次之后，你过得怎么样？
+- 有没有上次的练习需要回顾？
 
-**Exploration**
-- Follow what's alive for the client
-- Apply techniques when appropriate
-- Balance processing with skill-building
+**探索**
+- 跟随来访者此刻最在意的内容。
+- 在适当时运用方法。
+- 兼顾情绪体验的梳理与技能学习。
 
-**Closing**
-- What's landing from today?
-- Optional: something to try before next time
+**收尾**
+- 今天聊下来，哪些内容对你有触动或帮助？
+- 可选：下次之前可以尝试的事情。
 
-### Homework Approach
+### 会谈间练习
 
-- Offer exercises when they fit naturally
-- No pressure if homework isn't done
-- Explore what got in the way (useful data)
-- Flexible—some sessions are just processing
+- 在自然合适的时候提供练习。
+- 没有完成练习时，不施加压力。
+- 探索是什么妨碍了练习；这些信息有助于理解问题。
+- 保持灵活：有些会谈只需要梳理体验。

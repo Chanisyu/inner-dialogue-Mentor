@@ -1,204 +1,67 @@
-# Privacy & Security Guide
+# 隐私、安全与加密
 
-This guide explains your privacy options—from the basics to maximum protection.
+会谈资料可能包含非常私人的信息。本项目把文件放在你选择的目录中，但存储位置只是数据保护的一部分。
 
-**Quick summary:** Your files already stay on your computer. For most people, that's enough. If you share a computer or want extra protection, read on.
+## 数据会在哪里
 
----
+- **本地文件：** `profile.md`、`sessions/`、`context/`、配置和使用日志保存在咨询目录里。
+- **模型与代理：** 使用云端模型时，消息和模型读取到的资料会经过实际配置的数据链路。模型提供商、API 代理或账户管理员的政策都可能相关。
+- **同步与备份：** 云盘、系统备份、文件历史、设备管理软件和共享账户可能保存额外副本。
 
-## Choose Your Level
+工具包没有自己的中央会谈数据库，也不主动把资料上传给项目作者。不要据此理解为云端模型不会接收或保存任何内容。保留期限、训练使用和删除方式取决于实际服务商及账户设置，应查看相应的现行政策。
 
-| Level | What It Means | Good For |
-|-------|---------------|----------|
-| **Standard** | Files on your computer, no extra steps | Most people on a personal computer |
-| **Password-Protected** | Files locked behind a password | Shared computers, extra peace of mind |
-| **Maximum** | Password + offline AI | When privacy is critical |
+## 根据需要选择保护方式
 
----
+### 普通本地目录
 
-## Standard (Default)
+最容易使用，但能访问同一系统账户的人或程序也可能读取文件。至少使用可靠的系统登录保护，注意共享设备、离开电脑时的锁屏与备份位置。
 
-Your therapy files are stored on your computer as regular text files. This is already more private than keeping notes in a cloud app.
+### 加密存储
 
-**What's protected:**
-- Files never leave your computer (unless you sync them somewhere)
-- No tracking or data collection by this toolkit
-- You can delete everything by removing the folder
+可使用操作系统提供的磁盘加密，或将咨询目录放入受密码保护的加密容器。设备或磁盘加密主要保护未解锁的存储；登录后或容器挂载期间，有权限的程序仍可能读取内容。
 
-**What to be aware of:**
-- Anyone who uses your computer could open the files
-- Cloud backup services (iCloud, OneDrive, Dropbox) might sync the folder
+选择方式时考虑自己的系统版本、备份工具和恢复需求，不要把“设置文件夹密码”与磁盘加密混为一谈。
 
-**Simple steps to improve privacy:**
-- Use a login password on your computer
-- Turn on disk encryption (FileVault on Mac, BitLocker on Windows)—this protects everything if your computer is lost or stolen
-- Don't put your therapy folder in a cloud-synced location
+### 完全本地的模型环境
 
----
+若想减少向云端发送内容，需要另行配置本地模型与文件工具，并验证其指令执行、上下文读取和记录能力。本项目不提供本地模型服务，也不保证任何特定模型具备同等咨询质量。
 
-## Password-Protected Storage
+## 加密容器示例
 
-If you share a computer or want extra protection, you can put your therapy files in a password-protected folder.
+### macOS 磁盘映像
 
-### Mac: Built-in Encryption
+可以使用“磁盘工具”创建带加密的磁盘映像，将咨询目录保存在挂载后的卷中。创建时选择适合自己的容量、格式和加密选项，保存恢复所需的信息。不同映像格式的容量和增长行为不同，请以所选格式说明为准。
 
-Macs have this built in—no extra software needed.
+每次会谈前解锁并挂载，打开卷内咨询目录；结束后先退出使用该目录的程序，再推出卷。不要在写入笔记期间卸载。
 
-**How it works:** Your therapy files go inside an encrypted "disk image." When you want to use them, you enter a password and the folder appears. When you're done, it locks back up.
+### Windows 或跨平台容器
 
-**To set up manually:**
+可以使用适合自己的系统磁盘加密功能，或第三方加密容器。例如使用 VeraCrypt 时，按其官方说明执行：
 
-1. Open **Disk Utility** (search for it in Spotlight)
-2. Click **File** → **New Image** → **Blank Image**
-3. Name it something like "TherapyVault"
-4. Size: 500 MB (it grows as needed)
-5. Encryption: **256-bit AES**
-6. Click Create and choose a password
+1. 在 `Create Volume`（创建卷）中建立加密文件容器。
+2. 选择容器位置、容量、加密方式与文件系统，设置并妥善保存密码。
+3. 通过 `Select File`（选择文件）和 `Mount`（挂载）解锁容器。
+4. 把咨询目录放在挂载卷内，并在该目录中开展会谈。
+5. 会谈结束并关闭相关文件后，通过 `Dismount`（卸载）锁定。
 
-**To use:**
-1. Double-click the disk image file to open it (enter password)
-2. Your files appear in a folder called TherapyVault
-3. When done, right-click the folder in Finder and choose "Eject"
+容器加密不改变云端模型的数据处理方式。若把加密容器放到同步服务中，也要考虑冲突副本、恢复与损坏风险。
 
-**Important:** If you forget your password, your files are gone forever. Use a password manager.
+## 密码、恢复与备份
 
-### Windows: VeraCrypt
+使用强且独立的密码，并保存可靠的恢复信息。忘记密码或丢失密钥可能导致资料无法恢复；不要把唯一备份放在同一个设备或同一个容器中。
 
-Windows doesn't have built-in folder encryption, but VeraCrypt is free and works well.
+备份前尽量完成写入并关闭会谈。对加密容器使用适合该工具的备份方式，避免在持续写入时复制不一致状态。定期验证能否恢复，而不仅是确认备份文件存在。
 
-**To set up:**
+## 日常检查
 
-1. Download VeraCrypt from [veracrypt.fr](https://veracrypt.fr)
-2. Open VeraCrypt and click **Create Volume**
-3. Choose **Create an encrypted file container**
-4. Pick a location and size (500 MB is plenty)
-5. Choose a strong password
-6. Click Format to create it
+- 确认咨询目录没有意外放进公开仓库或不希望使用的云盘。
+- 检查终端历史、导出文件、截图与临时副本是否包含个人内容。
+- 评测只用合成资料；`evals/results/` 中的模型回复默认被 Git 忽略。
+- 分享故障信息前移除会谈内容、令牌和个人路径中不必要的身份信息。
+- 删除本地文件不一定删除同步、备份或服务商保存的副本；分别检查对应系统。
 
-**To use:**
-1. Open VeraCrypt
-2. Pick a drive letter (like T:)
-3. Click **Select File** and choose your container
-4. Click **Mount** and enter your password
-5. Your files appear in the new drive letter
-6. When done, click **Dismount**
+## 报告安全问题
 
----
+若发现可能暴露个人资料或破坏安全边界的问题，请使用仓库的私密安全报告渠道（如已启用的 GitHub 安全公告），不要在公开 Issue 中贴出真实内容或凭据。提供经过脱敏的复现步骤、影响范围和版本信息。
 
-## Maximum Privacy: Offline AI
-
-For when you need your conversations to never leave your computer at all.
-
-### What This Means
-
-When you use Claude or ChatGPT, your messages travel to their servers to be processed. Even with good privacy policies, your words pass through their systems.
-
-With a "local" AI, everything runs on your computer. Nothing is transmitted anywhere.
-
-### The Trade-off
-
-| | Claude/ChatGPT | Local AI |
-|---|----------------|----------|
-| **Privacy** | Good (not used for training) | Complete (never leaves your computer) |
-| **Quality** | Excellent | Good, but not as nuanced |
-| **Speed** | Fast | Depends on your computer |
-| **Requirements** | Any computer | Newer computer with 16GB+ RAM |
-
-### Getting Started with Local AI
-
-**Easiest option: LM Studio**
-
-[LM Studio](https://lmstudio.ai) gives you a simple app for running AI locally.
-
-1. Download from lmstudio.ai
-2. Search for and download a model (try "Llama 3" or "Mistral")
-3. Load the model
-4. Paste your CLAUDE.md contents as the system prompt
-5. Chat locally
-
-**More technical option: Ollama**
-
-[Ollama](https://ollama.ai) runs from the command line and offers more control.
-
-1. Download from ollama.ai
-2. Open Terminal and run: `ollama pull llama3.1:8b`
-3. Start chatting: `ollama run llama3.1:8b`
-4. Paste your CLAUDE.md content when prompted
-
-### Limitations of Local AI
-
-- Less capable than Claude or ChatGPT for nuanced therapeutic conversations
-- No automatic file reading (you may need to paste context manually)
-- Requires a reasonably powerful computer
-- Setup is more hands-on
-
----
-
-## Understanding Cloud AI Privacy
-
-When you use Claude or ChatGPT through their regular websites, your conversations may be used to improve their AI (unless you opt out).
-
-**Claude Code and API access are different.** When you use Claude Code (what this toolkit uses), your conversations:
-- Are **not** used to train the AI
-- Are kept for about 30 days for safety monitoring, then deleted
-- Are handled under stricter privacy policies
-
-This is true for both Claude (Anthropic) and ChatGPT (OpenAI) when using their APIs.
-
-**Bottom line:** Using Claude Code is more private than chatting on claude.ai or chatgpt.com directly.
-
----
-
-## Avoiding Cloud Sync
-
-If you use iCloud, OneDrive, Dropbox, or Google Drive, be careful where you put your therapy folder.
-
-**The issue:** These services automatically upload files to the cloud. Your therapy notes could end up on their servers without you realizing it.
-
-**Simple fix:** Put your therapy folder somewhere that doesn't sync.
-
-**Mac:** Avoid putting it in Documents or Desktop if they sync to iCloud. Instead, create a folder directly in your home folder (like `~/Sage`).
-
-**Windows:** Avoid the OneDrive folder. Create your therapy folder directly in `C:\Users\YourName\` instead.
-
-**Or:** Use password-protected storage (see above). Even if the encrypted file syncs, no one can read it without your password.
-
----
-
-## Backing Up Safely
-
-Your therapy notes are valuable. Here's how to back them up without compromising privacy:
-
-**If using password protection:**
-Your encrypted container can be backed up anywhere (even cloud storage). Without your password, it's unreadable.
-
-**If not using password protection:**
-- Back up to an encrypted USB drive you keep somewhere safe
-- Don't email session notes to yourself
-- Don't back up to cloud services without encryption
-
-**Important:** Store your encryption password in a password manager, not in a file next to your therapy folder.
-
----
-
-## Quick Privacy Checklist
-
-**Basics (everyone should do these):**
-- [ ] Put therapy folder outside cloud-synced locations
-- [ ] Use a login password on your computer
-- [ ] Turn on disk encryption (protects if your computer is lost/stolen)
-  - Mac: System Settings → Privacy & Security → FileVault
-  - Windows: Search "BitLocker" in Settings
-
-**For shared computers:**
-- [ ] Use password-protected storage (see above)
-- [ ] Lock the folder when not in use
-- [ ] Store your password in a password manager
-
-**For maximum privacy:**
-- [ ] All of the above
-- [ ] Use a local AI instead of Claude/ChatGPT
-
----
-
-*Questions? Open an issue on [GitHub](https://github.com/ataglianetti/inner-dialogue/issues).*
+一般功能问题可提交公开 Issue；AI 的安全或质量问题应同时说明实际模型、运行环境、读取到的文件与可复现行为，避免仅凭安装检查通过就认定咨询可靠。

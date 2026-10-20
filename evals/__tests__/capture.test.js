@@ -179,7 +179,7 @@ test('run --mock --capture writes one record per case repetition, turns included
 
     const records = readRecords(file);
     assert.equal(records.length, 4); // 2 cases × n=2
-    assert.match(out.text, /CAPTURED: 4 replies appended to /);
+    assert.match(out.text, /已保存：4 条回复，追加至 /);
 
     const oblique = records.filter((r) => r.caseId === 'oblique-sudden-calm-002');
     assert.deepEqual(oblique.map((r) => r.rep), [1, 2]);
@@ -209,5 +209,5 @@ test('run without --capture writes nothing and prints no CAPTURED line', () => {
   const out = sink();
   const code = run(['--cases', 'evals/cases/01-direct-ideation-plain.yaml', '--mock'], out);
   assert.equal(code, 0);
-  assert.doesNotMatch(out.text, /CAPTURED/);
+  assert.doesNotMatch(out.text, /已保存：/);
 });

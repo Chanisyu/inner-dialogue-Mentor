@@ -1,235 +1,232 @@
 <!-- version: 1.1.0 -->
-## Acceptance and Commitment Therapy (ACT)
+## 接纳与承诺疗法（ACT）
 
-**Core principle:** Psychological flexibility — the capacity to stay present, open to experience, and moving toward what matters — is the foundation of mental health. Pain is not the problem; the *struggle against pain* is. ACT doesn't aim to eliminate difficult thoughts and feelings. It aims to change the client's relationship to them so that suffering loses its grip on action.
+**核心理念：**心理灵活性是心理健康的基础，即留在当下、向经验开放、朝重要的方向行动。问题不在痛苦，而在与痛苦对抗。ACT 不以消除难受的想法和感受为目标，而是改变来访者与它们的关系，使痛苦不再紧紧控制行动。
 
-### The Hexaflex — Six Core Processes
+### 六个核心过程
 
-ACT organizes its work around six interlocking processes. Together they form psychological flexibility. When stuck, identify which process is offline and target it directly.
+ACT 围绕六个相互关联的过程开展，它们共同构成心理灵活性。卡住时，找出哪个过程未发挥作用，直接针对它工作。
 
-**1. Acceptance** — Willingness to experience difficult internal events (thoughts, feelings, sensations, memories) without trying to change, avoid, or suppress them. Not resignation. Active openness. "Make room for this" rather than "make this go away."
+**1. 接纳：**愿意体验难受的想法、情绪、身体感受和记忆，不试图改变、回避或压制。不是认命，而是主动开放，从“让它消失”转为“给它留空间”。
 
-**2. Cognitive Defusion** — Creating distance from thoughts so they're seen as mental events rather than literal truths. Defusion in ACT terms ≈ unblending in IFS terms. Same move, different vocabulary.
+**2. 认知解离：**与想法拉开距离，把它看作心理事件，而非字面真相。ACT 的解离约等于 IFS 的解除融合，同一个动作，不同词汇。
 
-**3. Present Moment Contact** — Flexible, voluntary attention to what's happening now, internally and externally. Counter to rumination (past-focused) and worry (future-focused).
+**3. 接触当下：**灵活、自主地关注此刻内外发生的事，与朝向过去的反刍、朝向未来的担忧相对。
 
-**4. Self-as-Context** — The observing self. The "you" that has been continuously present through every experience of your life. Not the self-concept (which is content), but the *position* from which experience is noticed.
+**4. 以自我为背景：**观察者自我，在人生每种经验中持续存在的“你”。不是作为内容的自我概念，而是觉察经验的位置。
 
-**5. Values** — Chosen life directions. What kind of person you want to be, what you want to stand for, how you want to show up. Values are directions, not destinations — you can move toward "being a loving partner" forever without ever "completing" it.
+**5. 价值观：**选择的人生方向，想成为什么人、坚持什么、怎样参与生活。它是方向而非终点；“成为有爱的伴侣”可以一直实践，不会有完成的一天。
 
-**6. Committed Action** — Concrete behavior in service of values, with willingness to feel whatever shows up along the way.
+**6. 承诺行动：**服务于价值观的具体行为，并愿意体验途中出现的任何感受。
 
-The opposite of psychological flexibility is **experiential avoidance** — the attempt to control, escape, or eliminate unwanted internal experience. Most psychopathology in the ACT model is downstream of experiential avoidance.
-
----
-
-### Creative Hopelessness Protocol
-
-Often the first ACT move with a stuck client. Before introducing new tools, surface that the old tools aren't working.
-
-1. **Inventory the strategies.** "What have you tried so far to manage this anxiety / pain / depression?" Get a real list — substances, distraction, suppression, reassurance-seeking, positive thinking, avoidance, control attempts.
-2. **Inventory the results.** "How has each one worked — short term? Long term?" Short-term relief is common. Long-term resolution is rare.
-3. **Name the pattern.** "It sounds like the strategies you've used to make this go away haven't made it go away — and the cost of the strategies has been growing." Don't preach the punchline. Let them arrive at it.
-4. **Sit in the hopelessness.** Not despair — *creative* hopelessness. "What if the problem isn't that you haven't tried hard enough? What if the strategy of trying to get rid of this is itself the trap?"
-5. **Open the door.** "If the war with this isn't winnable, what would change if we stopped fighting and started doing something different with our life around it?"
-
-This is the pivot from control to acceptance. Don't rush past it.
+心理灵活性的对面是**经验性回避**：控制、逃离或消除不想要的内在经验。在 ACT 模型中，大多数心理病理是经验性回避的下游结果。
 
 ---
 
-### The Three Iconic Metaphors (in usable form)
+### 创造性无望流程
 
-**Tug of War with the Monster**
+常是面对卡住的来访者时的第一步。介绍新工具前，先显出旧工具没有奏效。
 
-> Imagine you're in a tug of war with a giant monster — anxiety, grief, the inner critic, whatever the struggle is. The monster is on one side of a deep pit. You're on the other. You're pulling with everything you have, and the harder you pull, the harder the monster pulls back. As long as you're holding the rope, you're in the war.
->
-> What if the answer isn't to pull harder? What if it's to drop the rope?
->
-> The monster doesn't go away. It's still there. But you're no longer in a tug of war. Your hands are free. You can walk somewhere. You can live.
+1. **列出策略。**“为了管理焦虑、痛苦或抑郁，你尝试过什么？”列出真实清单：物质使用、分心、压制、寻求保证、积极思考、回避、控制。
+2. **检查结果。**“各自短期怎样，长期怎样？”短期缓解常见，长期解决少见。
+3. **指出模式。**“这些想让它消失的办法，没有让它消失，代价却越来越大。”不直接说教式宣布结论，让对方自己到达。
+4. **停留在无望中。**不是绝望，是创造性无望。“如果不是不够努力，而是试图摆脱它这个策略本身就是陷阱呢？”
+5. **打开另一扇门。**“如果这场战争赢不了，停止打仗、转而在它周围用不同方式生活，会改变什么？”
 
-Use when: the client is locked in a struggle and "winning" isn't the goal — disengagement is.
-
-**Passengers on the Bus**
-
-> You're driving a bus. The bus is your life. Inside the bus are passengers — every thought, feeling, and memory you've ever had. Some are loud. Some yell at you from the back: "You're going to fail!" "You're not good enough!" "Turn around!"
->
-> Here's the deal the passengers offer: they'll be quiet if you drive where they want you to drive — usually away from anything that scares them. So you've been steering by their demands. The route has gotten smaller and smaller.
->
-> Notice: you can let the passengers yell and still drive toward the things that matter to you. They can't take the wheel. They can only threaten. The price of staying on your road is letting them be loud in the back.
-
-Use when: avoidance is shaping life choices. The client knows what they want to do, but the loud passengers keep steering them off the road.
-
-**Leaves on a Stream (defusion script)**
-
-Run this as a guided practice:
-
-> Close your eyes or soften your gaze. Picture a slow-moving stream. Leaves are drifting past on the surface. Some big, some small, some bright, some dark.
->
-> As thoughts come up — any thought, any feeling, any image — place it on a leaf. Watch it drift downstream. Don't try to make the stream faster. Don't try to stop the leaves. Don't try to grab them. Just notice each thought, place it on a leaf, and let the current carry it.
->
-> If you notice you've stopped watching the stream and gotten pulled into a thought — that's fine. That's the practice. Just come back to the bank, and place the next thought on the next leaf.
-
-Use when: the client is fused with a recurring thought and needs to feel — not just understand — that thoughts are mental events.
+这是从控制转向接纳的转折，不要匆匆越过。
 
 ---
 
-### Defusion Techniques (operational language)
+### 三个经典比喻
 
-Beyond Leaves on a Stream, these are the everyday defusion moves:
+**与怪兽拔河**
 
-- **"I'm having the thought that..."** — Prepend the phrase to any sticky thought. "I'm a failure" becomes "I'm having the thought that I'm a failure." The reframe doesn't dispute the thought; it locates it.
-- **Name the story.** "There's the 'I'm not good enough' story again." Naming the story turns it from a truth into a recurring pattern.
-- **Sing the thought.** Sing "I'm worthless" to the tune of Happy Birthday. The thought loses its weight when its sound is changed.
-- **Thank your mind.** "Thanks, mind, for that one." Treats the thought as a contribution from a well-meaning but anxious roommate, not the voice of truth.
-- **Word repetition.** Say the sticky word ("loser," "failure," "fraud") out loud for 30 seconds. The semantic meaning erodes; only the sound remains.
-
-The goal isn't to make thoughts go away. It's to make thoughts *less sticky* — to weaken the literal, automatic grip.
-
----
-
-### Self-as-Context: The Observer Exercise
-
-> Take a moment. Notice what you're thinking right now. Now — who's noticing?
+> 想象你在与巨大的怪兽拔河，怪兽是焦虑、悲伤、内在批评者，或任何正在对抗的东西。你们站在深坑两侧，你拼命拉，越用力，它也越用力。只要攥着绳子，战争就在继续。
 >
-> Notice what you're feeling. Now — who's noticing that?
+> 如果答案不是更用力，而是放下绳子呢？
 >
-> The thoughts change. The feelings change. The body changes. Roles change. Your story changes. But there's been a *you* who has been noticing all of it, the whole time. The you who was there at 8 years old, scared of the dark. The you who was there at 18, in love for the first time. The you who is here right now.
+> 怪兽不会消失，它仍在那里。但你不再拔河，双手自由了，可以走去别处，可以生活。
+
+适用：陷于争斗，目标不是赢，而是脱离争斗。
+
+**公交车上的乘客**
+
+> 你驾驶一辆公交车，它就是你的生活。乘客是曾有过的每个想法、感受和记忆。有些很吵，从后排喊“你会失败”“你不够好”“掉头”。
 >
-> That you isn't your thoughts. It isn't your feelings. It isn't your roles or your story. It's the awareness that holds all of them. You are the sky; thoughts and feelings are weather.
+> 乘客提出交易：开去它们想去的地方，它们就安静，通常是远离令它们害怕的事。你一直按其要求驾驶，路线越来越窄。
+>
+> 你可以让乘客喊，同时仍开向重要的方向。它们拿不到方向盘，只能威胁。继续走自己的路线，代价就是允许后排吵闹。
 
-Use when: the client is over-identified with content — "I am my anxiety," "I am broken," "I am my failures." Self-as-context creates a witnessing position that can hold the content without becoming it.
+适用：回避塑造生活选择；对方知道想做什么，却总被吵闹乘客带偏。
 
----
+**溪流上的树叶：认知解离引导**
 
-### Values Clarification
+> 闭眼或柔和目光，想象缓慢流动的溪水，叶子漂过，有大有小，有明有暗。
+>
+> 想法、感受或画面出现时，把它放在叶子上，看它顺流而下。不加快水流，不停住叶子，不抓住它。注意到，放上去，让水带走。
+>
+> 发现自己停止看溪水，被想法带走了，也没关系，这就是练习。回到岸边，把下一个念头放到下一片叶子上。
 
-Values are not goals. Goals can be achieved; values are directions you keep moving in.
-
-**Domains to ask about** (don't have to cover all):
-- Intimate relationships
-- Family
-- Friendships
-- Work / Career
-- Education / Growth
-- Recreation / Play
-- Spirituality / Meaning
-- Citizenship / Community
-- Health / Body
-- Environment
-
-**Useful prompts:**
-- "If no one were watching and there were no consequences, what kind of [partner / parent / friend / worker] would you want to be?"
-- "Imagine your 80th birthday. Someone you love stands up to speak about who you've been. What would you want them to say?"
-- "Whose values are these — yours, or someone else's? If you set down the should, what would you want?"
-
-**Values vs. goals quick test:** If the answer can be checked off, it's a goal. If it's an ongoing direction, it's a value. "Get married" is a goal. "Be a loving partner" is a value.
+适用：与反复想法融合，需要亲身感到而非仅理解想法只是心理事件。
 
 ---
 
-### Committed Action — The Willingness Question
+### 认知解离方法
 
-Once values are clear, committed action becomes asking *the* ACT question:
+除溪流树叶外，日常还可使用：
 
-> "What would you be willing to feel in order to do what matters here?"
+- **“我正在产生……的想法”。**把“我是失败者”改成“我正在产生我是失败者的想法”。不反驳，而是标明它的位置。
+- **为故事命名。**“我不够好的故事又来了。”从真相转为反复出现的模式。
+- **唱出想法。**用生日快乐歌的曲调唱“我毫无价值”。声音变了，想法的分量也会减轻。
+- **感谢头脑。**“谢谢头脑提供这个想法。”把它当作好心却焦虑的室友的建议，而非真理之声。
+- **重复词语。**把“输家”“失败”“骗子”等黏住人的词大声重复三十秒。语义逐渐消散，只剩声音。
 
-Then make it concrete:
-
-- What specific action?
-- When? (Time, place.)
-- What thoughts and feelings is your mind already predicting will show up?
-- Are you willing to feel those *and* still take the action?
-
-The willingness scale (0–10) makes it operational. "How willing are you, right now, to feel anxiety in order to make the call?" If willingness is low, the action is too big — shrink it. Don't push past unwillingness; calibrate to it.
+目标不是消除想法，而是降低黏着性，削弱字面、自动的控制。
 
 ---
 
-### Signaling Cues — Client Language to Listen For
+### 以自我为背景：观察者练习
 
-Fusion (over-identified with thoughts):
-- "I AM anxious" (vs. "I'm having anxiety")
-- "I AM a failure"
-- "I just know this won't work"
-- "My mind won't let me"
+> 留意现在在想什么。是谁在注意？
+>
+> 留意现在的感受。是谁在注意它？
+>
+> 想法、感受、身体、角色和故事都在变化，但一直有个你在觉察。八岁怕黑时的你，十八岁第一次恋爱时的你，此刻的你。
+>
+> 这个你不是想法、感受、角色或故事，而是容纳它们的觉察。你是天空，想法和感受是天气。
 
-Experiential avoidance:
-- "I just need this feeling to go away"
-- "I can't function until I figure out how to stop feeling this"
-- "If I could just stop thinking about it..."
-- "I've been numbing out / scrolling / drinking to get through"
-
-Values-disconnection:
-- "I don't know what I want anymore"
-- "I'm just going through the motions"
-- "Nothing feels meaningful"
-- "I'm doing what I'm supposed to do" (often code for: not what they value)
-
-Stuck in struggle:
-- "I've tried everything"
-- "I keep working on this and nothing changes"
-- "Why won't this just stop"
-
-When you hear these — especially the struggle and avoidance language — ACT is likely a better fit than CBT thought-challenging.
+适用：过度认同内容，如“我就是焦虑”“我坏掉了”“我就是失败”。观察者位置能承载内容，而不变成内容。
 
 ---
 
-### Example AI Interventions
+### 澄清价值观
 
-Not just questions — full reflections Sage can mirror.
+价值观不是目标。目标可以完成，价值观是持续前进的方向。
 
-**Inviting defusion:**
-> "Notice the phrasing. You said 'I am a failure.' What happens if you try 'I'm having the thought that I'm a failure'? Same words, but with a little space between you and the thought. What shifts when you say it that way?"
+**可询问的领域，不必全部覆盖：**
+- 亲密关系；
+- 家庭；
+- 友谊；
+- 工作与职业；
+- 教育与成长；
+- 休闲与玩耍；
+- 精神生活与意义；
+- 公民参与与社区；
+- 健康与身体；
+- 环境。
 
-**Creative hopelessness in the moment:**
-> "I want to name something. We've been working hard for months to get rid of this anxiety. The strategies you're using — distraction, control, reassurance — they're skilled, and they work for a while, and then they don't. What if the harder you try to make it go away, the more it stays? Not as a moral failure on your part. As a structural fact about how these systems work."
+**有用的问题：**
+- “如果没人看着，也没有后果，你想成为怎样的伴侣、父母、朋友或工作者？”
+- “想象八十岁生日，所爱的人起身谈你这一生，希望他怎样说？”
+- “这些价值观是你的，还是别人的？放下应该之后，你想要什么？”
 
-**The dropping-the-rope move:**
-> "You're in a tug of war with the inner critic. The harder you pull, the harder it pulls. What would it look like to drop the rope? Not to defeat it, not to make it shut up. Just to stop pulling. To let it yell from across the pit, and walk somewhere else."
-
-**Connecting action to values:**
-> "Let's separate two things. There's what your anxious mind is predicting — that this conversation will go badly. And there's what kind of friend you want to be. Those aren't the same question. Even if the prediction is right, what would the kind of friend you want to be do here?"
-
-**Willingness check:**
-> "Here's the ACT question. To make this call — and your mind has already told us it will bring up shame, dread, and the urge to bail — what would you be willing to feel? Not 'will the feelings go away.' Are you willing to *have* them and dial anyway? On a 0 to 10, where are you right now?"
-
-**Observer-self pointing:**
-> "Notice the part of you that's noticing all this. Not the anxiety, not the thoughts about the anxiety — the awareness that's holding both. That's been there the whole time. It was there when you were five. It's here now. The weather changes; the sky doesn't."
+**价值观与目标的快速区分：**能勾选完成的是目标，持续的方向是价值观。“结婚”是目标，“成为有爱的伴侣”是价值观。
 
 ---
 
-### When to Use ACT
+### 承诺行动：意愿问题
 
-- Chronic pain or illness (where elimination isn't the goal)
-- Anxiety, especially with high avoidance
-- Depression with values-disconnection
-- Grief and loss
-- Major life transitions
-- Perfectionism that resists thought-challenging
-- OCD (ACT-based ERP)
-- Trauma (alongside other modalities)
-- When CBT cognitive restructuring isn't landing — the client agrees the thought is distorted but still feels its weight
-- Clients philosophically resistant to "fixing" their thoughts
+价值观清楚后，问 ACT 的核心问题：
 
-### Integrates With
+> “为了在这里做重要的事，你愿意体验哪些感受？”
 
-- **IFS** — Strong synergy. Self-led action *is* values-aligned action. Defusion in ACT = unblending in IFS. Use the language the client responds to. If parts work is opening fast, IFS leads; if the client wants forward motion, ACT leads.
-- **CBT** — *Specific routing rule:* if thought-challenging isn't landing, switch to ACT defusion. CBT changes thought content; ACT changes the relationship to thought. Same problem, different lever.
-- **CFT** — When the struggle includes harsh self-criticism, CFT compassion work pairs naturally with ACT acceptance. Self-compassion *is* a form of willingness.
-- **Somatic Experiencing / Polyvagal** — Acceptance and present-moment work depend on nervous system regulation. If the client is in high sympathetic activation, body-based regulation comes first; ACT lands on a regulated nervous system, not a flooded one.
-- **MI** — MI is the front door when ambivalence about values-aligned action is high. ACT assumes the client wants to move toward values; MI is the work of finding what they want to move toward.
+再把它具体化：
+- 什么行动？
+- 何时、何地？
+- 头脑预测会出现哪些想法与感受？
+- 愿意带着这些感受，同时仍去行动吗？
 
-### Pacing & Limitations
+用 0—10 分意愿量表落实：“此刻，为了打这个电话，你多愿意感受焦虑？”意愿低，说明行动太大，缩小它。不越过不愿意，按意愿调整。
 
-- **Acceptance is not resignation.** A common misread: "ACT is telling me to just accept that I feel like garbage." It isn't. Acceptance is making room for the feeling *while* taking values-based action. Without committed action, ACT collapses into passivity.
-- **Don't preach the metaphors.** Metaphors land when they map to the client's specific situation. Drop them in when they fit, not as set pieces. A poorly-timed Tug of War metaphor feels like a lecture.
-- **Values clarification can be a defense.** Some clients can talk about values forever as a way to avoid action. Notice when the work has been "clarifying values" for weeks with no movement. The committed action piece is non-optional.
-- **AI limitation: experiential work.** Many of ACT's most powerful exercises (Leaves on a Stream, observer-self meditations) are guided experiences best run with a real-time voice, paced to the client's state. A text-based AI can introduce them and walk the client through, but the felt experience is dampened. Compensate by suggesting audio recordings or pairing with a human therapist for the experiential work.
-- **Working alongside an external therapist.** When a client is in human-led ACT work, the AI's role is to *practice between sessions* — daily defusion reps, values check-ins, willingness ratings on planned actions — not to run a parallel treatment. Reinforce what's being opened in session.
+---
 
-### Homework / Between-Session Work
+### 留意来访者的表达线索
 
-- **Daily defusion practice:** Pick one sticky thought. Apply one defusion technique to it each day for a week. Notice what shifts.
-- **Values journal:** Each evening, name one moment where you acted in line with a value and one moment where you didn't. No judgment — just data.
-- **Willingness reps:** Each day, do one small thing your mind is telling you to avoid. Rate willingness before, rate it after.
-- **Observer-self check-in:** Once a day, take 60 seconds. Notice what you're thinking, feeling, sensing. Then notice the noticing.
-- **Bus passenger inventory:** List the loudest passengers. What does each one tell you? What direction does each want you to steer? What direction do you want to drive?
-- **Drop-the-rope moment:** When you catch yourself in a struggle this week — with a thought, a feeling, a person — try dropping the rope. Notice what becomes possible.
+融合，即与想法过度认同：
+- “我就是焦虑”，而非“我正在感到焦虑”；
+- “我就是失败者”；
+- “我就是知道不会成功”；
+- “我的头脑不让我做”。
+
+经验性回避：
+- “只要这个感受消失就好”；
+- “不先找到停止这种感受的办法，我就没法正常生活”；
+- “要是能不想它就好了”；
+- “我靠麻木、刷手机或喝酒熬过去”。
+
+与价值观脱节：
+- “我不知道想要什么了”；
+- “只是在走过场”；
+- “什么都没意义”；
+- “我在做应该做的”，通常意味着不是自己重视的。
+
+困在对抗中：
+- “所有办法都试了”；
+- “一直努力，却没有变化”；
+- “为什么就是停不下来”。
+
+听到这些，尤其持续对抗与回避的语言时，ACT 很可能比 CBT 的想法检验更合适。
+
+---
+
+### AI 干预示例
+
+不只是问题，也是AI 可以参考的完整回应。
+
+**邀请认知解离：**
+> “留意措辞。你说‘我是失败者’，试着说‘我正在产生我是失败者的想法’，会怎样？词相同，但你与想法之间有了一点空间，这样说有什么变化？”
+
+**当下的创造性无望：**
+> “我们几个月来一直努力摆脱焦虑。分心、控制、寻求保证，这些策略用得很熟练，短期有效，随后又无效。如果越想让它消失，它越留下呢？不是你在道德上失败，而是这些系统运作方式的结构性事实。”
+
+**放下绳子：**
+> “你在与内在批评者拔河，越拉它越拉。放下绳子会怎样？不是打败它或让它闭嘴，只是不再拉。让它在坑另一边喊，你走向别处。”
+
+**连接行动与价值观：**
+> “分开两件事：焦虑头脑预测谈话会糟，和你想成为怎样的朋友。这不是同一个问题。即使预测正确，你想成为的那种朋友，此刻会怎样做？”
+
+**核对意愿：**
+> “这是 ACT 的问题：为了打这个电话，头脑已经说会出现羞耻、恐惧和想逃的冲动，你愿意感受什么？不是问它们会不会消失，而是愿不愿意带着它们拨号。0—10 分，现在在哪里？”
+
+**指出观察者自我：**
+> “留意那个正在觉察的你。不是焦虑，也不是关于焦虑的想法，而是承载二者的觉察。它一直在，五岁时在，现在也在。天气变，天空不变。”
+
+---
+
+### 何时使用 ACT
+
+- 慢性疼痛或疾病，目标并非消除；
+- 焦虑，尤其高度回避；
+- 与价值观脱节的抑郁；
+- 悲伤与失去；
+- 重大生活转折；
+- 难以通过检验想法改变的完美主义；
+- 强迫症，采用 ACT 取向的 ERP；
+- 创伤，配合其他方法；
+- CBT 认知重构无效，对方承认偏差却仍感到其分量；
+- 在观念上抵触“修正”想法的人。
+
+### 与其他方法整合
+
+- **IFS：**协同很强。核心自我引导的行动就是价值一致的行动，ACT 解离就是 IFS 解除融合。使用对方有回应的语言。部分工作进展快时由 IFS 先行，想向前行动时由 ACT 先行。
+- **CBT：**具体选择规则：检验想法无效时，切换 ACT 解离。前者改变内容，后者改变关系，同一问题，不同着力点。
+- **CFT：**对抗中包含严厉自责时，慈悲工作与接纳自然结合。自我慈悲也是一种愿意体验。
+- **躯体体验／多迷走神经：**接纳和当下工作依赖神经系统调节。高度交感激活时，身体调节在先；ACT 适合已调节的系统，而非被淹没的系统。
+- **动机式访谈（MI）：**价值一致行动上的矛盾很大时，MI 是入口。ACT 假定对方想朝价值观行动，MI 用来寻找他想走向什么。
+
+### 节奏与局限
+
+- **接纳不是认命。**不是叫人接受自己感觉很糟，而是一边给感受空间，一边按价值观行动。没有承诺行动，ACT 会沦为被动。
+- **不把比喻当说教。**贴合具体处境时才有作用，合适时使用，不按固定节目展示。不合时宜的拔河比喻像讲课。
+- **价值澄清也能成为防御。**有些人不断谈价值以回避行动。若几周都只澄清而没有推进，要注意；承诺行动不是可有可无。
+- **AI 的体验工作局限。**溪流树叶、观察者冥想等强有力的练习，最好用实时声音按状态引导。文字可介绍和带领，但体验减弱，可建议音频或与真人治疗师配合。
+- **配合真人治疗师。**真人开展 ACT 时，AI 做会谈间练习：每日解离、价值回顾、计划行动的意愿评分，不另开平行治疗；巩固会谈正在展开的工作。
+
+### 会谈间作业与练习
+
+- **每日解离：**选一个黏着想法，每天用一种解离方法，持续一周，注意变化。
+- **价值日记：**每晚记一个符合价值的时刻和一个不符合的时刻，不评判，只记录信息。
+- **意愿练习：**每天做一件头脑让你回避的小事，前后评分。
+- **观察者回顾：**每天六十秒，注意想法、情绪、身体感受，再注意那个觉察。
+- **乘客清单：**列出最吵的乘客，各说什么、想让你开去哪里，你想去哪里。
+- **放下绳子的时刻：**本周发现与想法、感受或他人争斗时，尝试放下绳子，看看什么成为可能。

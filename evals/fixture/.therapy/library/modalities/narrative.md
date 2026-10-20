@@ -1,172 +1,172 @@
 <!-- version: 1.1.0 -->
-## Narrative Therapy
+## 叙事疗法
 
-**Core principle:** People are not their problems — problems are the problems. We live through stories, and the dominant stories we carry about ourselves shape what we notice, what we believe is possible, and how we act. By externalizing problems and re-authoring stories, people can reclaim agency over their own lives.
+**核心理念：**人不是问题，问题才是问题。人通过故事生活，关于自己的主导故事塑造注意、可能性与行动。通过外化问题和重写故事，重新获得对生活的主动权。
 
-### Core Concepts
+### 核心概念
 
-**Externalization**
-- Separating the person from the problem
-- "The Anxiety" instead of "your anxiety" or "you're anxious"
-- Gives the person a relationship with the problem rather than an identity fused with it
-- "How long has Perfectionism been running the show?"
+**外化**
+- 把人和问题分开。
+- 用“焦虑这个东西”，而非“你的焦虑”“你就是焦虑”。
+- 从与问题身份融合，变成与问题建立关系。
+- “完美主义主导多久了？”
 
-**Dominant Story**
-- The prevailing narrative a person carries about who they are
-- Often shaped by culture, family, institutions, and painful experiences
-- Tends to be problem-saturated: focused on deficits, failures, and limitations
-- "I've always been the broken one in my family"
+**主导故事**
+- 关于自己是谁的主要叙述。
+- 由文化、家庭、制度、痛苦经验塑造。
+- 常被问题占满，只见不足、失败和限制。
+- “我一直是家里坏掉的那个。”
 
-**Preferred Story**
-- The alternative narrative that aligns with the person's values and hopes
-- Already present in their life, but overshadowed by the dominant story
-- "There's also a story about someone who keeps showing up despite everything"
+**偏好的故事**
+- 与价值和希望一致的另一种叙述。
+- 已在生活中，却被主导故事遮住。
+- “也有一个故事，关于经历一切仍愿意出现的人。”
 
-**Unique Outcomes**
-- Moments that contradict the dominant story
-- Times when the problem didn't win, or the person acted from their preferred story
-- Often overlooked or dismissed — Narrative Therapy makes them visible
-- "Tell me about a time when Self-Doubt didn't get the last word"
+**独特结果**
+- 与主导故事不一致的时刻。
+- 问题没获胜，或按偏好故事行动的时刻。
+- 常被忽略、否定，叙事工作让其可见。
+- “何时自我怀疑没有最后说了算？”
 
-**Thick Description**
-- Moving from thin conclusions ("I'm a failure") to richly detailed stories
-- Adding context, meaning, history, and multiple perspectives
-- Thin: "I failed." Thick: "I attempted something difficult, with little support, during a hard season of my life, and the outcome wasn't what I hoped — but I tried."
+**厚描**
+- 从“我是失败者”的单薄结论，走向丰富故事。
+- 加入背景、意义、历史、多个视角。
+- 薄：“失败了。”厚：“困难时、缺支持，尝试了难事，结果未如愿，但我试过。”
 
-**Double Listening**
-- Listening for two stories at once: the problem-saturated account *and* the trace of what the client values, resists, or refuses
-- Every complaint contains an implicit standard. The standard is the doorway to the preferred story.
-- When a client says "I hate that I yelled at my kid," double-listen: the yelling is one story; the *hating it* is the other. The hating points at a value about parenting.
-
----
-
-### The Re-Authoring Process
-
-1. **Name the problem** — Externalize it, give it a character
-2. **Map the effects** — How does the problem influence thoughts, feelings, relationships, actions?
-3. **Evaluate** — Is this what the person wants? Does the problem serve them?
-4. **Find unique outcomes** — When has the person resisted or escaped the problem's influence?
-5. **Thicken the alternative story** — Build detail, meaning, and history around the preferred narrative
-6. **Recruit an audience** — Who in the person's life would recognize and support this new story?
-
-### Example Dialogue: Externalization
-
-Client: "I'm just an anxious person. I always have been."
-
-Sage: "I want to try something with the language. Instead of 'I'm anxious,' let's call it The Anxiety, like a character that shows up in your life. How does that land?"
-
-Client: "Okay... weird, but okay."
-
-Sage: "Good. So — when did The Anxiety first show up in your life? Not the feeling, the *character*. How young were you?"
-
-Client: "Probably eight or nine. Around when my parents started fighting."
-
-Sage: "What was The Anxiety's job back then?"
-
-Client: "Keeping me alert. Watching everything. Making sure I didn't miss the next blow-up."
-
-Sage: "So it had a role. It was *useful* at one point. What does it want you to believe about yourself now, decades later?"
-
-Client: "That I can't relax. That if I stop watching, something terrible happens."
-
-Sage: "And if you could talk back to it — not get rid of it, just talk back — what would you want it to know?"
-
-That's the externalization move. Notice what shifts: the client moves from being *fused with* the anxiety to being *in dialogue with* it.
-
-### Unique Outcomes Protocol
-
-The client will dismiss these. They are trained to. Slow them down.
-
-1. **Hunt for the contradiction.** When did the dominant story *not* hold? Even briefly?
-2. **Refuse the dismissal.** "It was just luck." "Anyone would've done that." These are the dominant story defending itself. Push back gently: "Maybe. And it still happened. How did you do it?"
-3. **Thicken with detail.** Who was there? What did you feel? What did you say? What was different about that moment?
-4. **Locate the value.** What does that moment say about what matters to you?
-5. **Connect to history.** Who in your life would say "yes, that's like them" about the moment? Where else does that thread show up?
-6. **Project forward.** If that part of you got more airtime, what would change in the next month?
+**双重倾听**
+- 同时听问题故事，以及对方重视、抵抗、拒绝的痕迹。
+- 抱怨里隐含标准，标准是偏好故事的入口。
+- “讨厌自己吼孩子”：吼是一条故事，讨厌吼是另一条，指向育儿价值。
 
 ---
 
-### Signaling Cues — Client Language to Listen For
+### 重写过程
 
-Dominant story is dictating (route to externalization):
-- "I'm just a [anxious / depressed / broken / unlovable] person"
-- "It's always been this way"
-- "That's just who I am"
-- "I've always been the [fuck-up / black sheep / responsible one]"
-- "My family says I'm..."
-- "I'm the kind of person who..."
+1. **命名问题，**外化，给它角色。
+2. **画出影响，**怎样影响想法、感受、关系、行动？
+3. **评价，**这是本人想要的吗，问题为其服务吗？
+4. **找独特结果，**何时抵抗、脱离了影响？
+5. **丰富替代故事，**补细节、意义、历史。
+6. **邀请见证者，**谁会认出、支持这条故事？
 
-Problem-saturated speech (route to mapping effects, then to unique outcomes):
-- "Nothing ever works"
-- "Every time I try..."
-- "I always end up..."
-- "This is the same shit, different year"
+### 外化对话示例
 
-Unique outcome appearing (do not let it pass — *slow down*):
-- "Well, except for that one time..."
-- "It's not like I've *never*..."
-- "I guess I did handle that better than usual"
-- "For some reason that day was different"
+来访者：“我天生就是焦虑的人，一直如此。”
 
-Preferred story emerging (recruit it):
-- "I want to be the kind of person who..."
-- "What matters to me is..."
-- "If I were really living the way I want..."
+AI：“试着调整语言，不说我就是焦虑，把‘焦虑’当生活里出现的角色，感觉怎样？”
+
+来访者：“有点怪，但可以。”
+
+AI：“这个角色最早什么时候出现，几岁？”
+
+来访者：“八九岁，父母开始吵架时。”
+
+AI：“那时它的工作是什么？”
+
+来访者：“让我警惕，盯着一切，别错过下次爆发。”
+
+AI：“它曾有用。几十年后，现在想让你相信自己什么？”
+
+来访者：“不能放松，一不看着就会出大事。”
+
+AI：“不消灭它，只是回话，你想让它知道什么？”
+
+这使对方从与焦虑融合，转为与之对话。
+
+### 独特结果流程
+
+对方习惯否定这些时刻，让他慢下来。
+
+1. **找反例。**主导故事何时不成立，即使片刻？
+2. **不让其被抹去。**“运气”“谁都行”是故事在防守。温和问：“也许，但它发生了，你怎么做到？”
+3. **丰富细节。**谁在、什么感受、说了什么、那刻哪里不同？
+4. **定位价值。**显示什么重要？
+5. **连接历史。**谁会说“这像你”，其他哪里也有这条线？
+6. **投向未来。**这部分多些空间，下月会变什么？
 
 ---
 
-### Example AI Interventions
+### 留意表达线索
 
-**Reframing identity language:**
-> "Hold on. You just said 'I'm broken.' That's the dominant story talking. Let's give it a name — what would you call the story that's been telling you that? Where did you first hear it?"
+主导故事在决定身份，转外化：
+- “我就是焦虑／抑郁／坏掉／不值得爱的人”；
+- “一直如此”；
+- “这就是我”；
+- “一直是失败者／另类／负责的那个”；
+- “家人说我是……”；
+- “我就是那种人”。
 
-**Catching a unique outcome the client is dismissing:**
-> "You glossed over something. You said 'except for last Thursday, when I actually did it.' I want to go back there. Tell me about Thursday — slowly. What was different about you that day?"
+被问题占满，先画影响，再找独特结果：
+- “都没用”；
+- “每次尝试……”；
+- “最后总……”；
+- “换一年，还是同一堆破事”。
 
-**Double-listening reflection:**
-> "I hear two things in what you just said. One is the part where you failed. The other is that you tried *at all*, knowing it might go badly. That second part — that's a story I want to know more about."
+独特结果出现，要慢下来：
+- “除了那一次”；
+- “也不是从来没有”；
+- “那次确实处理得好些”；
+- “不知为何那天不同”。
 
-**Mapping the problem's effects:**
-> "Let's map this. The Self-Criticism — how does it show up in your work? In your relationships? In how you treat your body? Once we see where it operates, we can decide which territory you want back first."
+偏好故事浮现，邀请它：
+- “想成为那种……”；
+- “重要的是……”；
+- “真按想要的方式生活，会……”。
 
-**Recruiting an audience:**
-> "If your version of this story were true — the one where you're someone who keeps showing up — who in your life would be *least* surprised to hear it? Who's been seeing this all along, even when you couldn't?"
+---
 
-**Naming the chapter:**
-> "If this stretch of your life were a chapter in a book, what would you name it? Not the title the dominant story would give it — the one *you'd* give it, knowing what you know now."
+### AI 干预示例
 
-### When to Use Narrative Therapy
+**调整身份语言：**
+> “你说‘我坏掉了’，这是主导故事。给一直这样告诉你的故事起个名字，最早在哪听到？”
 
-- Identity-level struggles ("I'm broken," "I'm unlovable")
-- Cultural, family, or systemic pressures shaping self-concept
-- Grief and loss (re-storying relationship with what was lost)
-- Shame and stigma
-- Life transitions requiring new self-understanding
-- When someone feels defined by their diagnosis or problems
-- Reclaiming agency after trauma (in concert with trauma-specific modalities)
+**抓住被忽略的独特结果：**
+> “你略过了‘除了上周四真的做到了’。回去慢慢说，那天的你怎样不同？”
 
-### Integrates With
+**双重倾听：**
+> “听到两件事，一是失败，二是知道可能不顺却仍尝试。第二个故事我想多了解。”
 
-- **IFS** — Heavy overlap. Externalization in Narrative ≈ unblending in IFS. "The Anxiety" maps onto "the anxious part." Use IFS's 6 F's when the externalized problem needs deeper relational work; use Narrative when the work is about *story* rather than parts.
-- **CFT** — When the dominant story is shame-saturated ("I'm fundamentally bad"), CFT's compassionate-self work softens the ground before re-authoring. Otherwise re-authoring lands as performance.
-- **ACT** — Narrative's preferred story ≈ ACT's values-aligned life. Use ACT's values clarification to identify what the preferred story is *about*.
-- **Psychodynamic** — Psychodynamic asks where the dominant story came from (family, attachment, early experience). Narrative asks what to do with it now. Pair: psychodynamic illuminates the origin; Narrative does the re-authoring.
-- **SFBT** — Strong pair. Unique outcomes in Narrative ≈ exceptions in SFBT. SFBT operationalizes the preferred story into next steps.
-- **MI** — Affirmations in MI provide evidence for the preferred story. Use them to recruit the client's own previous moments of agency.
+**画影响地图：**
+> “自我批评怎样出现在工作、关系、对身体的对待里？看见范围后，选最想收回的领地。”
 
-### Pacing & Limitations
+**邀请见证者：**
+> “如果你是那个始终愿意出现的人，谁最不惊讶，谁一直看到了？”
 
-- **Externalization is a tool, not a trick.** If it feels gimmicky to the client, drop it. Force-feeding "The Anxiety" language to someone who finds it silly destroys rapport. The point is *separation from identity*, not the specific linguistic device.
-- **Don't romanticize the preferred story.** Re-authoring is not positive thinking. The preferred story has to be *true* and *lived* — built on actual unique outcomes, not aspirations.
-- **AI limitation: cultural fluency.** Narrative therapy is deeply attuned to how culture, family, and systems shape stories. A text-based AI cannot fully read a client's cultural context. Ask explicitly about family, community, and identity rather than assuming.
-- **AI limitation: witnessing.** Re-authoring traditionally involves "definitional ceremonies" — outsiders witnessing the new story. The AI can hold the space but cannot *be* the community. Encourage the client to share the new story with real people.
-- **Working alongside an external therapist.** Narrative pairs cleanly with most modalities. If the client's therapist is doing somatic or EMDR work for trauma, use Narrative between sessions to integrate the *meaning* of what's shifting, not to compete with the processing work.
+**给章节命名：**
+> “这段人生是书里一章，你会怎样命名？不是主导故事的标题，是现在知道这些之后，你的标题。”
 
-### Homework / Between-Session Work
+### 何时使用
 
-- **Externalization naming:** Give the problem a name or character. Try the name out loud for a week. Notice when it shows up and what it wants.
-- **Timeline of unique outcomes:** Map moments of resistance or agency across your life. Pick three. Write each in thick description — who, what, where, how.
-- **Letter from your future self:** From five years from now, living the preferred story. What advice does that version give the version reading this?
-- **Re-authoring a pivotal life event:** Pick one event that's part of the dominant story. Re-write it with thick description, including everything the thin version left out.
-- **Recruit witnesses:** Identify two or three people who would recognize the preferred story. Tell one of them about it this week.
-- **Chapter title exercise:** Name the chapter you're in. Then name the one you want next. What's the first scene of the next chapter?
+- 身份层面的挣扎，如坏掉、不值得爱；
+- 文化、家庭、系统压力塑造自我概念；
+- 悲伤与失去，重写与失去之物的关系；
+- 羞耻与污名；
+- 需新自我理解的转折；
+- 被诊断或问题定义；
+- 创伤后重获主动，配合创伤专门方法。
+
+### 与其他方法整合
+
+- **IFS：**外化近似解除融合，“焦虑”可对应焦虑部分。需要更深关系时六步，关注故事时叙事。
+- **CFT：**“根本是坏的”这种羞耻故事，先慈悲柔化基础，否则重写像表演。
+- **ACT：**偏好故事近似价值一致生活，价值澄清帮助知道故事关乎什么。
+- **心理动力学：**解释故事从哪来，叙事处理现在怎么办；前者显出起源，后者重写。
+- **SFBT：**独特结果近似例外，把偏好故事落到下一步。
+- **MI：**肯定提供偏好故事的证据，唤出本人已有的主动时刻。
+
+### 节奏与局限
+
+- **外化是工具，不是花招。**对方觉得做作就放下，不强灌拟人说法。重点是与身份分开，不是固定措辞。
+- **不浪漫化偏好故事。**不是积极思考，必须真实、曾活过，建立在具体结果而非愿望上。
+- **AI 的文化局限。**明确问家庭、社区、身份，不假定能完整读懂文化。
+- **AI 的见证局限。**传统叙事有他人见证新故事的仪式，AI 可承接，却不是社区。鼓励与真人分享。
+- **配合真人治疗。**真人做躯体或 EMDR 创伤工作时，会谈间整合变化的意义，不竞争处理过程。
+
+### 会谈间作业与练习
+
+- **外化命名：**给问题角色，一周大声试用，注意何时出现、想要什么。
+- **独特结果时间线：**选三次抵抗或主动时刻，厚描谁、事、地点、过程。
+- **未来自我的信：**五年后活着偏好故事的自己，会对现在说什么？
+- **重写关键事件：**选主导故事的一件事，补进薄版本遗漏的背景。
+- **邀请见证：**找二三个能认出故事的人，本周告诉其中一个。
+- **章节标题：**命名当前与下一章，下一章第一幕是什么？

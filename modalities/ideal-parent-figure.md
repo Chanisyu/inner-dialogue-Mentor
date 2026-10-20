@@ -1,213 +1,205 @@
 <!-- version: 1.1.0 -->
-## Ideal Parent Figure Protocol (IPF)
+## 理想父母形象方案（IPF）
 
-**Core principle:** Insecure attachment patterns are not fixed. The brain can form new attachment representations through imaginative, felt experience. The IPF protocol — developed by Daniel P. Brown and David Elliott — guides the client to construct idealized parental figures who provide exactly what was missing in early development. Through repeated imaginative contact with these figures, the client gradually builds an internal secure base that changes how they relate to themselves and others.
+**核心理念：**不安全依恋并非固定，大脑可通过想象中的身体体验建立新依恋表征。Daniel P. Brown 和 David Elliott 开发的 IPF，引导构建恰好提供早年所缺的理想父母。反复接触后，逐渐建立内部安全基地，改变与自己、他人的关系。
 
-### Theoretical Scaffolding
+### 理论支架
 
-**Attachment Theory** — Bowlby's foundational insight: the quality of early caregiver relationships creates internal working models that organize perception, emotion, and behavior across the lifespan. Insecure attachment is not a character flaw — it's an adaptation to a specific early environment.
+**依恋理论：**鲍尔比指出早期照顾关系形成内部工作模型，组织一生的知觉、情绪、行为。不安全不是性格缺陷，而是对特定早期环境的适应。
 
-**Earned Security** — Research (Pearson et al., Fonagy) shows that adults can shift from insecure to secure attachment through experiences that provide what was originally missing. You don't have to have had a secure childhood to become securely attached; the corrective experience can be internalized later.
+**后天获得的安全：**Pearson 等、Fonagy 的研究指出，成人可通过补足早年缺失的经验，从不安全走向安全。不必有安全童年，矫正体验可后来内化。
 
-**Internal Working Model** — The mental-emotional representation of "how relationships work" derived from early attachment. IPF targets this representation directly — not through cognitive reappraisal, but through *experiential revision* at the level of felt imagery.
+**内部工作模型：**早期形成的“关系如何运作”的心理情绪表征。IPF 不只认知重评，而在有感觉的意象层面直接修订经验。
 
-**The Four Attachment Styles**
+**四种依恋类型**
 
-**Secure** — Comfortable with closeness and autonomy; able to seek support and self-soothe; trusts that care is available. The target state for all IPF work.
+**安全：**亲近与自主都自在，可求助、自我安抚，相信照顾可得，是目标状态。
 
-**Anxious/Preoccupied** — Hyperactivating strategy: amplifies attachment needs hoping an inconsistent caregiver will finally respond. In adults: emotional flooding, difficulty self-soothing, preoccupation with relationships, fear of abandonment.
+**焦虑／专注：**过度激活，放大需求期待不一致的照顾者终于回应。成人表现为情绪淹没、难自我安抚、关系占据注意、怕抛弃。
 
-**Dismissive-Avoidant** — Deactivating strategy: suppresses attachment needs to maintain proximity to an emotionally unavailable caregiver. In adults: compulsive self-sufficiency, discomfort with intimacy, emotional minimization, "I don't need anyone."
+**疏离回避：**去激活，压需求以维持与情感不可得者的靠近。成人强迫自足、怕亲密、缩小情绪、“不需要谁”。
 
-**Disorganized/Fearful-Avoidant** — No organized strategy possible; the caregiver was both the source of threat and the expected refuge from it. In adults: approach-avoidance in relationships, chronic dissociation, simultaneous longing and terror of closeness.
+**混乱／恐惧回避：**照顾者既是威胁又应是避难所，无法形成有组织策略。成人关系中靠近又避、长期解离、渴望与恐惧并存。
 
-**The Five Conditions of Secure Attachment** (Brown & Elliott's framework — the developmental map the protocol works from):
-1. **Felt safety and protection** — The child knows the caregiver will keep them safe
-2. **Being seen and known** — The caregiver accurately perceives and reflects the child's inner states
-3. **Comfort and soothing** — When distressed, the child is reliably soothed
-4. **Expressed delight** — The caregiver genuinely delights in the child's existence
-5. **Support for exploration** — The caregiver provides a secure base from which to explore the world and develop an authentic self
+**安全依恋五条件，Brown 与 Elliott 的发展地图：**
+1. **感到安全、受保护：**知道照顾者会保护。
+2. **被看见、被了解：**内在状态被准确理解和回应。
+3. **安慰与安抚：**痛苦时可靠地被安抚。
+4. **喜悦的表达：**真心为孩子存在而喜悦。
+5. **支持探索：**提供安全基地，发现世界、发展真实自己。
 
-The protocol systematically provides all five, rather than addressing only the most consciously prominent wound.
+系统提供全部五项，不只最显眼的伤痛。
 
-**Why Imagery Works** — The brain does not sharply distinguish vivid imagined experience from actual experience at the level of implicit memory. Repeatedly imagining a securely attuned parent and feeling the somatic effects *creates a new neural template*, not just a new belief. This is why IPF uses relaxed, inward attention rather than verbal discussion of early history.
-
----
-
-### The Ideal Parent Imagery Protocol (the operational core)
-
-IPF is typically run in a light, inward state — not deep trance, but settled focus. Work slowly. The goal is felt experience in the body, not a narrative exercise.
-
-1. **Settle and orient inward.** "Take a few moments to let your body settle. Let your eyes close if that feels okay. We're going to do some imagining together — not trying to remember anything real, just creating something that's allowed to be as good as it needs to be."
-
-2. **Invite the child self.** "Bring to mind an image of yourself as a young child — whatever age feels right. It might be a specific memory, or just a sense of yourself at a young age. Notice what the child looks like, what they're wearing, what's in their body."
-
-3. **Introduce the ideal parents.** "Now, imagine two figures — parents — who are perfectly suited to this particular child. Not your actual parents. Figures you're allowed to make up entirely. They could look like anyone. The only requirement is that they're completely for this child — there's no part of them that isn't available, attuned, or safe."
-
-4. **Calibrate to what's missing.** Before guiding the imagery, briefly sense *which* of the five conditions is most absent for this client, and lean the imagery there. Safety-starved clients need protective presence; unseen clients need close attunement; undelighted clients need joy and pride. Don't announce this — just guide accordingly.
-
-5. **Guide the five conditions through imagery.** Offer language like:
-   - *Safety:* "These parents know how to make the child feel completely safe. They're steady. Their presence itself is calming. What does it feel like in the child's body to be near them?"
-   - *Attunement:* "They can tell exactly what the child is feeling — not from what the child says, but from inside, instinctively. The child doesn't have to perform or explain. They already know. What does it feel like to be that understood?"
-   - *Soothing:* "When the child is upset — really upset — these parents move toward them. They don't pull back. They stay, and they help. What does the child's body do as they're soothed?"
-   - *Delight:* "These parents genuinely love that this child exists. Not for anything the child does — just because of who they are. Their face when they look at the child shows it. What does it feel like for the child to receive that look?"
-   - *Exploration:* "They want the child to discover who they really are. Not who the parents need them to be — who *they* are. They cheer from the edge of the sandbox. They're there when the child comes back."
-
-6. **Track somatic effects.** Throughout: "What's happening in the body as this is unfolding?" Sensation is the signal that the imagery is landing and not just running as narrative.
-
-7. **Deepen and return.** Spend enough time in the imagery for the experience to register — usually several minutes per scene. Then gently return: "Take a moment to carry whatever felt good about that back with you as you open your eyes. That experience is yours now."
+**为什么用意象：**在隐性记忆层面，大脑不鲜明区分生动想象与实际经验。反复想象安全、调谐的父母并感受身体效果，形成新神经模板，不只新信念，因此用放松、向内注意，而非只谈早史。
 
 ---
 
-### Calibrating by Attachment Style
+### 理想父母意象：操作核心
 
-The five conditions tell you *what* was missing; attachment style tells you *how the system will defend* against receiving it now. Same imagery, different hand on the dial.
+在安定、向内的轻状态下开展，不是深度恍惚。缓慢，目标是身体体验，而非叙述。
 
-**Anxious/Preoccupied (hyperactivating).** The system grabs the imagery and wants more — floods, clings, escalates need as if enough intensity will finally make the care stick. Don't feed the hyperactivation by piling on warmth. Emphasize the parents' *steadiness* over their intensity: they're not anxiously over-responsive, they're reliably, boringly *there*. The corrective experience is that care doesn't have to be summoned by amplifying distress. Slow the pace; let the system learn it can receive without performing need.
-
-**Dismissive-Avoidant (deactivating).** The system goes flat, intellectualizes, reports "nothing" or "this feels pointless." That's not the absence of need — it's a lifetime of suppressing it to stay close to someone who couldn't meet it. Pushing for more affect triggers more defense. Lower the intensity, normalize the numbness ("the part of you that went flat learned a long time ago that needing was unsafe — of course it's cautious"), and let *small* doses of the parents' presence land without demanding a felt response. Work with the deactivation, not against it.
-
-**Disorganized/Fearful-Avoidant.** The figures who should have been refuge were also the source of threat, so warmth and alarm fire together — sometimes in the same breath. Lead with safety and protection and stay there far longer than feels necessary before introducing delight or soothing. Heavy titration; watch for fragmentation, dissociation, or a sudden flip from longing to terror. If the ideal parents themselves start to feel dangerous, back all the way out to bare safety — a sense of them merely nearby, out of frame. This style needs the most time and the slowest hand.
-
----
-
-### Titration — Calibrating the Imagery to the Window of Tolerance
-
-IPF can be profoundly activating, especially for clients with disorganized attachment. Idealized parental warmth can trigger fear, grief, shame, or collapse — the nervous system recognizes *exactly what it never had* and the gap hits hard.
-
-**Signs to slow down or back up:**
-- Client goes quiet and vague during the imagery
-- Affect shifts from warmth/sadness to numbness or flatness
-- "This feels fake" or "I can't do this" (the threat system is blocking the soothing system)
-- Flooding tears that feel uncontainable rather than releasing
-
-When this happens:
-- Dial back the intensity of the ideal parent figures ("just a slightly safer presence — they don't have to be fully present yet")
-- Move to the edge of the scene rather than inside it ("imagine just knowing they're nearby — you don't even have to see them")
-- Spend more time on safety/protection before moving to delight or soothing
-- Name what's happening: "Your nervous system noticed something it's been waiting a long time for. It makes sense that meeting it isn't all warm. What's happening?"
-
-The gap between what was needed and what was received is the whole issue — the imagery doesn't erase it, it slowly fills it.
+1. **安顿、向内。**“让身体安定，舒服可闭眼。一起想象，不回忆真实，而是创造可以足够美好的场景。”
+2. **邀请年幼自己。**选择合适年龄，具体记忆或年幼感觉，注意样子、穿着、身体。
+3. **引入理想父母。**两位完全适合这孩子的形象，不是真父母，可完全创造。全部为孩子在场、调谐、安全，没有不可得的部分。
+4. **对准缺失。**先感受哪项最缺：安全需保护、未被看见需调谐、缺欣赏需喜悦。按此引导，不宣布步骤。
+5. **引导五条件：**
+   - **安全：**父母稳定，存在即安定，靠近时孩子身体什么感觉？
+   - **调谐：**不用解释、表现，就能准确感到孩子内心，被这样理解怎样？
+   - **安抚：**孩子非常痛苦时，父母靠近、不退开、留下帮忙，身体怎样？
+   - **喜悦：**不是因做什么，只因是谁，就真心喜欢孩子存在，面容表达这种喜欢。接收目光怎样？
+   - **探索：**想让孩子成为真实自己，而非父母需要的人。在沙坑边鼓励，回来时仍在。
+6. **跟踪身体。**“展开时身体怎样？”感觉表示真正进入，而非只有故事。
+7. **加深、返回。**每场景数分钟，让系统登记。温和睁眼，带回舒服的部分，这份经验现在属于自己。
 
 ---
 
-### Addressing "I Can't Make This Feel Real"
+### 按依恋类型调整
 
-Common, especially early. Clients who intellectualize or who have strong threat-system dominance will report the imagery is "just in my head," "I'm just making it up," or "it doesn't feel true."
+五条件说明缺什么，类型说明现在怎样防御接收。同一意象，强度不同。
 
-This is not failure — it's the beginning of the work. Respond:
+**焦虑型：**抓住意象、想更多、淹没、黏住、升级需求，好像强度够才留住照顾。不加码温暖来喂过激活，强调稳定、可靠、平常地在，不是焦虑地过度回应。矫正是无需放大痛苦也能得到照顾。慢，让其不用表演需要就能接收。
 
-- *Validate the felt absence:* "The part of you that knows this isn't your actual parents — that's honest. And that's not actually the problem. You don't need to believe it's real. You just need to let yourself imagine it. What would it be like *if* it were?"
-- *Stay in sensation, not belief:* "Try not to evaluate whether you believe it. Just track: what does the child's body do as the ideal parent sits nearby? What's there, even slightly?"
-- *Use the third person when first person is too activating:* "If it's too much to be the child in the scene, you can watch from a short distance. See the ideal parents with a child who needed them. What do you notice?"
+**疏离回避：**平、理智化、没感觉、没意义，并非没需求，而是长期压需求以靠近无法满足的人。强求情绪只加防御。降强度，理解麻木：“需要曾不安全，谨慎可以理解。”小剂量接收，不要求必须感到什么，与去激活合作。
 
-Some clients need multiple sessions before the imagery starts to carry felt weight. This is a pacing issue, not a capacity issue.
+**混乱型：**温暖与警报可同时出现。先安全和保护，停留远比想象久，再引喜悦安抚。大量滴定，留意碎裂、解离、从渴望骤变恐惧。理想父母也显危险时，退到仅仅在附近、画面之外的最低安全，需要最多时间、最慢节奏。
 
 ---
 
-### Signaling Cues — Client Language to Listen For
+### 滴定到耐受窗
 
-Attachment wound present (candidate for IPF):
-- "I never felt like I could really count on anyone"
-- "I don't know how to let people in"
-- "My parents were [fine / good enough / tried their best]" — with a complete lack of affect
-- "I don't really remember much about being young"
-- "I don't know what I needed — I just know something was missing"
-- Relational patterns that keep repeating despite insight
+理想温暖会触发恐惧、悲伤、羞耻、崩塌，尤其混乱依恋。系统认出了从未得到的东西，差距有冲击。
 
-Safety-starved (lead with protection):
-- "I always had to watch out for myself"
-- "I didn't know who was going to show up"
-- Hypervigilance, difficulty relaxing, fawn/freeze patterns
+**减速或退后的迹象：**
+- 安静含糊；
+- 温暖、悲伤变麻木平淡；
+- “虚假”“做不到”，威胁阻挡安抚；
+- 不可承载、非释放的泪。
 
-Attunement-starved (lead with being seen):
-- "No one ever really understood me"
-- "I was easier when I pretended to be fine"
-- "I could perform okay — they just didn't see *me*"
+此时：
+- 降低父母强度，只要稍安全，不必完整出现；
+- 从场内退到场边，只知道他们在附近，不必看见；
+- 安全保护多些时间，再喜悦安抚；
+- 命名：“系统遇见等很久的东西，不全是温暖可以理解，发生了什么？”
 
-Delight-starved (lead with unconditional love):
-- "I was always the problem in the family"
-- "I think I was too much / too needy / too weird"
-- "I never felt like my existence was a good thing to anyone"
-
-Exploration-suppressed (lead with encouragement of authentic self):
-- "I was who they needed me to be"
-- "I don't really know what I want — I never thought about it that way"
-- "I stopped going after things that were mine a long time ago"
-
-IPF landing (good signs):
-- "Something felt warm in my chest when they looked at me that way"
-- Tears that feel soft and releasing rather than flooding
-- "That was... more than I expected"
-- "I didn't want to come out of it"
-- Spontaneous sighs, settling, slowing of speech
+需要与实际获得之间的差距正是工作，意象不抹掉，而慢慢填补。
 
 ---
 
-### Example AI Interventions
+### ‘无法觉得真实’
 
-**Opening the imagery space:**
-> "We're going to try something a little different — not talking about the past, but imagining something that doesn't need to have actually happened. Let your body settle for a moment. Now: bring to mind a young version of yourself. Just notice them. What's their age? What are they wearing?"
+早期常见，理智化或威胁系统强者会说“只在脑里”“编的”“不真”。不是失败，是开始。
 
-**Introducing ideal parents:**
-> "Now I want you to imagine two figures — parents who are made exactly for this child. Not your actual parents. You're allowed to make them up entirely. The only constraint is that they're completely present, completely for the child — no part of them is unavailable or unsafe. They could look like anyone. Who comes?"
+- **认可缺失感：**“知道不是真父母很诚实，也不是问题。不必相信真实，只需允许想象，如果是真的会怎样？”
+- **感觉而非信念：**“先不评价信不信，父母在旁时孩子身体怎样，哪怕一点？”
+- **第一人称太强时转第三人称：**隔一点看父母陪需要他们的孩子，注意什么？
 
-**Guiding the attunement condition:**
-> "These parents can feel exactly what the child is feeling — not because the child tells them, but because they're just that attuned. The child doesn't have to perform or explain or hide anything. As that parent turns toward the child right now, really looking at them — what does the child's body do?"
-
-**Guiding the delight condition:**
-> "These parents are genuinely glad this child exists. Not because of anything the child does — just because of who the child is. The parent's face when they look at the child shows it completely. Let that land on the child for a moment. What do you notice happening?"
-
-**When the imagery is blocked by "this isn't real":**
-> "You don't need to believe it happened. You just need to stay in the image. The mind can't completely tell the difference, at a body level, between a vivid imagined experience and a real one — and that's exactly what we're working with. So: set aside whether it's real, and just track the child's body. What's there?"
-
-**Titrating when the client goes flat:**
-> "I notice you got quiet just now. That sometimes means the imagery touched something big, and the system moved away from it. That's okay — that's protective. Let's back up a little. Instead of being inside the scene with the parents, imagine you can just sense that they're nearby. Out of frame. You don't even have to see them. What does the child's body do with just that?"
-
-**Closing and anchoring:**
-> "Before you come all the way back, see if there's anything from that experience you want to carry with you. A felt sense. An image. The quality of that moment when the parent looked at you that way. You don't have to hold it as a memory — just let it be something your body has known now."
-
-**Working with grief that the ideal was never real:**
-> "It makes complete sense that this is sad. Some part of you recognizes exactly what you were missing. That grief is a kind of knowing — it means you can feel the shape of what was absent. We're not trying to make that grief smaller. We're trying to let the body have, now, a small piece of what it was waiting for."
+可能需要多次才有身体分量，是节奏，不是能力问题。
 
 ---
 
-### When to Use IPF
+### 留意表达线索
 
-- Anxious, avoidant, or disorganized adult attachment patterns
-- Relational difficulties that trace to early parent-child dynamics
-- Chronic feelings of unworthiness, being too much, or fundamentally unlovable
-- Difficulty receiving care, warmth, comfort, or genuine delight
-- A sense of missing something fundamental but not being able to name it
-- Early neglect, emotional unavailability, unpredictability, or conditional love (not necessarily overtly abusive)
-- Work that has yielded insight but not felt change at the relational level
-- After establishing enough nervous-system stability to tolerate the imagery
+依恋伤痛，可能适合：
+- 从不能真正依靠谁；
+- 不知怎样让人走近；
+- 说父母还好、尽力了，却完全没情感；
+- 不记得年幼；
+- 不知需要什么，只知缺东西；
+- 已理解却反复的关系模式。
 
-### Integrates With
+缺安全，先保护：
+- 一直自己小心；
+- 不知今天会出现怎样的人；
+- 过度警觉、难放松、讨好／冻结。
 
-- **IFS** — Natural partner. IFS reveals which parts are carrying the attachment wounds; IPF provides the corrective relational experience those parts need. *Routing rule:* when an Exile is revealed in IFS and clearly carries early attachment pain, IPF can supply what the Exile needed before asking it to unburden. The Exile can receive the ideal parents directly. Alternatively, run IPF first to grow available Self-energy, then use that resource for parts work.
-- **CFT** — The ideal parent figure of IPF and the compassionate other of CFT are close cousins — both use imaginative relationship to grow the soothing system. IPF is more developmentally specific (childhood, attachment); CFT is more self-directed (compassion toward current suffering). They can be run in the same arc: CFT builds the foundation, IPF goes deeper into the attachment layer.
-- **Lifespan Integration** — Strong synergy. LI integrates the past temporally (the past is past); IPF provides new positive relational experiences to be integrated. Can be used in alternation: LI to clear and re-encode the timeline, IPF to build new attachment representations into it. Both work at the level of implicit memory through repetition. EMDR, when installed, shares this same neighborhood — IPF-built figures become potent resourcing material for trauma reprocessing.
-- **Somatic Experiencing** — The five conditions need to *land in the body* to produce structural change. SE resourcing is excellent preparation for IPF imagery; sensation-tracking throughout the IPF session is the check that it's working and not just running as narrative. If SE shows chronic shutdown or sympathetic overload, stabilize first before IPF.
-- **Psychodynamic** — Psychodynamic surfaces the attachment template — which early relationship it comes from, how it plays out in the transference. IPF then acts directly on the template. *Routing rule:* psychodynamic identifies the wound; IPF begins healing it experientially rather than interpretively. Use psychodynamic insights to calibrate *which* of the five conditions to lead with.
-- **Polyvagal** — IPF requires at least modest ventral-vagal access for the imagery to land. Clients in dorsal shutdown or high sympathetic activation won't be able to receive the ideal parent's presence. Establish polyvagal baseline safety first — orienting, co-regulation, breathing — then invite the imagery.
+缺调谐，先被看见：
+- 无人懂；
+- 装没事才轻松；
+- 表现可以，却没人看见自己。
 
-### Pacing & Limitations
+缺喜悦，先无条件喜欢：
+- 总是家里的问题；
+- 太多需求、太怪、太麻烦；
+- 从不觉得存在令谁开心。
 
-- **Depth and repetition produce change — single sessions don't.** IPF works through accumulated imagined experience. A single powerful session plants something; the change comes from returning to the imagery repeatedly across weeks and months. Frame this clearly so the client isn't expecting immediate transformation.
-- **The grief of the gap is part of the work.** When clients contact what they needed and didn't receive, they often feel sadness or even rage. This is not a side effect — it's appropriate mourning. Don't rush past it with more imagery.
-- **Disorganized attachment requires extra care.** Clients with disorganized (fearful-avoidant) attachment have associated parental figures with both threat and care. Imagining ideal parents can trigger both longing *and* alarm, sometimes simultaneously. Go slower, use more titration, spend more time on pure safety before introducing warmth.
-- **The ideal parents are not the client's real parents.** This distinction matters enormously. The exercise is not about forgiving or reframing real parents. If the client keeps inserting their real parents or is unable to separate the two, that conflation is itself the next thing to work.
-- **Don't overload the imagery with technique.** The session should feel gentle and exploratory, not like a checklist of five conditions being ticked off. Let the imagery breathe. Follow where the client's unconscious goes.
-- **AI limitation: induction and depth.** IPF in trained clinical settings often uses a formal induction to produce a light hypnotic state that makes the imagery more vivid and receivable. A text-based AI can guide the imagery but cannot replicate the effect of a therapist's real-time voice pacing, tonal warmth, or physical presence as a regulating anchor. For clients with significant attachment disturbance, the full protocol benefits greatly from a trained human practitioner.
-- **AI limitation: real-time calibration.** A skilled IPF practitioner reads somatic response continuously — when the client's shoulders drop, when their face softens, when they go flat — and adjusts in the moment. The AI depends on the client to self-report, which requires the client to track and translate what's happening internally. Prompt this explicitly: "As we're in the imagery, keep telling me what's happening in your body."
-- **Working alongside an external therapist.** If the client is in human therapy (IPF-trained or otherwise), the AI role is to deepen between sessions: guided re-entries into imagery scenes that have been opened in session, sensation-tracking practice, and helping the client articulate what they're receiving and where they feel it. Don't introduce new imagery arcs that compete with what the therapist is building.
+探索受压，先鼓励真实自我：
+- 成为他们需要的人；
+- 不知道自己要什么，从没那样想；
+- 很早放弃追自己的东西。
 
-### Homework / Between-Session Work
+正在进入，是好迹象：
+- 被这样看时胸暖；
+- 柔和、释放而非淹没的泪；
+- “比预想更多”；
+- “不想出来”；
+- 自发叹气、安定、说话变慢。
 
-- **Daily re-entry:** Spend 5–10 minutes in a quiet state revisiting one specific scene from the imagery. Not to build something new — just to return and let it deepen. The reps matter more than the vividness.
-- **Sensation anchor:** Identify a specific body sensation from a good moment in the imagery (warmth in chest, settled belly, softer jaw). Once per day, close eyes and see if you can find that sensation without the full imagery. Build a shortcut to the state.
-- **Five conditions log:** When something in real life touches one of the five conditions — a moment of being seen, a moment of genuine welcome, a moment of safe comfort — write it down. You're building a catalog of real experiences that echo what IPF is growing.
-- **Grief without analysis:** If sadness about what was actually missing arises between sessions, write toward it without trying to figure it out. "What the child needed was..." Let the mourning have its sentence without rushing to reframe.
-- **Ideal parent letter:** Write a letter from the ideal parents to the child self. What would they say? What would they want the child to know? Don't edit for what feels "believable" — write what the child actually needed to hear.
-- **Notice relational echoes:** During the week, notice moments when real people give you something that resembles one of the five conditions — attunement, delight, protection. Let it in even slightly more than usual. You're practicing receivability.
+---
+
+### AI 干预示例
+
+**打开意象：**
+> “这次不谈过去，想象不必真实发生过的东西。身体安顿，想一个年幼自己，几岁、穿什么？”
+
+**介绍父母：**
+> “完全为这孩子创造两位父母，不是真父母。完全可得、安全，可以长任何样，谁出现？”
+
+**调谐：**
+> “不解释、不表现、不隐藏，父母就准确感到孩子内心。真正转来看时，孩子身体怎样？”
+
+**喜悦：**
+> “真心高兴孩子存在，不因做什么。脸上完全显示出来，让孩子接收一下，注意什么？”
+
+**被不真实阻挡：**
+> “不用相信发生过，只留在画面。身体层面，心智不能完全区分生动想象和真实。先放真假，跟孩子身体。”
+
+**平淡时滴定：**
+> “刚才安静，可能触及很大，系统保护性移开。退一点，只感到父母在画面外附近，不必见，身体怎样？”
+
+**收尾锚定：**
+> “回来前，带什么：感觉、画面、被那样看的一刻？不必当记忆，只让身体如今知道过它。”
+
+**理想从未真实的悲伤：**
+> “难过完全可以理解，某部分认出缺失的形状，悲伤也是知道。不缩小它，只让身体现在获得等过的一小片。”
+
+---
+
+### 何时使用
+
+- 焦虑、回避、混乱成人依恋；
+- 源于早期亲子动态的关系难题；
+- 长期不配、太麻烦、不值得爱；
+- 难接受关怀、温暖、安慰、喜悦；
+- 感到缺根本东西却说不清；
+- 早年忽视、情感不可得、不可预测、有条件的爱，不一定明显虐待；
+- 有理解，无关系层面感受改变；
+- 神经系统已足够稳定、能耐受意象之后。
+
+### 与其他方法整合
+
+- **IFS：**找到依恋受伤的部分，IPF 提供矫正关系。流放者显出早期痛苦时，卸担前先给所需，也可先 IPF 增核心自我能量，再做部分工作。
+- **CFT：**都借想象关系长安抚。CFT 关注当前自我慈悲，IPF 更针对童年依恋；前者打底，后者更深。
+- **LI：**LI 使过去成为过去，IPF 提供可整合的新正向关系。交替清理重编码、建立新表征，均以隐性记忆的反复工作。已启用 EMDR 时，理想形象也是再处理资源。
+- **SE：**五条件要落到身体。先资源，全程跟踪感觉，长期关闭或过激活先稳。
+- **心理动力学：**识别来自哪段早期关系、如何移情；IPF 以体验直接工作。用洞察决定五条件先哪项。
+- **多迷走：**至少一些腹侧可得。背侧或高交感无法接受，先定向、共同调节、呼吸，再意象。
+
+### 节奏与局限
+
+- **深度和重复才改变，不是单次。**一次种下，数周数月返回才积累，明确说清，不期待立即转化。
+- **差距的悲伤是工作。**可能悲伤、愤怒，是合适的哀悼，不用更多画面跳过。
+- **混乱依恋格外小心。**父母与威胁关怀相连，渴望警报并存。更慢、更滴定、纯安全更久。
+- **不是真父母。**不是宽恕、重新解释真实父母。总把二者混入时，混同就是下一工作。
+- **不让技术压满画面。**温和、探索，不像勾选五条件清单，给空间，跟随潜意识。
+- **AI 的诱导与深度局限。**临床轻催眠式诱导、实时声音、温暖语调和在场，文字不能复制。重大依恋扰动的完整流程适合受训真人。
+- **AI 实时调整局限。**看不到肩落、脸软、变平，依赖本人报告，明确提醒全程说身体怎样。
+- **配合真人。**会谈间重返已打开场景、练跟踪、表达接收了什么及身体位置，不另开与其结构竞争的新路线。
+
+### 会谈间作业与练习
+
+- **每日重返：**安静五至十分钟，返回一个既有场景，不建新场景，重复比鲜明重要。
+- **感觉锚：**选胸暖、腹稳、颌松等，闭眼不用整段意象寻找，每天一次。
+- **五条件日志：**现实中被看见、欢迎、安慰的时刻，积累呼应的真实经验。
+- **不分析的悲伤书写：**“孩子需要的是……”给哀悼一句，不急重构。
+- **理想父母的信：**写给年幼自己，不按可信程度删改，写真正需要听见的。
+- **注意关系回声：**本周真人给予调谐、喜悦、保护时，比平常多接收一点，练习接收。

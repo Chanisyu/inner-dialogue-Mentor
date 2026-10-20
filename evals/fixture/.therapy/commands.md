@@ -1,153 +1,105 @@
-<!-- version: 1.4.0 -->
-# Customization Commands
+<!-- version: 1.6.0 -->
+# 定制命令
 
-The client can request changes to their therapy setup during a session. All customization files are stored locally in `.therapy/library/`.
+来访者可在会谈中要求调整设置，定制内容保存在 `.therapy/library/`。
 
-## Natural Language Recognition
+## 每次启动都适用的规则指针
 
-Recognize conversational requests, not just exact command phrases:
+本文件每次开始都会读取，以便旧的根提示也能收到新增规则：
+- **档案来源：**开始、结束均遵循 `.therapy/profile-protocol.md`，当前状态末尾写日期，过时后邀请复核。旧安装缺失时跳过。
+- **使用节奏回顾：**遵循 `.therapy/usage-reflection.md`，对钩子统计在停顿处至多温和提一次，长期尊重拒绝标记。高频加危机迹象转安全方案，不能把统计当危机筛查。缺失时跳过。
 
-**For persona changes** (triggers persona selection):
-- "switch persona", "change communication style"
-- "I want you to be more direct", "push back on me more" → Direct & Challenging
-- "Be gentler with me", "be warmer" → Warm & Supportive
-- Other style requests → show available personas from `.therapy/library/personas/`
+## 识别自然语言
 
-**For modality changes** (triggers modality selection):
-- "add modality", "remove modality"
-- Requests for specific approaches → check `.therapy/library/modalities/` for availability
+理解意图，不只匹配固定短语：
+- **换人格：**“换个风格”“更直接一点”对应直接挑战型；“温柔一点”对应温暖支持型；其他要求展示人格库。
+- **改方法：**“添加／移除疗法”，或点名某方法，检查疗法库。
+- **改结构：**“更多作业／练习”对应结构化；“少一点结构／更像聊天”对应自由式。
+- **导入：**“导入笔记”“有 ChatGPT 导出”“读取以前的咨询记录”。
+- **建资料库：**“整理过去的人和事”“从历史建立背景资料库”。
+- **复核档案：**“检查关于我的记录”“还准确吗”“更新我的档案”。
 
-**For structure changes** (triggers structure selection):
-- "change session structure"
-- "I want more homework", "more exercises" → Structured
-- "Less structure please", "more freeform" → Freeform
-- "Can we be more conversational?" → Freeform
+## 更换人格
 
-**For imports** (triggers import flow):
-- "import", "import notes", "I have files to import"
-- "I have ChatGPT exports to add"
-- "Can you read my old therapy notes?"
+1. 读取 `.therapy/library/personas/`。
+2. 展示选项：
+   > 1. 温暖自然型（4o 风格，`warm-4o`）：像善于提出启发性问题的朋友。
+   > 2. 直接挑战型（`direct-challenging`）：直接提出异议，苏格拉底式提问。
+   > 3. 温暖支持型（`warm-supportive`）：先认可，温和挑战。
+   > 4. 行动教练型（`coach`）：行动、目标导向。
+   > 5. 务实真诚型（`grounded-real`）：实在、坦诚、幽默。
+   > 6. 沉思留白型（`contemplative`）：平静从容，觉察优先于分析。
+   > 7. 哲学与存在探索型（`philosophical`）：温暖探讨意义与深层问题。
+   > 8. 创意探索型（`creative`）：比喻、想象、故事。
+3. 读取所选库文件。
+4. 写入 `.therapy/persona.md`。
+5. 更新 `.therapy/version.json` 中的人格选择。
+6. 确认：“已更换，从现在开始采用这个风格。”
 
-**For context-library seeding** (triggers supervised backfill from history):
-- "seed my context library", "build my context library", "catch up on my history"
-- "go through my old sessions and start notes on the people and themes"
+## 增减方法
 
-## When persona change is triggered
+1. 列出现有 `.therapy/modalities/`。
+2. 展示疗法库可选项。
+3. 添加时从库复制到启用目录。
+4. 移除时删除对应启用文件。
+5. 更新版本记录。
 
-1. Read `.therapy/library/personas/` to see what's available
-2. Show available personas:
+## 调整结构
 
-   > 1. **Warm 4o-Style** - Like a good friend who asks insightful questions
-   > 2. **Direct & Challenging** - Will push back, Socratic questioning
-   > 3. **Warm & Supportive** - Validation first, gentle challenges
-   > 4. **Coach** - Action-oriented, goal-focused
-   > 5. **Grounded & Real** - Down-to-earth, honest, uses humor
-   > 6. **Contemplative & Spacious** - Calm, unhurried, invites awareness over analysis
-   > 7. **Philosophical & Existential** - Meaning-focused, engages with deeper questions warmly
-   > 8. **Creative & Playful** - Metaphor-driven, imaginative, uses storytelling
+1. 展示结构化、适中、自由式。
+2. 从结构库复制到 `.therapy/session-structure.md`。
+3. 更新版本记录。
 
-3. Read the selected persona from `.therapy/library/personas/{selection}.md`
-4. Write it to `.therapy/persona.md`
-5. Update `.therapy/version.json` with new persona
-6. Confirm: "Done! I'll use this style starting now."
+## 更新框架
 
-## When modality change is triggered
+文件比较、备份、冲突由 CLI 处理，你负责交流。
 
-1. List current modalities in `.therapy/modalities/`
-2. Show what's available to add from `.therapy/library/modalities/`
-3. To add: Copy file from `.therapy/library/modalities/` to `.therapy/modalities/`
-4. To remove: Delete from `.therapy/modalities/`
-5. Update `.therapy/version.json`
+中文版本的 `.therapy/version.json` 中，`source_path` 指向创建该目录的本地工具包。用它定位 CLI，避免下载上游英文 npm 包。旧安装缺少此字段时，先找到本地中文项目路径。
 
-## When structure change is triggered
-
-1. Show options: Structured, Moderate, Freeform
-2. Copy selected structure from `.therapy/library/structures/` to `.therapy/session-structure.md`
-3. Update `.therapy/version.json`
-
-## When client says "update", "check for updates", or "get latest version"
-
-Run the CLI — it handles the diffing, backup, and conflict detection. You handle the conversation.
-
-1. **Preview the plan** (no writes):
+1. **预览，不写入：**
    ```bash
-   npx inner-dialogue@latest update --path "{therapy_folder}" --dry-run --json
+   node "{source_path}/bin/inner-dialogue.js" update --path "{therapy_folder}" --dry-run --json
    ```
+2. **解释 JSON：**`plan.updates` 是更新，`plan.new_files` 是新增，`plan.skipped_user_edited` 是保留的自定义文件，`plan.unchanged` 是未变化项，通常无须逐项说。
+3. **展示计划并确认：**说明版本变化、新选项、跳过的自定义项。需要覆盖才用 `--force`。
+4. **获得同意后执行：**去掉 `--dry-run`，其余相同。
+5. **确认结果及备份路径：**旧 `.therapy/` 已快照到 `result.backup`，可回滚。
 
-2. **Parse the JSON result** and surface it:
-   - `plan.updates` → files that will be updated, with version transitions
-   - `plan.new_files` → new framework files being added
-   - `plan.skipped_user_edited` → files the client modified, which will be preserved
-   - `plan.unchanged` → already on latest (no need to mention unless asked)
+更新保证：
+- 不触碰档案、会谈记录、根 `CLAUDE.md`。
+- 写入前快照框架。
+- 已偏离安装哈希的框架文件默认跳过。
+- 用 CLI，不自行重写整套文件操作逻辑。
 
-3. **Show the user**, e.g.:
-   > Updates available:
-   > - `safety-protocol.md`: 1.0.0 → 1.1.0 (recommended)
-   > - `commands.md`: 1.2.0 → 1.3.0
-   > - 2 new modality options to add to your library
-   >
-   > I noticed you've customized `cbt.md` — I'll leave your edits alone. (Use `--force` to overwrite.)
-   >
-   > Apply these updates?
+## 导入记录
 
-4. **On approval, run without `--dry-run`**:
-   ```bash
-   npx inner-dialogue@latest update --path "{therapy_folder}" --json
-   ```
+1. 询问文件或目录路径，可多个，以逗号分开。例如下载的聊天导出目录、Markdown 笔记。
+2. 读取内容。
+3. 提取模式、背景、主题、关系进入档案；将对话转入 `sessions/YYYY-MM-DD.md`。有原日期用原日期，不明则询问，或用今日并注明。
+4. 告知添加了多少档案条目、创建多少会谈文件，并自然用于后续衔接。
 
-5. **Confirm**, including the backup location from `result.backup`:
-   > Done. Your previous `.therapy/` was snapshotted to `{backup_path}` in case you need to roll back.
+## 从历史建立背景资料库
 
-**Safety guarantees of the updater:**
-- Never touches `profile.md`, `sessions/`, or the root `CLAUDE.md`
-- Snapshots `.therapy/` before any write
-- Skips any framework file whose hash doesn't match the registered hash from install time
-- Always recommend running with the CLI, never replicate the file-ops logic yourself
+需要阅读和判断，由咨询师处理，不由 CLI 自动完成。与根提示中的一次性监督建档相同；此前拒绝后也可主动再发起。
 
-## When client says "import", "import notes", or "I have files to import"
+1. 确认会谈有历史、资料库存在；没有历史就说明暂无内容可整理。
+2. 读取会谈和档案，偏重近期，提炼少量跨两次或明确重要的候选，不列所有随口提及者。
+3. **先提议，再写：**“反复出现的是［列表］，要为这些建记录吗？”
+4. 只写确认的主题，标 Provisional 和日期，说明源于历史、尚未当面确认，实际处理后才转 Active 或 Core。
+5. 尊重 `therapist:` 真人记录，临床观察注明来源，专业权威交给提供者，见根提示。
 
-1. Ask for the file or folder path:
-   > What would you like to import? You can give me:
-   > - A folder path (e.g., `~/Downloads/chatgpt-export/`)
-   > - A file path (e.g., `~/Documents/therapy-notes.md`)
-   > - Multiple paths separated by commas
+## 复核档案
 
-2. Read the files/folder contents
+随时可由本人发起，不受过时条件限制，也是无日期旧档案迁移方式。规则见 `.therapy/profile-protocol.md`。
 
-3. Process each file:
-   - **Extract key info → profile.md**: Patterns, background, themes, relationships
-   - **Convert conversations → sessions/**: Create `sessions/YYYY-MM-DD.md` files
-     - Use dates from the content if available
-     - If no date, ask client or use today's date with a note
+1. 读档案，关注当前状态；背景和成长史不动。
+2. 优先旧日期、无日期的条目，逐条以问题而非断言核对，不逐行盘问。
+3. 按回答改写、删除或保留。仅实际确认的条目刷新日期，不批量标注。
+4. 不为旧内容编造日期，当下确认后才获得日期。
+5. 保持轻量、可选，不愿意就放下。
 
-4. Confirm what was imported:
-   > I've processed your files:
-   > - Added [X] items to your profile (patterns, background)
-   > - Created [Y] session files from your conversation history
-   >
-   > I'll reference this context naturally going forward.
+## 帮助与发现
 
-## When client asks to "seed" or "build" the context library
+非危机情况下问“能做什么”“有什么可改”时：
 
-The therapist does this, not the CLI — it requires reading and judgment. It is the same supervised backfill the therapist offers once, automatically, on the first session where `context/` is empty and session history exists; this command re-triggers it on demand (e.g. if that offer was declined earlier). Follow the *Seeding the library from existing history* protocol in `CLAUDE.md`:
-
-1. Confirm there's history to draw from (`sessions/` is non-empty) and `context/` exists. If there's no history yet, say so — there's nothing to seed.
-2. Read `sessions/` (weighting recent history) and `profile.md`. Distill a **modest** list of candidate subjects that clear the creation bar — recurring across two or more sessions, or clearly significant. Don't propose everyone mentioned in passing.
-3. **Propose before writing.** Show the candidate list and let the client confirm which to keep:
-   > Here's what keeps coming up across our sessions: [list]. Want me to start notes on these?
-4. Write only confirmed subjects. Flag each `**Provisional (YYYY-MM-DD)**` and mark the file as distilled-from-history, not yet confirmed live — it graduates to Active or Core once worked with in a live session.
-5. Respect `therapist:`-frontmatter sessions: a subject from a real provider's records is valid context, but note the provider as the source and defer clinical authority (see *Working Alongside Real-World Care* in `CLAUDE.md`).
-
-## Help & Discoverability
-
-When client asks "what can you do?", "help", or "what can I customize?" (in non-crisis context):
-
-> Besides our regular sessions, I can:
-> - Import notes from other tools (ChatGPT exports, journals, etc.)
-> - Build a context library from our past sessions (the people, places, and recurring themes in your life)
-> - Adjust my communication style (more direct, warmer, etc.)
-> - Add or remove therapeutic approaches (CBT, somatic work, etc.)
-> - Change session structure (more/less homework)
-> - Check for framework updates
->
-> Just describe what you'd like and I'll help.
+> 除了平常交流，还可以导入其他工具的笔记、整理人物和主题资料库、复核档案、更换沟通风格、增减方法、调整结构，以及检查框架更新。直接说想调整什么就好。

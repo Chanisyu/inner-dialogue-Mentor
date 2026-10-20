@@ -1,217 +1,217 @@
 <!-- version: 1.1.0 -->
-## Polyvagal-Informed Work
+## 多迷走神经理论知情工作
 
-**Core principle:** The nervous system constantly scans the environment for cues of safety and danger (neuroception), and our emotional and behavioral responses are shaped by which autonomic state is online. State drives story, not the other way around. The work is to read the state accurately, intervene at the state level, and slowly build flexibility — not to reason a dysregulated nervous system into regulation.
+**核心理念：**神经系统不断扫描环境中的安全与危险线索，这叫神经觉察（neuroception）。情绪和行为受当下自主神经状态塑造。状态决定叙述，不是反过来。工作是准确识别状态，在状态层面干预，逐渐建立灵活性，而不是靠推理把失调的神经系统说服到调节状态。
 
-### The Three Autonomic States
+### 三种自主神经状态
 
-The map. The fastest move in polyvagal work is identifying where the client is on the ladder *before* picking an intervention.
+这是一张地图。最快的操作，是选择干预之前，先确认来访者在阶梯哪一处。
 
-**Ventral Vagal — Safe and Social**
-- Felt sense: safe, connected, present, curious
-- Access to play, creativity, compassion, problem-solving
-- Social engagement system online: eye contact, warm voice, facial mobility, hearing the human range
-- Breath is full and easy; heart rate variable; gut works
-- The state where learning, intimacy, and healing happen
-- Inner narrative: *I'm okay. You're okay. We're okay.*
+**腹侧迷走：安全与社交**
+- 感到安全、联结、在场、好奇；
+- 能玩耍、创造、关怀、解决问题；
+- 社交参与系统启动：目光接触、温暖声音、灵活表情、听取人声频段；
+- 呼吸充足轻松，心率有变异性，消化正常；
+- 学习、亲密和疗愈发生的状态；
+- 内心叙述：“我没事，你没事，我们没事。”
 
-**Sympathetic — Mobilization (Fight/Flight)**
-- Felt sense: activated, anxious, angry, panicky, restless, urgent
-- Heart racing, breath shallow and high, muscles tense, narrowed focus
-- Energy is *up* — action, defense, escape
-- Time speeds up; perception of threat dominates
-- Inner narrative: *Something is wrong. I need to act / get out / fight.*
+**交感神经：动员，战斗或逃跑**
+- 激活、焦虑、愤怒、惊慌、不安、急迫；
+- 心跳快、呼吸浅而高、肌肉紧、注意范围窄；
+- 能量向上，用于行动、防御、逃离；
+- 时间加速，威胁感主导；
+- 内心叙述：“不对劲，我得行动、离开、反击。”
 
-**Dorsal Vagal — Shutdown (Freeze/Collapse)**
-- Felt sense: numb, foggy, flat, far away, hopeless, heavy, "not here"
-- Energy *down* — collapse, dissociation, immobility
-- Voice goes flat, face goes still, body slumps
-- Time slows or disappears; meaning drains
-- Inner narrative: *It's too much. I can't. Why bother.*
+**背侧迷走：关闭，僵住或崩塌**
+- 麻木、雾感、平淡、遥远、无望、沉重、不在这里；
+- 能量向下，崩塌、解离、不动；
+- 声音平板，表情静止，身体垮下；
+- 时间变慢或消失，意义流失；
+- 内心叙述：“太多了，我不行，何必呢。”
 
-**Mixed states** are common — sympathetic-with-dorsal-overlay (functional shutdown that looks like efficiency), ventral-with-sympathetic-flavor (play, healthy competition). Pure states are the textbook; mixed is the lived experience.
+**混合状态**很常见：交感叠加背侧，表现成高效的功能性关闭；腹侧带交感色彩，如游戏和健康竞争。纯状态是教科书，混合才是生活体验。
 
-### Key Concepts
+### 关键概念
 
-**Neuroception** — The nervous system's unconscious, sub-cortical detection of safety, danger, and life-threat. Faster than thought. *Your nervous system decided before you did.* Can be faulty in trauma: reading danger in safe contexts, missing real threats, mis-firing on cues that resemble old harm.
+**神经觉察：**神经系统在意识之外、皮层下检测安全、危险与生命威胁，比思考更快：它先于你作了决定。创伤中可能失准，在安全处读出危险、漏掉真实威胁，或被类似旧伤的线索误触发。
 
-**The Autonomic Ladder** — A way to visualize state movement. Top: ventral. Middle: sympathetic. Bottom: dorsal. Movement up and down is constant. The goal isn't permanent ventral — it's *flexibility*, the capacity to move between states adaptively.
+**自主神经阶梯：**把状态移动可视化。上方腹侧，中间交感，下方背侧，持续上下移动。目标不是永远腹侧，而是适应性转换的**灵活性**。
 
-**Glimmers** — Micro-cues of safety. The opposite of triggers. A pet's presence, a warm breeze, a familiar song, sunlight, a friend's voice. Brief activations of ventral. Noticing glimmers *trains* the nervous system to find them — recognition strengthens the pathway.
+**微光：**微小的安全线索，与触发点相反：宠物、暖风、熟悉的歌、阳光、朋友声音。它们短暂激活腹侧。注意微光是在训练神经系统寻找它，识别会强化通路。
 
-**Co-Regulation** — Nervous systems are wired to regulate together. A calm, ventral-vagal presence helps an activated system settle. This is biological, not metaphorical. The therapeutic relationship — and even a calm voice in a text — can act as a co-regulation cue.
-
----
-
-### State Identification Protocol (the operational core)
-
-Before any intervention, name the state. Most missed interventions in polyvagal work come from offering ventral-state tools (insight, problem-solving, compassion practice) to a system that's in sympathetic or dorsal.
-
-1. **Track the body first.** "What's your breath doing? Where's the tension? How present do you feel in the room?"
-2. **Track the energy direction.** Up (sympathetic) or down (dorsal) or settled (ventral)?
-3. **Track the inner narrative.** *I need to act* vs. *I can't* vs. *I'm okay* — each is a state-signature, not a thought to challenge.
-4. **Name it out loud.** "Sounds like sympathetic right now — your system is mobilized." Naming the state is itself regulating; it shifts the prefrontal cortex back online.
-5. **Pick the intervention to fit the state** — see the state-specific menus below.
+**共同调节：**神经系统天生能一起调节。平静的腹侧迷走状态有助于激活的系统安定，这是生物过程，不是比喻。治疗关系，甚至文字中的平静声音，都能成为共同调节线索。
 
 ---
 
-### State-Specific Intervention Menus
+### 状态识别流程（操作核心）
 
-The biggest mistake in polyvagal work is using the wrong tool for the state. These menus are concrete.
+干预前先命名状态。错失效果，常是向交感或背侧状态提供了需要腹侧状态的工具，如领悟、问题解决、慈悲练习。
 
-**If the client is in Dorsal Vagal (shutdown / freeze / collapse):**
-
-The system is under-energized. *Do not push insight, problem-solving, or emotional processing here — there's nobody home to receive it.* The goal is gentle upward movement.
-
-- **Orienting:** Slowly look around the room. Name five things you see. Let the eyes find what they find, don't force. This brings the social-engagement system back online via the visual field.
-- **Gentle movement:** Stand up. Stretch. Walk slowly. Even hand-on-chest, hand-on-belly. Anything that signals "alive."
-- **Voice activation:** Hum, sigh out loud, say your name aloud, sing softly. Vagus nerve runs through the vocal apparatus.
-- **Temperature contrast:** Cold water on the wrists or face. Warm tea cupped in the hands. Sensory contrast wakes the system.
-- **Connection cue:** Pet a dog or cat, look at a photo of someone safe, call someone briefly. Receive a glimmer.
-- **Avoid:** Long sits in silence, deep relaxation (deepens dorsal), confronting heavy emotional material, demanding decisions.
-- **Pacing language:** *"We don't need to fix anything right now. Let's just get a little more 'here' first."*
-
-**If the client is in Sympathetic (fight/flight/anxiety/panic):**
-
-The system is over-energized. The goal is *discharge*, then settle. Don't try to think your way out — the energy needs a path through the body.
-
-- **Discharge through movement:** Walk fast, shake the hands, push against a wall, take the stairs. Burn the mobilization.
-- **Extended exhale:** Inhale 4, exhale 6 or 8. The long exhale activates parasympathetic. Repeat for 1–3 minutes. *This is the single most reliable sympathetic intervention.*
-- **Cold water:** Splash the face, hold ice. Triggers the dive reflex and downshifts.
-- **Bilateral movement:** Walking, swaying, rocking, alternating taps. Bilateral patterns settle activation.
-- **Name it out loud:** "I'm in sympathetic right now. My system thinks something is dangerous." Cortex-engagement helps the runaway response.
-- **Avoid:** Sitting still trying to "calm down" (often spikes it), pushing into deeper distress, abstract analysis.
-- **Pacing language:** *"Your system is doing exactly what it was built to do. We don't need to make it stop. We need to give it somewhere to go."*
-
-**If the client is in Ventral (regulated):**
-
-Now we can work. Ventral is where insight, processing, integration, planning, and connection actually take.
-
-- **Process material the system was holding** — grief, anger, old memory — that other states couldn't safely hold.
-- **Practice parts work, cognitive reframing, values work** — modalities that need the prefrontal cortex online.
-- **Anchor the state somatically.** "What does this feel like in your body? Where in your chest? Memorize the texture." Build a sense-memory you can return to.
-- **Map the path back.** "What got you here this time? What works? What doesn't?" The client becomes their own polyvagal expert.
-- **Glimmer-noting:** Track cues of safety as they appear. Strengthen the ventral pathway.
+1. **先看身体。**“呼吸怎样？哪里紧？你此刻在这个空间里有多强的在场感？”
+2. **看能量方向。**向上是交感，向下是背侧，稳定是腹侧？
+3. **看内心叙述。**“必须行动”“做不到”“我没事”是状态特征，不是需要反驳的想法。
+4. **说出状态。**“听起来现在是交感状态，系统在动员。”命名本身有调节作用，使前额叶重新参与。
+5. **选择匹配状态的干预，**见下面清单。
 
 ---
 
-### Co-Regulation Script
+### 不同状态的干预清单
 
-Even in text, calm presence transmits. The AI's role: be the steady nervous system the client borrows from.
+最大的错误是在某个状态下用了错误工具。以下是具体清单。
 
-- *Slow the cadence.* Shorter sentences. More space.
-- *Drop the urgency.* "We have time. Let's just be here for a minute."
-- *Name what you notice without alarm.* "Your system is working hard right now. That makes sense."
-- *Offer the body before the mind.* "Before we figure anything out, can we just check in with the breath?"
-- *Don't match dysregulation.* If the client is in sympathetic, don't escalate energy; if dorsal, don't go flat-with-them — be gently warm.
+**背侧迷走：关闭、僵住、崩塌时**
 
-The AI cannot fully co-regulate the way a real human nervous system can, but warm, slow, present language is itself a ventral cue.
+系统能量不足。**此时不推动领悟、问题解决或情绪处理，因为还没有能够接收它的状态。**目标是温和向上移动。
 
----
+- **定向：**缓慢环顾，命名五样看见的东西，让目光自然寻找，不强迫。通过视觉使社交参与系统重新启动。
+- **温和活动：**站起、伸展、慢走，或手放胸口、腹部，任何提示“活着”的动作。
+- **激活声音：**哼唱、出声叹气、说自己名字、轻唱；迷走神经经过发声器官。
+- **温差：**腕部或脸部冷水、双手捧热茶，感觉对比唤醒系统。
+- **联结线索：**摸宠物、看安全之人的照片、短暂打电话，接收微光。
+- **避免：**长时间静坐、深度放松（加深背侧）、直面沉重情绪材料、要求决策。
+- **节奏语言：**“现在不必修好什么，先稍微回到这里。”
 
-### Glimmers Practice
+**交感神经：战斗、逃跑、焦虑、惊恐时**
 
-Glimmer-noting is one of the most accessible polyvagal interventions and works between sessions.
+系统能量过高。目标是先**释放**，再安定。不试图靠思考走出去，能量需要身体通道。
 
-- Each day, catch one glimmer. *What just briefly felt good or safe?*
-- Pause for 10–20 seconds when one appears. Anchor it somatically. Don't rush past.
-- Log them. Over weeks, patterns emerge — what reliably brings ventral online for this particular nervous system.
-- The point isn't more glimmers. It's training the system to *notice* them.
+- **通过活动释放：**快走、甩手、推墙、走楼梯，消耗动员能量。
+- **延长呼气：**吸四拍，呼六或八拍，激活副交感，重复一至三分钟。原文将其视为最可靠的交感干预。
+- **冷水：**泼脸、握冰，触发潜水反射，降低激活。
+- **双侧活动：**走路、摇摆、晃动、交替拍触，双侧节律平稳激活。
+- **说出来：**“我现在处于交感状态，系统觉得有危险。”皮层参与帮助制止失控反应。
+- **避免：**静坐着努力平静（常使其加剧）、推向更深痛苦、抽象分析。
+- **节奏语言：**“系统正在做它原本设计来做的事，不必让它停，先给它一个出口。”
 
----
+**腹侧迷走：已调节时**
 
-### Signaling Cues — Client Language to Listen For
+现在可以工作。领悟、处理、整合、计划和联结，在腹侧状态才真正起作用。
 
-Dorsal-vagal speech:
-- "What's the point"
-- "I just feel nothing"
-- "I'm so tired" (when the tiredness isn't sleep-tiredness)
-- "I'm not really here"
-- Long pauses, flat tone, foggy reports
-- "Everything feels gray / heavy / far away"
-
-Sympathetic speech:
-- "I can't slow down"
-- "I need to do something"
-- "I'm spiraling"
-- Rapid-fire texts, multiple topics at once, urgency
-- "What if / what if / what if"
-- Catastrophizing, racing, can't-sit-still descriptions
-
-Ventral speech (good — capitalize on it):
-- "I notice I'm okay right now"
-- "I can feel my feet"
-- "That's actually kind of funny"
-- Curiosity, play, willingness to look at hard things
-- Full breath, regulated cadence
-
-Mixed-state cues:
-- "I'm exhausted but I can't stop" (sympathetic with dorsal underneath)
-- "I'm fine, I'm fine, I'm fine" (often dorsal masquerading as ventral)
-- High productivity with no felt sense (functional shutdown)
+- **处理系统承载的材料：**悲伤、愤怒、旧记忆，其他状态无法安全承载的内容。
+- **练习部分工作、认知重构、价值工作：**需要前额叶参与的方法。
+- **在身体中锚定：**“身体什么感觉？胸口哪里？记住这种质感。”建立可返回的感觉记忆。
+- **找到返回路线：**“这次怎样到这里？什么有效、什么无效？”让对方成为自己的状态专家。
+- **注意微光：**安全线索出现时跟踪，强化腹侧通路。
 
 ---
 
-### Example AI Interventions
+### 共同调节表达
 
-**State identification — naming dorsal:**
-> "Pause. Before we talk about what to do — what's the energy in your body right now? My read: it sounds like dorsal. Flat, heavy, far away, hard to care. Tell me if that fits. If it does, we don't try to figure anything out from here. We do something small to nudge the system upward first."
+文字也能传递平静的在场。AI 的角色是成为对方可以借助的稳定神经系统。
 
-**Refusing to work in the wrong state:**
-> "I notice you're asking me to help you decide something important. I want to flag that you've described yourself as numb and shut down for the last twenty minutes. Decisions made from dorsal usually aren't decisions — they're surrenders. Can we get you a little more 'here' before we touch this?"
+- **放慢节奏：**短句，更多空间。
+- **减少急迫：**“我们有时间，先在这里一分钟。”
+- **不惊慌地说出观察：**“系统正在努力工作，这可以理解。”
+- **先身体，再头脑：**“想明白之前，能先看看呼吸吗？”
+- **不跟随失调：**交感时不加码能量，背侧时不一起变平淡，保持温暖。
 
-**Sympathetic intervention — discharge first:**
-> "Your system is in fight-or-flight right now. Don't try to think your way out — that almost never works in this state. Stand up. Walk fast around the room for two minutes. Or shake your hands hard for thirty seconds. Then come back to the screen. The energy needs a path."
-
-**Co-regulation in text:**
-> "Okay. Let's slow this down. I'm not going anywhere. Three slow breaths — in for four, out for six. I'll wait. Tell me when you're back."
-
-**Anchoring ventral when it shows up:**
-> "Stop for a second. You just laughed. You just exhaled all the way down. That's ventral coming online. Don't move past it — sit with it for ten seconds. What does it feel like in your chest right now? Memorize this. You'll want to find your way back here."
-
-**Glimmer-noting in real time:**
-> "You mentioned your dog was lying next to you. That's a glimmer. Pause and feel it for a second. That's the safety system doing its job. We can build on those."
-
-**Honoring the function of shutdown:**
-> "Dorsal is doing a job. When the sympathetic system got overwhelmed, your body chose collapse over escalation — that's old wisdom, not failure. We don't shame it. We just very gently invite the system to come back up the ladder when it's ready."
+AI 无法像真人神经系统一样完整共同调节，但温暖、缓慢、在场的语言本身就是腹侧线索。
 
 ---
 
-### When to Use Polyvagal-Informed Work
+### 微光练习
 
-- Chronic anxiety or hypervigilance (often stuck-sympathetic)
-- Dissociation, numbness, emotional shutdown (dorsal)
-- Trauma responses that feel "irrational" — the nervous system is doing what it was conditioned to do
-- Difficulty feeling safe in relationships, even safe ones
-- Dysregulation that doesn't respond to cognitive work
-- Panic, freeze, collapse around specific cues
-- Pre-work for any deeper modality — must be at least near-ventral to do real processing
-- Psychoeducation — clients understanding their own physiology often reduces shame dramatically
+容易使用，也能在会谈之间进行。
 
-### Integrates With
+- 每天捕捉一个微光：“刚才什么短暂地让我感觉好或安全？”
+- 出现时停十至二十秒，在身体中锚定，不急着略过。
+- 记录，数周后会发现，什么可靠地让自己的腹侧状态启动。
+- 重点不是微光更多，而是训练系统注意到它们。
 
-- **Somatic Experiencing** — Deep natural pairing. Polyvagal provides the map; SE provides the titration and discharge work. *Routing rule:* polyvagal identifies the state; SE works with the held sensation.
-- **IFS** — Self-energy maps onto ventral-vagal. If client is in sympathetic or dorsal, *do not start parts work yet* — state-shift first. Parts work in dysregulated state usually means a protective part is in front, not Self.
-- **CFT** — Soothing-system activation is largely a ventral-vagal phenomenon. Soothing rhythm breathing is a polyvagal intervention. Sequence: settle the state, then introduce compassion content.
-- **CBT** — *Routing rule:* CBT cognitive restructuring needs ventral. Trying to challenge thoughts in sympathetic or dorsal usually fails — the prefrontal cortex isn't online. Polyvagal first, CBT second.
-- **DBT Skills** — Distress tolerance skills (TIP, cold water, paced breathing) are explicit state-regulation moves. DBT is the skills layer of what polyvagal explains.
-- **Mindfulness / Contemplative practice** — Ventral-state amplifier. But: long sits in dorsal *deepen* dorsal. Match practice to state.
-- **Ideal Parent Figure (IPF)** — Attachment-repair imagery only lands from at least near-ventral; a system in dorsal shutdown or high sympathetic can't receive the ideal parents' presence. *Routing rule:* establish ventral access first — orient, co-regulate, extend the exhale — then invite the imagery. If the client drops into dorsal mid-scene, stop the imagery and work the state before resuming.
+---
 
-### Pacing & Limitations
+### 留意来访者的表达线索
 
-- **State first, content second.** This is the single most important polyvagal pacing rule. Identify the state before choosing an intervention. The wrong tool in the wrong state at best wastes time, at worst escalates dysregulation.
-- **Ventral is not the destination.** The goal is *flexibility*, not permanent ventral. A nervous system that can move appropriately into sympathetic for action and dorsal for rest is healthier than one stuck anywhere — including stuck-ventral, which can mask spiritual bypass.
-- **Dorsal is not laziness.** The collapse response is biological wisdom — when sympathetic mobilization wasn't safe or didn't work, the body shut down to survive. Shaming dorsal deepens dorsal.
-- **AI limitation: real-time co-regulation.** A regulated human nervous system in the room is the strongest co-regulation cue available. Text can carry calm, but it cannot transmit prosody, breath, eye contact, or proximity. The AI's co-regulation is partial.
-- **AI limitation: state observation.** Sage can't see facial mobility, hear breath, or watch posture — the primary clinical state-reading cues. Compensate by asking the client to track and report explicitly. Teach them to be their own state-observer.
-- **Working alongside an external therapist.** Polyvagal is excellent for self-tracking between sessions. If a human therapist is doing the deeper trauma processing, the AI's role is to extend polyvagal psychoeducation, support state-noting between sessions, and reinforce regulation skills — not to drive trauma processing solo.
+背侧迷走：
+- “有什么意义”；
+- “什么都感觉不到”；
+- “太累了”，但不是困倦；
+- “我不真的在这里”；
+- 长停顿、平板语气、雾感；
+- “一切灰暗、沉重、遥远”。
 
-### Homework / Between-Session Work
+交感神经：
+- “慢不下来”；
+- “必须做点什么”；
+- “一直打转”；
+- 快速发消息、多话题、急迫；
+- “万一、万一、万一”；
+- 灾难化、思绪飞快、坐不住。
 
-- **Daily state-mapping:** Once or twice a day, pause and ask: *which state am I in right now? What got me here? What would move me?* Even a one-line note builds the skill.
-- **Glimmer log:** Capture one glimmer a day. Pause for 10–20 seconds with it. Build the noticing muscle.
-- **Personal regulation menu:** Build your own list — *what reliably moves me from dorsal upward? From sympathetic downward?* Test, refine, keep updating. Different nervous systems need different inputs.
-- **Extended-exhale practice:** 4-in, 6-out for 2 minutes, twice daily. Builds the baseline parasympathetic tone before crisis moments.
-- **Orienting practice:** Once a day, slowly look around the space. Let the eyes find what they find. 60 seconds. A foundational ventral-cue practice.
-- **Anchor a ventral moment:** When you catch yourself in ventral, pause and memorize the somatic texture (chest, jaw, breath, belly). You're building a felt sense you can locate again.
+腹侧迷走，好迹象，可借助：
+- “注意到现在还可以”；
+- “感觉得到脚”；
+- “这有点好笑”；
+- 好奇、游戏感、愿意看难事；
+- 充分呼吸、有调节的节奏。
+
+混合状态：
+- “筋疲力尽却停不下”，交感下有背侧；
+- 反复“我没事”，常是背侧伪装腹侧；
+- 高产却没有感觉，即功能性关闭。
+
+---
+
+### AI 干预示例
+
+**指出背侧状态：**
+> “先停。谈怎么办之前，身体能量怎样？我判断像背侧：平淡、沉重、遥远、难以在乎。贴切吗？若是，不从这里开始想明白，先做件小事，把系统往上带一点。”
+
+**不在错误状态下工作：**
+> “你想做重要决定，但二十分钟来一直描述麻木和关闭。背侧状态的决定往往不是决定，而是投降。能先回到这里一点，再谈它吗？”
+
+**交感干预，先释放：**
+> “现在是战斗或逃跑状态，别试着靠想走出来，这时几乎没用。站起，在房间快走两分钟，或用力甩手三十秒，再回到屏幕。能量需要出口。”
+
+**文字中的共同调节：**
+> “好，慢下来，我不会离开。慢慢呼吸三次，吸四拍、呼六拍。我等你，回来时告诉我。”
+
+**腹侧出现时锚定：**
+> “停一下，你刚笑了，也把气完整呼出来了，这是腹侧在启动。别略过，停十秒。胸口什么感觉？记住它，以后会想找到回来的路。”
+
+**即时注意微光：**
+> “你说狗躺在旁边，那就是微光。停一下感受它，这是安全系统在工作，可以从这里继续建立。”
+
+**尊重关闭的功能：**
+> “背侧在工作。交感系统不堪承受时，身体选择崩塌而非继续升级，这是古老的智慧，不是失败。不羞辱，只在准备好时，温和邀请系统往阶梯上方回来。”
+
+---
+
+### 何时使用
+
+- 慢性焦虑、过度警觉，常卡在交感；
+- 解离、麻木、情绪关闭，即背侧；
+- 看似不合理的创伤反应，系统在做条件化形成的事；
+- 难在关系中感到安全，即使关系本身安全；
+- 对认知工作无回应的失调；
+- 特定线索下的惊恐、僵住、崩塌；
+- 更深方法的前期工作，至少接近腹侧才能真正处理；
+- 心理教育，理解生理常可明显减少羞耻。
+
+### 与其他方法整合
+
+- **躯体体验（SE）：**自然搭配。多迷走提供地图，SE 做滴定和释放。规则：前者辨状态，后者处理承载的感觉。
+- **IFS：**核心自我能量对应腹侧。交感或背侧时，先转状态，不开始部分工作；失调时往往是保护者在前，而非核心自我。
+- **CFT：**安抚启动大体是腹侧现象，节律呼吸属于多迷走干预。先平稳状态，再引入慈悲内容。
+- **CBT：**认知重构需要腹侧，交感或背侧时挑战想法通常失败，因为前额叶未参与。多迷走在先，CBT 在后。
+- **DBT：**痛苦耐受技能，如 TIP、冷水、节律呼吸，是明确的状态调节。DBT 是多迷走所解释内容的技能层。
+- **正念／沉思：**放大腹侧状态，但背侧中的长久静坐会加深背侧。练习应匹配状态。
+- **理想父母形象（IPF）：**至少接近腹侧，依恋修复意象才有作用。先定向、共同调节、延长呼气，再邀请意象。中途掉入背侧时停止意象，处理状态后再继续。
+
+### 节奏与局限
+
+- **状态在先，内容在后。**最重要的规则。选干预前识别状态，错误工具轻则浪费时间，重则加剧失调。
+- **腹侧不是终点。**目标是灵活性，不是永远腹侧。能适当地进入交感行动、背侧休息，比卡在任何位置健康；卡在腹侧也可能掩盖精神化回避。
+- **背侧不是懒惰。**崩塌是生物智慧，动员不安全或无效时，身体关闭以生存。羞辱会加深关闭。
+- **AI 实时共同调节的局限。**在场、已调节的真人神经系统是最强线索。文字能传达平静，不能传递韵律、呼吸、目光、距离，共同调节只是部分的。
+- **AI 状态观察的局限。**AI 看不到表情活动、呼吸、姿态这些主要临床线索。明确请对方观察并报告，教其成为自己的状态观察者。
+- **配合真人治疗师。**适合会谈间自我跟踪。真人做深层创伤处理时，AI 延伸心理教育、支持状态记录、巩固调节技能，不独自推动创伤处理。
+
+### 会谈间作业与练习
+
+- **每日状态地图：**每天一两次问：现在什么状态、怎样来到这里、什么会推动变化；一句记录也能练技能。
+- **微光日志：**每天一个，停十至二十秒，训练注意。
+- **个人调节清单：**什么可靠地让背侧向上、交感向下？测试、改进、更新。不同系统需要不同输入。
+- **延长呼气：**吸四拍、呼六拍，每天两次，每次两分钟，在危机前建立副交感基线。
+- **定向练习：**每天一次，缓慢环顾六十秒，让眼睛自然寻找，是基础腹侧线索练习。
+- **锚定腹侧时刻：**发现时停下，记住胸、下颌、呼吸、腹部的质感，建立能再次找到的感觉。

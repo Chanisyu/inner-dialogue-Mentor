@@ -326,6 +326,7 @@ test('--dry-run reports the merge without writing', () => {
   }
 });
 
+// 普通 CLI 输出使用中文，仍逐项检查合并动作、备份位置与跳过原因。
 // F22: the merge must be visible in the human-readable (non---json) output —
 // action taken and backup location, or the skip reason.
 test('human output surfaces the merge with its backup path', () => {
@@ -343,12 +344,12 @@ test('human output surfaces the merge with its backup path', () => {
     assert.equal(result.status, 0, `exit 0 (stderr: ${result.stderr})`);
     assert.ok(
       result.stdout.includes(
-        'Registered the safety-net hook in .claude/settings.json'
+        '已向 .claude/settings.json 注册安全钩子'
       ),
       `merge line printed\nstdout: ${result.stdout}`
     );
     assert.ok(
-      /Backup: .*settings\.json\.bak-/.test(result.stdout),
+      /备份：.*settings\.json\.bak-/.test(result.stdout),
       `backup path printed\nstdout: ${result.stdout}`
     );
   } finally {
@@ -367,14 +368,14 @@ test('human output surfaces a skipped merge with its reason', () => {
     });
     assert.equal(result.status, 0, `exit 0 (stderr: ${result.stderr})`);
     assert.ok(
-      result.stdout.includes('Skipped .claude/settings.json:') &&
-        result.stdout.includes('not valid JSON'),
+      result.stdout.includes('已跳过 .claude/settings.json：') &&
+        result.stdout.includes('不是有效 JSON'),
       `skip line with reason printed\nstdout: ${result.stdout}`
     );
     // F36: "Already up to date." right after a skip notice reads as a
     // contradiction — it must be suppressed when a merge skip was reported.
     assert.ok(
-      !result.stdout.includes('Already up to date.'),
+      !result.stdout.includes('已经是当前版本。'),
       `"Already up to date." suppressed after a skip\nstdout: ${result.stdout}`
     );
   } finally {

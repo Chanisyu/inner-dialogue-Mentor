@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises';
 import { existsSync } from 'node:fs';
 import { spawnSync } from 'node:child_process';
 
-import { therapyPaths } from './lib/paths.js';
+import { therapyPaths, packageFile } from './lib/paths.js';
 import { readVersionJson } from './lib/version.js';
 import { hashFile } from './lib/hash.js';
 import { hasSafetyNetHook, hasHook, USAGE_STATS_DESC } from './lib/settings.js';
@@ -108,7 +108,10 @@ function checkProfileStructure(content) {
   // somewhere to start. Background and Current Focus are the most universal.
   const hasBackground =
     h2s.some((h) => /background/i.test(h)) ||
-    h2s.some((h) => /context|history/i.test(h));
+    h2s.some((h) => /context|history/i.test(h)) ||
+    // 中文档案使用与英文 Background / History 相同的语义。保留原来的
+    // 英文识别分支，使旧档案与新中文档案都能通过同一结构检查。
+    h2s.some((h) => /背景|基本情况|成长经历|历史/u.test(h));
   if (!hasBackground) {
     warnings.push(
       'profile.md has no Background section (or equivalent). New profiles should seed with at least Background, Current Focus, and Notes — the LLM grows structure from there.'
@@ -212,7 +215,7 @@ export async function doctor(opts) {
   // Safety-net hook backstop checks. Warning (not error) severity is
   // deliberate: pre-feature installs must keep validating clean until the
   // user runs `update`.
-  const safetyNetFix = `npx inner-dialogue@latest update --path "${paths.root}"`;
+  const safetyNetFix = `node "${packageFile('bin', 'inner-dialogue.js')}" update --path "${paths.root}"`;
   if (existsSync(paths.safetyNetHook)) {
     ok.push('.therapy/hooks/safety-net.js present');
     // Integrity check: compare the installed hook against the hash recorded
@@ -253,7 +256,7 @@ export async function doctor(opts) {
   // pre-feature or pre-`update` installs must keep validating clean until the
   // user runs update. The Claude Code version floor above already covers
   // exec-form hook support, so it is not re-checked here.
-  const usageStatsFix = `npx inner-dialogue@latest update --path "${paths.root}"`;
+  const usageStatsFix = `node "${packageFile('bin', 'inner-dialogue.js')}" update --path "${paths.root}"`;
   if (existsSync(paths.usageStatsHook)) {
     ok.push('.therapy/hooks/usage-stats.js present');
     // Integrity check against the hash recorded in version.json, mirroring the

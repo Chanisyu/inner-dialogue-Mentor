@@ -1,160 +1,177 @@
 {
-  "kit_version": "2.8.0",
-  "installed": "2026-07-06",
+  "kit_version": "2.9.0",
+  "locale": "zh-CN",
+  "source_path": "D:\\Project\\inner-dialogue",
+  "installed": "2026-10-19",
   "files": {
     ".therapy/safety-protocol.md": {
       "version": "1.1.0",
-      "hash": "sha256-b8a664f247a277b9dc482568b24ca908120e6391ae6a04baa87b4e91fb58e3eb",
+      "hash": "sha256-3d2848fdc18ea479c9b6a81cc6bcdf142ef45f9fd9406c983b654dc4cdd85df6",
       "source": "safety-protocol.md"
     },
     ".therapy/commands.md": {
-      "version": "1.4.0",
-      "hash": "sha256-6dbdadd2d68588454f8ecf316250b6befb8b53a7e8cd6fc20508316308d7b4b4",
+      "version": "1.6.0",
+      "hash": "sha256-48651df3ef0dd7e472e8e92aa7e7af2e302c42a9926c06c9678b770c6608eab1",
       "source": "commands.md"
+    },
+    ".therapy/profile-protocol.md": {
+      "version": "1.0.0",
+      "hash": "sha256-0fc551c47c1755e45d811c58ffa57b50f2a49ee951879d3dde6d5519576f7459",
+      "source": "profile-protocol.md"
     },
     ".therapy/hooks/safety-net.js": {
       "version": "1.0.0",
-      "hash": "sha256-fcf221f506372df9546c792fc2fb53c8557a62dc815764b63416b02a6b008b36",
+      "hash": "sha256-78eae1de1a88febc0bc2b40e0d90370c30ed47bf18c38790aa8691c3b3572b51",
       "source": "hooks/safety-net.js"
+    },
+    ".therapy/hooks/usage-stats.js": {
+      "version": "1.0.0",
+      "hash": "sha256-54f8ad485165f0d1dc6a3f4c5f1874c871a5e1f62927d2813a3f50b938ed39a5",
+      "source": "hooks/usage-stats.js"
+    },
+    ".therapy/usage-reflection.md": {
+      "version": "1.0.0",
+      "hash": "sha256-37677debf18a03839ddb41d3e72b2cecf02256e1d1393d95882ad4c22e488757",
+      "source": "usage-reflection.md"
     },
     ".therapy/library/personas/coach.md": {
       "version": "1.2.0",
-      "hash": "sha256-b6cfd6f27390b9c2e3815eb2341f634399403e61953d440744eaf3deddca6c91",
+      "hash": "sha256-1706a85943dce4df415808af7c840c07dd12dd29a5f0cc695b116adab1baf7dc",
       "source": "personas/coach.md"
     },
     ".therapy/library/personas/contemplative.md": {
       "version": "1.2.0",
-      "hash": "sha256-93a40d695392f26326920f4d4c8b02f65cfcc82160b78f3f2c04f5af3a7b8e54",
+      "hash": "sha256-5a82e2766bfbde84700f70f2b6e5775b5bfbb2a2e8bb3f68ddd8e354720d3efb",
       "source": "personas/contemplative.md"
     },
     ".therapy/library/personas/creative.md": {
       "version": "1.2.0",
-      "hash": "sha256-79cb6895969c2e0fdc53efe1db71bccba6818d2e6f8e501b604df74e4b490240",
+      "hash": "sha256-f571ab1619296ca2be1ed88d76b0681cb5ab204639de151d332e3d692c52ae5a",
       "source": "personas/creative.md"
     },
     ".therapy/library/personas/direct-challenging.md": {
       "version": "1.2.0",
-      "hash": "sha256-f25413eea770279e6acd651bd96ad976dd5816305ae1577723c3ddc54d42fa37",
+      "hash": "sha256-9c14a06508c75686a4c91710d2350f0cb132c818c03edbee50988c2ed38bb2ae",
       "source": "personas/direct-challenging.md"
     },
     ".therapy/library/personas/grounded-real.md": {
       "version": "1.2.0",
-      "hash": "sha256-c6aca4bc39661dcc227f4cebbe946396b4a9a22ea42a64048b6d883ffb80e152",
+      "hash": "sha256-b08a08bb34393bb26c86b1d1098a691516dbba6f817a104bb7058d1a8d1aee10",
       "source": "personas/grounded-real.md"
     },
     ".therapy/library/personas/philosophical.md": {
       "version": "1.2.0",
-      "hash": "sha256-fad1fc79d7d801e3cca6e7fcbdcd208eb978e8d64f2da4fe542b0f98802e9a65",
+      "hash": "sha256-6787d6fe2dcda366dfd7edb35e05b2ebd5d71cc5b5d7773b133dbea1b7e9f5fe",
       "source": "personas/philosophical.md"
     },
     ".therapy/library/personas/warm-4o.md": {
       "version": "1.2.0",
-      "hash": "sha256-22c83a4806e9208b4e65cf7645a24b8410ae419b01e5d38db4716c42b302cc58",
+      "hash": "sha256-5b3c566f31dd8570130139329d4fbcd7a4a9bc6e5c0f749ec2047e71e53a600c",
       "source": "personas/warm-4o.md"
     },
     ".therapy/library/personas/warm-supportive.md": {
       "version": "1.2.0",
-      "hash": "sha256-28413707ed5080566c5268a273c22040581492c3a2c7290697abc183bb6c3de7",
+      "hash": "sha256-58569900a7ed418ea9ba2a898617f657373c7fbbdd6089d147bcc1e881bc4aeb",
       "source": "personas/warm-supportive.md"
     },
     ".therapy/library/modalities/act.md": {
       "version": "1.1.0",
-      "hash": "sha256-4606a0f5f7e93e8cf57423d935742e098df773b91265cfa894d1b86311642836",
+      "hash": "sha256-47d5f910c4c903e18bc07440ad3c3b82945377ba6ecda39c3140fd3a08b1841a",
       "source": "modalities/act.md"
     },
     ".therapy/library/modalities/cbt.md": {
       "version": "1.1.0",
-      "hash": "sha256-078fc2003dd587ee55af2ec7b4108f2904d5177e0156e665e63122a1ef0e983c",
+      "hash": "sha256-50fbaf4e2732a87860d50cd7756950b19c46e32e551d4deedf0164e1233167f8",
       "source": "modalities/cbt.md"
     },
     ".therapy/library/modalities/cft.md": {
       "version": "1.1.0",
-      "hash": "sha256-a9165710390d7401b5445f52e2b4f618adf28ff6b00755132fa35a29bab619e4",
+      "hash": "sha256-d52530ff5942bae0558af1f49cd1b77468891b88978af2799f776b972ea2a875",
       "source": "modalities/cft.md"
     },
     ".therapy/library/modalities/dbt-skills.md": {
       "version": "1.1.0",
-      "hash": "sha256-bed351378d98385e57e1230f0ef36d97113d09a236ee712c21eff28e3b4bebff",
+      "hash": "sha256-1705ad27a6103260384721c34dcb2d35f594c74dc380b03a522f9477a21bdc12",
       "source": "modalities/dbt-skills.md"
     },
     ".therapy/library/modalities/ideal-parent-figure.md": {
       "version": "1.1.0",
-      "hash": "sha256-f09888112f5859f5d22ffabe730cf5bc926d6cda9f66252d90c311c83e533a69",
+      "hash": "sha256-7c59203a9fb91a70c93bf3e4bae47047fae625d601284ead90290d4899726f69",
       "source": "modalities/ideal-parent-figure.md"
     },
     ".therapy/library/modalities/ifs.md": {
       "version": "1.1.0",
-      "hash": "sha256-09ac8fe2ef0b8eedeb6d69c9d125a9c57dc30fafc0e814ae2c9d4459f42dc81b",
+      "hash": "sha256-3147e5b5deedab8795abbb295d32f940bd187cea7c3f6177c8177e21c812b59b",
       "source": "modalities/ifs.md"
     },
     ".therapy/library/modalities/lifespan-integration.md": {
       "version": "1.1.0",
-      "hash": "sha256-fe16f8251c8175a1d8d9a3363c9795928186ea50793f1577e4bc81498dbedd81",
+      "hash": "sha256-a9fed9fade6016be10ca3d0b40b818c05b23d3c616d669130f8786fe10e5d04d",
       "source": "modalities/lifespan-integration.md"
     },
     ".therapy/library/modalities/motivational-interviewing.md": {
       "version": "1.1.0",
-      "hash": "sha256-5c88e5ec08f3e63cb82a8c3b1be48e4f8e723ceaa3424d313294049218590be4",
+      "hash": "sha256-62f9c9ebafe5c11a70e9591642b8df60423b21a597b0a1b6b37bdd38845ac5ca",
       "source": "modalities/motivational-interviewing.md"
     },
     ".therapy/library/modalities/narrative.md": {
       "version": "1.1.0",
-      "hash": "sha256-ec298e50a8d3258718cba11f61eb431ecb22a9a78600e85ac23a0229fdbe21b6",
+      "hash": "sha256-44b15c800deecb33d0e9a23c6a2dd5d60944a485596e94d79f1fa02154c1e187",
       "source": "modalities/narrative.md"
     },
     ".therapy/library/modalities/polyvagal.md": {
       "version": "1.1.0",
-      "hash": "sha256-69ddc0671d04ecbcae51acd62c210290b8823a0a99d4ecbd7555fb2a49146948",
+      "hash": "sha256-32e8a6de7a7ec53848735542a6fec2f1b9c8e201ddf9e7ecdc76c64a68fe4e2a",
       "source": "modalities/polyvagal.md"
     },
     ".therapy/library/modalities/psychodynamic.md": {
       "version": "1.1.0",
-      "hash": "sha256-a9708d273f8fe50e1405148e5b839304b72e5b7afd7bd7a110cda7ebac02bb8e",
+      "hash": "sha256-33a5b5995a376830e41f40bb255d5838f722a8505b31b6647c458ad8d0ab1c9a",
       "source": "modalities/psychodynamic.md"
     },
     ".therapy/library/modalities/sfbt.md": {
       "version": "1.1.0",
-      "hash": "sha256-06acb0983236867aa4d9c94974ba45d0bee3013382fa78d433bd17ef5beff282",
+      "hash": "sha256-ffc457e2fc40ef2ebd979d22ae702bb3ba575fc700468a318299837d5e883b5c",
       "source": "modalities/sfbt.md"
     },
     ".therapy/library/modalities/somatic-experiencing.md": {
       "version": "1.1.0",
-      "hash": "sha256-f9036f63703c49ef2d5321a7b0452a4f9380ff47b2017fded70e6ba754909785",
+      "hash": "sha256-45eb4bdff6bd79b0a6d00f5d0de7ec34fdc5c365a8e80068214f0eac809fa6cc",
       "source": "modalities/somatic-experiencing.md"
     },
     ".therapy/library/structures/freeform.md": {
       "version": "1.0.0",
-      "hash": "sha256-2e4d42b6e1f91a091c9663e706d06e5d7e62ae536567ca956aaa47083ea6a71c",
+      "hash": "sha256-892c5f13787d592dbfca13e10b071452493a788b757327e5693177a8763c64e2",
       "source": "structures/freeform.md"
     },
     ".therapy/library/structures/moderate.md": {
       "version": "1.0.0",
-      "hash": "sha256-3bf2592c20e7158361ff83a72d2dfe449894069d9f8b60c3350be277d60551ac",
+      "hash": "sha256-44bd79d06ba0e7a974f3b713950b6bed5da24067a7dbdb248c9ddb4e8ca89107",
       "source": "structures/moderate.md"
     },
     ".therapy/library/structures/structured.md": {
       "version": "1.0.0",
-      "hash": "sha256-9a334c71a2d0ae63fe012238ab07277943688f533019dec9bb3ea026d0f46553",
+      "hash": "sha256-d85c4d9b5161d389ae269ac468845320e63c6c058d426c8199ead297cc31bd48",
       "source": "structures/structured.md"
     },
     ".therapy/persona.md": {
       "version": null,
-      "hash": "sha256-22c83a4806e9208b4e65cf7645a24b8410ae419b01e5d38db4716c42b302cc58",
+      "hash": "sha256-5b3c566f31dd8570130139329d4fbcd7a4a9bc6e5c0f749ec2047e71e53a600c",
       "source": "personas/warm-4o.md"
     },
     ".therapy/session-structure.md": {
       "version": null,
-      "hash": "sha256-3bf2592c20e7158361ff83a72d2dfe449894069d9f8b60c3350be277d60551ac",
+      "hash": "sha256-44bd79d06ba0e7a974f3b713950b6bed5da24067a7dbdb248c9ddb4e8ca89107",
       "source": "structures/moderate.md"
     },
     ".therapy/modalities/cbt.md": {
       "version": null,
-      "hash": "sha256-078fc2003dd587ee55af2ec7b4108f2904d5177e0156e665e63122a1ef0e983c",
+      "hash": "sha256-50fbaf4e2732a87860d50cd7756950b19c46e32e551d4deedf0164e1233167f8",
       "source": "modalities/cbt.md"
     },
     ".therapy/modalities/ifs.md": {
       "version": null,
-      "hash": "sha256-09ac8fe2ef0b8eedeb6d69c9d125a9c57dc30fafc0e814ae2c9d4459f42dc81b",
+      "hash": "sha256-3147e5b5deedab8795abbb295d32f940bd187cea7c3f6177c8177e21c812b59b",
       "source": "modalities/ifs.md"
     }
   },

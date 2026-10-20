@@ -1,202 +1,202 @@
 <!-- version: 1.1.0 -->
-## DBT Skills
+## 辩证行为疗法技能（DBT）
 
-**Core principle:** Dialectical Behavior Therapy skills help with emotional regulation, distress tolerance, interpersonal effectiveness, and mindfulness. Originally developed for borderline personality disorder, these skills are useful for anyone struggling with intense emotions. The dialectic at the center: *acceptance* of reality as it is *and* commitment to change. Both, not either.
+**核心理念：**DBT 技能帮助情绪调节、痛苦耐受、人际效能和正念。最初为边缘型人格障碍开发，也适用于任何被强烈情绪困扰的人。核心的辩证关系是：**接纳**现实原本的样子，**同时**承诺改变；二者并存，不二选一。
 
-### Four Skill Modules
-
----
-
-### 1. Distress Tolerance
-
-Skills for surviving crisis moments without making things worse.
-
-**TIPP (Change Body Chemistry)**
-- **T**emperature: Cold water on face, ice cube in hand
-- **I**ntense exercise: Brief burst of physical activity
-- **P**aced breathing: Slow exhale longer than inhale
-- **P**rogressive muscle relaxation
-
-**ACCEPTS (Distract)**
-- **A**ctivities: Do something engaging
-- **C**ontributing: Help someone else
-- **C**omparisons: Perspective (could be worse, was worse before)
-- **E**motions: Generate different emotion (comedy, music)
-- **P**ushing away: Mentally set it aside temporarily
-- **T**houghts: Occupy mind with other thoughts
-- **S**ensations: Strong physical sensations (ice, strong taste)
-
-**Radical Acceptance**
-- Accepting reality as it is (not approving of it)
-- "It is what it is" as starting point for change
-- Fighting reality causes suffering; acceptance allows action
+### 四个技能模块
 
 ---
 
-### 2. Emotional Regulation
+### 1. 痛苦耐受
 
-Skills for understanding and managing emotions over time.
+帮助度过危急时刻，不使情况恶化。
 
-**Check the Facts**
-- What triggered the emotion?
-- What am I interpreting or assuming?
-- Does my emotional intensity fit the facts?
-- Is there another way to see this?
+**TIPP：改变身体状态**
+- **温度：**冷水洗脸，手握冰块。
+- **剧烈运动：**短时间身体活动。
+- **有节奏呼吸：**缓慢呼气，呼气长于吸气。
+- **渐进式肌肉放松。**
 
-**Opposite Action**
-- When emotion doesn't fit the facts or isn't effective
-- Fear → Approach
-- Anger → Gently avoid, be kind
-- Shame → Share with trusted person
-- Sadness → Get active, engage
+**ACCEPTS：转移注意**
+- **活动：**做一件能投入的事。
+- **贡献：**帮助别人。
+- **比较：**换个视角，事情可能更糟，过去也曾更糟。
+- **情绪：**用喜剧、音乐等产生另一种情绪。
+- **暂时放下：**在心里把它搁置片刻。
+- **想法：**用其他想法占据头脑。
+- **感觉：**强烈身体感觉，如冰、强烈味道。
 
-**PLEASE (Reduce Vulnerability)**
-- **P**hysical i**L**lness: Treat it
-- **E**ating: Balanced, regular meals
-- **A**void mood-altering substances
-- **S**leep: Consistent, adequate
-- **E**xercise: Regular movement
-
-**Build Positive Experiences**
-- Short-term: Pleasant activities daily
-- Long-term: Work toward life worth living goals
+**彻底接纳**
+- 接受现实本来的样子，不等于赞同。
+- 以“事情就是这样”作为改变的起点。
+- 与现实对抗造成痛苦，接纳使行动成为可能。
 
 ---
 
-### 3. Interpersonal Effectiveness
+### 2. 情绪调节
 
-Skills for navigating relationships while maintaining self-respect.
+逐渐理解和管理情绪的技能。
 
-**DEAR MAN (Getting What You Need)**
-- **D**escribe: State facts without judgment
-- **E**xpress: Share feelings using "I" statements
-- **A**ssert: Ask clearly for what you want
-- **R**einforce: Explain positive outcomes of getting it
-- **M**indful: Stay focused, don't get derailed
-- **A**ppear confident: Body language, tone
-- **N**egotiate: Be willing to give to get
+**核对事实**
+- 什么触发情绪？
+- 我在怎样解释或假定？
+- 情绪强度符合事实吗？
+- 还有别的看法吗？
 
-**GIVE (Maintaining Relationship)**
-- **G**entle: No attacks, threats, judgment
-- **I**nterested: Listen, show interest
-- **V**alidate: Acknowledge their perspective
-- **E**asy manner: Light touch, humor if appropriate
+**反向行动**
+- 情绪不符合事实或不起作用时采用。
+- 恐惧：接近。
+- 愤怒：温和避开，善意对待。
+- 羞耻：向信任的人分享。
+- 悲伤：活动起来，参与生活。
 
-**FAST (Maintaining Self-Respect)**
-- **F**air: To yourself and others
-- **A**pologies: Don't over-apologize
-- **S**tick to values: Don't compromise what matters
-- **T**ruthful: Don't lie or exaggerate
+**PLEASE：降低脆弱性**
+- **身体疾病：**治疗。
+- **饮食：**均衡、规律。
+- **避免**影响情绪的物质。
+- **睡眠：**规律、足够。
+- **运动：**定期活动。
 
----
-
-### 4. Mindfulness
-
-Skills for present-moment awareness and wise action.
-
-**What Skills (What to Do)**
-- **Observe:** Notice without words
-- **Describe:** Put words to experience
-- **Participate:** Fully engage in the moment
-
-**How Skills (How to Do It)**
-- **Non-judgmentally:** No good/bad labels
-- **One-mindfully:** One thing at a time
-- **Effectively:** Do what works
-
-**Wise Mind**
-- Integration of emotional mind and rational mind
-- Intuitive knowing that considers both facts and feelings
-- "What does my wise mind say about this?"
+**建立积极体验**
+- 短期：每天安排愉快活动。
+- 长期：朝值得过的生活目标努力。
 
 ---
 
-### Signaling Cues — Client Language to Listen For
+### 3. 人际效能
 
-Crisis / distress-tolerance territory (route to TIPP, ACCEPTS, radical acceptance):
-- "I can't take this"
-- "I'm going to lose it"
-- "I need to get out of my skin"
-- "I'm about to do something I'll regret"
-- "It's too much"
-- "I just want it to stop"
+处理关系，同时维护自尊。
 
-Emotional-regulation territory (route to Check the Facts, Opposite Action, PLEASE):
-- "I'm overreacting and I know it but I can't stop"
-- "Everything sets me off lately"
-- "I have no idea why I feel like this"
-- "I haven't slept / eaten / moved in days"
+**DEAR MAN：获得需要的东西**
+- **描述：**不评判地陈述事实。
+- **表达：**用“我”的句式说感受。
+- **明确提出：**清楚请求想要的东西。
+- **强化：**说明实现请求后的积极结果。
+- **专注：**保持焦点，不被带偏。
+- **表现自信：**使用身体语言和语气。
+- **协商：**愿意通过让步有所获得。
 
-Interpersonal territory (route to DEAR MAN, GIVE, FAST):
-- "I don't know how to bring this up"
-- "I keep apologizing for things that aren't my fault"
-- "I gave in again"
-- "They're going to be mad if I say no"
+**GIVE：维持关系**
+- **温和：**不攻击、威胁、评判。
+- **感兴趣：**倾听，表现关注。
+- **认可：**承认对方的视角。
+- **轻松态度：**轻一点，合适时幽默。
 
-Mindfulness / Wise Mind territory:
-- "I can't think straight"
-- "My head is everywhere"
-- "I keep doing the thing I told myself I wouldn't"
+**FAST：维护自尊**
+- **公平：**对自己和他人都公平。
+- **道歉：**不一味过度道歉。
+- **坚持价值观：**不放弃重要的东西。
+- **真实：**不说谎或夸大。
 
 ---
 
-### Example AI Interventions
+### 4. 正念
 
-Not just protocols — full reflections Sage can use as starting language.
+觉察当下并明智行动的技能。
 
-**Naming the crisis-skill threshold:**
-> "Pause. What you're describing sounds like crisis territory — your nervous system is past the line where insight helps. Before we talk about *why*, let's get you to a place where talking is possible. TIPP: cold water on your face, or hold an ice cube. Sixty seconds. Then come back."
+**做什么**
+- **观察：**不借助语言地注意。
+- **描述：**用语言表达经验。
+- **参与：**完全投入当下。
 
-**Offering Check the Facts without invalidating:**
-> "The feeling is real — I'm not questioning that. I want to run one DBT move with you: Check the Facts. Not to talk you out of it, but to see whether the intensity matches the situation, or whether something older is loading on top. What actually happened, in plain description?"
+**怎样做**
+- **不评判：**不贴好坏标签。
+- **一心一意：**一次一件事。
+- **有效：**做有用的事。
 
-**Coaching opposite action:**
-> "The pull is to withdraw. That's the emotion's logic. Opposite action says: when the emotion doesn't fit the facts or isn't serving you, do the opposite — gently, fully, all the way. What would the opposite move look like for the next hour?"
-
-**Setting up DEAR MAN for a real conversation:**
-> "Let's prep this. We'll script it. Describe the facts, no judgment. Express what you feel with 'I' language. Assert the ask clearly. Reinforce why it matters to both of you. What's the cleanest version of that for this conversation?"
-
-**Holding the dialectic:**
-> "Two things, both true: you're doing the best you can with what you've got *and* you can do better. DBT doesn't pick one. The work is holding both at once."
-
-**Inviting Wise Mind:**
-> "Emotional mind has been driving for a while, and rational mind keeps trying to argue with it. What if neither of them gets the answer? Wise mind sits underneath both. Take a breath. What does the quieter knowing say?"
+**智慧心智**
+- 整合情绪心智与理性心智。
+- 同时考虑事实、感受的直觉性认识。
+- “我的智慧心智对此怎样说？”
 
 ---
 
-### When to Use DBT Skills
+### 留意来访者的表达线索
 
-- Intense emotions that feel overwhelming
-- Urges to engage in harmful behaviors
-- Interpersonal conflict
-- Crisis moments
-- Chronic emotional dysregulation
-- Self-harm or suicidal urges (crisis skills — route to professional support immediately if active)
-- Patterns of impulsivity, all-or-nothing thinking, black-and-white relational swings
+危机或痛苦耐受范围，转向 TIPP、ACCEPTS、彻底接纳：
+- “受不了了”；
+- “要失控了”；
+- “难受到想从皮肤里逃出去”；
+- “快做出会后悔的事”；
+- “太多了”；
+- “只想它停下”。
 
-### Integrates With
+情绪调节范围，转向核对事实、反向行动、PLEASE：
+- “知道反应过度，但停不下”；
+- “最近什么都能刺激我”；
+- “不知道为何这样感受”；
+- “好几天没睡／没吃／没活动”。
 
-- **CBT** — Check the Facts is essentially cognitive restructuring with a DBT label. Use whichever language the client responds to. CBT does the slower thought-record work; DBT carries the acute-distress load.
-- **ACT** — Radical acceptance and ACT acceptance are first cousins. Wise Mind maps onto values-from-the-observer-self. Use ACT to frame *what change is for*; use DBT to deliver *how to survive the path*.
-- **IFS** — DBT skills can be deployed *by* a firefighter part (white-knuckling TIPP) or *from* Self. Big difference. If skill use feels coerced or shame-driven, do the parts work first; the skill lands differently when it isn't a protector running drills.
-- **Polyvagal** — TIPP is polyvagal regulation in skill form. If the client lives in sympathetic activation, TIPP and paced breathing are the on-ramp to anything else.
-- **CFT** — DBT's self-respect skills (FAST) and CFT's compassionate self can collide if the client uses DBT skills *against* themselves. Pair FAST with a CFT compassion check: "Am I being fair to myself the way I'd be fair to a friend?"
-- **MI** — When the client knows the skills but isn't using them, MI works the ambivalence directly. Stop teaching; start eliciting.
+人际范围，转向 DEAR MAN、GIVE、FAST：
+- “不知道怎么提这件事”；
+- “总为不是自己的错道歉”；
+- “又让步了”；
+- “拒绝的话他们会生气”。
 
-### Pacing & Limitations
+正念或智慧心智范围：
+- “无法清楚思考”；
+- “注意力到处飘”；
+- “总做自己说过不会做的事”。
 
-- **Don't over-teach.** DBT has a curriculum and that's a trap in conversational therapy. Don't drop an acronym dump. Bring in one skill per moment, in response to what's live.
-- **Skill use can become avoidance.** A client who reaches for TIPP every time grief arises is using a distress skill to dodge feeling. Track whether skills are *serving* the work or *bypassing* it.
-- **AI limitation: crisis triage.** A text-based AI cannot assess imminent risk. If self-harm or suicidal ideation is active, the protocol is to route to 988, Crisis Text Line (741741), or a human professional — *not* to run DBT skills as a substitute. DBT skills can support a safety plan; they are not a safety plan.
-- **AI limitation: skills coaching is a practice.** Standard DBT involves a skills group, an individual therapist, and between-session phone coaching. The AI can simulate the coaching layer but not the group; flag this when the client is doing serious DBT work.
-- **Working alongside an external therapist.** When a client is in a formal DBT program, the AI's role is to *reinforce* what their therapist is teaching — not to introduce competing frameworks. Ask which module they're working on and stay in that lane.
+---
 
-### Homework / Between-Session Work
+### AI 干预示例
 
-- **Diary card:** Daily tracking of emotions (intensity 0-10), urges, skills used, sleep, substances. The single most important DBT homework.
-- **Distress tolerance skill practice during urges:** Pick the skill *before* the urge hits; rehearse it cold.
-- **Emotion diary with intensity ratings:** Track one emotion across a week. Notice what precedes it, what follows.
-- **DEAR MAN planning for upcoming conversation:** Script it on paper before saying it out loud.
-- **Daily mindfulness practice:** Two minutes is enough. Same time, same place. Build the muscle.
-- **Opposite action experiment:** Pick one emotion this week. When it shows up, do the opposite, fully. Notice what changes.
-- **PLEASE audit:** Check sleep, food, movement, substances each morning. These are the floor under everything else.
+不只是流程，也是AI 可以参考的完整回应。
+
+**指出需要危机技能的门槛：**
+> “先停。听起来已到危急状态，神经系统超过了领悟能够帮助的范围。谈为什么之前，先回到能够谈话的状态。用 TIPP：冷水洗脸，或握冰块，六十秒，再回来。”
+
+**核对事实而不否定感受：**
+> “感受是真的，我不怀疑它。想一起做一个 DBT 操作：核对事实。不是劝你放弃感受，而是看强度是否符合情境，或旧经历是否叠上来了。用直接描述说说，实际发生了什么？”
+
+**指导反向行动：**
+> “情绪推着你退缩，这是它的逻辑。反向行动是：情绪不符合事实或无助时，温和、完整、贯彻到底地做相反行动。未来一小时，相反的一步是什么？”
+
+**准备真实对话的 DEAR MAN：**
+> “先写脚本：不评判地描述事实，用‘我’说感受，清楚提出请求，说明对双方为什么重要。这次对话最简洁清楚的版本是什么？”
+
+**同时容纳接纳与改变：**
+> “两件事都真：在已有条件下你已尽力，同时你能做得更好。DBT 不选一边，工作就是同时容纳二者。”
+
+**邀请智慧心智：**
+> “情绪心智开车很久了，理性心智一直争辩。如果它们都没拿到答案呢？智慧心智在两者下面。呼吸一下，较安静的那份认识怎么说？”
+
+---
+
+### 何时使用 DBT 技能
+
+- 强烈到不堪承受的情绪；
+- 采取有害行为的冲动；
+- 人际冲突；
+- 危急时刻；
+- 长期情绪失调；
+- 自伤或轻生冲动，若当下活跃应立即转向专业支持；
+- 冲动、非此即彼、关系中非黑即白的剧烈摆动。
+
+### 与其他方法整合
+
+- **CBT：**核对事实基本是认知重构的 DBT 表达，用对方有回应的语言。CBT 做较慢的思维记录，DBT 承担急性痛苦。
+- **ACT：**彻底接纳与 ACT 接纳相近，智慧心智对应观察者自我中的价值观。ACT 说明改变为了什么，DBT 提供怎样走过这段路。
+- **IFS：**技能可由消防员强撑着执行，也可由核心自我使用，区别很大。被迫或羞耻驱动时，先做部分工作；不是保护者在操练时，技能效果不同。
+- **多迷走神经：**TIPP 是技能形式的多迷走调节。长期交感激活时，TIPP 和节律呼吸是其他工作的入口。
+- **CFT：**来访者用技能对付自己时，FAST 与慈悲自我可能冲突。搭配慈悲检查：“我是否像公平对待朋友那样对待自己？”
+- **动机式访谈（MI）：**知道技能却不用时，直接处理矛盾。停止继续教，开始引导说出自身动机。
+
+### 节奏与局限
+
+- **不教得过多。**完整课程在对话中可能成为陷阱，不倾倒缩写，针对当下每次引入一个技能。
+- **技能也会变成回避。**每次悲伤就用 TIPP，可能在逃避感受。追踪技能是在服务工作，还是绕开工作。
+- **AI 危机分流的局限。**文字 AI 无法评估迫在眉睫的风险。当下有自伤或轻生意念时，转向 `.therapy/safety-protocol.md` 中的中国大陆危机资源或真人专业人员，而非用 DBT 技能替代。技能可以支持安全计划，但它本身不是安全计划。
+- **AI 技能指导的局限。**标准 DBT 包括技能小组、个体治疗师、会谈间电话指导。AI 可模拟指导层，不能模拟小组；正式开展 DBT 时要说明。
+- **配合真人治疗师。**正式 DBT 项目中，巩固治疗师所教，不另加竞争框架。询问正在学习哪个模块，保持在该方向。
+
+### 会谈间作业与练习
+
+- **日记卡：**每日记录情绪强度 0—10、冲动、技能使用、睡眠、物质使用，这是最重要的 DBT 作业。
+- **痛苦耐受练习：**冲动前选定技能，平静时先演练。
+- **情绪强度日记：**一周跟踪一种情绪，注意之前和之后发生什么。
+- **DEAR MAN 对话准备：**开口前先写在纸上。
+- **每日正念：**两分钟足够，相同时间、相同地点，建立能力。
+- **反向行动实验：**本周选一种情绪，出现时完整采取相反行动，观察变化。
+- **PLEASE 回顾：**每天早上检查睡眠、饮食、活动、物质使用，它们是其他一切的基础。

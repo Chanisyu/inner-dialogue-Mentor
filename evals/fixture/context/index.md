@@ -1,62 +1,62 @@
 <!-- version: 1.0.0 -->
-# Context Index
+# 背景资料索引
 
-*This file routes to the subject-level context library. The therapist's protocol for reading, trusting, creating, and updating these files is defined in `CLAUDE.md`.*
+*本文件指向按人物、地点、概念和事件分类的资料库。读取、信任、创建和更新规则见 `CLAUDE.md`。*
 
 ---
 
-## Entry format
+## 条目格式
 
 ```
-- **Subject Name** (`subfolder/slug.md`) — short synthesis. **Active (YYYY-MM-DD)**
+- **主题名称** (`subfolder/slug.md`) — 一行摘要。**Active (YYYY-MM-DD)**
 ```
 
-- The subject name and the relative path to the subject file are required.
-- The synthesis is one line. Anything longer lives in the subject file itself.
-- **Flags are markers**, written in bold at the end of the line. The format permits multiple flag names — `**Active (YYYY-MM-DD)**`, `**Core**`, `**Provisional (YYYY-MM-DD)**`, or others. Their semantics — what each flag means, when entries gain or lose a flag, how flagged entries should be handled at session start — are defined in `CLAUDE.md`. The date in `**Active (YYYY-MM-DD)**` and `**Provisional (YYYY-MM-DD)**` is a stable marker of when the flag was last refreshed or distilled; entries without a flag are inactive by default.
+- 必须有主题名称和相对文件路径。
+- 摘要只占一行，较长内容写入主题文件。
+- **标记写在行末并加粗。**可包括 `**Active (YYYY-MM-DD)**`、`**Core**`、`**Provisional (YYYY-MM-DD)**` 等，保留英文标志。含义、增减时机和启动时处理方法见 `CLAUDE.md`。日期表示最近刷新或提炼标记的时间；没有标记的条目默认不活跃。
 
 ---
 
-## People
+## 人物
 
-*Recurring people in the client's life: partners, family, friends, ex-partners, colleagues, clinicians.*
+*反复出现在生活中的伴侣、家人、朋友、前任、同事、临床专业人员。*
 
-<!-- Example (delete when you add real entries):
-- **Example Friend** (`people/example-friend.md`) — close friend; recent move abroad. **Active (YYYY-MM-DD)**
+<!-- 添加真实条目时删除示例：
+- **示例朋友** (`people/example-friend.md`) — 亲近朋友，最近移居国外。**Active (YYYY-MM-DD)**
 -->
 
 ---
 
-## Places
+## 地点
 
-*Specific locations carrying significance: a home, a workplace, a city, a clinical setting, a meaningful venue.*
+*有意义的住处、工作地点、城市、临床场所或其他地点。*
 
-<!-- Example (delete when you add real entries):
-- **The Home Office** (`places/home-office.md`) — workspace; site of work-life boundary tension. **Active (YYYY-MM-DD)**
+<!-- 添加真实条目时删除示例：
+- **家庭办公室** (`places/home-office.md`) — 工作空间，涉及工作与生活界限。**Active (YYYY-MM-DD)**
 -->
 
 ---
 
-## Concepts
+## 概念
 
-*Recurring patterns, core beliefs, formative memories, or therapeutic threads that surface across sessions.*
+*跨次出现的模式、核心信念、成长记忆和咨询线索。*
 
-<!-- Example (delete when you add real entries):
-- **The Perfectionism Pattern** (`concepts/perfectionism-pattern.md`) — "I need to do it perfectly or not at all"; surfaced in three sessions. **Core**
+<!-- 添加真实条目时删除示例：
+- **完美主义模式** (`concepts/perfectionism-pattern.md`) — “要么完美，要么不做”，已在三次会谈出现。**Core**
 -->
 
 ---
 
-## Events
+## 事件
 
-*Time-specific occurrences with a date: appointments, meetings, difficult conversations, deadlines, social events. Files in `events/` use `YYYY-MM-DD-slug.md` so dates are visible at a glance.*
+*有日期的预约、会议、困难谈话、截止日期、社交活动。文件用 `YYYY-MM-DD-slug.md` 命名，方便看日期。*
 
-<!-- Example (delete when you add real entries):
-- **Example Appointment (YYYY-MM-DD)** (`events/2026-01-15-example.md`) — YYYY-MM-DD at 14:00 local. **Active (YYYY-MM-DD)**
+<!-- 添加真实条目时删除示例：
+- **示例预约（YYYY-MM-DD）** (`events/2026-01-15-example.md`) — 当地时间 YYYY-MM-DD 14:00。**Active (YYYY-MM-DD)**
 -->
 
 ---
 
-## Subject file format
+## 主题文件格式
 
-No rigid template. A subject file is whatever would help understand that subject next session — typically some mix of: who/what they are, history, current status, open threads, patterns observed, sensitivities, dates of significant developments.
+不设僵硬模板。写下有助于下次理解该主题的内容，通常包括身份、历史、近况、未完成线索、观察到的模式、敏感点、重要变化日期。

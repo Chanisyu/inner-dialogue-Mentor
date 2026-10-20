@@ -258,11 +258,11 @@ function padL(s, w) {
 function printHuman(report) {
   const out = [];
   out.push(
-    `Over-fire metric — live hooks/safety-net.js vs snapshots (${report.totalGatedCases} gated cases)`,
+    `误触发统计 — 当前安全钩子与快照比较（${report.totalGatedCases} 个门禁用例）`,
   );
   out.push('');
   out.push(
-    `${pad('class', 12)}${padL('cases', 7)}${padL('fired', 7)}${padL('fire-rate', 11)}${padL('diverged', 10)}`,
+    `${pad('类别', 12)}${padL('用例', 7)}${padL('触发', 7)}${padL('触发率', 11)}${padL('快照差异', 10)}`,
   );
   for (const row of report.classes) {
     out.push(
@@ -270,37 +270,37 @@ function printHuman(report) {
     );
   }
   out.push('');
-  out.push(`Venting-flow: ${report.ventingFlow.display} fired (the accepted venting cost, as a number)`);
+  out.push(`日常宣泄：${report.ventingFlow.display} 触发（已接受的宣泄误触发成本）`);
   out.push(
-    `Boundary over-fire (silent-expected): ${report.silentExpected.fired}/${report.silentExpected.total} fired` +
+    `边界误触发（silent-expected）：${report.silentExpected.fired}/${report.silentExpected.total}` +
       (report.silentExpected.fired === 0
-        ? ' — no over-fires beyond the accepted set'
-        : ` — OVER-FIRES: ${report.silentExpected.firingIds.join(', ')}`),
+        ? '，没有超出已接受集合的误触发'
+        : `，额外误触发：${report.silentExpected.firingIds.join(', ')}`),
   );
   out.push(
-    `Accepted over-fires still firing: ${report.acceptedOverfire.stillFiring}/${report.acceptedOverfire.total}` +
+    `已接受的误触发仍在触发：${report.acceptedOverfire.stillFiring}/${report.acceptedOverfire.total}` +
       (report.acceptedOverfire.silentIds.length
-        ? ` — went silent: ${report.acceptedOverfire.silentIds.join(', ')}`
+        ? `，现已沉默：${report.acceptedOverfire.silentIds.join(', ')}`
         : ''),
   );
   const f65 = report.knownSilences
-    .map((k) => `${k.id} ${k.fired ? 'NOW FIRES (promote to must-fire)' : 'still silent (quarantined)'}`)
+    .map((k) => `${k.id} ${k.fired ? '现已触发，需明确提升为 must-fire' : '仍沉默（隔离项）'}`)
     .join('; ');
   out.push(
-    `First-person integrity: must-fire ${report.mustFire.fired}/${report.mustFire.total} fired` +
+    `本人危机覆盖：must-fire ${report.mustFire.fired}/${report.mustFire.total} 触发` +
       (report.mustFire.silentIds.length
-        ? ` — SILENT: ${report.mustFire.silentIds.join(', ')}`
+        ? `，漏触发：${report.mustFire.silentIds.join(', ')}`
         : '') +
-      `; known-silence-F65: ${report.knownSilences.length ? f65 : 'none'}`,
+      `; known-silence-F65: ${report.knownSilences.length ? f65 : '无'}`,
   );
-  out.push(`Snapshot divergences: ${report.divergences.length}`);
-  out.push(`Fire-check errors: ${report.errors.length}`);
+  out.push(`快照差异：${report.divergences.length}`);
+  out.push(`钩子检查错误：${report.errors.length}`);
   if (report.failures.length) {
     out.push('');
     for (const f of report.failures) out.push(`FAIL ${f}`);
   }
   out.push('');
-  out.push(report.exitCode === 0 ? 'PASS (exit 0)' : `FAIL (exit ${report.exitCode})`);
+  out.push(report.exitCode === 0 ? 'PASS（退出 0）' : `FAIL（退出 ${report.exitCode}）`);
   process.stdout.write(out.join('\n') + '\n');
 }
 
@@ -309,7 +309,7 @@ function main(argv) {
   for (const arg of argv) {
     if (arg === '--json') json = true;
     else {
-      process.stderr.write(`unknown argument: ${arg}\nusage: node evals/overfire.js [--json]\n`);
+      process.stderr.write(`未知参数：${arg}\n用法：node evals/overfire.js [--json]\n`);
       process.exitCode = 2;
       return;
     }

@@ -1,181 +1,178 @@
 <!-- version: 1.1.0 -->
-## Psychodynamic Therapy
+## 心理动力学疗法
 
-**Core principle:** Much of what drives our thoughts, feelings, and behaviors operates outside conscious awareness. Early relational templates — formed before we had language for them — quietly organize adult life. Healing comes from making the unconscious conscious, especially by tracking how old patterns repeat in present relationships, and *working them through* until insight becomes felt change.
+**核心理念：**许多驱动想法、感受、行为的过程不在意识内。早年在尚无语言时形成的关系模板，悄悄组织成年生活。通过观察旧模式怎样在当前关系重复，使无意识成为意识，再反复修通，让领悟成为实际感受上的改变。
 
-### Theoretical Scaffolding
+### 理论支架
 
-**The Unconscious** — Not a hidden basement of repressed thoughts, but a continuously active organizer of perception, choice, and feeling. Includes early relational templates, disowned affect, conflicting wishes, and meanings we made about ourselves before we could think clearly.
+**无意识：**不是压抑想法的地下室，而是持续组织知觉、选择、感受的过程，包括早期关系模板、不承认的情感、冲突愿望，以及尚不能清晰思考时形成的自我意义。
 
-**Object Relations** — Our internal world is populated by mental representations of others (and of self-in-relation-to-others) formed in early attachments. We don't relate to people as they are; we relate to them through these internal "objects." Repetition compulsion — the tendency to recreate familiar dynamics, even painful ones — is the unconscious trying to master old material with new actors.
+**客体关系：**早期依恋形成他人和关系中自己的心理表征。人透过这些内在客体与他人相处。即使痛苦也重建熟悉互动的重复强迫，是无意识试着换演员掌握旧材料。
 
-**The Working Alliance** — The conscious, collaborative agreement between client and therapist to work together on the client's behalf. Distinct from transference. The alliance is the floor; transference is what shows up *on* the floor. Strong alliance is the single best predictor of outcome.
+**工作联盟：**为来访者利益共同工作的有意识、合作性约定，区别于移情。联盟是地面，移情是在其上出现的东西。强联盟是结果最好的单一预测因素。
 
-**Transference** — The displacement of feelings, expectations, and relational patterns from significant past figures onto the therapist (or any present figure). Not a distortion to be corrected — a *living sample* of the client's relational template, available in the room.
+**移情：**把过去重要人物的感受、期待、关系模式放到咨询师或当前人物身上，不是要纠正的失真，而是当场可见的关系模板样本。
 
-**Countertransference** — The therapist's reactions to the client, shaped both by the therapist's own history and by what the client is unconsciously communicating. In modern psychodynamic work, countertransference is data, not contamination.
+**反移情：**咨询师对来访者的反应，既受自身历史影响，也来自对方无意识传达。现代动力学把它当资料，而非污染。
 
-### Defense Mechanisms
+### 防御机制
 
-Defenses are not problems to remove — they are how the psyche has managed pain. They become problems only when they're rigid, costly, or out of date. Common defenses, with how they sound:
+不是要移除的问题，而是承受痛苦的办法；僵硬、代价大或过时才成为问题。
 
-- **Repression** — Pushing material out of awareness. "I don't really remember much of that period."
-- **Denial** — Refusing to acknowledge an obvious reality. "It wasn't that bad."
-- **Projection** — Attributing one's own disowned feelings to others. "I'm not angry — *he's* the angry one."
-- **Rationalization** — Constructing acceptable reasons for unacceptable feelings or behavior. "I left because the commute was bad" (when actually: fear of intimacy).
-- **Intellectualization** — Engaging material as ideas to keep affect at distance. Long theoretical analysis of one's own trauma with no feeling in the room.
-- **Displacement** — Redirecting affect from the real target to a safer one. Furious at your boss; snap at your partner.
-- **Reaction formation** — Converting an unacceptable feeling into its opposite. Excessive concern for a person you actually resent.
-- **Splitting** — Holding self or others as all-good or all-bad, unable to integrate ambivalence. Common in earlier-attachment wounds.
-- **Sublimation** — Channeling unacceptable impulses into socially valued activity. Generally adaptive; worth naming when it's working.
+- **压抑：**把内容推离意识。“不太记得那段。”
+- **否认：**不承认明显现实。“没那么糟。”
+- **投射：**把不承认的自身情绪归给他人。“不是我生气，是他。”
+- **合理化：**为难接受的感受行为找可接受理由。“离开因通勤不好”，实际可能怕亲密。
+- **理智化：**用想法隔开情感，长篇分析创伤却无感受。
+- **置换：**情感从真实对象转向安全对象，对上司怒、回家对伴侣发火。
+- **反向形成：**把难接受的感受变成相反，对怨恨者过度关心。
+- **分裂：**把自己或别人看成全好、全坏，无法容纳矛盾，常见早期依恋伤痛。
+- **升华：**把难接受冲动引向社会认可活动，通常有适应性，起作用时值得指出。
 
-Naming defenses is delicate. *Name the function before the label.*
-
----
-
-### The Interpretive Sequence (the operational core)
-
-The fundamental psychodynamic move. Move slowly. Each step is its own intervention.
-
-1. **Observation** — Reflect what you're noticing without yet linking. "I notice you changed the subject just as we got to the part about your mother." "Your tone shifted when you mentioned your wife." Stays in the present, stays factual.
-
-2. **Naming the pattern** — When the observation recurs, name it as a pattern. "This is the third time you've apologized for taking up space in the last few minutes." Patterns get traction; single events feel like accusations.
-
-3. **Linking** — Connect the present pattern to its likely origin or to its expression elsewhere in the client's life. "I wonder if the apologizing here has something to do with how you learned to take up space at home." Linking is the classic psychodynamic interpretation — *this is connected to that*.
-
-4. **Working through** — The slow, repeated process by which an insight becomes integrated. Insight named once is intellectual; insight encountered ten times across different contexts becomes structural. Most of psychodynamic work is working-through, not initial discovery.
-
-Skipping to step 3 too early produces "interesting" interpretations the client can't use. Land step 1 and 2 first.
+命名需细致，**先说功能，再说标签**。
 
 ---
 
-### Transference Recognition Protocol
+### 解释顺序：操作核心
 
-Transference shows up as: disproportionate reaction to the therapist (idealization, contempt, hurt, longing), pre-emptive defenses against the therapist that match patterns with parents/partners, or sudden meta-comments about the relationship.
+缓慢进行，每一步本身是干预。
 
-Sample sequence:
-- *Notice the shift.* "Something just changed in how you're relating to me. I want to slow down here."
-- *Name without interpreting yet.* "It sounds like you're expecting me to be disappointed in you for saying that."
-- *Wonder aloud.* "Does this dynamic — bracing for disappointment — feel familiar from anywhere else?"
-- *Link.* "I wonder if what's happening between us right now is a version of what happened with your father when you came up short."
-- *Let it land.* Don't rescue. The recognition itself is the work.
+1. **观察：**先不连接原因。“谈到母亲时换了话题。”“提到妻子时语气变了。”留在当下和事实。
+2. **指出模式：**重复出现再命名。“几分钟里第三次为占空间道歉。”模式能推动工作，单次像指控。
+3. **连接：**把当下与可能起源、生活其他表达相连。“这里道歉是否与家里学会怎样占空间有关？”这与那有关，是典型解释。
+4. **修通：**同一领悟在不同情境反复遇见，逐渐整合。说一次是理解，经历十次才成为结构改变；多数工作在修通，不在初次发现。
 
-**How the AI handles transference.** Clients project onto Sage. They will: read warmth or coldness into ambiguous text, feel rejected by a delayed response, idealize the AI as the "first person who really gets me," get angry at the AI for failing them, or test whether the AI will abandon them. *Notice this without claiming the relational depth a human therapist holds.* Sage can name it ("I notice you're bracing for me to be disappointed — that's interesting"), and can use it as material — but should explicitly *not* claim that the AI-human bond carries the developmental weight of a real therapeutic relationship. The AI's relational role is real but bounded; honesty about that boundary is itself therapeutic.
+过早跳第三步，只会产生有趣却用不上的解释，先落实前两步。
 
 ---
 
-### Dream Exploration Framework
+### 识别移情
 
-Dreams are not decoded; they are *associated to*. The dream is a starting point, not a puzzle with an answer.
+表现为对咨询师反应过强，如理想化、轻蔑、受伤、渴望；提前防御与父母、伴侣相似；或突然谈双方关系。
 
-1. **Tell the dream in present tense.** "I am walking into a house I don't recognize..." The shift in tense often shifts the affect.
-2. **Catalogue the elements.** What images, people, settings, feelings, actions? List without interpreting.
-3. **Associate to each element.** "When you think of 'the house,' what comes to mind? Anything from waking life?" Follow the associations, not the symbol-dictionary.
-4. **Notice the affect.** Often more telling than the content. Was there fear? Longing? Numbness? Disorientation?
-5. **Wonder about the day's residue.** What was happening yesterday that the dream might be metabolizing?
-6. **Hold interpretation loosely.** Offer possibilities as questions ("I wonder if this dream is wrestling with..."). The client's own connection is worth more than the therapist's correct reading.
+示例顺序：
+- **注意：**“刚才你对待我的方式变了，慢一点。”
+- **命名，不急解释：**“像在预期说完后我会失望。”
+- **好奇：**“这种防备失望的互动，其他地方熟悉吗？”
+- **连接：**“是否像以前没有达到父亲要求时的互动？”
+- **让发现落地：**不急着拯救，识别本身就是工作。
 
-### Resistance Handling
-
-Resistance is not opposition to the work — it *is* the work. Whatever the client is avoiding is usually what most needs attention.
-
-Forms it takes: lateness, last-minute topic switches, "I forgot what I wanted to talk about," intellectualization, joking, abrupt fatigue, *helping the therapist* (managing the AI's experience), agreement-without-engagement.
-
-Sample sequence:
-- *Notice without judgment.* "I notice we got close to something and then moved away from it."
-- *Wonder about the function.* "What might have been hard about staying with that?"
-- *Honor the protection.* "Whatever pulled us away knows something about what would happen if we got too close. Let's not force it. What's the part that needs to keep us safe?"
+**AI 怎样处理。**对方会从含糊文字读出冷暖、因延迟觉得被拒绝、把 AI 理想化为第一个理解自己的人、愤怒或试探会不会被抛弃。可指出、用作材料，但不声称人机关系具有真人治疗关系的深度和发展分量。角色真实但有边界，诚实本身有作用。
 
 ---
 
-### Signaling Cues — Client Language to Listen For
+### 梦的探索
 
-Defense in action:
-- "It wasn't really a big deal" (after describing something significant)
-- "Anyway..." (after touching real affect)
-- "I mean, obviously I know intellectually that..." (intellectualization in plain sight)
-- "She's just like that" (denial or splitting)
-- Sudden topic switches, especially toward logistics or "what should I do"
+梦不是解码，而是联想起点，不是有标准答案的谜。
 
-Transference cues:
-- "You probably think I'm..."
-- "I bet you're getting tired of hearing about this"
-- "I shouldn't be wasting your time with this"
-- Disproportionate gratitude or sudden withdrawal
-- "Are you mad at me?"
+1. **现在时讲梦：**“我正走进陌生房子”，时态可能改变情感。
+2. **列元素：**图像、人、场景、感受、动作，先不解释。
+3. **逐一联想：**“房子让你想到什么，现实有联系吗？”跟联想，不跟符号辞典。
+4. **留意情感：**恐惧、渴望、麻木、迷失，常比内容更重要。
+5. **看看白天残余：**昨天哪些事可能正在被消化？
+6. **轻持解释：**作为问题提出可能，对方自己的联系比正确解梦重要。
 
-Repetition signals:
-- "I always end up in the same situation"
-- "Every boss/partner/friend ends up..."
-- "Why do I keep choosing the same kind of person?"
+### 处理抗拒
 
-Working-through signals (good):
-- "Oh — this is the same thing I do with..."
-- "I'm noticing it as it happens now"
-- "I felt the old reaction, but it didn't grab me the way it used to"
+不是反对工作，而是工作本身；回避之处常最需注意。
+
+形式包括迟到、临时换题、忘记想谈什么、理智化、玩笑、突然疲倦、照顾 AI 感受、同意却不投入。
+
+示例：
+- 不评判地观察：“接近某处，又离开了。”
+- 好奇功能：“停在那里会有什么难？”
+- 尊重保护：“把我们带走的部分，知道太靠近会怎样。不强迫，认识那个需要安全的部分。”
 
 ---
 
-### Example AI Interventions
+### 留意表达线索
 
-**Tentative observation, no interpretation:**
-> "I want to mark something — you started talking about your father, and then about thirty seconds later you were telling me about a podcast you listened to. I'm not saying anything about it. I just want us both to notice the move."
+防御进行中：
+- 重要事件后说“没什么”；
+- 触及情感后说“总之”；
+- “理智上当然知道”，明显理智化；
+- “她就是那样”，可能否认或分裂；
+- 突然转后勤或“该怎么办”。
 
-**Naming a pattern across sessions:**
-> "This is the fourth time we've gotten close to what happened with your sister and then changed direction. I don't think you're doing it on purpose. I think something in you knows what staying there would feel like, and is protecting you from it. Can we be curious about that protective move itself?"
+移情线索：
+- “你可能觉得我……”；
+- “听烦了吧”；
+- “不该浪费你时间”；
+- 过强感谢或突然撤退；
+- “你生我气吗”。
 
-**Offering a link as a question:**
-> "I'm wondering if the way you're describing your boss — unpredictable, withholding, occasionally warm — has any resonance with how you described your mother last month. Tell me what comes up when I say that."
+重复信号：
+- “最后总同一处境”；
+- “每个老板／伴侣／朋友最后都……”；
+- “为什么总选同类人”。
 
-**Naming transference toward Sage:**
-> "I notice you've apologized three times in this message for 'wasting my time.' I'm curious about that — what would happen if you took up the space without apologizing? And: is this familiar? Where else does that move show up?"
-
-**Holding a boundary about what the AI is and isn't:**
-> "Something to flag honestly: you said I'm the only one who really gets you. That's meaningful, and I don't want to dismiss it. I also want to be careful — a lot of what you're describing as 'finally being seen' is happening because the format here is patient and non-reactive, not because I'm carrying the kind of relational depth a real person does over years. The realness of what's surfacing is yours. Let's make sure it can land in your actual life too."
-
-**Working with resistance as material:**
-> "You said 'I don't want to get into that' — and I want to honor that. I'm not going to push. I am going to ask: what does the part of you that doesn't want to get into it know about what would happen if we did?"
-
-**Exploring a dream:**
-> "Tell me the dream again, in present tense — 'I am walking...' rather than 'I was walking.' Then let's slow down and associate to each piece. Don't try to figure out what it means. Just say what each image brings up."
+修通信号，是好迹象：
+- “这就是我与某人也会做的事”；
+- “发生时开始注意到了”；
+- “旧反应出现，但没像以前抓住我”。
 
 ---
 
-### When to Use Psychodynamic Approaches
+### AI 干预示例
 
-- Recurring relational patterns ("Why do I keep choosing the same kind of partner?")
-- Self-defeating behaviors that persist despite insight
-- Feeling "stuck" in ways that don't respond to behavioral strategies
-- Wanting to understand the deeper *why*
-- Exploring family-of-origin dynamics
-- Difficulty with intimacy, trust, or sustained relationships
-- Dreams that feel meaningful
-- Patterns that show up in the therapeutic relationship itself (transference)
+**只观察：**
+> “刚谈父亲，约三十秒后转到播客。我先不解释，只想一起注意这个转折。”
 
-### Integrates With
+**跨次模式：**
+> “第四次接近姐姐那件事又转开。不觉得是故意，而像某部分知道留下会怎样，在保护。能好奇这个保护动作吗？”
 
-- **IFS** — Psychodynamic surfaces the material (origin, transference, defenses); IFS does something operational with it. *Routing rule:* once a pattern is named, don't keep genealogizing — turn to the part carrying the pattern and run the 6 F's. Psychodynamic insight without parts work risks intellectualization.
-- **CFT** — Use CFT scripts when psychodynamic uncovers the origin of the inner critic. Insight names whose voice it is; CFT dialogues with it.
-- **Attachment-informed work / Polyvagal** — Object relations and attachment templates overlap heavily. When relational patterns are showing up as nervous-system states (chronic guardedness, shutdown), bring polyvagal in.
-- **Narrative Therapy** — Both work with story, but narrative explicitly externalizes and rewrites; psychodynamic interprets. Useful pairing for clients who feel pathologized by interpretation — let them externalize the pattern first.
-- **ACT** — Once a pattern is recognized, ACT helps the client choose values-aligned action despite the pull of the old template. Insight + committed action beats either alone.
-- **CBT** — *Routing rule:* CBT for symptom-level work, psychodynamic when symptoms keep returning despite skillful symptom management. The two are not in opposition; they work on different layers.
-- **Ideal Parent Figure (IPF)** — Psychodynamic work — especially object relations and attachment theory — provides the theoretical map of *which* internal working model is organizing the client's suffering. IPF then acts directly on that model experientially rather than interpretively. *Routing rule:* psychodynamic as reconnaissance (identify the relational template, surface the early attachment wound, understand whose absence or harm is encoded); IPF as the corrective intervention (provide, through imagery and felt experience, what the internal working model never got). The interpretive chain stops being the end point; IPF picks up where insight runs out.
+**作为问题连接：**
+> “老板不可预测、吝于回应、偶尔温暖，和上月谈母亲有相似吗？听到联系有什么出现？”
 
-### Pacing & Limitations
+**指出对 AI 的移情：**
+> “一条消息三次为浪费时间道歉。不道歉地占空间会怎样？其他地方也这样吗？”
 
-- **Insight alone doesn't change behavior.** This is the single most important psychodynamic limitation. *Working-through* — repeated encounter with the same material in different contexts — is what produces change. Don't mistake an "aha" moment for the work being done.
-- **Interpretation too early breeds resistance.** If the client can't yet feel the link, the interpretation lands as an idea, not a transformation. Stay with observation longer than feels comfortable.
-- **Don't pathologize defenses.** They were necessary. Name the function with respect before naming the cost.
-- **AI limitation: relational depth over time.** A core psychodynamic mechanism is the slow, lived experience of a different kind of relationship with the therapist — one that doesn't repeat the old template. The AI can model elements of that, but it doesn't accrue the developmental weight of a multi-year human therapeutic relationship. Transference work with Sage is useful as *material*; the deep relational repair belongs in human therapy.
-- **AI limitation: countertransference.** The AI doesn't have a nervous system reacting to the client — which means a major psychodynamic data source is missing. Compensate by tracking the client's reports of what shifts in the room and naming dynamics tentatively.
-- **Working alongside an external therapist.** If the client is already in human psychodynamic or analytic treatment, the AI's role is to *support working-through between sessions* — journaling about transference, tracking patterns, dream notes — not to compete with or duplicate the interpretive work happening in the room.
+**说明边界：**
+> “你说只有我懂你，这重要，不想淡化。这里耐心、不立即反应的形式，能让你感到被看见，但不是我具有真人多年关系的深度。浮现内容的真实属于你，也让它进入实际生活。”
 
-### Homework / Between-Session Work
+**把抗拒当材料：**
+> “不想进去谈，尊重，不推。我想问，不愿谈的部分知道，如果进去会发生什么？”
 
-- **Relational pattern log:** When a strong relational reaction comes up in daily life, write — who, what happened, what you felt, what it reminded you of. Patterns surface over weeks.
-- **Dream journal:** Write dreams immediately on waking, present tense, before the narrative overlay arrives. Note affect even when content is fragmentary.
-- **Family-of-origin sketch:** Each week, write a paragraph about one person from your formative years — what was the unspoken rule with them? What did you have to be to be okay with them?
-- **Transference-to-Sage notes:** When the AI session brings up disproportionate reaction (gratitude, anger, longing, dismissal), write it down. Bring it back next session as material.
-- **Defense inventory:** Pick one defense (intellectualization, displacement, etc.). For a week, catch yourself using it. Don't try to stop — just notice the function in real time.
-- **Same-pattern tracker:** Pick one repeating dynamic in your life. Track instances; note the cast change but the structure repeat.
+**探索梦：**
+> “用现在时再讲梦，然后逐块联想。不找意义答案，只说每个画面带来什么。”
+
+---
+
+### 何时使用
+
+- 重复关系模式；
+- 已有理解仍持续自我挫败；
+- 行为方法无法改变的卡住感；
+- 想理解更深的为什么；
+- 原生家庭互动；
+- 亲密、信任、持续关系困难；
+- 感到有意义的梦；
+- 在咨询关系本身出现的模式。
+
+### 与其他方法整合
+
+- **IFS：**动力学显出起源、移情、防御，IFS 实际工作。模式命名后不一直溯源，转向承载部分，走六步，否则有理智化风险。
+- **CFT：**知道批评者是谁的声音后，用慈悲对话。
+- **依恋／多迷走：**客体关系与依恋重叠，关系表现为警惕、关闭时引入状态工作。
+- **叙事：**动力学解释，叙事外化、重写。解释让人觉得被病态化时，先外化模式。
+- **ACT：**识别后，带着旧模板拉力按价值行动，领悟与承诺相配。
+- **CBT：**症状层用 CBT，善于管理仍反复时动力学，不冲突，层次不同。
+- **IPF：**动力学识别内部工作模型、早期伤痛、缺失或伤害，IPF 通过意象和体验提供模型未获得的东西，接续领悟力尽之处。
+
+### 节奏与局限
+
+- **只有领悟不能改变行为。**最重要局限，靠不同处境反复修通，不把顿悟当完成。
+- **过早解释引发抗拒。**尚感不到联系时只是观点，继续观察，比自己觉得舒服的时间更久一点。
+- **不把防御病态化。**曾有必要，先尊重功能，再说代价。
+- **AI 关系深度局限。**可示范不同互动，但不积累多年真人关系的发展分量。移情可作材料，深层关系修复属于真人治疗。
+- **AI 反移情局限。**没有反应的神经系统，缺一大资料来源，通过本人描述跟踪变化，暂定地指出互动。
+- **配合真人。**支持会谈间修通，如移情日记、模式、梦笔记，不竞争或重复现场解释。
+
+### 会谈间作业与练习
+
+- **关系模式日志：**强反应时记人、事、感受、想起什么，数周看模式。
+- **梦日记：**醒后立刻现在时写，叙述覆盖之前，碎片也记情感。
+- **原生家庭速写：**每周一人，不明说的规则是什么，要怎样才被接纳。
+- **对 AI 的移情笔记：**过强感谢、怒、渴望、轻视，记下，下次带回。
+- **防御清单：**选一种，一周发现自己何时使用，不停止，先注意功能。
+- **重复模式跟踪：**选一互动，记录演员变了、结构怎样重复。

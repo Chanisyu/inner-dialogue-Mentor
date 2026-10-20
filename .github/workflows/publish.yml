@@ -1,4 +1,4 @@
-name: Publish to npm
+name: 验证与发布 npm 包
 
 on:
   push:
@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-node@v6
         with:
           node-version: '20'
-      - name: Verify package.json version matches tag
+      - name: 检查包版本与标签一致
         if: startsWith(github.ref, 'refs/tags/v')
         run: |
           PKG_VERSION=$(node -p "require('./package.json').version")
@@ -40,11 +40,14 @@ jobs:
             echo "Tag $TAG_VERSION does not match package.json version $PKG_VERSION"
             exit 1
           fi
-      - name: Run unit tests
+      - name: 运行单元测试
         run: npm test
-      - name: Run eval regression gate
+      - name: 运行评测回归检查
         run: npm run test:evals
-      - name: Smoke test CLI
+      # 中文匹配与原英文门禁分别运行，防止翻译导致其中一种语言的覆盖退化。
+      - name: 运行中文安全匹配检查
+        run: npm run test:zh-safety
+      - name: 检查 CLI 安装、诊断与更新预览
         run: |
           node bin/inner-dialogue.js --version
           node bin/inner-dialogue.js --help > /dev/null
@@ -54,7 +57,7 @@ jobs:
             --modalities cbt --json
           node bin/inner-dialogue.js doctor --path "$RUNNER_TEMP/ci-test" --json
           node bin/inner-dialogue.js update --path "$RUNNER_TEMP/ci-test" --dry-run --json
-      - name: npm pack (dry-run)
+      - name: 预览 npm 打包内容
         run: npm pack --dry-run
 
   publish:
@@ -70,10 +73,7 @@ jobs:
         with:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org'
-      # Trusted Publishing requires npm 11.5.1+ for OIDC-only publishing.
-      # Node 20 ships with npm 10.x, so upgrade before publish. Pin to the
-      # 11.x line: npm@latest is now 12.x, which requires Node >=22.22 and
-      # fails EBADENGINE on this Node 20 runner. The whole 11.x line supports
-      # Node ^20.17 and is >=11.5.1, so OIDC publishing still works.
+      # Trusted Publishing 的纯 OIDC 发布要求 npm 11.5.1 或更新版本。
+      # 此 Node 20 环境固定使用 npm 11，避免安装要求更高 Node 版本的主版本。
       - run: npm install -g npm@11
       - run: npm publish --provenance --access public

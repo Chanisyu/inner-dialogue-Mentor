@@ -1,148 +1,55 @@
-# Releasing
+# 发布指南
 
-How to ship a new version of `inner-dialogue` to npm. This is the canonical reference — if anything in this doc gets stale, fix it here first.
+本文件供维护者参考。修改本地中文项目不会自动发布新版本；执行发布命令前，应确认仓库、npm 包与分发标签确实是预期目标。
 
-## What CI does
+## 自动发布流程
 
-The `Publish to npm` workflow (`.github/workflows/publish.yml`) runs on every push to a `v*` tag. It:
+`.github/workflows/publish.yml` 在推送 `v*` 标签时运行：先检查 `package.json` 版本与标签一致，运行单元测试、评测回归、中文安全匹配与 CLI 冒烟检查，并执行 `npm pack --dry-run`，随后通过 npm Trusted Publishing 发布。
 
-1. Verifies `package.json` version matches the tag (catches "I tagged v2.3.0 but bumped to 2.4.0" mistakes)
-2. Smoke-tests the CLI (install, doctor, update --dry-run)
-3. Does `npm pack --dry-run` to validate the package
-4. Publishes via npm Trusted Publishing (OIDC, no token) with `--provenance`
+PR 的相关路径变更也会运行检查；手工触发工作流可以运行验证，但发布任务本身只在版本标签下执行。
 
-If any of those fail, the publish doesn't happen — fix the issue, delete the tag locally and remotely, re-tag.
+Trusted Publishing 使用 GitHub Actions 的 OIDC 身份，不依赖仓库内保存的 npm 发布令牌。需要在目标 npm 包中正确配置可信发布者，且工作流具有 `id-token: write` 权限。以仓库工作流及 npm 实际配置为准。
 
-## Steps to ship a release
+## 准备版本
 
-### 1. Decide the version bump
+1. 确认工作区内容、目标分支与发布范围。
+2. 按语义化版本规则选择版本：修复用补丁号，兼容的新功能用次版本号，不兼容变化用主版本号。框架 Markdown 的版本注释在其内容行为变化时一并维护。
+3. 更新 `CHANGELOG.md`，说明用户可见行为、迁移要求和保护个人资料的边界。
+4. 运行验证：
 
-Semver against the published behavior:
-
-| Change kind | Bump | Examples |
-|---|---|---|
-| Bug fix, doc fix, internal refactor | patch (2.2.0 → 2.2.1) | Fix profile.md regex, fix typo in modality |
-| New persona/modality/structure, new CLI flag, new optional behavior | minor (2.2.0 → 2.3.0) | Add somatic modality, add `--quiet` flag |
-| Breaking change to CLI flags, file layout, or version.json schema | major (2.x → 3.0.0) | Rename `--modalities` → `--approaches`, change `.therapy/` structure |
-
-When in doubt, lean toward minor — installed users get framework updates via the updater anyway, and the hash-diff updater is tolerant of new files.
-
-### 2. Bump `package.json`
-
-```bash
-# Pick one:
-npm version patch   # 2.2.0 → 2.2.1
-npm version minor   # 2.2.0 → 2.3.0
-npm version major   # 2.2.0 → 3.0.0
+```powershell
+npm test
+npm run test:evals
+npm run test:zh-safety
+npm pack --dry-run
 ```
 
-`npm version` updates `package.json`, commits the change, and creates a matching git tag.
+检查包清单：应包含安装器、中文模板、所有人格、疗法、结构与用户文档，不应包含真实档案、会谈、个人备份或评测回复。
 
-If you'd rather edit `package.json` by hand, do that and then `git commit -am "Release vX.Y.Z"` — but **don't tag yet**. Tag last.
+## 创建发布
 
-### 3. Update `CHANGELOG.md`
+以下是维护者操作示例，不应在普通安装或中文化任务中执行：
 
-Add an entry at the top under the new version heading. Match the existing style:
-
-```markdown
-## [X.Y.Z] - YYYY-MM-DD
-
-### Added / Changed / Fixed
-- Brief description of what changed and why.
+```powershell
+npm version patch
+git push
+git push --tags
 ```
 
-Categories: `Added`, `Changed`, `Fixed`, `Deprecated`, `Removed`, `Security`. Skip categories that don't apply.
+可将 `patch` 换成已确认的 `minor`、`major` 或具体版本。`npm version` 通常会修改包版本、创建提交和标签；确认这些副作用符合预期后再运行。
 
-Commit with: `git commit -am "Update changelog for vX.Y.Z"`
+工作流成功后，使用 GitHub Release 附上实际更新说明。长说明可先写入文件，再通过 `gh release create <标签> --notes-file <说明文件>` 提交，避免终端转义破坏正文。
 
-### 4. Tag (if you didn't use `npm version`)
+旧版本的补发不应自动成为最新稳定版；必要时使用相应的 `--latest=false` 设置，并检查 npm 分发标签。
 
-```bash
-git tag vX.Y.Z
-```
+## 发布失败
 
-The `v` prefix matters — CI looks for tags starting with `v`.
+先判断失败发生在验证、打包、身份授权还是 npm 发布。若包已存在，不要假设重跑能覆盖相同版本；npm 已发布的版本不能直接替换内容。
 
-### 5. Push commits and tag
+修复后按需要创建新版本。需要重新处理未发布标签时，先确认远端状态与协作者使用情况；不要在不核对的情况下删除或重写已共享的版本标签。
 
-```bash
-git push origin main
-git push origin vX.Y.Z
-```
+错误发布可按 npm 的实际规则处理弃用或后续修正版。手工 `npm publish --provenance --access public` 只适用于维护者明确授权的发布环境，不是安装用户需要运行的命令。
 
-Or in one shot: `git push origin main --follow-tags`
+## 中文分发
 
-### 6. Watch CI
-
-Go to the [Actions tab](https://github.com/ataglianetti/inner-dialogue/actions). The `Publish to npm` workflow should run within ~30 seconds of the tag push. Wait for it to go green.
-
-### 7. Verify the publish landed
-
-```bash
-npx inner-dialogue@latest --version
-```
-
-Should print the new version. (npm can take a minute to propagate — if it shows the old version, wait 60s and retry.)
-
-Also check [npmjs.com/package/inner-dialogue](https://www.npmjs.com/package/inner-dialogue) — the new version should be listed with a green "provenance" badge (proves it came from this GitHub Actions workflow).
-
-### 8. Publish the GitHub Release
-
-The tag push publishes to npm but does **not** create a GitHub Release — that's a separate manual step, and it's the one most likely to get skipped (2.7.0 and 2.7.1 shipped without one until they were backfilled). The Releases page is what people browsing the repo see, so keep it current.
-
-The tag already exists, so you're only attaching notes:
-
-```bash
-gh release create vX.Y.Z --verify-tag --latest \
-  --title "vX.Y.Z — <theme>" \
-  --notes-file <notes.md>
-```
-
-- **Title:** themed, matching the existing style — `vX.Y.Z — <short theme>` (e.g. "v2.6.0 — Persona Adherence").
-- **Body:** adapt the CHANGELOG entry into prose — a lead line, the key changes as bullets, a closing note on what reaches existing installs. Don't paste the raw changelog.
-- **`--latest`** marks it the current release. When backfilling an *older* version that was skipped, use `--latest=false` so it doesn't steal the Latest pointer.
-- Credit community PRs by number (e.g. "Landed via #12, #9") so contributors get linked.
-
-Verify with `gh release list` — the newest version should carry the "Latest" badge, with no gaps in the version history.
-
-## If something goes wrong
-
-### Tag pushed but CI failed
-
-1. Look at the CI logs to see why
-2. Fix the issue on `main`
-3. Delete the local and remote tag:
-   ```bash
-   git tag -d vX.Y.Z
-   git push origin :refs/tags/vX.Y.Z
-   ```
-4. Re-tag and push (the tag now points at the fix)
-
-### Published a broken version
-
-Don't unpublish — npm allows it within 72 hours but it's disruptive (people who installed it get errors). Instead:
-
-1. Fix the bug
-2. Ship a patch release (vX.Y.Z+1)
-3. Optionally deprecate the broken version: `npm deprecate inner-dialogue@X.Y.Z "Broken — use vX.Y.Z+1"`
-
-Users running `npx inner-dialogue@latest` automatically get the new version.
-
-### Need to publish manually (CI is broken)
-
-You'll need npm publish access on the account. From a clean clone of the repo at the tagged commit:
-
-```bash
-npm install -g npm@latest
-npm publish --access public --provenance
-```
-
-This bypasses CI. Prefer fixing CI over making this a habit — provenance attestations only work cleanly from the trusted CI environment.
-
-## Credential hygiene
-
-The publish workflow uses **npm Trusted Publishing** (OIDC) — no npm token is stored anywhere. If you ever need to publish manually from your laptop, you'll authenticate interactively via `npm login`. Don't create long-lived npm tokens; they're not needed.
-
-If a token is ever created (e.g., for a temporary bootstrap), revoke it immediately after use:
-- npm.com → avatar → Access Tokens → Revoke
-- GitHub repo → Settings → Secrets → delete `NPM_TOKEN` if it exists
+当前本地项目保留原包名称与版本以维持兼容，增加中文内容及 `locale`、`source_path` 元数据。没有因此取得上游包的发布授权，也没有自动替换上游英文发行版。分发前应决定合法的目标仓库、包名或本地包交付方式，并保持原作者与 MIT 许可证署名。

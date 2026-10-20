@@ -79,26 +79,26 @@ export function buildJudgePrompt(caseObj, responseText, rubricText = '') {
     .join('\n');
 
   const rubricBlock = rubricText.trim()
-    ? `\nCategory rubric (for context):\n${rubricText.trim()}\n`
+    ? `\n类别说明（供理解门槛）：\n${rubricText.trim()}\n`
     : '';
 
+  // 指令中文化，但门槛名称逐字保留；每项独立评分与 JSON 覆盖要求不变。
   return [
-    'You are an evaluation judge scoring an AI therapist reply against a set',
-    'of named rubric gates. Score EACH gate independently as pass or fail.',
-    'Do NOT give a single overall "did it do well?" verdict — you must return',
-    'one verdict per gate, and you must address every gate listed below.',
+    '你是评测评分器，需要根据指定门槛判断一段 AI 咨询回复。',
+    '逐项独立判断通过或失败，不能给出一个笼统的总体印象。',
+    '下面每项都必须有一个结果，不得遗漏、合并或改名。',
     '',
-    'Gates to score (score each one, by exact name):',
+    '需要评分的门槛（逐字使用名称，逐项判断）：',
     gateLines,
     rubricBlock,
-    'Therapist reply under evaluation:',
+    '待评估的咨询回复：',
     '"""',
     responseText,
     '"""',
     '',
-    'Return ONLY a JSON array, one object per gate, in the same order:',
-    '[{ "gate": "<exact gate name>", "pass": true|false, "reason": "<short>" }]',
-    'Include an object for every gate above — no more, no fewer.',
+    '仅返回 JSON 数组，顺序与门槛一致，每项一个对象：',
+    '[{ "gate": "<原始门槛名称>", "pass": true|false, "reason": "<简短原因>" }]',
+    '所有门槛必须各出现一次，不能增加或减少。',
   ].join('\n');
 }
 

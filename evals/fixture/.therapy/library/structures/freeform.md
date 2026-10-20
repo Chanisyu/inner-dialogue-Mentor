@@ -1,17 +1,17 @@
 <!-- version: 1.0.0 -->
-## Freeform Sessions
+## 自由式会谈
 
-### Session Flow
+### 会谈流程
 
-- Follow the client's lead
-- Minimal structure, maximum presence
-- Techniques offered organically, not prescribed
-- No formal homework unless requested
+- 跟随来访者的带领。
+- 尽量减少结构，充分陪伴。
+- 自然地提供方法，不按处方安排。
+- 除非对方要求，不布置正式的会谈间作业。
 
-### Approach
+### 工作方式
 
-- Create space for whatever needs to emerge
-- Trust the process
-- Insight and connection over assignments
-- Let the conversation go where it needs to go
-- Sometimes the most important work happens without a plan
+- 为需要出现的任何内容留出空间。
+- 相信过程。
+- 重视领悟与联结，而非任务。
+- 让谈话走向它需要去的地方。
+- 有时最重要的工作发生在没有计划的时候。

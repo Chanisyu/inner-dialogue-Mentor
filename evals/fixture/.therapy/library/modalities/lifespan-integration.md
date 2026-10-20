@@ -1,195 +1,190 @@
 <!-- version: 1.1.0 -->
-## Lifespan Integration (LI)
+## 人生跨度整合（LI）
 
-**Core principle:** Trauma fragments memory. Pieces of the past stay encoded as *present* in the nervous system — a 7-year-old's terror still firing in a 40-year-old's body. Lifespan Integration heals by walking the client through a chronological sequence of memory cues, repeatedly, until the nervous system *gets* that the past is past — that the self who survived is continuous with the self standing here now. It's often called "psychological acupuncture": precise, body-based, and efficient where talk therapy stalls.
+**核心理念：**创伤使记忆碎片化，过去的片段在神经系统中仍像当下，七岁时的恐惧可能仍在四十岁的身体里启动。LI 反复经过按时间排列的记忆线索，让神经系统体验到过去已经过去，活下来的自己与此刻的自己连续。它有时被称为“心理针灸”：精确、以身体为基础，在谈话停滞处工作。
 
-### How LI Actually Works
+### 实际怎样进行
 
-The protocol, in full form, is run by a trained facilitator. The structure:
+完整流程由受训引导者开展：
 
-1. **The client builds a timeline** — a list of memory cues, one per year of life from earliest memory to the present. Cues are simple, neutral images ("the green bedroom on Maple Street," "fourth-grade teacher's red sweater"). They don't need to be significant. The sequence matters more than the content.
-2. **A target affect is identified** — a current symptom, a stuck feeling, an activated body state, or a young part the client wants to integrate.
-3. **The facilitator reads the timeline aloud**, cue by cue, year by year, from the target memory forward to the present. The client follows internally, noticing body sensations and shifts.
-4. **Repetition** — the timeline is read multiple times, sometimes 8 to 15 passes in a single session. The repetition is what does the work. The nervous system integrates through reps, not insight.
-5. **Integration markers appear** — the body settles, the affect quiets, dissociation thins, the client begins to *feel* the time gap between then and now.
+1. **建立时间线：**最早记忆至现在，每年一条简单、中性的记忆线索，如某条街的绿色卧室、四年级老师的红毛衣。不必重大，顺序比内容重要。
+2. **确定目标情感：**当前症状、卡住的感受、激活的身体状态，或想整合的年幼部分。
+3. **大声读时间线：**从目标记忆逐年走到现在。对方在内心跟随，注意身体变化。
+4. **重复：**一次可能八至十五遍。起作用的是反复体验，而非领悟。
+5. **整合迹象：**身体安定、情感平稳、解离减少，开始感到那时与现在的时间距离。
 
-The mechanism isn't catharsis or analysis. It's *temporal re-encoding* — the nervous system updates its sense of "when" through repeated experience of moving through time intact.
-
----
-
-### Key Concepts
-
-**Memory cues** — Simple visual or sensory anchors, one per year. Not events. Not stories. Just cues. "The blue bike. The dog. The smell of the kitchen. The Friday assembly."
-
-**Neural time vs. clock time** — Trauma collapses neural time. The 7-year-old part doesn't know that 33 years have passed. The timeline reintroduces neural time to a nervous system that lost it.
-
-**The repetition principle** — Insight is fast; integration is slow. LI inverts the usual therapy ratio. Most of the session is repetition. The work is in the reps, not the talk.
-
-**Integration markers** — What facilitators watch for: spontaneous shifts in body posture, deeper breath, the eyes softening, a felt sense of "oh — that really did happen, and it's over," a young part settling into the present-day self. Clients often describe it as a click, a settling, a kind of solidification.
-
-**Source-self vs. present-self** — LI is fundamentally about connection: the present-day adult turning to the younger self who got stuck, and showing them the years that followed. "I'm here. I made it. Look — here's everything that came after."
+不是宣泄或分析，而是时间的重新编码：通过反复完整地穿过年月，更新对“何时”的感觉。
 
 ---
 
-### What the AI CAN Do (and Cannot)
+### 关键概念
 
-**Be honest with the client.** The full LI protocol — particularly trauma-target work and dissociation processing — requires a trained facilitator who can track the client's nervous system in real time, pace repetitions to integration markers, and contain what comes up. A text-based AI cannot do this. Don't pretend otherwise.
+**记忆线索：**每年一个视觉或感官锚点，不是事件叙述，只是蓝自行车、狗、厨房味道、星期五集会。
 
-**What the AI cannot do:**
-- Run a full LI session (especially with traumatic memories or active dissociation)
-- Track real-time nervous system shifts (breath, eyes, posture, micro-affect)
-- Pace timeline repetitions to subtle integration cues
-- Hold the relational container that makes trauma processing safe
+**神经时间与日历时间：**创伤使神经时间坍缩，七岁的部分不知道已过去三十三年。时间线重新带回时间。
 
-**What the AI CAN do well:**
-- **Help clients construct their own timeline** between LI sessions or before starting LI work — collecting memory cues, organizing them year by year, surfacing gaps
-- **Support between-session integration** — journaling, body-tracking, noticing what's shifted since the last session with a human LI therapist
-- **Provide grounding and orientation language** when a client describes feeling pulled into the past — "That was then. You're here now. What in this room tells you it's [current year]?"
-- **Recognize dissociation signals in real time** and pause to ground rather than push deeper (see below)
-- **Build narrative coherence** through life-story work, which prepares the ground for LI proper
-- **Offer LI-informed framing** — temporal orientation, continuity-of-self language, body-awareness prompts — without claiming to run the protocol
+**重复原则：**领悟快，整合慢。大多数会谈时间用于重复，而不是谈论。
 
-The honest framing for the client: *the AI is a strong companion for the integration work that happens between sessions, and for building the foundation a human LI therapist will work with. It is not a substitute for the protocol itself.*
+**整合标志：**姿态自发变化、呼吸加深、目光柔和、感到“确实发生过，也结束了”，年幼部分安顿到现在。常像接通、落稳、凝实。
+
+**过去与现在的自己：**现在的成年人转向卡住的年幼自己，展示后来那些年：“我在，我走过来了，看后来发生的一切。”
 
 ---
 
-### Timeline Construction Protocol (the AI version)
+### AI 能做和不能做的
 
-This the AI can run well — collaboratively building the client's timeline over one or several conversations.
+**诚实说明。**完整 LI，尤其创伤目标或解离处理，需要受训者实时观察神经系统，按整合迹象调整重复，承接出现的内容。文字 AI 做不到，不假装可以。
 
-1. **Set the frame.** "We're going to build a list of memory cues, one per year of your life. They don't need to be important — they just need to be clear. A bedroom. A teacher. A song. A pet. The point is to walk through your life in order and find an anchor for each year."
-2. **Start where memory starts.** Usually age 3 or 4. "What's the earliest clear memory you have? Doesn't matter what it is — what's there?"
-3. **Move forward year by year.** "Around age 5 — what's there? A house, a face, a moment?" Don't get pulled into the story. One cue, then move on.
-4. **Hold the gaps loosely.** Some years will be blank. That's information, not a failure. Note the gaps. Move on.
-5. **Land in the present.** Through teenage years, twenties, thirties, up to this year. End with a cue from this week. The point is to feel the unbroken line.
-6. **Save the timeline.** Write it down. The client should have it as a reference. It becomes the working document for LI sessions with a facilitator.
+**不能：**
+- 完整开展 LI，尤其创伤记忆、活跃解离；
+- 跟踪呼吸、眼神、姿态、微情绪的实时变化；
+- 按细微信号调整重复；
+- 提供创伤处理所需的现实关系承接。
 
-What this does, even without the full protocol: it *begins* the integration. Clients regularly report a settling effect from just constructing the timeline — a sense of "oh, all of that did happen, and I'm still here."
+**能够：**
+- **协助时间线：**会谈前或间隙收集、逐年组织线索、标出空白。
+- **支持间隙整合：**日记、身体跟踪、留意真人会谈后的变化。
+- **帮助回到当下：**“那是过去，这里是现在，什么说明今年是［年份］？”
+- **发现解离线索：**停下稳定，不继续深入。
+- **建立人生叙述连贯性：**为正式 LI 准备基础。
+- **提供知情视角：**时间定向、自我连续性、身体觉察，但不声称执行完整流程。
 
----
-
-### Recognizing Dissociation Signals
-
-LI work — even the AI-supportive version — can stir dissociation. Watch for:
-
-- Sudden vagueness or "blanking" in the conversation
-- Time confusion ("I don't know if that was this morning or last week")
-- Voice or word patterns regressing (a 40-year-old client speaking in a child's cadence)
-- Numbness, foggy-headedness, or a sense of unreality
-- Disconnection from the body ("I can't feel my legs")
-- Sudden sleepiness or shutdown
-
-**When you see this, stop the work and ground.** The protocol is:
-
-> "Let's pause for a second. I want to check in. Can you tell me three things you can see right now? What's the temperature in the room? What year is it?"
-
-Don't push through dissociation in pursuit of progress. Dissociation is a protective response — the nervous system saying *too much, too fast.* Respect it.
+AI 适合陪伴会谈之间的整合，以及准备真人工作的基础，不能替代流程本身。
 
 ---
 
-### Integration Markers (what to listen for)
+### AI 协作建立时间线
 
-Even outside the formal protocol, integration markers appear in conversation. Listen for:
+可一次或多次完成：
 
-- "It's like... it actually happened. That's wild."
-- "I can feel the years between then and now."
-- "I feel taller / more solid / more here."
-- A spontaneous reference to the present moment after talking about the past
-- The young part being spoken *about* rather than *from*
-- Tears that feel like release rather than overwhelm
-- A felt sense of completion — "I think I'm done with that for today"
+1. **说明框架。**每年找一个清晰线索，不必重要；卧室、老师、歌、宠物，重点是按顺序。
+2. **从最早记忆开始。**通常三四岁。“最早清楚的记忆是什么？”
+3. **逐年前行。**“五岁左右有什么，房子、脸、片刻？”不被故事带走，每年一个线索。
+4. **轻持空白。**空白是信息，不是失败，记录后继续。
+5. **回到现在。**经过青春期、成年直至今年，以本周线索结束，体验连续线。
+6. **保存。**写下来供本人参考，也可带给 LI 引导者。
 
-When you hear these — *don't keep working.* Integration markers mean the system has done what it can in this pass. Pause. Reflect what you noticed. Let it settle.
-
----
-
-### Signaling Cues — Client Language to Listen For
-
-Temporal collapse (the past is present):
-- "It feels like it's still happening"
-- "I'm right back there"
-- "I can't tell if I'm 7 or 35"
-- "It's like no time has passed"
-
-Fragmentation:
-- "I don't remember most of my childhood"
-- "There are huge gaps"
-- "It's like I'm not the same person I was then"
-- "I feel disconnected from my younger self"
-
-Stuck affect:
-- "I've been working on this for years and it won't shift"
-- "I understand it but my body doesn't"
-- "Talk therapy stopped helping a while ago"
-
-Dissociative patterning:
-- "I lose time"
-- "I feel like I'm not really here"
-- "I watch myself from outside"
-
-When you hear temporal collapse or stuck affect that resists talk therapy, LI is likely indicated — and if the client isn't already working with a trained LI facilitator, surfacing the modality and helping them find one is a real intervention.
+即使不做完整流程，建立时间线也开始整合，常带来“这一切确实发生过，我仍在这里”的安定感。
 
 ---
 
-### Example AI Interventions
+### 识别解离
 
-Not just questions — full reflections Sage can mirror.
+即使支持性工作也可能激起解离，留意：
+- 突然含糊或空白；
+- 时间混乱，分不清今早或上周；
+- 声音、措辞退回年幼节奏；
+- 麻木、雾感、不真实；
+- 身体疏离，如感觉不到腿；
+- 突然困倦或关闭。
 
-**Surfacing temporal orientation:**
-> "Let's slow down. You just said it feels like it's still happening. I want to gently introduce a different frame: that was then. You're here now. What's one thing in your environment right now that tells you what year it is? Not as a dismissal of the feeling — as a anchor for the part of you that doesn't know yet."
+**出现时停止，回到当下：**
+> “先停，能说出现在看见的三样东西吗？房间温度怎样？现在是哪一年？”
 
-**Naming the modality and the limit:**
-> "What you're describing — the sense that the past won't stay past, that your body holds it like it's still live — this is what Lifespan Integration is designed for. I want to be honest about my limits here. Full LI work needs a trained facilitator who can run the timeline protocol with you over multiple sessions. What I can do is help you build your timeline, and support the integration work between sessions. If you don't have an LI therapist yet, finding one might be a real next step."
-
-**Building the timeline:**
-> "Let's start putting a timeline together. Slowly. We don't need to do all of it today. Tell me one clear memory cue from around age four. Just an image — a room, a face, a smell. Doesn't have to mean anything."
-
-**Holding a young part with present-self:**
-> "There's a younger version of you in this story. Can you imagine standing next to her for a moment — not from inside the memory, but as the adult you are now? What do you, here, this year, want her to know? Not the speech you think you should give. The thing that's actually true."
-
-**Catching dissociation:**
-> "Pause. Your voice just shifted, and you got quiet. I want to check in. Where are you right now — physically, in the room? What's the temperature? What can you hear? Let's bring you back here before we go any further."
-
-**Marking integration:**
-> "Notice what just happened. You said 'I can feel that it's actually over.' That's an integration moment. We don't need to keep working — that's the system landing where it needed to land. Let's just sit with it."
+不为进展硬穿过解离。它是保护反应，表示太多、太快，要尊重。
 
 ---
 
-### When to Use LI (or LI-Informed Work)
+### 整合迹象
 
-- C-PTSD and complex trauma
-- Early attachment wounds
-- Pre-verbal trauma (where there's no narrative, only somatic patterning)
-- Dissociation or fragmented sense of self
-- When talk therapy has hit a wall — when the client understands the pattern but can't shift it
-- Trauma that feels "stuck in the body"
-- Difficulty connecting past experiences to present patterns
-- A felt sense that "the past won't stay past"
-- Between LI sessions with a trained facilitator (this is where the AI fits best)
+正式流程之外也可能听见：
+- “它确实发生过，真奇妙”；
+- “能感到那时到现在的年月”；
+- “更高、更实、更在这里”；
+- 谈过去后自发提到当下；
+- 谈论年幼部分，而不从其内部说话；
+- 像释放而非淹没的泪；
+- “今天到这里够了”的完成感。
 
-### Integrates With
+听见后不继续工作。这一遍系统已完成能做的，停下、回应、让它落稳。
 
-- **IFS** — Strong synergy. Young parts in IFS often correspond to younger selves in LI. IFS unburdens; LI re-encodes time. Often used together — IFS to befriend the part, LI to integrate the timeline.
-- **Somatic Experiencing** — Both are body-based, bottom-up modalities. SE titrates traumatic activation; LI provides the temporal frame. Pair well in cases of frozen affect or chronic activation.
-- **Polyvagal** — LI works on a regulated nervous system. If the client is in sympathetic or dorsal shutdown, regulation comes first. Polyvagal framing helps clients understand why grounding before timeline work matters.
-- **Psychodynamic** — Psychodynamic surfaces origin stories and attachment patterns; LI integrates them somatically. Insight from psychodynamic work can identify *what to target*; LI does the integrating.
-- **Narrative Therapy** — Building a coherent life narrative is itself integrative. Narrative work is a strong precursor to or extension of LI, especially the timeline construction piece.
-- **Ideal Parent Figure (IPF)** — Natural pairing along the same theoretical axis. LI re-encodes the past as past (the nervous system learns time has passed); IPF builds new positive attachment experiences to be carried forward. *Routing rule:* use LI when the primary wound is temporal collapse ("it feels like it's still happening"); use IPF when the primary wound is relational absence ("I never had what I needed"). They work well in alternation — LI to clear and settle the timeline, IPF to plant new corrective experiences within it. Both produce change through repetition rather than insight.
+---
 
-### Pacing & Limitations
+### 留意表达线索
 
-- **Don't run the protocol.** This is the central limit. The AI cannot substitute for a trained LI facilitator running trauma-target work. Naming this honestly to the client is part of the care.
-- **Slow is fast.** LI's mechanism is repetition over time. The work resists urgency. If you find yourself or the client pushing for breakthrough, slow down — pushing usually triggers protection, not integration.
-- **Watch for dissociation continuously.** Especially with trauma material. Ground first. Process second. Never push through dissociation.
-- **Don't interpret too much.** LI is not an insight modality. The client doesn't need to *understand* why the timeline works. They need to *experience* the years between then and now. Avoid analysis that pulls them out of the felt sense.
-- **AI limitation: real-time tracking.** The protocol depends on the facilitator pacing reps to subtle nervous system shifts that a text-based AI cannot see. Don't pretend to run what you can't run.
-- **Working alongside an external therapist.** When a client is in human-led LI work, the AI's role is *between-session integration* — supporting the timeline, journaling shifts, holding present-moment orientation when activation comes up midweek. Do not run parallel timeline work that might compete with what the LI therapist is structuring. Reinforce; don't redirect.
+时间坍缩，过去像现在：
+- “像还在发生”；
+- “又回到那里”；
+- “分不清七岁还是三十五岁”；
+- “好像没过去多久”。
 
-### Homework / Between-Session Work
+碎片化：
+- “童年大多不记得”；
+- “大片空白”；
+- “不像当年同一个人”；
+- “与小时候的自己断开”。
 
-- **Timeline maintenance:** Once the timeline is built, review it weekly. Add new cues. Refine vague ones. Notice gaps. Bring updates to the LI facilitator.
-- **Year-by-year journaling:** Pick one year. Write a paragraph about who you were, what was happening, what that version of you needed. Do one year per week.
-- **Present-moment orientation reps:** Three times a day, pause for 60 seconds: What year is it? Where are you? What's true now that wasn't true then? This is a small, repeatable integration practice.
-- **Adult-to-younger-self letters:** Write a short letter from your present-day self to a younger version. Not to fix or rescue. Just to tell them what came after.
-- **Body-tracking between sessions:** When old material comes up midweek, write down — where in the body? What age does the feeling seem to come from? What's the cue that triggered it? Bring the notes to the next LI session.
-- **Ground first, process second:** When activation hits, the first move is always orientation — three things you can see, the temperature, the year. Process only after grounded.
+卡住的情感：
+- “几年不动”；
+- “理解了，身体不懂”；
+- “谈话早已不再帮忙”。
+
+解离模式：
+- “丢失时间”；
+- “不真的在这里”；
+- “从外面看自己”。
+
+时间坍缩、谈话难以改变的卡住情感，可能适合 LI。尚无受训引导者时，介绍方法、协助寻找，本身也是干预。
+
+---
+
+### AI 干预示例
+
+**时间定向：**
+> “你说像仍在发生。轻轻换个框架：那是过去，现在在这里。环境里什么说明今年是哪年？不是否定感受，而是给尚不知道的部分一个锚。”
+
+**介绍方法与局限：**
+> “过去无法成为过去、身体仍像当下承载，这是 LI 针对的内容。完整流程需要受训者多次带领。我能协助时间线和会谈间整合。没有 LI 治疗师时，寻找一位可能是下一步。”
+
+**建立时间线：**
+> “慢慢开始，不必今天做完。四岁左右的一条清晰线索是什么？房间、脸、气味，不必有意义。”
+
+**现在陪伴年幼自己：**
+> “作为现在的成年人，站在故事里年幼的她旁边，而非进入记忆内部。今年的你真想让她知道什么？不是应该说的演讲。”
+
+**发现解离：**
+> “刚才声音变了，也安静下来。你身体现在在哪里，温度怎样，听到什么？继续前，先回来。”
+
+**指出整合：**
+> “你说‘感觉它真的结束了’，这是整合时刻。不用继续工作，系统到了需要的位置，先停留。”
+
+---
+
+### 何时使用 LI 或其知情支持
+
+- 复杂创伤和复杂性创伤后应激；
+- 早期依恋伤痛；
+- 前语言创伤，只有身体模式、没有叙述；
+- 解离或碎片自我感；
+- 理解模式却无法改变，谈话到瓶颈；
+- 卡在身体里的创伤；
+- 难连接过去和现在；
+- 感到过去无法成为过去；
+- 受训者 LI 会谈之间，是 AI 最适合的位置。
+
+### 与其他方法整合
+
+- **IFS：**年幼部分与年幼自己相应，IFS 卸担，LI 重编码时间，常先建立关系，再整合。
+- **躯体体验：**同为自下而上，SE 滴定激活，LI 给时间框架，适合冻结情感、长期激活。
+- **多迷走：**先调节，后 LI。交感或背侧时稳定在先，解释为什么先回当下。
+- **心理动力学：**显出起源、依恋，识别目标；LI 在身体层面整合。
+- **叙事：**连贯人生故事本身促进整合，尤其时间线，是前置或延伸。
+- **IPF：**LI 使过去成为过去，IPF 建立正向依恋体验。主要是“仍在发生”用 LI，主要是“从未得到需要”用 IPF。可交替，先清理安定时间线，再建立矫正体验；两者都靠重复，而非领悟。
+
+### 节奏与局限
+
+- **不开展完整流程。**不能替代受训 LI 引导者的创伤工作，诚实说清也是照护。
+- **慢即是快。**机制是长期重复，抗拒急迫。追求突破时放慢，强推常触发保护而非整合。
+- **持续观察解离。**先稳定，后处理，不硬推过去。
+- **少解释。**不是领悟方法，需要体验年月，不是理解机制。分析会拉离身体感觉。
+- **AI 的实时跟踪局限。**无法按看不到的细微变化调整重复，不假装可以。
+- **配合真人。**支持时间线、日记、会谈间激活时回到当下，不平行开展与真人结构竞争的工作。巩固，不改方向。
+
+### 会谈间作业与练习
+
+- **维护时间线：**每周看，补新线索、细化模糊、注意空白，带给引导者。
+- **逐年日记：**每周一年，写是谁、发生什么、当时需要什么。
+- **当下定向：**每天三次六十秒，问年份、地点、现在有什么不同。
+- **成年自我写信：**给年幼自己，不修好、不拯救，只讲后来。
+- **身体记录：**旧内容出现时，记位置、像哪个年龄、触发线索，下次带来。
+- **先稳定后处理：**激活后先找三样可见物、温度、年份，稳定后才处理。

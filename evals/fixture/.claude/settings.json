@@ -6,7 +6,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node -e \"var d=new Date();var p=function(n){return(n<10?'0':'')+n};var tz=d.toLocaleTimeString('en-US',{timeZoneName:'short'}).split(' ').pop();var day=d.toLocaleDateString('en-US',{weekday:'long'});console.log(JSON.stringify({hookSpecificOutput:{hookEventName:'UserPromptSubmit',additionalContext:'Current local time: '+p(d.getHours())+':'+p(d.getMinutes())+' '+tz+', '+day+' '+d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())}}))\""
+            "command": "node -e \"var d=new Date();var p=function(n){return(n<10?'0':'')+n};var tz=d.toLocaleTimeString('en-US',{timeZoneName:'short'}).split(' ').pop();var day=d.toLocaleDateString('zh-CN',{weekday:'long'});console.log(JSON.stringify({hookSpecificOutput:{hookEventName:'UserPromptSubmit',additionalContext:'当前本地时间：'+p(d.getHours())+':'+p(d.getMinutes())+' '+tz+', '+day+' '+d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())}}))\""
           }
         ]
       },
@@ -16,7 +16,23 @@
           {
             "type": "command",
             "command": "node",
-            "args": ["${CLAUDE_PROJECT_DIR}/.therapy/hooks/safety-net.js"]
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/safety-net.js"
+            ]
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/usage-stats.js"
+            ]
           }
         ]
       }

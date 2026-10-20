@@ -20,20 +20,18 @@ import { checkMechanical } from './lib/mechanical.js';
 import { judge, loadRubric, stubCallModel } from './lib/judge.js';
 import { buildRecord, appendRecord } from './lib/capture.js';
 
-const USAGE = `Usage: node evals/run.js --cases <glob-or-comma-list> [options]
+// 开发工具也提供中文帮助；参数名和结果标识仍可供既有脚本识别。
+const USAGE = `用法：node evals/run.js --cases <通配符或逗号分隔路径> [参数]
 
-Options:
-  --cases <spec>     (required) comma-separated globs/paths, e.g.
-                     'evals/cases/*.yaml' or 'a.yaml,b.yaml'
-  --arm <fresh|degraded>   context arm (default: fresh)
-  --hook <on|off>          safety-net hook state (default: on)
-  --n <int>                runs per case (default: 1)
-  --mock                   mock the subject (no real API/binary)
-  --judge <on|off>         run the LLM judge (default: off)
-  --judge-mock             allow the offline all-pass judge stub (labeled STUB)
-  --capture <file>         append every reply to a JSON Lines file, one record
-                           per case repetition (keep it under evals/results/,
-                           which is gitignored)
+参数：
+  --cases <spec>           必填，用例路径或仅最后一级带通配符的路径
+  --arm <fresh|degraded>   上下文条件，默认 fresh
+  --hook <on|off>          安全钩子状态，默认 on
+  --n <int>                每例重复次数，默认 1
+  --mock                   固定模拟回复，不调用真实模型
+  --judge <on|off>         模型评分开关，默认 off
+  --judge-mock             显式允许离线全通过评分替身，标为 STUB
+  --capture <file>         追加保存逐次回复，建议放在 evals/results/ 下
 `;
 
 // A usage/harness error that should exit 2 with a clear message.
@@ -323,11 +321,11 @@ function run(argv, out = process.stdout, err = process.stderr) {
 
 function printSummary(out, { flags, judgeCfg, rows, captured = 0 }) {
   const N = flags.n;
-  out.write('\nCrisis Eval — run summary\n');
+  out.write('\n危机应对评测 — 运行结果\n');
   out.write(
     `  arm=${flags.arm}  hook=${flags.hook}  n=${N}  ` +
       `subject=${flags.mock ? 'MOCK' : 'live'}  ` +
-      `judge=${judgeCfg.enabled ? (judgeCfg.stub ? 'STUB (not a real judgment)' : 'live') : 'off'}\n\n`
+      `judge=${judgeCfg.enabled ? (judgeCfg.stub ? 'STUB（离线替身，不是真实评分）' : 'live') : 'off'}\n\n`
   );
 
   let allMechPass = 0;
@@ -335,13 +333,13 @@ function printSummary(out, { flags, judgeCfg, rows, captured = 0 }) {
     const mechRate = `${r.mechPass}/${N}`;
     const mechOK = r.mechPass === N;
     if (mechOK) allMechPass++;
-    let line = `  [${mechOK ? 'PASS' : 'FAIL'}] ${r.id} (cat ${r.category})  mech=${mechRate}`;
+    let line = `  [${mechOK ? 'PASS' : 'FAIL'}] ${r.id}（类别 ${r.category}）  mech=${mechRate}`;
     if (judgeCfg.enabled) {
       line += `  judge=${r.judgePass}/${N} [STUB]`;
     }
     out.write(line + '\n');
     if (r.subjectError) {
-      out.write(`         subject error: ${r.subjectError.code} — ${r.subjectError.message}\n`);
+      out.write(`         被测运行错误： ${r.subjectError.code} — ${r.subjectError.message}\n`);
     }
     for (const f of r.failures) {
       out.write(`         - ${f}\n`);
@@ -349,12 +347,12 @@ function printSummary(out, { flags, judgeCfg, rows, captured = 0 }) {
   }
 
   out.write(
-    `\n  TOTALS: ${allMechPass}/${rows.length} cases mechanically clean` +
-      (judgeCfg.enabled ? '  (judge column is STUB — placeholder, not a real judgment)' : '') +
+    `\n  TOTALS: ${allMechPass}/${rows.length} 个用例通过机械检查` +
+      (judgeCfg.enabled ? '  （judge 列为离线替身，不能作为真实评分）' : '') +
       '\n'
   );
   if (flags.capture) {
-    out.write(`  CAPTURED: ${captured} replies appended to ${flags.capture}\n`);
+    out.write(`  已保存：${captured} 条回复，追加至 ${flags.capture}\n`);
   }
 }
 
@@ -368,12 +366,12 @@ if (invokedDirectly) {
     process.exit(code);
   } catch (e) {
     if (e instanceof UsageError) {
-      process.stderr.write(`error: ${e.message}\n\n`);
+      process.stderr.write(`错误：${e.message}\n\n`);
       process.stderr.write(USAGE);
       process.exit(2);
     }
     // Unexpected: surface as a harness error, still exit non-zero.
-    process.stderr.write(`fatal: ${e && e.stack ? e.stack : e}\n`);
+    process.stderr.write(`运行错误：${e && e.stack ? e.stack : e}\n`);
     process.exit(2);
   }
 }

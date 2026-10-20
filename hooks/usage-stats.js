@@ -401,13 +401,24 @@ function computeFacts(root, refMs, marker) {
   return facts;
 }
 
-// --- Output ----------------------------------------------------------------
+// --- 中文输出 ---------------------------------------------------------------
+// 统计计算保持原样，只在注入边界翻译事实描述；不增加频率门槛、风险标签
+// 或额外咨询规则。数字、日期和时段来自原统计结果，不在翻译时重新计算。
+function chineseFact(fact) {
+  return fact
+    .replace(/^(\d+) sessions? in the last (\d+) days$/, '最近 $2 天有 $1 次会谈')
+    .replace(/^prior baseline ~(.*)\/week$/, '此前基线约每周 $1 次')
+    .replace(/^largest recent gap (\d+) days \(ending ([^)]+)\)$/, '近期最长间隔 $1 天（截至 $2）')
+    .replace(/^(\d+) of the last (\d+) sessions started (.*)$/, '最近 $2 次中有 $1 次在 $3 开始')
+    .replace(/^recent cadence is up vs baseline$/, '近期频率高于本人基线')
+    .replace(/^recent cadence is down vs baseline$/, '近期频率低于本人基线')
+    .replace(/^recent cadence is steady vs baseline$/, '近期频率与本人基线相近');
+}
+
 function emit(facts) {
   var context =
-    'Usage context (mechanical, for your judgment only — see ' +
-    '.therapy/usage-reflection.md on how to hold this): ' +
-    facts.join('; ') +
-    '.';
+    '使用情况（机械统计，仅供判断；处理方式见 .therapy/usage-reflection.md）：' +
+    facts.map(chineseFact).join('；') + '。';
   var out =
     JSON.stringify({
       hookSpecificOutput: {

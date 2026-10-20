@@ -73,7 +73,8 @@ test('time hook emits valid UserPromptSubmit JSON with a local timestamp', () =>
   assert.equal(parsed.hookSpecificOutput.hookEventName, 'UserPromptSubmit');
   assert.match(
     parsed.hookSpecificOutput.additionalContext,
-    /^Current local time: \d{2}:\d{2} \S+, [A-Z][a-z]+ \d{4}-\d{2}-\d{2}$/,
-    'additionalContext should read like "Current local time: 14:05 PDT, Sunday 2026-07-05"'
+    // 固定中文信号和星期格式，同时继续检查时分、时区与完整日期。
+    /^当前本地时间：\d{2}:\d{2} \S+, 星期[一二三四五六日] \d{4}-\d{2}-\d{2}$/u,
+    'additionalContext 应提供中文前缀、星期与完整本地时间'
   );
 });

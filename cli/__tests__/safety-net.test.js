@@ -973,9 +973,10 @@ test('output shape: single-line JSON with correct hook envelope', () => {
 });
 
 test('resources sync: injected block matches safety-protocol.md verbatim (round-1 F10)', () => {
-  const protocol = readFileSync(PROTOCOL_PATH, 'utf8');
+  // 文档在 Windows 上可能以 CRLF 检出；比较前统一换行，同时接受中文标题。
+  const protocol = readFileSync(PROTOCOL_PATH, 'utf8').replace(/\r\n/g, '\n');
   const m = protocol.match(
-    /## Emergency Resources[\s\S]*?```\n([\s\S]*?)\n```/
+    /## (?:Emergency Resources|紧急求助资源)[\s\S]*?```\n([\s\S]*?)\n```/
   );
   assert.ok(m, 'Emergency Resources fenced block found in safety-protocol.md');
   const block = m[1];

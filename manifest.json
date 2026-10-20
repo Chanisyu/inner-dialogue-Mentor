@@ -1,63 +1,63 @@
 {
   "version": "1.5.0",
-  "description": "Inner Dialogue updatable components",
+  "description": "Inner Dialogue 可更新组件（简体中文）",
   "base_url": "https://raw.githubusercontent.com/ataglianetti/inner-dialogue/main/",
   "components": {
     "safety-protocol": {
       "file": "safety-protocol.md",
       "target": ".therapy/safety-protocol.md",
       "required": true,
-      "description": "Crisis protocols and safety guidelines"
+      "description": "危机应对流程与安全边界"
     },
     "commands": {
       "file": "commands.md",
       "target": ".therapy/commands.md",
       "required": true,
-      "description": "Customization commands (import, update, persona, etc.)"
+      "description": "导入、更新、更换人格等自定义命令"
     },
     "profile-protocol": {
       "file": "profile-protocol.md",
       "target": ".therapy/profile-protocol.md",
       "required": true,
-      "description": "Profile provenance rules: date-stamped writes + staleness review ritual. Read at session start (new installs via CLAUDE.md; existing installs via the commands.md pointer)."
+      "description": "档案来源规则：记录确认日期，并在内容过期时征求复核。通过 CLAUDE.md 或 commands.md 在会谈开始时读取。"
     },
     "safety-net": {
       "file": "hooks/safety-net.js",
       "target": ".therapy/hooks/safety-net.js",
       "required": true,
-      "description": "Mechanical crisis-language backstop hook (English-only pattern matcher). Injects the safety-protocol reminder when a prompt matches crisis language; the prose safety protocol remains authoritative."
+      "description": "中英文危机措辞的机械匹配钩子。匹配时注入安全提醒；安全流程正文仍是主要依据。它不是临床风险评估。"
     },
     "usage-stats": {
       "file": "hooks/usage-stats.js",
       "target": ".therapy/hooks/usage-stats.js",
       "required": true,
-      "description": "Mechanical usage-stats SessionStart hook (facts-only). Injects usage cadence for the therapist's judgment; fail-open."
+      "description": "会谈开始时提供使用节奏的机械统计，仅提供事实供咨询师判断；出错时静默放行。"
     },
     "usage-reflection": {
       "file": "usage-reflection.md",
       "target": ".therapy/usage-reflection.md",
       "required": true,
-      "description": "Therapist guidance for holding injected usage data (raise once, gently; not a crisis screen)."
+      "description": "如何温和地使用统计信息：适当时机最多提一次，不作为危机筛查。"
     },
     "claude-settings": {
       "file": "claude-settings.template.json",
       "target": ".claude/settings.json",
       "required": false,
       "scaffold_only": true,
-      "description": "Claude Code hooks for the therapist install. Registers two UserPromptSubmit hooks (the current-local-time hook and the safety-net crisis-language backstop hook) and the SessionStart usage-stats hook. Scaffolded on install/update; never overwritten."
+      "description": "Claude Code 钩子配置：提交消息时提供本地时间和安全提醒，会谈开始时提供使用统计。仅创建缺失配置，既有配置不整体覆盖。"
     },
     "context-index": {
       "file": "context/index.template.md",
       "target": "context/index.md",
       "required": false,
       "scaffold_only": true,
-      "description": "Routing index for the subject-level context library (people, places, concepts, events). Scaffolded on install/update; never overwritten."
+      "description": "人物、地点、概念、事件背景库的读取索引。安装或更新时仅在缺失时创建。"
     }
   },
   "library": {
     "personas": {
       "target": ".therapy/library/personas/",
-      "description": "Communication style options",
+      "description": "交流风格选项",
       "files": [
         "personas/warm-4o.md",
         "personas/direct-challenging.md",
@@ -71,7 +71,7 @@
     },
     "modalities": {
       "target": ".therapy/library/modalities/",
-      "description": "Therapeutic approach options",
+      "description": "心理咨询方法选项",
       "files": [
         "modalities/cbt.md",
         "modalities/act.md",
@@ -90,7 +90,7 @@
     },
     "structures": {
       "target": ".therapy/library/structures/",
-      "description": "Session structure options",
+      "description": "会谈结构选项",
       "files": [
         "structures/structured.md",
         "structures/moderate.md",

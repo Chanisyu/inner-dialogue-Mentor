@@ -1,314 +1,270 @@
-# Changelog
+# 更新日志
 
-All notable changes to Inner Dialogue.
-
----
+记录 Inner Dialogue 的主要变化。下列正式版本为原项目的历史记录；其中提到的历史指标和发布行为不代表本次中文化重新运行或发布了这些结果。当前中文版本的安装与更新以本地项目为来源，参见 README 和迁移指南。
 
 ## [Unreleased]
 
-### Added
-- **`doctor` runs the safety-net hook.** The other safety-net checks confirm the script is present, unmodified and registered, and that Claude Code is new enough. All of them can pass while the hook still never runs. `doctor` now asks Claude Code to run the hook. It copies the registration from your `.claude/settings.json` into a temporary project, sends one crisis-language test prompt through `claude -p`, and reads the hook events. A second hook blocks the prompt before it reaches a model, so the check makes no model call, costs nothing, and takes about 3 seconds. Session persistence is off, so the test prompt never enters your Claude Code history. If the hook crashed or never reported back, `doctor` warns and names the cause. On Claude Code 2.1.138 the named cause is that node started without the hook script. If `claude` isn't on PATH, or the check can't run, it skips silently. The version-floor warning still covers that case.
+### 简体中文本地化
+
+- 将 Willow 中已校对的 8 种人格、6 种疗法和适中结构纳入源码，补译其余 7 种疗法、其余结构、安装引导、会谈模板、命令、安全流程、档案规则与背景索引。
+- 安装交互、帮助、结果和诊断使用中文；保留文件名、参数、JSON 字段、哈希和来源标识。
+- 新安装与更新记录 `locale: zh-CN` 和本地 `source_path`；会谈内的更新命令调用本地中文 CLI，避免下载上游英文版本。
+- 时间信号、使用统计与安全提醒中文化；复用 Willow 的中文安全匹配和 31 条回归用例，同时保留原英文规则与回归语料。
+- 文档说明本地文件与云端处理的区别，不再沿用未经核实的固定费用或数据保留期限。许可证英文原文保留。
+- 新增完整中文安装与更新的数据保护检查；安全资源同步测试兼容 Windows 换行。未改动用户实际咨询目录的个人记录，也未发布 npm 包。
+
+### 原项目待发布功能
+
+- **`doctor` 实际运行安全钩子。** 仅检查脚本存在、哈希、注册和 Claude Code 版本仍可能漏掉“注册了但不执行”的情况。现在会复制设置中的注册到临时项目，向 `claude -p` 发送一条测试消息并读取钩子事件；第二个钩子在消息到达模型前拦截，不调用模型，不持久化会谈。原项目说明耗时约 3 秒。崩溃或没有回报时显示原因；在 2.1.138 下可指出 Node 未带脚本启动的问题。找不到 `claude` 或无法检查时静默跳过，版本下限检查仍保留。
 
 ---
 
 ## [2.9.0] - 2026-07-15
 
-### Added
-- **Profile provenance — dated writes + a staleness review ritual.** Ports the context library's "a synthesis is a hypothesis with a date on it" discipline to `profile.md`. Current-state profile entries now carry a trailing `*(YYYY-MM-DD)*` stamp marking when they were last confirmed; `Background`/formative history stays undated by design. At session start, when current-state content has gone stale — older than ~90 days *and* at least ~3 sessions since — the therapist offers *once*, at a neutral lull, to walk through the stale items as questions and refresh what still fits (same "the person outranks the housekeeping" discipline as the seeding offer; a decline writes a ~30-day marker). A new `review my profile` command triggers the same walk-through on demand, and is the migration path for legacy undated profiles — which converge to dated through confirmation alone, with **zero fabricated dates** (an invented date is a false provenance claim). Rules live in one new framework file, `profile-protocol.md` → `.therapy/profile-protocol.md`, referenced (not duplicated) by `CLAUDE.template.md` and `commands.md`. `CLAUDE.template.md 1.1.0 → 1.2.0`, `commands.md 1.4.0 → 1.5.0`.
-- **`doctor` checks for the profile-protocol file.** Warns (not errors) when `.therapy/profile-protocol.md` is absent, so pre-feature installs keep validating clean until they run `update`.
-- **Mechanical safety-net hook.** New `hooks/safety-net.js`, a `UserPromptSubmit` hook shipped to `.therapy/hooks/safety-net.js` and registered in `.claude/settings.json`. On every message it pattern-matches explicit first-person crisis language; on a match it injects the Emergency Resources block (kept verbatim-in-sync with `safety-protocol.md`, test-enforced) plus a directive to re-read the safety protocol into that turn. This is a backstop keyword matcher, not crisis detection — the prose safety protocol remains the primary safety layer, and the injected notice tells the model the client, not the pattern, is the authority on whether this is a crisis. Scoped to first-person crisis language per the recorded product ruling (third-person reports, grief, media, and topical mentions stay silent); English-only at launch; fail-open — on any error the hook exits silently and never interrupts a session.
-- **`doctor` verifies the safety net.** Checks that the hook script is present, matches its shipped version (hash against `version.json`; a modified hook warns with the recommendation not to edit it and the `update --force` restore path), and is registered in `.claude/settings.json`. A malformed settings file is named as the problem with manual-fix guidance rather than a "run update" loop.
-- **Surgical `.claude/settings.json` merge.** `install` and `update` register the hook by appending it to an existing settings file rather than overwriting: snapshot backup first, atomic write (temp file + rename), and a file that isn't valid JSON is left untouched. Surfaced in `update` output (and `--dry-run`) as `settings_merge`.
-- **`doctor` checks the Claude Code version.** The safety-net hook's registration format requires Claude Code 2.1.139 or newer — on older versions the hook is silently inert even when correctly installed. `doctor` now reads `claude --version` and warns below that floor with update instructions; if the CLI isn't on PATH or the output is unparseable, the check skips silently.
-- **CI runs the unit test suite.** `npm test` now runs in the publish workflow's smoke-test job, and the PR paths filter covers `hooks/`, `claude-settings.template.json`, and `manifest.json` so changes to safety-relevant delivery surfaces trigger CI.
-- **Mechanical usage-cadence hook.** New `hooks/usage-stats.js`, a `SessionStart` hook shipped to `.therapy/hooks/usage-stats.js` and registered in `.claude/settings.json`. It appends each session's timestamp to a local plain-text `.therapy/usage-log.txt` (deduped so a `compact` re-fire in the same session doesn't double-count) and injects a facts-only line for the therapist to weigh: session counts, gaps between sessions, time-of-day clusters, and how the recent trend compares to *the client's own* baseline. No interpretation, no thresholds baked into a verdict — the numbers are handed to the therapist's judgment. Silent under ~10 logged sessions (too little history to say anything honest), fail-open on any error, and nothing ever leaves the machine.
-- **Therapist guidance for usage reflection.** New `usage-reflection.md` → `.therapy/usage-reflection.md` tells the therapist how to *use* those facts: raise a shift in cadence gently, at most once, at a natural lull — never as an opening or an interruption — and honor a durable decline marker if the client waves it off. It is explicitly **not** a crisis screen; heavy use paired with crisis language routes to `safety-protocol.md`, not here. Referenced (not duplicated) by `CLAUDE.template.md` and `commands.md`, the same pattern as the profile and safety files. New `usage-stats.js` and `usage-reflection.md` ship at `1.0.0`; `CLAUDE.template.md 1.2.0 → 1.3.0`, `commands.md 1.5.0 → 1.6.0`, `manifest.json 1.4.0 → 1.5.0`.
-- **Session notes capture a start time.** The session-note heading can now carry `# Session: YYYY-MM-DD (started ~HH:MM)` when the current-time signal is present, giving the usage-cadence facts a time-of-day anchor. Omitted entirely when the time isn't available — never fabricated.
-- **`doctor` checks the usage-reflection surface.** Warns (not errors) when the `usage-stats.js` hook, the `usage-reflection.md` guidance file, or the `SessionStart` registration in `.claude/settings.json` is missing, so pre-feature installs keep validating clean until they run `update`.
-- **`.claude/settings.json` merge generalized to multiple hooks.** The surgical merge that registered the safety-net `UserPromptSubmit` hook now also registers the `SessionStart` usage-stats hook — same backup-first, atomic-write, leave-untouched-if-not-valid-JSON discipline, extended to append across hook events. The safety-net registration path is preserved byte-identical (test-enforced); `update` delivers the new `SessionStart` hook to existing installs through the same `settings_merge` surface.
+### 新增
 
-### Fixed
-- **`npm test` on Node 21+.** The test entry point passed a bare directory to `node --test`, which fails on Node 21+. Replaced with an unquoted glob that works on Node 20 (shell expansion) and Node 21+ (internal glob).
+- **档案来源与过期复核。** 将“摘要是带日期的假设”原则扩展到 `profile.md`。当前状态条目用 `*(YYYY-MM-DD)*` 记录最后确认日，成长背景不强行标日。约 90 天且至少约 3 次会谈未确认时，在自然空隙最多征求一次复核；拒绝写入约 30 天的暂停标记。“复核我的档案”可主动触发。旧条目只经本人确认获得日期，不编造日期。规则集中在 `profile-protocol.md`，由主模板和命令引用。主模板 `1.1.0 → 1.2.0`，命令 `1.4.0 → 1.5.0`。
+- **档案规则检查。** `doctor` 对缺少 `.therapy/profile-protocol.md` 给出提示而非错误，允许旧安装先正常运行再更新。
+- **机械安全钩子。** 新增 `hooks/safety-net.js`，安装到 `.therapy/hooks/` 并注册 `UserPromptSubmit`。匹配明确的第一人称危机措辞时注入紧急资源和重读安全流程提醒，资源块由测试保持与正文一致。这是关键词辅助，不是危机诊断；本人对情境的说明优先于匹配结果。第三人称、哀伤、媒体和主题讨论在界定范围外。首次发布为英文匹配，出错静默放行。
+- **检查安全钩子。** `doctor` 检查存在、登记哈希与设置注册。改过的脚本显示提示及 `update --force` 恢复路径；设置 JSON 错误时指出需要手工修复，避免反复建议无效更新。
+- **局部合并设置。** 安装与更新向既有 `.claude/settings.json` 追加钩子，不整体覆盖；先备份，再以临时文件和重命名原子写入，无效 JSON 保持原样。计划以 `settings_merge` 展示，也支持预览。
+- **Claude Code 版本检查。** 钩子注册格式要求 `2.1.139` 或更新版本。低版本会出现安装正确却不执行的情况，因此检查版本并给出更新提示；命令不可用或版本无法解析时跳过。
+- **CI 运行单元测试。** 发布工作流增加 `npm test`，PR 路径过滤覆盖钩子、设置模板与组件清单。
+- **使用节奏统计钩子。** 新增 `hooks/usage-stats.js`，以 `SessionStart` 注册。时间写入本地 `.therapy/usage-log.txt`，同一会谈压缩上下文引起的重复事件不重复计数。提供次数、间隔、时段聚集和相对个人基线的变化，不自行作临床解释。约 10 次记录前保持安静，异常静默放行。钩子本身不联网；注入的事实将进入会谈上下文。
+- **讨论使用节奏的指引。** 新增 `usage-reflection.md`：在自然停顿处温和地最多提一次，不作为开场或打断；尊重持续拒绝标记。明确不是危机筛查；高频使用伴危机措辞转到安全流程。两个新文件版本 `1.0.0`；主模板 `1.2.0 → 1.3.0`，命令 `1.5.0 → 1.6.0`，清单 `1.4.0 → 1.5.0`。
+- **笔记记录开始时间。** 有可靠当前时间信号时，标题可携带约略开始时刻；没有信号则省略，不编造。
+- **检查使用统计组件。** 缺脚本、说明文件或 `SessionStart` 注册时提示而非报错，旧安装可通过更新补齐。
+- **多钩子设置合并。** 安全钩子的备份、原子写入与无效 JSON 保留原则扩展到使用统计钩子，可跨事件追加；原安全钩子注册格式保留并由测试约束。
 
-### For Existing Users
-Run `npx inner-dialogue@latest update --path <your-folder>` to receive the hook and its registration automatically — the script is copied to `.therapy/hooks/safety-net.js` and appended to `.claude/settings.json` (backup taken first). The same `update` also delivers the new `.therapy/profile-protocol.md` and the refreshed `commands.md` that activates the profile-provenance behavior. That same run now delivers the usage-cadence feature too: `usage-stats.js` and `usage-reflection.md` land in `.therapy/`, and the `SessionStart` hook is registered in `.claude/settings.json` (backup taken first). Nothing is logged retroactively — cadence facts accumulate from your next session forward, and `.therapy/usage-log.txt` is a plain-text file living entirely on your machine that you can delete at any time. Your `profile.md`, `sessions/`, and `CLAUDE.md` remain untouched as always — existing profiles simply start getting dated as entries are confirmed, and legacy undated notes are picked up by the first review (never backfilled with invented dates).
+### 修复
+
+- **Node 21+ 测试入口。** 将 `node --test` 的裸目录参数改为通配符，兼容 Node 20 的 shell 展开与较新版本的内部展开。
+
+### 现有安装
+
+通过更新取得钩子、注册、档案规则、命令和使用节奏说明；历史使用次数不追溯补写。`profile.md`、`sessions/` 与根 `CLAUDE.md` 保留。旧档案只在确认时逐步补日期。当前中文版应使用本地 `node bin/inner-dialogue.js update --path <目录>`。
 
 ---
 
 ## [2.8.0] - 2026-06-24
 
-### Added
-- **`context/` knowledge graph — structure layer.** A new top-level folder for subject-level reference: `context/{people,places,concepts,events}/`. Subject files are free-form markdown; event filenames use `YYYY-MM-DD-slug.md` so dates are visible at a glance. `context/index.md` is the routing layer, scaffolded on install from a new `context/index.template.md`. Entries follow `- **Subject** (\`subfolder/slug.md\`) — synthesis. **Active (YYYY-MM-DD).**`. Lives alongside `profile.md` (about the client) and `sessions/` (chronological) — synthesized per-subject so the therapist doesn't have to grep session history to reconstruct what's known.
-- **`context/` knowledge graph — protocol layer.** `CLAUDE.template.md` now teaches the therapist how to read, trust, create, update, and reconcile `context/`. A new *The Context Library* section establishes the three-store split (profile = the client, sessions = the chronological authority, context = the world around them) and the drift discipline that keeps the cache from going confidently stale: **recent sessions always win** over context synthesis; context is held *lightly* (a dated hypothesis offered back for confirmation, never asserted as the client's current truth); and a flag model governs auto-loading. `**Core**` marks the small (≈3–5) always-load-bearing set — always *loaded*, never assumed *current*, so reconciled every session. `**Active (YYYY-MM-DD)**` marks in-focus subjects, the date being the staleness signal (drift more than ~2 weeks behind the latest session note → re-verify against sessions; correct if contradicted, downgrade to dormant if merely quiet). `**Provisional (YYYY-MM-DD)**` marks history-distilled entries not yet confirmed live, held even more lightly. Unflagged = dormant (loaded only when raised). Session-start read step (index + flagged entries, bounded), session-end update step (reconcile, refresh dates, create sparingly, prune), and event past/future framing via the v2.7.0 current-time signal are all wired in. `CLAUDE.template.md` `1.0.2 → 1.1.0`.
-- **Opt-in, supervised history backfill.** On the first session where `context/` exists, has no live entries, and `sessions/` has history, the therapist offers *once* to seed the library from past sessions — never automatically. On accept, it proposes candidate subjects (bounded by the same recurrence/significance bar, favoring recent history) and the client confirms before anything is written; seeded entries are flagged `**Provisional**` and marked distilled-from-history until confirmed in a live session. Declining writes a dated marker into `context/index.md` so it doesn't re-ask. Real-care (`therapist:`-frontmatter) sessions are eligible sources but keep their clinical-authority deference. Re-triggerable on demand via a new `commands.md` entry (`commands.md` `1.3.0 → 1.4.0`).
-- **`update.js` scaffold path extended.** The `plan.scaffolded` array (introduced in 2.7.0 for `.claude/settings.json`) now also covers `context/index.md` and the four `context/` subdirectories. Visible in `--dry-run`; the apply phase creates dirs via idempotent `mkdir -p` and copies templates only when the target doesn't exist.
-- **Ideal Parent Figure (IPF) modality.** New modality file based on Daniel P. Brown and David Elliott's attachment-repair protocol (*Attachment Disturbances in Adults*, 2016). Covers the five conditions of secure attachment, the full imagery protocol with step-by-step guidance, attachment-style-specific calibration (anxious/preoccupied, dismissive-avoidant, disorganized), titration notes for disorganized clients, and handling of the common "this doesn't feel real" block. Cross-referenced bidirectionally with IFS, CFT, Lifespan Integration, Psychodynamic, Polyvagal, and Somatic Experiencing, pointing to IPF as the experiential corrective layer when those modalities have surfaced an early attachment wound. Wired into the setup menu, README, and getting-started docs as the 13th selectable approach.
+### 新增
 
-### Changed
-- **`doctor`** warns (not errors) when `context/` or `context/index.md` is missing, suggesting `update` to scaffold. Warnings (not errors) so pre-feature installs don't fail validation before they've upgraded.
-- **`manifest.json` `1.3.0 → 1.4.0`.** Adds `context-index` component with `scaffold_only: true`, matching the pattern established for `claude-settings` in 2.7.0.
-- **`context/index.template.md` `0.2.0 → 1.0.0`.** The scaffold-awaiting-protocol marker is cleared now that the protocol layer has landed; its flag note now also names `**Provisional (YYYY-MM-DD)**` alongside `**Active**` and `**Core**` (all flag semantics remain defined in `CLAUDE.md`).
-- **npm package `files`** array includes `context/` so the template ships.
+- **背景库结构。** 新增 `context/{people,places,concepts,events}/` 与模板化的 `context/index.md`。主题文件为自由 Markdown，事件名为 `YYYY-MM-DD-slug.md`。索引条目包括主题、路径、摘要与 `Active (YYYY-MM-DD)` 标记，减少从全部历史重建同一主题的开销。
+- **背景库协议。** 档案记录本人，会谈是按时间的事实依据，背景库是周围世界的主题摘要。近期会谈优先；摘要是待确认的带日期假设。`Core` 为约 3–5 个常读项目，常读不等于仍然准确；`Active` 日期落后最新会谈约两周时复核，有矛盾则修正，仅沉寂则降为休眠；`Provisional` 为从历史提炼、尚未当场确认的条目；无标记仅在相关时读取。启动与结束时分别读取、复核、更新、节制新建和清理，并结合时间信号区分过去与未来事件。主模板 `1.0.2 → 1.1.0`。
+- **征求同意的历史提炼。** 背景库为空但已有历史时只提议一次。接受后先提出候选并由本人确认，再写为 `Provisional`，标注历史来源；拒绝记日期，避免重复问。可使用真实治疗记录但保留其临床权威边界。命令 `1.3.0 → 1.4.0`。
+- **更新补建背景库。** `plan.scaffolded` 扩展到索引与四个子目录；仅在缺失时创建，支持预览。
+- **理想父母形象（IPF）。** 根据 Brown 与 Elliott 的依恋修复协议，加入五项安全依恋条件、逐步意象流程、不同依恋风格的调整、紊乱型的渐进接触和“不真实”阻碍处理。与 IFS、CFT、LI、心理动力学、多迷走神经与 SE 双向关联，成为第 13 种可选方法。
 
-### For Existing Users
-Run `inner-dialogue update --path <your-folder>` to scaffold `context/` and pick up the new `commands.md` (which carries the "build my context library" command). Additive — no existing files are touched.
+### 调整
 
-**One caveat worth understanding:** `update` never rewrites an existing install's `CLAUDE.md` (it's in `ALWAYS_SKIP_RELATIVE`), so the protocol layer — the session-start read, drift discipline, session-end update, and the first-run seeding offer — reaches **new installs and reinstalls only**. After `update`, your install has the staged `context/` folder and the on-demand command, but the therapist won't yet auto-read `context/` or apply the drift rules. Three ways to get the full protocol:
+- 缺少背景库或索引时 `doctor` 提示而非报错。
+- 清单 `1.3.0 → 1.4.0`，新增仅补建的 `context-index`。
+- 索引模板 `0.2.0 → 1.0.0`，移除待接入标记并说明 `Provisional`。
+- npm 包纳入 `context/`。
 
-- **On-demand command (lowest friction).** Run `update`, then ask the therapist to "build my context library" — it backfills from your history with your confirmation. This works even with an unchanged `CLAUDE.md` (the command is self-contained), but it does not give you automatic session-start reads or drift reconciliation — just the library.
-- **Reinstall in place (full protocol).** `inner-dialogue install --force --path <your-folder>` regenerates `CLAUDE.md` and the library from the new template while preserving `profile.md` and `sessions/` untouched. This is the clean way to pick up the auto-read and drift discipline.
-- **Re-onboard with import.** Set up fresh and import your existing notes — the setup flow converts them into `sessions/`, and the new template offers seeding once history is present. Given the import feature, starting clean is low-friction if you'd rather.
+### 现有安装
 
-Prefer surgical edits? Copy the new *The Context Library* section and the session-start/session-end context steps from the template into your `CLAUDE.md` by hand.
+更新会补建背景库并提供主动建立资料库的命令。普通更新不重写 `CLAUDE.md`，因此不会自动取得启动读取和漂移复核协议。可手工合并主模板相关段落，或备份后原位重新安装；也可新建目录并导入记录。仅运行建立资料库命令能完成经确认的历史提炼，但不会替旧启动指令自动添加日常复核。
 
 ---
 
 ## [2.7.1] - 2026-06-10
 
-### Fixed
-- **Therapist no longer mislabels its own session notes with `therapist:` frontmatter.** When a client has imported real-care records (which carry a `therapist:` field per the *Working Alongside Real-World Care* protocol), the therapist reads them for continuity at session start — and could then pattern-complete that same frontmatter onto its *own* end-of-session note, falsely attributing its words to the real provider. The only safeguard was a parenthetical in the protocol section, read at session start and far from the point where notes are actually written. Hardened in two places in `CLAUDE.template.md`: the protocol line is now a standalone imperative ("never write that frontmatter onto a note you authored," with the trust-boundary-inversion spelled out), and the *At Session End* write block gains an explicit point-of-action prohibition ("start with the `# Session:` heading, with no frontmatter… reading a file that carries the field is not a format to replicate"). `CLAUDE.template.md` `1.0.1 → 1.0.2`.
+### 修复
 
-### For Existing Users
-By design, `update` does not modify an existing install's `CLAUDE.md` (it is in `ALWAYS_SKIP_RELATIVE`), so this fix reaches **new installs only**. Existing installs that have imported real-care records are the ones exposed; to pick up the fix, reinstall (`install --force`, which preserves `profile.md` and `sessions/`) or copy the two hardened sections into your `CLAUDE.md` by hand.
+- **避免 AI 笔记冒用真实专业来源。** 读取带 `therapist:` 的真人记录后，模型可能把同样的前置字段续写到自己的笔记。主模板在来源规则和结束写笔记处各加一项明确禁止：AI 笔记直接从会谈标题开始，不带真人来源字段。版本 `1.0.1 → 1.0.2`。
+
+### 现有安装
+
+普通更新保留根指令，此修复通过新安装、重新安装或手工合并取得。导入过真实治疗记录的旧安装尤其应检查。
 
 ---
 
 ## [2.7.0] - 2026-06-10
 
-### Added
-- **Current-time hook via `.claude/settings.json`.** A new `claude-settings.template.json` ships with a `UserPromptSubmit` hook that runs `date` and surfaces current local time to the therapist on every message. Helps with session pacing (length, time-of-day awareness — a 2am message warrants a softer pace than a midday check-in). Pure local shell command — no data transmitted. Scaffolded by `install` (new `.claude/` mkdir + copy) and by `update` for existing installs that pre-date the feature. Never overwritten if a settings file already exists (same `existsSync` protection as `profile.md`).
-- **`update` gains a top-level `scaffold` plan path.** New `plan.scaffolded` array surfaces files that are created once and never overwritten. Visible in `--dry-run`. Currently used for `.claude/settings.json`; lays the groundwork for future scaffold-only files.
+### 新增
 
-### Changed
-- **`CLAUDE.template.md` `1.0.0 → 1.0.1`.** Adds a brief "Time awareness" subsection under Session Startup Protocol. The guidance is defensively phrased: *if* a `Current local time:` line is present at the top of a user message, use it for pacing/tone; *if not*, proceed without — never reach for a time the model doesn't have. Hook absence is treated as a normal state (pre-existing settings file, Claude surface that doesn't run hooks, user hasn't run `update` yet).
-- **`doctor`** now warns (not errors) when `.claude/settings.json` is missing, suggesting `update` to scaffold it.
-- **`manifest.json` `1.2.0 → 1.3.0`.** Adds `claude-settings` component with a new `scaffold_only` flag indicating files that are created once and never overwritten on update.
-- **npm package `files`** array includes `claude-settings.template.json` so the template ships.
+- **当前时间钩子。** 设置模板通过 `UserPromptSubmit` 提供本地时间，帮助把握会谈节奏和时段。初版使用 `date` 本地命令；不自行联网。安装或更新仅在配置缺失时创建，不覆盖既有设置。
+- **补建计划。** 更新新增 `plan.scaffolded`，展示只创建一次的文件，最初用于设置文件。
 
-### For Existing Users
-Run `inner-dialogue update --path <your-folder>` to scaffold `.claude/settings.json`. Additive — no existing files are touched. `profile.md`, `sessions/`, and `CLAUDE.md` remain protected as always.
+### 调整
 
-### Follow-up
-A separate PR will land the `context/` knowledge graph for subject-level synthesis of people, places, concepts, and events — split out from this change so the protocol layer (how the therapist trusts and reconciles `context/` against sessions) can be designed carefully alongside the structure.
+- 主模板 `1.0.0 → 1.0.1`：有 `Current local time:` 信号才使用，没有则照常进行，不假装知道时间。旧设置、不运行钩子的界面等均视为正常无信号状态。
+- 缺设置时 `doctor` 提示补建。
+- 清单 `1.2.0 → 1.3.0`，增加 `scaffold_only` 设置组件。
+- npm 包纳入设置模板。
+
+### 现有安装与后续
+
+更新只补建缺失设置，个人文件继续保留。背景库另行设计，在后续 2.8.0 接入。
 
 ---
 
 ## [2.6.0] - 2026-06-08
 
-### Changed
-- **Voice-adherence fix extended to all personas.** v2.5.0 fixed `grounded-real`; this adds a `Default Length` block to the other seven (`coach`, `direct-challenging`, `warm-supportive`, `contemplative`, `philosophical`, `creative`, `warm-4o`), each tuned to that persona's own register rather than a one-size block — `direct-challenging` runs 1–3 sentences and ends blunt; `contemplative` keeps brevity as *space* rather than efficiency; `philosophical` is told to resist the monologue; `warm-4o`'s native casual brevity is reinforced so the template stops overriding it. All personas 1.1.0 → 1.2.0.
-- **This is the change that reaches existing installs.** Persona files propagate via `update` (the template does not), so putting the discipline in every persona is what actually delivers the voice fix to current users — whichever persona they run, provided they haven't customized their persona file.
+### 调整
 
-### Validation
-- Field-condition test (old five-beat template still present + new persona, fixed fictional vignette): median reply length came in at direct-challenging 38w, creative 55w, warm-4o 62w, coach 73w, philosophical 88w (down from ~250w pre-fix), contemplative brief-and-spacious — all staying in-register, none reverting to the five-beat essay.
+- **人格主导的简短表达扩展到全部人格。** 2.5.0 先调整 `grounded-real`，本版给其余七种人格增加各自的默认长度规则。直接挑战为 1–3 句并简洁收尾；沉思型将简短视为留白；哲思型避免独白；温暖自然型保留随意而简短的风格。不同人格保持区别，而非套用一段统一规则。
 
 ---
 
 ## [2.5.0] - 2026-06-08
 
-### Changed
-- **Response shape and length now defer to the persona instead of a fixed five-beat.** The template's `Response Guidelines` previously prescribed an Acknowledge → Reflect/Validate → Observe → Suggest → Close structure on *every* turn, which pulled responses toward long, generic-sounding "AI therapist" essays regardless of the selected persona. Replaced with a *Shape* section that hands turn structure to the persona and explicitly permits single-move replies, and a *Length* section that makes the persona's length guidance authoritative and defaults to brevity. In A/B testing on a fixed prompt (5 samples per condition), this cut median response length ~60% and reflexive question-endings from 80% to 20%, with non-overlapping distributions — a real effect, not run-to-run variance.
-- **`grounded-real` persona gains an explicit Default Length block** — brief by default (2–4 sentences), going long only when the client opens real depth, and ending on a statement rather than a reflexively tacked-on question. (Persona 1.1.0 → 1.2.0; propagates to existing installs via `update`.)
+### 调整
 
-### Added
-- **"Working Alongside Real-World Care" protocol in the template.** When a client also sees a real in-person therapist or provider, session notes tagged with a `therapist:` frontmatter field are treated as real-care continuity carrying clinical authority, and the AI positions itself as *adjunct* — helping prep for and process real sessions, reinforcing the provider's work, and deferring diagnosis/medication/crisis/treatment decisions to the provider. Fully generic and de-identified; no provider names ship in the framework.
-- **Care Team stub in `profile.template.md`** for recording real-world providers.
-- **Setup import flow now distinguishes real-therapy records from AI-chat history** (`CLAUDE.md`): real-therapy imports get `therapist:` frontmatter and follow the adjunct protocol; AI-chat history converts to ordinary session notes.
+- **回复形状与长度服从人格。** 原模板每次强制“承接→反映/确认→观察→建议→收尾”，容易产生冗长且雷同的 AI 咨询文章。本版允许只完成一个有用的交流动作，以人格长度规则为准，默认简短。原项目固定问题的 A/B 测试每组 5 次，报告中位长度约下降 60%，反射式问句收尾从 80% 降至 20%；这是历史测试说明。
+- `grounded-real` 增加默认 2–4 句，只在本人深入展开时延长，不机械附加问句。人格 `1.1.0 → 1.2.0`，可随更新分发。
 
-### Note
-- `CLAUDE.template.md` changes reach **new installs**; by design, `update` does not modify an existing install's `CLAUDE.md`. The persona change *does* propagate via `update`, and in testing carried most of the voice improvement on its own. Existing users who want the full template change should reinstall or copy the new sections in.
+### 新增
+
+- **与现实治疗配合。** 带 `therapist:` 的记录被视为真实照护连续性，AI 提供辅助、帮助准备与消化现实会谈；诊断、药物、危机和治疗决策尊重实际专业人员。框架不附带私人专业人员姓名。
+- 档案模板增加支持团队章节。
+- 安装导入区分真人治疗记录与 AI 聊天，只有前者附真人来源字段。
+
+### 说明
+
+主模板通过新安装取得，普通更新不写旧根指令；人格调整可直接更新。需要完整模板变化时应手工合并或重新安装。
 
 ---
 
 ## [2.4.2] - 2026-05-25
 
-### Removed
-- **`start-session.command` and `start-session.bat` launcher files no longer ship.** Pre-CLI versions of these scripts had a broken shebang (`#\!/bin/bash`) that prevented them from opening on macOS. Even when generated correctly by later CLI versions, the launchers depend on the standalone `claude` command being on PATH — which most users now don't have because Claude Code is built into the Claude AI app. Start sessions by opening the Claude AI app and navigating to your therapy folder, or by running `claude` in Terminal from that folder.
+### 移除与调整
 
-### Changed
-- **`update` now removes deprecated launcher files from existing vaults.** When the launcher matches an unmodified shipped pattern (either the pre-CLI broken shebang or the post-CLI correct version), it's deleted and reported under `Removed deprecated launcher files`. Customized launchers are left in place and surfaced in `skipped_user_edited` so users can decide what to do with them. Backups still cover the launcher files in `.therapy.bak-<timestamp>` regardless.
-- **`install` no longer creates launcher files.** The install success message now points users to the Claude AI app or Terminal directly.
-- Documentation updated across `README.md`, `docs/GETTING-STARTED.md`, `MIGRATING.md`, and `CLAUDE.md` to remove launcher references.
+- 不再分发 `start-session.command` 与 `start-session.bat`。早期 macOS 脚本带错误 shebang；即使格式正确也依赖 PATH 中的 `claude`。改为通过应用选择咨询目录，或在目录终端运行 `claude`。
+- 更新会移除匹配已知未修改模板的旧启动器，并在结果中列出。自定义启动器保留并列入跳过项；备份仍涵盖旧启动器。
+- 安装不再创建启动器，相关文档与成功提示同步调整。
 
 ---
 
 ## [2.4.1] - 2026-05-23
 
-### Fixed
-- **`update` now refreshes active files, not just the library.** Previously, running `update` would refresh the reference copies under `.therapy/library/` but leave the active files your session actually loads (`.therapy/persona.md`, `.therapy/session-structure.md`, `.therapy/modalities/*.md`) on the prior version. Result: users who ran `update` after the v2.4.0 release got the new modality library content but their sessions kept loading the v1.0.0 files. This was a latent bug going back further — any prior library content release had the same gap — it just became loud with v2.4.0's substantial rewrites.
-- **Active files are now hash-gated like library files.** Refresh happens only when the on-disk content matches either the explicitly-recorded active hash, the previously-recorded library hash, or (for persona/session-structure) any library file's known hash of the same kind. Customized active files are preserved and reported in `skipped_user_edited` — re-run with `--force` to overwrite.
-- **Legacy installs (no active entries in version.json) are now backfilled.** For modalities, the active filename gives the library source directly. For persona and session-structure, hash-matching identifies the source. Once refreshed, version.json gains the active entries for cleaner future updates.
+### 修复
 
-### Known Limitation
-If you ran `update` against v2.4.0 (which refreshed the library to 1.1.0 but left the active files at 1.0.0), your `version.json` no longer remembers the 1.0.0 library hashes. The 2.4.1 update flow will mark your active modality/persona files as "customized" rather than auto-refreshing them. Re-run with `--force` to overwrite, or manually copy from `.therapy/library/` to the active slots.
+- **更新同时刷新当前启用文件。** 旧实现只更新 `.therapy/library/`，会谈实际读取的人格、结构和疗法仍停留旧版。现在当前文件也根据哈希判断是否可更新。
+- 匹配显式启用哈希、旧库哈希或同类已知库哈希时可刷新；已自定义的启用文件默认保留，可用 `--force` 覆盖。
+- 对缺少启用项登记的旧安装，疗法由文件名确定来源，人格与结构由哈希识别，刷新后补登记。
+
+### 已知限制
+
+若先运行 2.4.0 更新导致库已升级、启用文件未升级，登记表可能已不保留旧库哈希；此时启用文件会被当成自定义。需比较后选择强制更新或手工复制相应库文件。
 
 ---
 
 ## [2.4.0] - 2026-05-23
 
-### Changed
-- **All 12 modality files comprehensively rewritten** to bring every modality to operational parity with DBT skills (previously the only modality with named, mnemonically packaged protocols). Each file now contains:
-  - **Named protocols** — IFS's 6 F's; CBT's Socratic dialogue + 10 distortions with reframes + Behavioral Activation + Thought Record + Exposure Hierarchy; ACT's three iconic metaphors (Tug of War, Passengers on the Bus, Leaves on a Stream) in full dialogue form; CFT's Compassionate Self protocol + Inner Critic dialogue + Soothing Rhythm Breathing; Psychodynamic's Interpretive Sequence + Transference Recognition; Polyvagal's three state-specific intervention menus; SE's Resourcing + Pendulation + Discharge Recognition scripts; MI's five-level reflection ladder + Change Talk amplification; Narrative's Externalization dialogue + Unique Outcomes protocol; SFBT's Miracle → Scaling → Exceptions chain; Lifespan Integration's Timeline Construction Protocol with explicit AI-limitation framing.
-  - **Signaling cues** — verbatim client language patterns each modality should listen for, pushing activation criteria into the modality files themselves rather than living only in the template router.
-  - **Example AI interventions** — 4–7 full reflections per modality in actual therapist voice, replacing thin "key questions" lists.
-  - **Integrates with** — cross-modality routing rules (e.g., "with compulsive behaviors, IFS leads, CBT follows downstream") so the system stops reinventing composition logic session-by-session.
-  - **Pacing & limitations** including modality-specific AI honesty (SE/LI/IFS depend on real-time tracking text can't fully do) and a generic "Working alongside an external therapist" note positioning Sage to deepen rather than compete with human treatment.
-  - **Homework / between-session work** — 4–6 concrete practices per modality.
-- **7 of 8 persona files padded to warm-4o's depth bar.** Same structural pattern; denser content per section. New across the set: expanded Tone Qualities with nuance, Language Patterns subdivided into 6–9 categories with example phrasings, Challenge Style with a moves table, Conversation Arc as a 5-beat structure tuned to each persona's natural flow, Energy Matching for 5–6 client states. Distinct voices preserved (Coach: action-forward; Contemplative: spacious; Creative: playful/metaphor-rich; Direct-Challenging: sharp/uncompromising; Philosophical: existential; Warm-Supportive: steady reassuring presence; Grounded & Real: direct + warm).
-- **Per-file version bumps `1.0.0 → 1.1.0`** across all 12 modalities and 7 personas (warm-4o was already at 1.1.0 from a prior pass).
-- **`manifest.json` bumped `1.1.0 → 1.2.0`** to reflect the content release.
+### 调整
 
-### For Existing Users
-The `update` CLI detects per-file version changes and rolls them out cleanly:
-- Files you haven't customized are upgraded automatically.
-- Files you've customized are skipped with a warning — your edits are preserved. Re-run with `--force` to overwrite if you want the new versions.
-- `profile.md`, `sessions/`, and `CLAUDE.md` are never touched by `update`.
+- **全面扩写 12 种疗法。** 统一补齐可执行流程：IFS 六个 F；CBT 苏格拉底式对话、十种认知扭曲、行为激活、思维记录与暴露层级；ACT 拔河、巴士乘客和溪流落叶；CFT 慈悲自我、内在批评者对话和舒缓呼吸；心理动力学解释与移情识别；多迷走神经三状态干预；SE 资源化、摆动与释放；MI 五层反映及改变语言；叙事外化与独特结果；SFBT 奇迹、量尺与例外；LI 时间线与 AI 局限。
+- 每种方法增加触发线索、4–7 个完整回应例子、跨方法衔接、节奏和限制，以及 4–6 项会谈间练习。涉及实时追踪的方法明确文本 AI 的局限；与现实治疗保持辅助关系。
+- **七种人格补齐深度。** 保留各自风格，扩展语气细节、6–9 类表达例子、挑战方式表、五阶段交流走向及不同来访状态下的调整。温暖自然型此前已经扩写。
+- 12 种疗法和七种人格版本 `1.0.0 → 1.1.0`，清单 `1.1.0 → 1.2.0`。
 
-If you've been using the framework in active sessions, expect noticeably sharper modality work — most of all in IFS, where the previous file stopped at naming parts; the rewrite adds the 6 F's protocol, manager-appreciation scripts, firefighter-as-part framing (vs. CBT habit-substitution), and an Exile-trust protocol for when the wounded part rejects the Self's offering.
+### 现有安装
+
+未自定义文件自动更新，已修改文件跳过，强制覆盖前先检查。档案、会谈与根指令保留。IFS 从仅识别部分扩展到六个 F、感谢管理者、将消防员视为部分及受伤部分不信任自我时的处理，而非只做习惯替代。
 
 ---
 
 ## [2.3.1] - 2026-05-23
 
-### Changed
-- **README "How Sessions Work" section updated** to describe the organic profile structure shipped in 2.3.0. Surfaces the seed-then-evolve model and modality-aware sections so users understand the new behavior without having to read the changelog.
+### 调整
 
----
+- README 会谈说明与 2.3.0 的自然生长式档案保持一致，说明从最小种子扩展和随疗法组织章节。
 
 ## [2.3.0] - 2026-05-23
 
-### Changed
-- **Profile structure is now organic, not template-driven.** New installs ship with a minimal seed (`Background`, `Current Focus`, `Notes`) instead of a fixed 6-section template. The LLM is explicitly instructed to add H2 sections as themes emerge across sessions and to organize structure around active modalities — IFS work surfaces a `Parts` section, somatic work surfaces `Body & Nervous System`, narrative work surfaces `Preferred Stories`, etc.
-- **CLAUDE.template.md profile-update logic rewritten** to invite section creation when themes consolidate, consolidate fragmented content into dedicated H2s, and preserve H3 substructure (per-person relationship sections, etc.).
-- **`doctor` validates structure presence, not template adherence.** A profile with 4+ H2 sections is assumed to have evolved its own coherent structure and isn't second-guessed. Smaller profiles get a soft warning if they lack a Background section (or equivalent).
+### 调整
 
-### For Existing Users
-Your folder isn't affected by this release — the LLM-behavior change lives in `CLAUDE.template.md`, which is generated at install time and never modified by `update` (it's user-owned). Your existing profile and CLAUDE.md keep working as they have been. If you want the new profile-evolution behavior for your therapist, either:
-- Re-install over your folder with `npx inner-dialogue install --force --path <your-folder> ...` (regenerates `CLAUDE.md` from the new template; preserves `profile.md` and `sessions/`), or
-- Manually copy the new "How to update profile.md" block from this repo's `CLAUDE.template.md` into your therapist's `CLAUDE.md`.
+- **档案可自然生长。** 从背景、当前关注、备注等最小章节开始，随主题形成增加二级标题：例如 IFS 的内在部分、躯体工作的身体与神经系统、叙事工作的偏好故事。
+- 重写主模板档案更新规则，允许形成专门主题章节、合并碎片，并保留人物关系等三级结构。
+- `doctor` 检查结构存在而非机械套模板：四个以上二级标题视为已经形成结构，较小档案缺背景时仅提示。
 
-Most existing users won't need to do either — your therapist has likely already been creating H2 sections organically (the old "don't create new H2s" instruction was widely ignored in practice once profiles got rich enough).
+### 现有安装
 
----
+模板变化需重新安装或手工合并，普通更新不修改个人档案和根指令。旧安装仍可工作，不强制迁移。
 
 ## [2.2.3] - 2026-05-23
 
-### Changed
-- **`doctor` now distinguishes errors from warnings.** Template H2 section misses in `profile.md` are demoted from errors to soft warnings — the template's own prompt invites users to add custom sections, and the LLM's update logic targets existing H2s rather than template-specific ones. Profiles that evolved their own structure (common for any folder older than a few weeks) no longer fail `doctor`. Real structural problems (missing `.therapy/`, malformed `version.json`, missing `profile.md`, zero H2s) remain errors.
-- `doctor` exits 0 on warnings-only, 1 on errors. Output visually separates errors (`!!`) from warnings (`~~`).
-- Legacy `version.json` schema is now a warning, not an error — the file still works, the migration is just recommended.
+### 调整
 
----
+- `doctor` 区分错误与提示。缺部分模板标题降为提示；缺框架、无效登记表、缺档案或完全没有二级标题仍属错误。
+- 仅提示退出 0，错误退出 1；输出分别使用 `~~` 与 `!!`。
+- 旧版登记表可继续使用，迁移建议改为提示。
 
 ## [2.2.2] - 2026-05-23
 
-### Fixed
-- **Migration from legacy `version.json` schema now produces a complete registry.** Previously, `update --force` against a pre-2.2.0 folder only recorded hashes for files it wrote — every other framework file that already matched bundled content was left unregistered, causing future updates to re-flag them as "unknown origin." Now `update` detects the legacy schema and folds all `unchanged` files into the new registry alongside any writes, so a single migration run produces a fully-tracked folder. Dry-run output also surfaces this as "Folded into new registry (N)" so users see what the migration accomplishes before applying.
+### 修复
 
----
+- **旧格式迁移生成完整登记表。** 此前强制更新只登记实际写入项，已与来源一致的其他文件仍被反复认成未知来源。现在迁移时也登记 `unchanged` 文件，并在预览中显示 `registered_on_migration`。
 
 ## [2.2.1] - 2026-05-23
 
-### Added
-- **MIGRATING.md** — Step-by-step guide for users with pre-2.2.0 therapy folders. Documents the one-time `update --force` migration that refreshes framework files and generates a fresh hash registry while leaving `profile.md`, `sessions/`, and root `CLAUDE.md` untouched.
+### 新增与修复
 
-### Fixed
-- **`update --force --dry-run` now actually previews the forced overwrites.** Previously the force-reshuffle of skipped files happened after the dry-run early-return, so users couldn't preview what `--force` would do — making MIGRATING.md's preview step misleading.
-
----
+- 增加迁移指南，说明旧安装如何使用一次性强制更新刷新框架与哈希，同时保留个人文件。
+- 将强制覆盖计划移动到预览提前返回之前，使 `--force --dry-run` 真正展示强制写入项。
 
 ## [2.2.0] - 2026-05-22
 
-### Added
-- **`inner-dialogue` CLI** — Published to npm. `npx inner-dialogue install`, `update`, and `doctor` commands. The conversational setup flow now calls the CLI under the hood instead of asking the LLM to perform `mkdir`/`cp`/`chmod` from prose instructions.
-- **Hash-aware updater** — `update` records a SHA-256 of every framework file at install time. On re-run, files whose current content matches the registered hash are safely overwritten with the new version; files that have been edited are skipped with a warning. Run with `--force` to overwrite anyway. `--dry-run` previews the plan without writing.
-- **Automatic backups** — Every `update` snapshots `.therapy/` to `.therapy.bak-<timestamp>/` before any write. Roll back by restoring from the snapshot.
-- **`doctor` command** — Validates folder integrity (presence of framework files, `profile.md` H2 structure intact, `version.json` schema). Catches the drift modes that motivated 2.1.2.
-- **Direct CLI install path** — `npx inner-dialogue install` works without Claude Code for scripting / power-user setups, with interactive prompts when run in a TTY.
+### 新增
 
-### Changed
-- **Setup CLAUDE.md slimmed down** — The 700-line procedural setup file is now a ~150-line conversation script. File operations live in the tested CLI, not in LLM-followed prose.
-- **`version.json` schema** — Now tracks per-file hashes (`files[path]: {version, hash, source}`) instead of just component versions. Old format auto-migrates on first `update` (treated as unknown-origin until the user confirms).
+- 发布 `inner-dialogue` CLI，提供 `install`、`update`、`doctor`；对话式设置改为调用经过测试的安装器，而非要求模型按文字执行文件操作。
+- 基于 SHA-256 的更新：未修改文件更新，已修改文件跳过，可强制覆盖并先预览。
+- 更新前自动保存 `.therapy.bak-时间戳` 快照，可据此回退。
+- 完整性检查覆盖框架、档案二级标题与登记格式。
+- 提供直接 CLI 安装路径和终端交互式询问，便于脚本或高级使用。
 
-### For Existing Users
-See [MIGRATING.md](MIGRATING.md) for the one-time migration to the hash-aware updater. Your `profile.md`, `sessions/`, and root `CLAUDE.md` are never touched.
+### 调整
 
----
+- 原约 700 行安装操作说明缩为约 150 行的引导对话，文件操作移入 CLI。
+- 登记表改为逐文件 `{version, hash, source}`；旧格式首次更新自动迁移，不能确认的旧文件先视为未知来源。
+
+### 现有安装
+
+参见迁移指南。个人档案、会谈与根指令不由普通更新覆盖。
 
 ## [2.1.2] - 2026-05-09
 
-### Fixed
-- **Profile updates now target specific sections** — At session end, the AI must match each update to an existing H2 section in `profile.md` rather than appending freeform. Prevents `profile.md` from accumulating unstructured content over many sessions.
+### 修复
 
----
+- 会谈结束时将档案更新写入对应二级章节，避免持续在文件末尾堆积无结构内容。
 
 ## [2.1.1] - 2026-02-08
 
-### Fixed
-- **Setup import flow now fully implemented** — Step 6 now includes complete logic for categorizing files (profile.md, ChatGPT exports, markdown, PDF), extracting profile information, and converting conversations to dated session files. Previously the setup instructions referenced import handling but didn't include the processing steps.
+### 修复
 
----
+- 补齐安装导入流程：识别档案、聊天导出、Markdown、PDF，提取档案信息并转换为带日期的会谈记录。
 
 ## [2.1.0] - 2026-02-08
 
-### Added
-- **Import command** — Import notes anytime during a session, not just at setup. Say "import" or "I have files to import" and provide a path.
-- **Manifest-based updates** — Updates now use `manifest.json` to discover all available components. Existing users can get new features automatically.
-- **Smart modality recommendations** — If you import notes during setup, your therapist reads them and recommends modalities based on your history.
+### 新增
 
-### Changed
-- **Smarter import handling** — Imported files now become session history (`sessions/YYYY-MM-DD.md`) with original dates, plus key patterns extracted to `profile.md`. This gives natural relevance decay like real memory.
-- **Commands moved to updatable file** — Customization commands now live in `.therapy/commands.md` so existing users receive new commands via updates.
-- **Setup flow reordered** — Import step now comes before modality selection, enabling personalized recommendations.
+- 会谈中随时导入，不再只允许设置时导入。
+- 按 `manifest.json` 发现更新组件。
+- 导入历史后，依据实际资料建议可选方法。
 
-### For Existing Users
-Run "update" or "check for updates" during a session to get these features.
+### 调整
 
----
+- 导入保留原日期并形成会谈历史，重要模式提炼到档案，避免无差别永久强调旧内容。
+- 自定义命令移到可更新的 `.therapy/commands.md`。
+- 导入顺序提前到疗法选择之前，支持基于资料的建议。现有用户可通过会谈内更新取得相关命令。
 
 ## [2.0.0] - 2026-02-01
 
-### Added
-- **8 communication styles** (up from 2):
-  - Warm 4o-Style
-  - Direct & Challenging
-  - Warm & Supportive
-  - Coach
-  - Grounded & Real
-  - Contemplative & Spacious
-  - Philosophical & Existential
-  - Creative & Playful
+### 新增与调整
 
-- **12 therapeutic modalities** (up from 1):
-  - CBT (Cognitive Behavioral Therapy)
-  - ACT (Acceptance and Commitment Therapy)
-  - CFT (Compassion-Focused Therapy)
-  - DBT Skills
-  - IFS (Internal Family Systems)
-  - Lifespan Integration
-  - Motivational Interviewing
-  - Narrative Therapy
-  - Polyvagal-Informed Work
-  - Psychodynamic
-  - SFBT (Solution-Focused Brief Therapy)
-  - Somatic Experiencing
-
-- **Split-file architecture** — Components now live in `.therapy/` folder for independent updates
-- **Self-contained therapist folders** — No need to keep the repo after setup
-- **Update command** — Say "update" to check for and apply updates from GitHub
-- **Customization commands** — Switch persona, add/remove modalities, change session structure during sessions
-
-### Changed
-- Therapist folders now include full library of options for switching styles
-
----
+- 交流人格从 2 种扩为 8 种：温暖自然、直接挑战、温暖支持、行动教练、务实真诚、沉思留白、哲学与存在探索、创意探索。
+- 方法从 1 种扩为 12 种：CBT、ACT、CFT、DBT 技能、IFS、人生跨度整合、动机式访谈、叙事、多迷走神经知情、心理动力学、SFBT、躯体体验。
+- 框架拆到 `.therapy/`，可独立更新；咨询目录自带完整选项库，可在会谈中切换人格、疗法和结构。
+- 原英文版提供 GitHub 更新命令，咨询目录使用不依赖源码目录。当前中文分支的后续中文更新仍需保留本地来源，不能照搬该历史分发假设。
 
 ## [1.0.0] - 2026-01-15
 
-### Initial Release
-- Basic AI therapist setup with persistent sessions
-- CBT modality
-- Warm 4o-Style and Coach personas
-- Session notes saved to `sessions/` folder
-- Client profile in `profile.md`
-- Safety and crisis protocols
+### 首次发布
+
+- 基础 AI 咨询设置与持续会谈记录。
+- CBT 方法，以及温暖自然和行动教练两种人格。
+- 会谈保存到 `sessions/`，个人档案保存在 `profile.md`。
+- 安全与危机流程。

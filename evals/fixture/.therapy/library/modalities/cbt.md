@@ -1,191 +1,191 @@
 <!-- version: 1.1.0 -->
-## Cognitive Behavioral Therapy (CBT)
+## 认知行为疗法（CBT）
 
-**Core principle:** Thoughts, feelings, and behaviors are interconnected. The interpretation of an event — not the event itself — drives the emotional and behavioral response. When automatic thoughts are inaccurate or unhelpful, mood and action shift downstream. CBT is the most rigorously studied modality in the set; when an issue is amenable to it, it works fast.
+**核心理念：**想法、情绪和行为相互关联。决定情绪与行为反应的是对事件的解释，而非事件本身。自动想法不准确或没有帮助时，情绪和行动也会随之改变。CBT 是这组方法中经过最严格研究的一种；问题适合用它处理时，起效很快。
 
-### The Cognitive Triangle
+### 认知三角
 
-The operational frame underneath everything CBT does:
+CBT 各种操作背后的框架：
 
-- **Situation** — the event or trigger (often neutral or ambiguous)
-- **Thought** — the automatic interpretation (often fast, unexamined, and distorted)
-- **Emotion** — the felt consequence of the thought
-- **Behavior** — what the person does in response (often reinforcing the thought)
+- **情境：**事件或触发因素，往往中性或含糊。
+- **想法：**自动解释，往往迅速、未经检验且有所偏差。
+- **情绪：**想法带来的感受。
+- **行为：**随后的行动，往往又强化想法。
 
-Change any vertex and the others move. CBT usually enters through the thought — because thoughts are the most legible and editable — but **behavioral activation** enters through behavior, and **exposure** enters through changing the situation.
+改变任一角，其他两角也会变化。CBT 通常从想法进入，因为想法最容易辨认和调整；**行为激活**从行为进入，**暴露**则通过改变情境进入。
 
-**Core schemas** live underneath automatic thoughts: deeper beliefs like "I am unlovable," "the world is dangerous," "I must be perfect to be safe." Automatic thoughts are the surface; schemas are the soil. Persistent patterns usually trace to a schema.
-
----
-
-### The Socratic Dialogue Sequence (the operational core)
-
-When a client expresses a distorted or distressing thought, run this sequence. Don't argue with the thought — guide them to examine it.
-
-1. **Clarify the thought.** Get it stated specifically. Vague thoughts ("everything sucks") can't be examined. "When you say everything sucks, what's the specific thought underneath that? What's the worst part?"
-2. **Examine the evidence.** "What's the evidence this thought is true? What's the evidence against it?" Push for concrete examples, not feelings.
-3. **Consider alternatives.** "What's another way to read this situation? What would you tell a friend who said this about themselves?"
-4. **Test the prediction.** "If this thought is right, what should happen next? How would we know if it were wrong?"
-5. **Land on a balanced thought.** Not a positive thought — a *realistic* one that holds both the legitimate concern and the missing data.
-
-The goal is not to talk them out of the thought. It's to help them *catch* it, *examine* it, and develop the habit of doing this themselves.
+自动想法下面有**核心图式**，例如“我不值得被爱”“世界危险”“我必须完美才安全”。自动想法是表层，图式是土壤。持续的模式通常可追溯到某种图式。
 
 ---
 
-### Cognitive Distortions (with example reframes)
+### 苏格拉底式对话顺序（操作核心）
 
-Name the pattern when you hear it — naming creates distance. Then offer a reframe.
+来访者表达有偏差或令人痛苦的想法时，依次开展。不要与想法争辩，引导他检验。
 
-**1. All-or-nothing thinking** — Seeing things in absolute categories. *"I completely failed that conversation."* → "Was any part of it okay? What would a partial outcome look like?"
+1. **说清想法。**具体表达，模糊的“一切都很糟”无法检验。“这下面具体的想法是什么，最糟的部分是什么？”
+2. **检验证据。**“支持它的证据是什么，反对它的证据是什么？”推动给出具体例子，而非感受。
+3. **考虑其他解释。**“还可以怎样理解？朋友这样评价自己时，你会说什么？”
+4. **检验预测。**“如果想法正确，接下来应发生什么？怎样知道它可能错了？”
+5. **形成平衡想法。**不是积极想法，而是同时容纳合理担忧与遗漏信息的现实想法。
 
-**2. Catastrophizing** — Assuming the worst-case outcome. *"If I get one bad review, my career is over."* → "What's the most likely outcome, not the worst possible one? What's actually happened when this came up before?"
-
-**3. Mind-reading** — Assuming you know what others are thinking, usually negatively. *"She didn't text back because she's annoyed with me."* → "What other reasons could explain her not texting back? How would you know if you were wrong?"
-
-**4. Fortune-telling** — Predicting the future as certain. *"I already know this won't work out."* → "That's a prediction, not a fact. What would have to be true for it to work out?"
-
-**5. Personalization** — Taking responsibility for things outside your control. *"The meeting went badly because of me."* → "What other factors were in play? Whose responsibility actually is what here?"
-
-**6. Should statements** — Rigid rules about self or others. *"I should be over this by now."* → "Where did that rule come from? Is it actually true? What would you say to someone else stuck on this?"
-
-**7. Emotional reasoning** — Treating feelings as evidence. *"I feel like a fraud, so I must be one."* → "Feelings are data, not verdicts. What would the evidence say if we set the feeling aside?"
-
-**8. Labeling** — Global identity statements based on specific events. *"I'm a failure."* → "You failed at this thing. That's specific. What gets lost when we collapse it into an identity?"
-
-**9. Discounting the positive** — Dismissing evidence that contradicts the negative belief. *"They only said that to be nice."* → "What would have to be true for the compliment to be real? Why is the negative evidence more credible to you than the positive?"
-
-**10. Magnification/minimization** — Inflating threats and shrinking strengths. *"That mistake was huge, but the win was nothing."* → "If a colleague described the same week, would you weight it the way you're weighting yours?"
+目的不是劝对方放弃想法，而是帮助发现、检验，并养成自己这样做的习惯。
 
 ---
 
-### Behavioral Activation Protocol
+### 认知偏差及重新理解的示例
 
-For depression, low motivation, and "I don't feel like doing anything." The trap: waiting to feel motivated before acting. Behavioral activation inverts it — *action precedes motivation.*
+听见模式时就说出它；命名能创造距离，然后提供另一种理解。
 
-1. **Track the baseline.** One week of activity logging. Hour by hour, what did you do, and what was the mood (0–10) during it? Patterns emerge — what's already giving lift, what's draining.
-2. **Identify high-value activities.** Two categories: **pleasure** (felt good while doing) and **mastery** (felt competent after). Both matter. Depression usually erodes both.
-3. **Schedule them in.** Specific. Time-blocked. Small. "Walk 15 min Tuesday 7am" beats "exercise more this week."
-4. **Do it regardless of mood.** This is the core move. Action first, motivation later. The schedule wins over the feeling.
-5. **Review weekly.** What got done? What was the mood impact? Adjust the schedule. Iterate.
+**1. 非此即彼：**把事情看成绝对类别。“那次谈话我彻底失败了。”→“有没有哪一部分还可以？不全成不全败会怎样？”
 
-When clients say "I just need to feel motivated first" — name the trap directly. Motivation follows action, not the other way around.
+**2. 灾难化：**假定最坏结果。“一次差评就会毁掉我的职业生涯。”→“最可能的结果是什么？以前类似情况实际怎样？”
 
----
+**3. 读心：**假定知道别人想什么，通常是负面的。“她不回消息，因为在生我的气。”→“还有什么原因？怎样知道你可能理解错了？”
 
-### Thought Record Protocol
+**4. 预言未来：**把预测当确定事实。“我已经知道这不会成功。”→“这是预测，不是事实。哪些条件成立，它就能成功？”
 
-The classic CBT homework, and one of the most evidence-backed self-help tools that exists. Walk a client through it the first few times, then assign as homework.
+**5. 个人化：**为控制之外的事负责。“会议不顺都是因为我。”→“还有什么因素？各部分究竟是谁的责任？”
 
-| Step | Prompt |
-|------|--------|
-| 1. Situation | What happened? (Just facts.) |
-| 2. Emotion | What did you feel? Intensity 0–100. |
-| 3. Automatic thought | What went through your mind? The hottest thought. |
-| 4. Distortion | Which pattern is this? (Name it from the list above.) |
-| 5. Evidence for | What supports the thought? |
-| 6. Evidence against | What doesn't? |
-| 7. Balanced thought | A more accurate read that holds both. |
-| 8. Re-rate emotion | 0–100 again. |
+**6. ‘应该’陈述：**对自己或他人设僵硬规则。“我现在早该走出来了。”→“规则从哪来？真的成立吗？别人卡在这里，你会怎样说？”
 
-The goal of the re-rate is not to hit zero. A drop from 90 to 60 is a success. CBT is incremental.
+**7. 情绪推理：**把感受当证据。“我觉得自己在骗人，所以一定是骗子。”→“感受是信息，不是判决。先放下感受，证据怎么说？”
+
+**8. 贴标签：**用具体事件定义整个人。“我是失败者。”→“你在这件事上失败了，这是具体的。把它缩成身份时，丢掉了什么？”
+
+**9. 否定积极信息：**排除与负面信念冲突的证据。“他们只是客气。”→“哪些条件成立，赞美就是真的？为什么负面证据更可信？”
+
+**10. 放大与缩小：**放大威胁，缩小优点。“那个错误很大，成功不算什么。”→“同事描述同样一周，你也会这样衡量吗？”
 
 ---
 
-### Exposure Hierarchy (for avoidance-driven anxiety)
+### 行为激活流程
 
-When anxiety is maintained by avoidance, talking about it doesn't fix it — *approaching* the feared thing does. Build a hierarchy:
+用于抑郁、低动力和“不想做任何事”。陷阱是等有动力才行动。行为激活把顺序倒过来：**先行动，后有动力。**
 
-1. List 10–15 feared situations related to the issue.
-2. Rate each 0–100 for anticipated distress (SUDS — Subjective Units of Distress).
-3. Order them low to high.
-4. Start at the lowest. Stay in the situation until distress drops by half (usually 20–45 min).
-5. Climb when the bottom rung feels manageable. Never skip rungs.
+1. **记录基线。**连续一周按小时记录活动和当时情绪（0—10），看看什么提振、什么消耗。
+2. **寻找高价值活动。**包括**愉悦**（做时感觉好）和**掌控感**（做后感到有能力）。两者都重要，抑郁通常会侵蚀两者。
+3. **排进日程。**具体、分配时间、足够小。“周二早上七点走十五分钟”胜过“这周多运动”。
+4. **不论当时心情如何都去做。**这是核心：行动在先，动力在后，按日程而非按感受决定。
+5. **每周回顾。**完成了什么，对情绪有何影响？调整日程，继续迭代。
 
-The mechanism is **habituation** (distress drops with sustained exposure) and **inhibitory learning** (a new safety memory gets laid down alongside the old danger memory).
-
----
-
-### Signaling Cues — Client Language to Listen For
-
-Distorted thinking out loud:
-- "I always / I never..."
-- "What if [worst case]..."
-- "They must think I'm..."
-- "I should have / I shouldn't be..."
-- "I just know this won't work"
-- "I'm such a [global label]"
-
-Avoidance:
-- "I just couldn't bring myself to..."
-- "I'll do it when I feel ready"
-- "I keep putting it off"
-
-Behavioral collapse:
-- "I haven't been doing anything"
-- "I can't make myself care"
-- "Even the things I used to enjoy feel pointless"
-
-When you hear these, CBT is likely a good fit. If the thought is fused with identity ("I AM worthless") rather than situational ("I think I failed at this"), consider IFS or ACT defusion first.
+对方说“先有动力才行”时，直接指出陷阱：动力跟随行动，而非反过来。
 
 ---
 
-### Example AI Interventions
+### 思维记录流程
 
-Not just prompts — full reflections Sage can mirror.
+经典的 CBT 会谈间作业，也是证据支持最充分的自助工具之一。前几次带着做，再布置为会谈间作业。
 
-**Catching a distortion in real time:**
-> "Pause for a second. You just said 'she didn't text back because she's annoyed with me.' That's mind-reading — you're inferring her internal state from a behavior that has a dozen possible explanations. What are three other reasons she might not have texted back?"
+| 步骤 | 提问 |
+|---|---|
+| 1. 情境 | 发生了什么？只写事实。 |
+| 2. 情绪 | 感到什么？强度 0—100。 |
+| 3. 自动想法 | 脑中闪过什么？最强烈的那句。 |
+| 4. 认知偏差 | 属于上面哪一种模式？ |
+| 5. 支持证据 | 什么支持这个想法？ |
+| 6. 反对证据 | 什么不支持？ |
+| 7. 平衡想法 | 同时容纳两边、更准确的理解。 |
+| 8. 重新评分 | 再评情绪强度 0—100。 |
 
-**Running Socratic dialogue:**
-> "Let's slow down on 'I completely blew the interview.' I want to test that. What's the evidence it was a complete blow? And what's the evidence against — any moment that landed, any question you answered well? I'm not asking you to be positive, I'm asking you to look at the full picture."
-
-**Behavioral activation prescription:**
-> "I hear that you're waiting until you feel motivated to start exercising again. Here's the trap: with low mood, the motivation doesn't come first — the action does. What if we picked one tiny thing — a ten-minute walk Tuesday morning — and scheduled it, and you did it regardless of how you feel that morning? Motivation usually arrives mid-activity, not before."
-
-**Naming the schema underneath:**
-> "We keep landing on the same belief across different situations — 'I'm a fraud.' That's not an automatic thought anymore, that's a core schema. The work shifts a bit when we're at this layer. We're not just reframing one thought; we're looking at the lens you've been seeing through, and where you got it."
-
-**Holding the line on exposure:**
-> "I know the goal you set was to call them back today, and I know you're feeling the urge to put it off another day. That's exactly the point where avoidance wins or loses. If you delay, the anxiety gets reinforced. If you make the call — even badly — the next one gets easier. What would help you do it in the next 30 minutes?"
-
-**Reframing 'should':**
-> "You said 'I should be over this by now.' I want to push on the should. Where does that timeline come from? Whose voice is that? Because 'should be over it' is a rule, and rules can be examined."
+重新评分不是要降到零，90 降到 60 也是成功。CBT 是逐步积累的。
 
 ---
 
-### When to Use CBT
+### 暴露阶梯（用于由回避维持的焦虑）
 
-- Anxiety disorders (generalized, social, panic, phobias)
-- Depression — especially with behavioral collapse
-- Rumination and worry loops
-- Perfectionism driven by distorted standards
-- Procrastination and avoidance
-- Negative self-talk with identifiable thought patterns
-- OCD (with ERP — exposure and response prevention)
-- Insomnia (CBT-I is first-line treatment)
-- Anger problems with reactive thought patterns
+焦虑被回避维持时，只谈它不能解决，**接近**害怕的事物才能改变。建立阶梯：
 
-### Integrates With
+1. 列出与问题有关的 10—15 个恐惧情境。
+2. 对预期痛苦逐一评 0—100 分，即主观痛苦程度（SUDS）。
+3. 由低到高排序。
+4. 从最低一级开始，在情境中停留到痛苦减半，通常 20—45 分钟。
+5. 最低一级变得可应对后再上升，不跳级。
 
-- **IFS** — *Specific routing rule:* with compulsive behaviors and self-criticism, IFS leads. CBT habit-substitution alone risks firefighter migration. Once a part has been befriended, CBT tools (thought records, behavioral experiments) can support the new pattern downstream.
-- **ACT** — Closely related but inverted. CBT changes the content of thoughts; ACT changes the relationship to them. If thought-challenging isn't landing — the client agrees the thought is distorted but still feels its weight — switch to ACT defusion.
-- **DBT** — DBT is CBT with emotion-regulation, distress-tolerance, and interpersonal skills bolted on, designed for higher emotional intensity. When CBT cognitive work gets flooded, DBT skills stabilize first.
-- **CFT** — When the inner critic responds to thought challenges with more criticism ("I shouldn't even need this exercise"), CFT compassion work goes underneath CBT.
-- **MI** — Use MI before CBT when ambivalence about change is high. CBT assumes the client wants to change the pattern; MI is what you use when they don't yet.
+机制是**习惯化**（持续暴露时痛苦下降）与**抑制性学习**（旧危险记忆旁形成新的安全记忆）。
 
-### Pacing & Limitations
+---
 
-- **CBT doesn't fit everything.** Trauma, attachment wounds, and identity-level shame often need IFS, somatic, or psychodynamic work first. CBT applied to deep trauma can feel invalidating ("just reframe it") and stall the relationship.
-- **Don't argue the thought.** Socratic dialogue is collaborative inquiry, not debate. The moment it tips into "let me convince you you're wrong," the client's defenses come up and the work stops.
-- **Watch for spiritual bypass through reframing.** "Balanced thoughts" can become a way to avoid feeling. If every thought record ends in a tidy positive, check whether something is being skipped over.
-- **AI limitation: behavioral data.** CBT lives on tracking — mood logs, thought records, exposure ratings. A text-based AI can't see what the client actually did between sessions. Compensate by asking explicitly and weekly: "What did the thought record show?" "What got scheduled? What got done?"
-- **Working alongside an external therapist.** When a client has a human therapist running CBT, the AI's role is to *practice the tools between sessions* — daily thought records, behavioral activation tracking, exposure check-ins — not to run a parallel treatment. Reinforce, don't redirect.
+### 留意来访者的表达线索
 
-### Homework / Between-Session Work
+说出的认知偏差：
+- “我总是／从不……”
+- “万一［最坏情况］……”
+- “他们肯定觉得我……”
+- “我本该／我不应该……”
+- “我就是知道不会成功。”
+- “我真是个［全盘标签］。”
 
-- **Daily thought record:** One per day for two weeks. The skill builds with reps.
-- **Activity-mood log:** Track activities and mood (0–10) hourly for one week. Find the patterns.
-- **Behavioral experiment:** Pick one prediction ("if I speak up in the meeting, they'll think I'm dumb"). Test it. Compare outcome to prediction.
-- **Worry time:** Schedule 20 minutes a day for contained worry. Outside that window, when worry shows up, write it down and defer it to worry time.
-- **One exposure rung per week:** From the hierarchy. Climb deliberately.
-- **Catch and name:** When a distortion shows up in real time, name it out loud or in writing. Naming creates distance.
+回避：
+- “我实在没办法让自己去……”
+- “准备好后我会做。”
+- “我一直拖着。”
+
+行为明显减少：
+- “我什么都没在做。”
+- “我没法让自己在乎。”
+- “以前喜欢的事也没意义了。”
+
+听到这些时，CBT 很可能合适。若想法与身份融合（“我就是没价值”），而非针对情境（“我觉得这件事失败了”），先考虑 IFS 或 ACT 的认知解离。
+
+---
+
+### AI 干预示例
+
+不只是问题，也是AI 可以参考的完整回应。
+
+**即时发现认知偏差：**
+> “先停一下。你说‘她没回消息，因为在生我的气’，这是读心：一个行为可能有许多解释，你却用它推断她的内心。她没回消息，还可能有哪三个原因？”
+
+**苏格拉底式对话：**
+> “慢一点看‘面试完全搞砸了’，我想检验它。支持完全搞砸的证据是什么？反对的证据呢，有没有交流顺利或回答不错的时候？不是要你积极，而是看全貌。”
+
+**行为激活安排：**
+> “你在等有动力再恢复运动。情绪低落时，陷阱就在这里：不是先有动力，而是先行动。选一个很小的活动，比如周二早上走十分钟，把它排好，不论当天心情如何都做，怎样？动力通常在活动中出现，不是在之前。”
+
+**指出下面的图式：**
+> “不同情境总回到同一个信念：‘我是在骗人。’这已经不只是自动想法，而是核心图式。到了这一层，工作要变化，不只重新理解一个念头，也要看你一直透过什么视角看自己，以及这个视角从哪来。”
+
+**坚持暴露练习：**
+> “你定的是今天回电话，现在想再推一天。这正是回避会赢或输的时刻。拖延会强化焦虑，打了，即使不完美，下次也会容易一些。什么能帮助你在未来三十分钟拨出去？”
+
+**重新检验‘应该’：**
+> “你说‘现在早该走出来了’，我想追问这个应该。时间表从哪来，是谁的声音？‘应该走出来’是一条规则，而规则可以检验。”
+
+---
+
+### 何时使用 CBT
+
+- 焦虑障碍，包括广泛性焦虑、社交焦虑、惊恐和恐惧症；
+- 抑郁，尤其伴有行为明显减少；
+- 反刍和担忧循环；
+- 由偏差标准驱动的完美主义；
+- 拖延和回避；
+- 能识别出思维模式的负面自我对话；
+- 强迫症，结合暴露与反应预防（ERP）；
+- 失眠，CBT-I 是一线治疗；
+- 伴有反应性想法模式的愤怒问题。
+
+### 与其他方法整合
+
+- **IFS：**具体选择规则：强迫性行为和自我批评出现时，由 IFS 先行。单用 CBT 替代习惯，可能让消防员换一种行为。与部分建立关系后，思维记录、行为实验可支持新模式。
+- **ACT：**密切相关但方向相反。CBT 改变想法内容，ACT 改变与想法的关系。如果检验想法没有作用，对方知道想法有偏差却仍被压住，就转向 ACT 认知解离。
+- **DBT：**在 CBT 基础上加入情绪调节、痛苦耐受和人际技能，用于更高情绪强度。认知工作被情绪淹没时，先用 DBT 技能稳定。
+- **CFT：**内在批评者因思维检验而更自责，例如“我根本不该需要这种练习”，就用慈悲工作处理 CBT 下面的内容。
+- **动机式访谈（MI）：**改变意愿矛盾很大时，先用 MI。CBT 假定对方想改变模式，尚未想改变时用 MI。
+
+### 节奏与局限
+
+- **并非适合所有问题。**创伤、依恋伤痛和身份层面的羞耻，常需先用 IFS、躯体或心理动力学工作。对深层创伤直接要求重新理解，可能使人感到被否定，并阻碍关系。
+- **不与想法争辩。**苏格拉底式对话是合作探究，不是辩论。一旦变成说服对方承认自己错了，防御就会上来，工作停下。
+- **留意通过重新理解回避感受。**平衡想法也可能被用来绕开情绪。若每份记录都以漂亮的积极结论结束，检查是否略过了什么。
+- **AI 的行为数据局限。**CBT 依赖情绪日志、思维记录、暴露评分。文字 AI 看不到会谈间实际行为，应每周明确问：“记录显示了什么？安排了什么？完成了什么？”
+- **配合真人治疗师。**真人在开展 CBT 时，AI 的角色是会谈间练习工具：每日思维记录、行为激活跟踪、暴露回顾，不另开平行治疗。巩固，不改方向。
+
+### 会谈间作业与练习
+
+- **每日思维记录：**每天一份，持续两周，以重复建立技能。
+- **活动—情绪日志：**一周内按小时记录活动和情绪（0—10），寻找模式。
+- **行为实验：**选一个预测，例如“会上发言会被觉得笨”，检验并比较实际结果。
+- **担忧时间：**每天安排二十分钟集中担忧，其他时段出现时记下，留到这个时段。
+- **每周一级暴露：**按阶梯有意推进。
+- **发现并命名：**认知偏差出现时，口头或书面命名，创造距离。

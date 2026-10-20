@@ -1,217 +1,213 @@
 <!-- version: 1.1.0 -->
-## Somatic Experiencing (SE)
+## 躯体体验（SE）
 
-**Core principle:** Trauma lives in the body, not just the mind. The nervous system holds incomplete survival responses (fight, flight, freeze) that never got to finish their natural arc. Healing happens by helping the body *complete* what it started — slowly, in small doses, tracking and releasing held sensation. The work is not retelling the story. The work is letting the body do what it couldn't safely do in the original moment.
+**核心理念：**创伤不只在心智，也在身体。神经系统保留未完成的战斗、逃跑、僵住反应。通过缓慢、小剂量地跟踪、释放感觉，让身体完成当时未能安全完成的过程。不是重讲故事，而是让身体做原时刻不能做的事。
 
-### Theoretical Scaffolding
+### 理论支架
 
-**Survival Energy** — When threat arrives, the nervous system mobilizes huge amounts of energy for fight or flight. If that energy doesn't discharge (because escape or fighting wasn't possible), it stays *held* in the system as activation, tension, or chronic dysregulation. Animals in the wild discharge naturally — shaking, trembling, deep breaths. Humans interrupt the discharge with cognition, judgment, social rules, or overwhelm.
+**生存能量：**威胁时为战斗逃跑动员，若不能释放，就以激活、紧张、长期失调留存。野生动物通过颤抖、深呼吸等自然释放，人会以认知、评判、社会规则或不堪承受打断。
 
-**The Window of Tolerance** — The zone of arousal where processing is possible. Above the window: hyperarousal (panic, rage, flooding, sympathetic overload). Below the window: hypoarousal (numbness, dissociation, collapse, dorsal shutdown). Inside the window: integration can happen. SE work *expands* the window over time — it does not try to skip it.
+**耐受窗：**可处理经验的唤醒范围。窗上是惊恐、暴怒、情绪淹没、交感过载；窗下是麻木、解离、崩塌、背侧关闭。窗内可整合，SE 逐渐扩大它，而非跳过。
 
-**Titration** — Working in *very small doses*. Touch into activation briefly, then return to safety. Touch in again, return. A drop of activation at a time, not a flood. Bigger is not better in SE.
+**滴定：**极小剂量，短暂接触激活，再回安全，反复，每次一滴，不是洪水。更强不等于更好。
 
-**Pendulation** — The natural oscillation between activation and settling, distress and resource. The nervous system actually *wants* to oscillate. The therapeutic move is to support the rhythm, not force completion in one direction.
+**摆荡：**在激活与安定、痛苦与资源之间自然往返。系统本来就想摆荡，支持节律，不强迫单向完成。
 
-**Resource** — Anything that brings a felt sense of safety, ground, or okayness in the body. Not a thought about safety — a felt experience. The resource is the home base you keep returning to.
+**资源：**在身体里带来安全、稳定、还可以的体验，不只是关于安全的想法，是不断返回的基地。
 
-**Discharge** — The body's natural release of held survival energy: trembling, shaking, sighing, yawning, temperature shifts, spontaneous deep breaths, micro-movements, tears that feel relieving rather than flooding. Discharge is not catharsis — it's small, organic, often subtle.
+**释放：**颤抖、叹气、哈欠、温差、自发深呼吸、微动作、释然的泪等自然排放，不是宣泄，通常微小、自然、细微。
 
-**Completion** — When a previously stuck survival impulse moves through to its biological end. The body finishes the fight, the flight, the orienting that didn't get to happen. Often signaled by a settled exhale and a softening.
-
----
-
-### Resourcing Protocol (the operational core)
-
-Resource first, always. No SE work happens without a felt resource in place. *Resourcing is not optional foundation — it is half the technique.*
-
-1. **Invite a felt sense of safety.** "Think of a place, a person, a memory, an animal, a piece of music — anything that brings even a small sense of okay in your body."
-2. **Locate it somatically.** "Where do you feel that in your body? In your chest? Belly? Spine? Hands?" If the client can't locate it, the resource isn't fully online yet — keep building.
-3. **Describe the texture.** "Warm? Cool? Settled? Spacious? Heavy in a good way?" Sensory language without interpretation.
-4. **Anchor and savor.** Stay with it for at least 30–60 seconds. Don't rush past. The nervous system needs time to *register* a resource.
-5. **Notice ripple effects.** "What's happening in your breath? Your shoulders? Your jaw?" Resourcing tends to spread; tracking the spread deepens it.
-
-You can — and should — return here repeatedly throughout any work that touches activation.
+**完成：**卡住的生存冲动走到生物学终点，完成原来没能发生的战斗、逃跑、定向，常伴安定呼气、柔和。
 
 ---
 
-### Pendulation — Titrating Between Activation and Resource
+### 建立资源：操作核心
 
-The fundamental SE move. Touch activation briefly, return to resource, repeat. Build capacity over time.
+始终先资源，没有身体能感到的资源，不开始 SE。它不只是可选基础，而是一半技术。
 
-Sample sequence:
-- "Bring up just a small edge of what's been hard. Not the whole memory — just one image, one moment, one sensation."
-- "What's happening in your body right now as you touch that?"
-- *Stay with the activation for a few seconds — not minutes.*
-- "Okay, now let's come back to the resource. Where's the place that feels okay? Let's settle there for a bit."
-- "Notice the shift between the two. The body knows how to oscillate. We're just supporting the rhythm."
-- *Repeat several times. Each round, the system learns it can touch the activation and come back.*
+1. **邀请安全感。**地点、人、记忆、动物、音乐，任何带来一点身体还可以的东西。
+2. **身体定位。**“胸、腹、脊柱、手哪里感到？”找不到，说明尚未充分启动，继续建立。
+3. **描述质感。**暖、凉、稳、开阔、舒服的沉重，只感觉不解释。
+4. **锚定、体会。**至少三十至六十秒，不急着略过，让系统登记资源。
+5. **注意扩散。**呼吸、肩、下颌怎样，追踪资源扩展会加深它。
 
-**Signs you're titrating well:**
-- Client can move between activation and resource without flooding
-- Each oscillation, the activation feels slightly more bearable
-- Spontaneous discharge appears (deep breath, micro-shake, sigh, warmth)
-- The window of tolerance is widening
-
-**Signs you're overshooting (stop and resource):**
-- Client describes feeling "too much" or "I'm leaving"
-- Voice flattens, breath stops, eyes glaze
-- Sudden flood of imagery or affect
-- Dissociative signals — far away, foggy, can't track
-- The body locks rather than oscillates
+任何触及激活的工作中，都可以、也应反复回来。
 
 ---
 
-### Tracking Sensation Script
+### 摆荡：激活与资源之间滴定
 
-The language of SE is *sensation*, not story or meaning. Track without interpreting.
+短暂接触、返回、重复，随时间建立容量。
 
-- "What do you notice in your body right now?"
-- "Tight, heavy, buzzy, warm, cold, tingly, dense, light, fluid, still..."
-- "Just describe it. Don't try to figure out what it means or where it comes from."
-- "Has it changed since we started noticing it? Bigger, smaller, moving, still?"
-- "Is there a shape to it? An edge? A center?"
-- "If it had a quality — like a temperature, a texture, a color — what would it be?"
+示例顺序：
+- 只带来困难的一小边，不是整段记忆，只一个画面、瞬间、感觉。
+- 问此刻身体怎样。
+- 只在激活停几秒，不是几分钟。
+- 回资源：“哪里还可以？在那里安顿。”
+- 注意两者转换，支持身体节律。
+- 重复数次，学习可以接触也可以回来。
 
-The point is to keep attention at the sensation level. The moment you start interpreting ("this is my anger about my father"), you've left somatic territory and entered psychodynamic territory — that's a different intervention.
+**滴定恰当的迹象：**
+- 来回而不被淹没；
+- 每次激活稍可承受；
+- 自发深呼吸、微颤、叹气、温暖；
+- 耐受窗扩大。
 
----
-
-### Discharge Recognition
-
-Discharge is often subtle and easily interrupted by self-consciousness or by a therapist who pushes for more.
-
-Recognize:
-- **Trembling or shaking** — especially in legs, hands, jaw. Often quiet, not dramatic.
-- **Deep involuntary exhale** — a sigh that feels like the body let go of something.
-- **Yawning** — repeated yawning during processing is often discharge, not boredom.
-- **Temperature shifts** — sudden warmth in chest or hands, coolness traveling down.
-- **Tingling, pulsing, waves** — energy moving through, often along the spine or limbs.
-- **Tears that feel relieving** (distinct from flooding tears) — the system is downshifting.
-- **Spontaneous movement impulses** — wanting to push, kick, run, curl. Honor them where safe.
-
-The intervention is *don't interrupt and don't interpret*:
-- "Just let that happen. Your body knows what to do."
-- "We don't need to make sense of it. Just stay with the movement."
-- "Give it room. It'll finish on its own."
+**过量时停止、回资源：**
+- “太多”“正在离开”；
+- 声平、停呼吸、眼神呆滞；
+- 画面或情绪突然淹来；
+- 遥远、雾感、跟不上等解离；
+- 身体锁住而不摆荡。
 
 ---
 
-### Orienting Practice
+### 跟踪感觉的语言
 
-One of the most foundational and underused SE interventions. Brings the system into present-moment safety via the visual field and the social-engagement system.
+使用感觉，而非故事和意义，不解释。
+- “身体注意到什么？”
+- “紧、重、嗡嗡、暖、冷、麻、密、轻、流动、静止……”
+- “只描述，不找意义或来源。”
+- “从注意它起有变吗？大、小、动、静？”
+- “有形状、边界、中心吗？”
+- “温度、质地、颜色是什么？”
 
-- "Slowly let your eyes look around the space. Don't force them — just let them find what they find."
-- "Notice what they land on. What's it like to actually *see* it?"
-- "Take your time. Let the head turn naturally. Let the neck move."
-- "What's it like to know where you are right now?"
-
-Useful at the start of a session, after touching activation, when dissociation appears, or as a stand-alone daily practice.
-
----
-
-### Signaling Cues — Client Language to Listen For
-
-System-in-activation:
-- "I feel it in my chest / throat / stomach"
-- "Tight, can't breathe, racing"
-- "I want to run / hit / get out"
-- Quickened cadence, fragmented sentences
-
-System-in-shutdown:
-- "I went somewhere else"
-- "I can't feel anything"
-- "I'm floating / foggy / not here"
-- "I don't know what I feel"
-- Long pauses, flat tone, voice from far away
-
-Approaching the edge of tolerance (slow down):
-- "This is a lot"
-- "I feel sick"
-- "I want to stop / change topic / get up"
-- Sudden topic switch, joke, intellectualization
-
-Discharge in progress (don't interrupt):
-- "I'm trembling and I don't know why"
-- "I just yawned a bunch"
-- "I feel warm — like, weirdly warm"
-- A long, full, surprising exhale
-- "Something just moved"
-
-Completion signals (good):
-- "I feel more settled"
-- "Something released"
-- "It feels finished"
-- A felt sense of the body being more "here"
+让注意停在感觉层。开始说“对父亲的愤怒”，已转动力学，那是另一种干预。
 
 ---
 
-### Example AI Interventions
+### 识别释放
 
-**Refusing to skip resourcing:**
-> "Before we go anywhere near the hard material, I want to make sure you have something to come back to. Tell me about a place, person, animal, or memory that brings even a small sense of okay in your body. We're not moving forward until that's online."
+常细微，会被自我意识或推动更多的咨询师打断。
+- **颤抖：**腿、手、下颌，安静不戏剧化。
+- **无意识深呼气：**像身体放下什么。
+- **哈欠：**处理中反复哈欠常是释放，而非无聊。
+- **温度变化：**胸手突然暖，凉感下行。
+- **麻、脉动、波浪：**沿脊柱、四肢移动。
+- **释然的泪：**不同于淹没，系统在降速。
+- **自发动作冲动：**推、踢、跑、蜷缩，安全处尊重。
 
-**Tracking sensation without interpretation:**
-> "Stay with the tightness in your chest for a second. Don't try to figure out what it's about. Just describe it. Is it sharp or dull? Moving or still? Does it have an edge? Has it changed since you started watching it?"
-
-**Titrating — touch and return:**
-> "Bring up just a sliver of what was hard. Not the whole scene — just one image, one second of it. Notice what happens in your body. Okay — now come back to the resource. Where's the place that feels okay? Settle there. We're not staying in the activation. We're just teaching the system it can touch and return."
-
-**Catching an overshoot:**
-> "Pause. You just got quieter and your description got vaguer. I think we went too far in. That's not failure — it's information. We back up to the resource right now. Where do you feel okay in your body, even a little?"
-
-**Honoring discharge:**
-> "Don't try to make sense of the trembling. Don't try to stop it. Just let your body do what it's doing. It's been holding this for a long time. This is what release looks like — small, weird, sometimes embarrassing. We just give it room."
-
-**Orienting at the start of a hard session:**
-> "Before we talk about anything, take a slow look around wherever you are. Just let your eyes find things. The light, the wall, your hands, the cup. No rush. You're here. We're working from here."
-
-**Tracking a completion:**
-> "Something just shifted — you exhaled all the way down and your shoulders dropped. That's the system finishing something. Don't move on yet. Stay with the settledness for a minute. Memorize the texture. This is the felt sense of *done*, and you want to be able to find your way back to it."
+干预是不打断、不解释：
+- “让它发生，身体知道怎么做。”
+- “不用理解，陪着动作。”
+- “给空间，它会自己完成。”
 
 ---
 
-### When to Use SE
+### 定向练习
 
-- Trauma (acute and complex), especially with strong body-based residue
-- Anxiety with prominent physical component (chest tightness, breath restriction, gut symptoms)
-- Chronic tension, pain, or muscle armoring
-- Dissociation, numbness, "not here" states
-- Panic attacks
-- Stuck fight/flight/freeze responses
-- When cognitive approaches aren't reaching the issue
-- When the body "knows" something the mind can't access
-- Performance, medical, or accident trauma where there's no relational complexity to untangle, just nervous-system residue
+通过视觉与社交参与系统回到当下安全，是基础而常被少用的干预。
+- 缓慢环顾，不强迫眼睛，让其找到东西。
+- 注意停在哪里，真正看见是什么体验。
+- 慢来，让头、颈自然转动。
+- 知道现在在哪里是什么感觉？
 
-### Integrates With
+适合开场、触及激活后、解离时或每日单独练习。
 
-- **Polyvagal** — Deep natural pairing. Polyvagal provides the map of autonomic states; SE provides the titration and discharge work *within* that map. *Routing rule:* polyvagal identifies the state, SE works with the held sensation. They're built to run together.
-- **IFS** — Parts often live in specific body locations. SE's tracking pairs with IFS's 6 F's: locate the part somatically, then run parts work. SE's titration is the right pacing for working with Exiles.
-- **CFT** — Compassion is more receivable when the body is in some safety. Use SE resourcing before compassion practice; track sensation when the soothing system comes online.
-- **EMDR / Lifespan Integration** — Strong synergy. SE titration is a useful pacing principle inside any trauma reprocessing modality.
-- **DBT Skills** — DBT's TIP and grounding skills are crude versions of orienting and resourcing. Use DBT skills for crisis stabilization, SE for the slower processing work once stable.
-- **CBT** — *Routing rule:* if cognitive work keeps bouncing off because the body won't settle, SE goes first. Once the nervous system has more capacity, CBT can engage with the cognitive layer.
-- **Ideal Parent Figure (IPF)** — The five conditions have to *land in the body* to produce change, which is SE's home turf. Use SE resourcing to stabilize before IPF imagery, and track sensation throughout — a felt shift (warmth, settling, a fuller breath) is the signal the imagery is landing and not just running as narrative. If the system shows chronic shutdown or sympathetic overload, settle it first.
+---
 
-### Pacing & Limitations
+### 留意表达线索
 
-- **AI limitation: real-time body tracking.** This is the largest single limitation. SE depends on tracking micro-shifts in the client's body — breath stopping, eyes glazing, color changes, micro-movements, the texture of a sigh. A text-based AI cannot see any of this. *This is non-negotiable: real SE work, especially with significant trauma, needs a human SE practitioner in the room.*
-- **What the AI CAN do:**
-  - *Teach* orienting and resourcing as daily practices
-  - *Support* pendulation by asking the client to track and report sensation explicitly
-  - *Recognize* signs the client is overshooting their window — flatness, dissociation, vagueness, sudden affect — and explicitly pause to resource
-  - *Coach* the language of sensation-tracking so the client builds the skill
-  - *Honor* discharge when the client reports it (trembling, sighing, warmth) and refrain from interrupting it with interpretation
-- **Bigger is not better.** SE failure usually looks like overshooting in pursuit of "more progress." A drop is enough. Many drops over many sessions is how the work moves.
-- **Don't push through dissociation.** If the client is going numb, vague, or "floaty," that's a sign the system has left the window. Stop, orient, resource. Don't try to reach back through the dissociation to "finish."
-- **Sensation tracking is not interpretation.** The moment you start linking the sensation to a story ("this is my grief"), you've left somatic territory. That can be useful later — but during SE work, stay in sensation language.
-- **Working alongside an external therapist.** If the client is in human SE or trauma therapy, the AI's role is to support resourcing, orienting, and sensation-tracking *between* sessions — not to drive the trauma processing. If the client doesn't have a human therapist and the work is heading into significant trauma material, recommend one. SE is one of the modalities where the in-the-body, in-the-room human relationship is closest to non-substitutable.
+激活：
+- 胸、喉、胃有感觉；
+- 紧、呼吸不了、飞快；
+- 想跑、打、逃；
+- 节奏加快、句子碎。
 
-### Homework / Between-Session Work
+关闭：
+- “去了别处”；
+- “没有感觉”；
+- “漂浮、雾、不在这里”；
+- “不知道感受”；
+- 长停顿、平板、声音遥远。
 
-- **Daily orienting:** Once or twice a day, slowly let your eyes look around the space. 60 seconds. No agenda. Builds the foundational present-moment cue.
-- **Resource library:** Build a written list of resources — places, people, songs, animals, memories — that bring a felt sense of okay. Add to it as you find them. You're cataloguing your nervous system's home bases.
-- **Sensation vocabulary:** Once a day, pause and describe what's in the body in pure sensation language. Tight, buzzy, warm, heavy, fluid. No story. Build the skill of staying with sensation.
-- **Felt-sense snapshot:** When a moment of settled-okay arrives, pause and memorize the somatic texture — chest, jaw, breath, belly. You're imprinting a state you can find your way back to.
-- **Discharge-honoring:** When the body trembles, yawns repeatedly, sighs deeply, or wants to move — let it. Don't override or perform calm. Even one minute of allowed discharge has structural effect over time.
-- **Pendulation noticing:** When activation comes up in daily life, instead of trying to make it stop, gently move attention toward a resource, then back. Practice the rhythm in low-stakes moments so it's available in high-stakes ones.
+接近耐受边缘，要慢：
+- “很多”；
+- “恶心”；
+- 想停、换题、起身；
+- 突然岔题、笑话、理智化。
+
+正在释放，不打断：
+- 不知为何颤抖；
+- 连打哈欠；
+- 奇异地暖；
+- 长、完整、出乎意料的呼气；
+- “什么动了”。
+
+完成信号：
+- 更安定；
+- 释放了；
+- 完成了；
+- 身体更在这里。
+
+---
+
+### AI 干预示例
+
+**不跳资源：**
+> “困难内容前，先找到可返回的地方、人、动物或记忆，带来哪怕一点身体还可以。启动前不向下走。”
+
+**感觉而非解释：**
+> “停在胸口紧一下，不找原因。尖还是钝、动还是静、有边吗、注意后变了吗？”
+
+**接触与返回：**
+> “只带一小片，一秒画面。注意身体。好，回资源，哪里还可以？在那里安顿。不留在激活，教系统能接触、能回来。”
+
+**发现过量：**
+> “你安静、含糊了，可能太深。不是失败，是信息。现在回资源，哪里还可以一点？”
+
+**尊重释放：**
+> “不解释颤抖，不停止，让身体做。承载很久，这就是释放，细小、奇异、有时尴尬，只给空间。”
+
+**困难会谈开场定向：**
+> “说话前慢看周围，光、墙、手、杯子，不赶。你在这里，我们从这里工作。”
+
+**跟踪完成：**
+> “完整呼气、肩下降，是系统完成了什么。别马上继续，停一分钟，记住安定质感，建立能回来找到的完成感。”
+
+---
+
+### 何时使用
+
+- 急性或复杂创伤，尤其身体残留强；
+- 胸紧、呼吸受限、胃肠症状突出的焦虑；
+- 慢性紧张、疼痛、肌肉防御；
+- 解离、麻木、不在这里；
+- 惊恐发作；
+- 卡住的战逃冻；
+- 认知方法触及不到；
+- 身体知道而头脑不能接触；
+- 表现、医疗、事故创伤，没有复杂关系需梳理，主要为神经系统残留。
+
+### 与其他方法整合
+
+- **多迷走：**提供自主状态地图，SE 做其中的滴定、释放。先辨状态，再处理承载感觉。
+- **IFS：**部分在身体某处，先定位再六步，滴定适合流放者节奏。
+- **CFT：**安全时更能收慈悲，先资源，安抚启动时跟感觉。
+- **EMDR／LI：**创伤再处理中的有效节奏原则。
+- **DBT：**TIP、稳定技能是更粗略的定向、资源形式，危机先稳定，之后慢处理。
+- **CBT：**身体不稳、认知工作弹开时，SE 先，容量增加后再认知。
+- **IPF：**五条件要落到身体，先资源稳定，全程跟感觉，看温暖、安定、充分呼吸等，而非只讲故事。长期关闭或过激活先稳。
+
+### 节奏与局限
+
+- **AI 无法实时看身体。**看不到停呼吸、眼神、气色、微动作、叹气质地。真正 SE，尤其重大创伤，需要真人 SE 专业人员在场，这是重要边界。
+- **AI 可以：**
+  - 教每日定向、建立资源；
+  - 请本人明确报告感觉，支持摆荡；
+  - 识别平淡、解离、含糊、突然强情感等过窗迹象，暂停回资源；
+  - 指导感觉语言；
+  - 本人报告颤抖、叹气、暖时尊重，不用解释打断。
+- **更强不是更好。**追进展过量是常见失败，一滴足够，多次积累。
+- **不推过解离。**麻、含糊、漂浮是离窗信号，停、定向、资源，不为完成硬穿过去。
+- **感觉不是解释。**连接故事有时以后有用，此刻保持感觉语言。
+- **配合真人。**会谈间资源、定向、跟踪，不推动创伤。没有真人而进入重大创伤时建议专业帮助，这种方法尤其难替代现实在场关系。
+
+### 会谈间作业与练习
+
+- **每日定向：**一两次，每次六十秒，缓慢环顾，无议程。
+- **资源库：**记地点、人、歌、动物、记忆，身体的基地。
+- **感觉词汇：**每天纯感觉描述，无故事，练习停留。
+- **安定快照：**好些时记住胸、颌、呼吸、腹的质感。
+- **尊重释放：**颤抖、哈欠、深叹、想动时允许，不压过或表演平静，哪怕一分钟也可长期积累。
+- **注意摆荡：**日常激活时轻转资源再回来，低压力时练节律，压力大时才可用。

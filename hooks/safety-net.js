@@ -21,8 +21,10 @@
 // is for the client's own crisis, not reports about someone else's.
 // The prose protocol still governs both cases at the model level.
 //
-// LIMITATION: patterns are English-only. Crisis language in other
-// languages will not trigger this hook. The prose protocol still applies.
+// 中文化说明：保留原英文匹配，并并列加入中文第一人称与省略主语模式。
+// 两种语言均采用原有的“召回优先”范围；口语夸张、第三人称叙述使用
+// 各自的误报护栏。匹配只注入提醒，实际语境仍由模型按文字方案判断。
+// 资源文本与 safety-protocol.md 的围栏内容保持一致，修改后由测试核对。
 //
 // Parse-mode note: this file is copied into installs where no package.json
 // declares a module type, so it may be parsed as CommonJS there and as ESM
@@ -415,36 +417,75 @@ var TIER2_PATTERNS = [
   /\bbetter\s+off\s+if\s+i\s+(?:was|were)\s+gone\b/
 ];
 
+// 中文匹配使用第一人称锚点、有界填充词和危机表达，不套用英文词边界。
+// 填充词之外的字符会中断匹配，使“我妈说她……”不被当作本人意念。
+// “笑死我了”“想死你了”等常见口语通过词尾护栏保持静默；显式的
+// “我想死”等表达仍按召回优先触发，不能用夸张口语代替真实风险判断。
+var ZH_FP = '(?<!让|叫|逼)(?:我|咱|俺)';
+var ZH_FILLERS =
+  '想|想要|好想|真想|超想|不想|要|打算|计划|准备|希望|觉得|感觉|感到' +
+  '|考虑|想过|试过|过|差点|差一点|险些|自己' +
+  '|在|正在|写|写了|写好|买|买了|攒|攒了|存|存了' +
+  '|一直|总是|经常|老是|最近|就|都|也|还是|真的|真|特别|非常|好|有点|有些' +
+  '|已经|快要|快|忍不住|控制不住|不如|干脆|只想|又想|不想再|再也不想';
+var ZH_GAP = '(?:' + ZH_FILLERS + '){0,4}';
+// 句首锚:中文常省略主语,「不想活了」本身就是完整的第一人称表达。
+// 只允许出现在句首或标点/换行之后,所以它不会把第三人称叙述
+// (「他说他想自杀」)读成主语省略。**必须包含中文全角标点** ——
+// 中文用户打的是「，」「。」「；」,只认半角会让整条规则失效。
+var ZH_CLAUSE = '(?:^|[。．.！!？?；;：:，,、…\\n])\\s*';
+
+var ZH_TIER1_PATTERNS = [
+  // 直接意念
+  new RegExp(ZH_FP + ZH_GAP + '(?:想|好想|真想|超想)死(?![你])'),
+  new RegExp(ZH_FP + ZH_GAP + '去死(?!你)'),
+  new RegExp(ZH_FP + ZH_GAP + '要死(?![你了])'),
+  new RegExp(ZH_FP + ZH_GAP + '死(?:了)?算了'),
+  new RegExp(ZH_FP + ZH_GAP + '一死了之'),
+  new RegExp(ZH_FP + ZH_GAP + '(?:自杀|轻生|自残)'),
+  new RegExp(ZH_FP + ZH_GAP + '(?:不想|不愿|不想再|再也不想)活'),
+  new RegExp(ZH_FP + ZH_GAP + '活(?:不下去|不了)'),
+  new RegExp(ZH_FP + ZH_GAP + '结束(?:自己的)?(?:生命|一切)'),
+  new RegExp(ZH_FP + ZH_GAP + '了结(?:自己|生命|一生)'),
+  new RegExp(ZH_FP + ZH_GAP + '(?:跳楼|割腕|上吊|吞药|烧炭|卧轨|跳河|跳海|安眠药)'),
+  new RegExp(ZH_FP + ZH_GAP + '遗书'),
+  new RegExp(ZH_FP + ZH_GAP + '解脱'),
+  // 无主语形式(句首锚)
+  new RegExp(ZH_CLAUSE + '(?:不想|不愿)(?:再)?活'),
+  new RegExp(ZH_CLAUSE + '活(?:不下去|不了)(?:了)?'),
+  new RegExp(ZH_CLAUSE + '(?:想|要)(?:自杀|轻生|结束这一切|解脱)'),
+  new RegExp(ZH_CLAUSE + '不如(?:死|去死)了?算了')
+];
+
+// Tier 2: 警告信号(与英文侧同构,保守,锚在句首或第一人称之后)
+var ZH_TIER2_PATTERNS = [
+  new RegExp(ZH_FP + ZH_GAP + '(?:撑不住|撑不下去|扛不住)了'),
+  new RegExp(ZH_CLAUSE + '(?:已经)?(?:快)?(?:撑不住|撑不下去|扛不住)了'),
+  new RegExp(ZH_FP + ZH_GAP + '活着(?:真|好|太|很)?(?:没意思|没意义|没劲)'),
+  new RegExp(ZH_CLAUSE + '(?:我)?活着(?:真|好|太|很)?(?:没意思|没意义|没劲)'),
+  new RegExp(ZH_FP + ZH_GAP + '(?:就是|是|像个?|成为|成了)(?:别人的)?(?:个)?(?:负担|累赘|麻烦)'),
+  new RegExp(ZH_CLAUSE + '没有(?:活下去的|活着的)(?:意义|理由)'),
+  new RegExp(ZH_CLAUSE + '(?:不如|干脆)(?:死|去死)了?算了'),
+  new RegExp(ZH_CLAUSE + '(?:我)?(?:是不是)?(?:死了|消失|不在|走了)(?:会)?更好'),
+  new RegExp(ZH_CLAUSE + '要是(?:我)?(?:死了|不在了|不见了|消失)(?:就)?(?:好了|多好)'),
+  new RegExp('(?:没有|没)(?:人|有人)(?:会)?(?:在意|在乎|记得|想)我'),
+  new RegExp(ZH_FP + ZH_GAP + '(?:死了|走了)(?:也)?(?:没人|没有人)(?:会)?(?:在意|想|难过)'),
+  new RegExp(ZH_FP + ZH_GAP + '想消失')
+];
+
 // Verbatim from safety-protocol.md > Emergency Resources. Do not edit here
 // without editing there (and vice versa).
-var EMERGENCY_RESOURCES =
-  "If you're in crisis, please reach out to trained crisis counselors:\n" +
-  '\n' +
-  'US:\n' +
-  '- 988 Suicide & Crisis Lifeline (call or text)\n' +
-  '- Crisis Text Line: text HOME to 741741\n' +
-  '- 911 for immediate emergencies\n' +
-  '\n' +
-  'International: https://findahelpline.com\n' +
-  '\n' +
-  'These are humans trained in crisis support, available 24/7.';
+// 中文版本默认列出中国大陆资源，同时保留国际与美国兼容信息。
+var EMERGENCY_RESOURCES = "如果你正处于危机中，请立即联系能够提供现实支持的专业人员：\n\n中国大陆：\n- 12356 — 全国统一心理援助热线\n- 110 / 120 — 有立即人身危险时\n- 精神卫生中心或医院精神科急诊\n\n国际： https://findahelpline.com\n\n美国：988；Crisis Text Line：发送 HOME 至 741741；紧急情况：911。\n\n以上为真人支持资源，接入方式与服务时间以所在地信息为准。";
 
+// 保留英文机器标志供实时探针识别，其余注入内容使用中文。
+// 这里不增加咨询策略，只翻译原提醒并指向同一份危机回应方案。
 var ADDITIONAL_CONTEXT =
-  'AUTOMATED SAFETY NOTICE - a pattern matcher flagged possible crisis ' +
-  "language in the client's message.\n" +
-  '\n' +
-  EMERGENCY_RESOURCES +
-  '\n' +
-  '\n' +
-  'Re-read .therapy/safety-protocol.md now and follow its Crisis Response ' +
-  'sequence.\n' +
-  '\n' +
-  'Note: this notice was triggered by an automated keyword/pattern match, ' +
-  'which cannot understand context. Assess the actual conversation - the ' +
-  'client, not the pattern, is the authority on whether this is a crisis. ' +
-  'If the language is clearly not crisis-related (an idiom, a quote, ' +
-  'discussion of the past), continue the session normally while staying ' +
-  'attentive.';
+  '自动安全提示（AUTOMATED SAFETY NOTICE）：模式匹配器发现了可能的危机表达。\n\n' +
+  EMERGENCY_RESOURCES + '\n\n' +
+  '请重读 .therapy/safety-protocol.md，并遵循其中的危机回应顺序。\n\n' +
+  '这是机械关键词匹配，不能理解语境。请判断实际对话：来访者而非模式匹配器，' +
+  '才是其经历的权威。若明显属于口头禅、引用或谈论过去，正常继续，同时保持留意。';
 
 // Shared timeout for the stdin self-timeout and the stdout flush guard.
 // SAFETY_NET_STDIN_TIMEOUT_MS overrides the 5000ms default (used by tests
@@ -514,7 +555,12 @@ function emitNotice() {
 }
 
 function scanAndEmit(text) {
-  if (matchesAny(TIER1_PATTERNS, text) || matchesAny(TIER2_PATTERNS, text)) {
+  if (
+    matchesAny(TIER1_PATTERNS, text) ||
+    matchesAny(TIER2_PATTERNS, text) ||
+    matchesAny(ZH_TIER1_PATTERNS, text) ||
+    matchesAny(ZH_TIER2_PATTERNS, text)
+  ) {
     emitNotice();
   }
 }

@@ -1,194 +1,194 @@
 <!-- version: 1.1.0 -->
-## Solution-Focused Brief Therapy (SFBT)
+## 焦点解决短期疗法（SFBT）
 
-**Core principle:** People already have the strengths and resources they need to solve their problems. Rather than analyzing what's wrong, SFBT focuses on what's already working, what the person wants instead, and the smallest next step toward that future. The therapist's role is to ask questions that surface existing competence, not to deliver expertise.
+**核心理念：**人已经有解决问题所需的力量和资源。SFBT 不集中分析哪里不对，而关注什么已有作用、希望变成什么，以及朝未来走的最小一步。咨询师通过提问显出已有能力，而非灌输专业知识。
 
-### Theoretical Scaffolding
+### 理论支架
 
-SFBT rests on three operational moves that work together:
-- **The Miracle Question** clarifies the preferred future.
-- **Scaling** locates the client's current position relative to that future and identifies what's already working.
-- **Exception-finding** uncovers existing competence — moments when the problem was less present and the client was already doing something different.
+三项相互配合的操作：
+- **奇迹问题：**说清期待的未来。
+- **量尺：**定位当前与未来的距离，识别已有作用的部分。
+- **例外探索：**寻找问题较轻、对方已在做不同事情的时刻，显出已有能力。
 
-The classic session shape: open with "what are your best hopes for our conversation today?", elicit the preferred future, scale it, find exceptions, identify one small next step. Brief by design — three to eight sessions is typical.
+典型流程：问“今天最希望谈话带来什么”，探索理想未来、评分、找例外、选小步。设计上较短，通常三至八次。
 
-### Core Techniques
+### 核心方法
 
-**The Miracle Question**
-- "Suppose tonight, while you sleep, a miracle happens and this problem is solved. When you wake up tomorrow, what's the first thing you'd notice that tells you something is different?"
-- Not about magic — it's about clarifying the preferred future in concrete, behavioral terms
-- Follow-up: "What else would be different? Who would notice first? What would they see?"
+**奇迹问题**
+- “今晚睡觉时发生奇迹，问题解决。明早最先注意到什么，知道事情不同了？”
+- 不是魔法，而是用具体行为说清理想未来。
+- 追问：“还有什么不同？谁先发现，会看到什么？”
 
-**Scaling Questions**
-- "On a scale of 0-10, where 10 is the miracle and 0 is the worst it's been, where are you today?"
-- Follow-up is always about what's already working: "What puts you at a 4 instead of a 3?"
-- Then: "What would a 5 look like? What would be one small difference?"
-- Useful for progress, confidence, motivation, safety, and hope
+**量尺问题**
+- “0—10，10 是奇迹，0 是最糟，今天在哪？”
+- 追问已有作用：“什么让你在 4 而不是 3？”
+- 再问：“5 会怎样，有什么小不同？”
+- 可用于进展、信心、动机、安全和希望。
 
-**Exception-Finding**
-- "When is the problem less intense or absent?"
-- "What's different about the times when things go better?"
-- "What are you doing differently when the problem isn't showing up?"
-- Exceptions reveal existing competence and coping
+**例外探索**
+- “什么时候问题较轻或不在？”
+- “顺一些时有什么不同？”
+- “问题没出现时，你在做什么不同的事？”
+- 例外显出已有能力和应对。
 
-**Coping Questions**
-- Used when things feel hopeless: "How have you managed to keep going?"
-- "With everything you're dealing with, how are you still here, still trying?"
-- Validates struggle while surfacing hidden resilience
-- Not dismissive — deeply respectful of difficulty
+**应对问题**
+- 无望时问：“怎样一直走过来？”
+- “面对这么多事，怎样仍在这里、仍在尝试？”
+- 认可挣扎，同时显出隐藏韧性。
+- 不是轻视，而是深切尊重困难。
 
-**Best Hopes**
-- "What are your best hopes for our conversation today?"
-- Orients the session toward what the person wants, not just what's wrong
-- Keeps work focused and collaborative
+**最佳期待**
+- “最希望今天谈话带来什么？”
+- 朝向想要的，而不只哪里出问题。
+- 保持聚焦与合作。
 
-**The "What's Better?" Opening**
-- After the first session, every subsequent session opens with: "What's been better since we last talked?"
-- Presupposes movement. The client has to scan for it.
-- If nothing has been better, do not concede the frame. Move to coping: "Given how hard it's been, how did you keep going at all?"
-
----
-
-### Chaining the Core Moves: Miracle → Scaling → Exceptions → Next Step
-
-This is the SFBT session in operational form. The chain matters; one move sets up the next.
-
-**Step 1 — Miracle (clarify the future).**
-> "Suppose tonight a miracle happens and the problem is solved. What's the first small thing you'd notice tomorrow?"
-
-Get specifics. Behavioral, observable, sensory. Not "I'd feel better" — "I'd wake up before my alarm and not dread the day."
-
-**Step 2 — Scale toward the miracle.**
-> "If 10 is that morning and 0 is the worst it's been, where are you today?"
-
-Whatever the number, anchor it.
-> "You said 4. What's *at* the 4? What's already in place that puts you there and not at 0?"
-
-This is where exceptions emerge naturally. The 4 is built out of moments when something was working.
-
-**Step 3 — Exceptions inside the scale.**
-> "Tell me about a recent time when you'd say you were at a 5 or a 6, even briefly. What was happening? What were you doing?"
-
-Thicken the exception. What time of day, what context, what was different about *the client* in that moment?
-
-**Step 4 — One-point move.**
-> "What would a 5 look like? Not a 10 — just a 5. What's the smallest thing that would tell you you'd nudged up one point?"
-
-The whole therapy is in this question. A 1-point move is achievable. A leap to 10 is fantasy.
-
-**Step 5 — First concrete step.**
-> "Of everything we've talked about, what's one small thing you could try in the next 48 hours that would move you toward that 5?"
-
-End the session with a specific, owned, doable next step.
+**‘有什么好一点’的开场**
+- 首次之后，每次以“上次以后有什么好一点”开场。
+- 预设有所变化，请对方寻找。
+- 若没有，不放弃框架，转应对：“这么难，怎样仍撑过来？”
 
 ---
 
-### Key Assumptions
+### 核心链条：奇迹→量尺→例外→下一步
 
-- If it works, do more of it
-- If it doesn't work, do something different
-- Small steps lead to big changes
-- The solution doesn't have to be directly related to the problem
-- People are resourceful and capable
-- Change is constant and inevitable
+每个操作为下一个准备。
 
----
+**第一步：奇迹，澄清未来。**
+> “今晚问题奇迹般解决，明早注意到的第一件小事是什么？”
 
-### Signaling Cues — Client Language to Listen For
+要具体、可观察、有感官细节。不是“好受”，而是“闹钟前醒来，不再害怕这一天”。
 
-SFBT-ready (route to miracle / scaling / exceptions):
-- "I just want to feel better"
-- "I don't even know what I want"
-- "Nothing has changed in years"
-- "I keep going in circles"
-- "I need a place to start"
+**第二步：量尺。**
+> “10 是那个早晨，0 是最糟，今天在哪？”
 
-Exceptions hiding in plain sight (do not let these pass):
-- "It's not always this bad"
-- "Last week was actually okay"
-- "I had a good morning Tuesday but then..."
-- "I used to be able to..."
-- "Some days I can"
+锚定任何分数：
+> “你说 4，那里具体有什么？哪些已有条件使你不是 0？”
 
-Hopelessness (route to coping questions first, then scaling):
-- "There's no point"
-- "I've tried everything"
-- "Nothing works"
-- "I can't keep doing this"
+例外自然浮现，4 由那些有效的时刻构成。
 
-Signs SFBT alone is wrong for the moment (see Limitations):
-- "I can't stop seeing it in my head" (trauma intrusions)
-- "I haven't been able to feel anything since..." (numbing, possible dissociation)
-- Active grief in the first weeks
-- Crisis-level dysregulation
+**第三步：量尺中的例外。**
+> “最近何时曾短暂在 5 或 6？发生什么，你在做什么？”
+
+丰富细节：时间、环境、当时对方自身怎样不同。
+
+**第四步：提高一分。**
+> “5 会怎样？不是 10，只是 5。什么最小变化说明前进一分？”
+
+一分可做到，跳到 10 是幻想，这个问题包含整个工作的重点。
+
+**第五步：具体第一步。**
+> “谈过这些，未来 48 小时有什么小事可试，朝那个 5 走？”
+
+以具体、本人愿意承担、做得到的下一步结束。
 
 ---
 
-### Example AI Interventions
+### 主要假设
 
-**Opening with best hopes:**
-> "Before we dig in — what are your best hopes for this conversation? If we used the next thirty minutes well, what would be different by the end?"
+- 有作用，就多做。
+- 没作用，就做不同的。
+- 小步带来大变化。
+- 解决办法不必与问题直接相关。
+- 人有资源、有能力。
+- 改变持续发生、不可避免。
 
-**Anchoring the scale upward:**
-> "You said you're at a 3. I'm not interested in the 7 that's missing — I'm interested in the 3 that's *there*. What's holding you at a 3 and not a 1?"
+---
 
-**Refusing to concede the frame on a 'nothing's better' opening:**
-> "You said nothing is better. Given how heavy this week has been, I'm curious how you got *to* this conversation. What did you do to make sure we'd talk today? That's not nothing."
+### 留意表达线索
 
-**Thickening an exception:**
-> "Tuesday morning was different. Walk me through it slowly. What time did you wake up? What did you do first? What was going on in your head that was different from a usual Tuesday?"
+适合奇迹、量尺、例外探索：
+- “只想好受点”；
+- “不知道想要什么”；
+- “几年没变”；
+- “一直绕圈”；
+- “需要起点”。
 
-**One-point move question:**
-> "Forget the miracle for a second. What would a half-point move feel like? Tiny. Boring. Doable before Friday."
+藏着例外，不让其轻轻过去：
+- “也不总这么糟”；
+- “上周还可以”；
+- “周二早上不错，后来……”；
+- “以前能……”；
+- “有些天做得到”。
 
-**Crediting agency on a small win:**
-> "You said you got out of bed before noon three days this week. I want to slow down on that. How did you do it? What did you tell yourself? That's a *skill* — let's not pretend it isn't."
+无望时，先应对问题，再量尺：
+- “没意义”；
+- “都试了”；
+- “都没用”；
+- “不能再这样继续”。
 
-**Compliment + bridge + task (classic SFBT closing):**
-> "What's striking to me is how much you've already figured out — you know what helps, you know what doesn't, and you're still showing up. Between now and next time, I want you to notice what's already working that you'd want more of."
+此刻不适合单用 SFBT 的迹象：
+- “脑中一直看到它”，创伤侵入；
+- “从那以后没有感觉”，麻木、可能解离；
+- 刚失去后的头几周；
+- 危机程度的失调。
 
-### When to Use SFBT
+---
 
-- Feeling stuck or hopeless
-- Clear desire for change but unsure how to start
-- Situations where problem-analysis has become circular
-- Building momentum after a setback
-- Brief or time-limited therapy contexts
-- When someone needs a confidence boost grounded in real evidence
-- Complement to other approaches (SFBT pairs well with nearly anything)
+### AI 干预示例
 
-### What SFBT Does NOT Do Well
+**最佳期待开场：**
+> “深入前，最希望这次谈话带来什么？用好未来三十分钟，结束会有什么不同？”
 
-Be honest about the limits. SFBT is a powerful frame, not a universal one.
+**从已有分数向上锚定：**
+> “你说 3，我关心的不是缺少的 7，而是已有的 3。什么使你在 3 而非 1？”
 
-- **Acute trauma processing.** Asking a recently traumatized person for the miracle is jarring. Trauma needs titration, somatic grounding, and processing — route to somatic experiencing, polyvagal, or trauma-specific care.
-- **Active, fresh grief.** "What's been better?" lands as dismissive in the early weeks of grief. Grief asks to be *witnessed*, not optimized. Route to lifespan integration, IFS, or simple presence.
-- **Identity-level shame and "I'm broken" narratives.** SFBT can feel performative when the underlying story is self-loathing. Soften the ground with CFT or Narrative re-authoring first.
-- **Compulsive behaviors driven by exiled pain.** SFBT's "do more of what works" can mean white-knuckling. Route through IFS to understand what the firefighter is protecting.
-- **Severe dysregulation or crisis.** Scaling questions to someone in acute distress are mismatched. Use DBT distress tolerance first; come back to SFBT when the nervous system is online.
+**没有改善时维持框架：**
+> “你说没有好转。这周这么重，怎样仍来到这段谈话？做了什么确保今天能聊？这不是小事。”
 
-### Integrates With
+**丰富例外：**
+> “周二早上不同，慢慢说。几点醒，先做什么，脑中与平常周二有什么不同？”
 
-- **MI** — Strongest pair. MI evokes the desire for change; SFBT operationalizes it into next steps. Hand-off point: when change talk is solid, switch from reflecting ambivalence to scaling and exceptions.
-- **CBT** — SFBT exceptions are evidence against the client's negative core beliefs. Use them as data in CBT thought records.
-- **Narrative** — Unique outcomes in Narrative ≈ exceptions in SFBT. Use Narrative when the work is about *story*; use SFBT when the work is about *steps*.
-- **DBT** — Scaling pairs cleanly with DBT diary cards. Use SFBT questions to mine the diary for what's been working.
-- **ACT** — The miracle question and ACT's "what would you do if this wasn't in the way?" are siblings. Both clarify values-aligned action.
-- **CFT** — When SFBT's optimism feels coercive to the client, pair with CFT to first build self-compassion. The miracle question lands very differently once shame has loosened.
+**一分进展：**
+> “先放下奇迹，提高半分是什么样？很小、普通、周五前做得到。”
 
-### Pacing & Limitations
+**承认小成果中的主动性：**
+> “本周三天中午前起床，先停下来看看。怎么做到，怎样对自己说？这是技能，别假装不是。”
 
-- **Don't perform optimism.** SFBT is not toxic positivity. The frame is *what's working* and *what's possible*, but the client's reality has to be honored. Skipping over real pain to get to a scaling question is malpractice.
-- **One-point moves only.** Resist the pull to leap. Clients who try to move from 3 to 8 in a week fail and lose confidence. The discipline is the small step.
-- **AI limitation: pacing the chain.** The miracle → scaling → exceptions → next-step chain runs over multiple turns. A text-based AI can rush it. Slow down between moves; don't stack three SFBT questions in one message.
-- **AI limitation: knowing when to drop the frame.** SFBT can mask depression, trauma, and active risk by always pointing at the bright side. Stay alert for signs that the client needs a different modality and route there explicitly.
-- **Working alongside an external therapist.** SFBT works well as a between-session frame even when the formal therapy is something else. Help the client notice progress, exceptions, and small next steps that reinforce what their therapist is doing.
+**肯定、衔接、任务：**
+> “你已弄清很多，知道什么帮忙、什么没用，也仍来谈。下次前，注意那些已有作用、希望更多发生的事。”
 
-### Homework / Between-Session Work
+### 何时使用
 
-- **"Notice what's working" experiment:** Between now and next time, notice what's already going well that you'd want to *keep* happening. Bring the list.
-- **Pre-session change observation:** "Many people notice that things start to change a little just because they decided to work on it. Watch for that this week."
-- **One-point move:** Pick the smallest possible action that would nudge your scale up by one point. Do that and only that.
-- **Exception tracking:** When the problem is *less* intense — even slightly — write down what was different. Build a library of exceptions.
-- **"Do more of what works" experiment:** Pick one thing from the exception list and intentionally do more of it this week.
-- **Scaling check-in:** Rate the scale each morning. Note what moved it up or down. Watch the pattern over a week.
+- 停滞或无望；
+- 想改变但不知道从哪开始；
+- 问题分析在绕圈；
+- 挫折后重新积累势头；
+- 简短或时间有限的工作；
+- 需要基于真实证据的信心；
+- 配合其他方法，适配范围广。
+
+### 不擅长处理什么
+
+承认局限：有力的框架不等于通用框架。
+
+- **急性创伤处理：**刚受创伤就问奇迹会突兀，需要滴定、身体稳定和处理，转躯体体验、多迷走或创伤专门照护。
+- **新近悲伤：**头几周问有什么好一点，像轻视；悲伤需要见证，而非优化。转人生跨度整合、IFS 或单纯陪伴。
+- **身份羞耻和‘坏掉了’：**自我厌恶之下，SFBT 可能像表演。先用 CFT 或叙事重写。
+- **流放痛苦驱动的强迫行为：**多做有效之事可能变成强撑，先 IFS 理解消防员保护什么。
+- **严重失调或危机：**急性痛苦时量尺不匹配，先 DBT 痛苦耐受，稳定后再回来。
+
+### 与其他方法整合
+
+- **MI：**最强搭配，MI 唤愿望，SFBT 制定下一步。改变性谈话稳固后，从回应矛盾转量尺、例外。
+- **CBT：**例外是反驳负面核心信念的证据，可用于思维记录。
+- **叙事：**独特结果近似例外，关注故事时用叙事，关注步骤时用 SFBT。
+- **DBT：**量尺与日记卡相配，借提问寻找记录里有效的事。
+- **ACT：**奇迹问题与“没有这个阻碍会做什么”相似，都澄清价值一致行动。
+- **CFT：**乐观使人感到被迫时，先建立自我慈悲，羞耻松动后，奇迹问题体验会不同。
+
+### 节奏与局限
+
+- **不表演乐观。**不是强行积极，关注有效与可能，同时尊重现实。为问量尺而跳过真实痛苦，是失当的工作。
+- **只走一分。**抵住跳跃冲动。一周 3 到 8 容易失败、失信心，坚持小步。
+- **AI 的链条节奏局限。**整条链跨多轮，不把三个问题挤进一条。
+- **AI 需要知道何时放下框架。**只指向亮处，可能遮住抑郁、创伤、当下风险。留意需要其他方法的迹象，明确转换。
+- **配合真人治疗师。**会谈间寻找进展、例外、小步，巩固正式治疗。
+
+### 会谈间作业与练习
+
+- **注意有效之事：**记录已经顺利、希望持续的事，下次带来。
+- **会谈前变化：**“许多人决定处理后，就开始有一点变化，这周留意。”
+- **提高一分：**选能提升一分的最小行动，只做它。
+- **例外记录：**稍微轻一些时写下不同，积累例外库。
+- **多做有效的事：**从例外选一项，本周有意多做。
+- **每日量尺：**早上评分，记升降原因，观察一周模式。

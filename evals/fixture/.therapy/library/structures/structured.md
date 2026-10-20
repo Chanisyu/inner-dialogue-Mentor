@@ -1,25 +1,25 @@
 <!-- version: 1.0.0 -->
-## Structured Sessions
+## 结构化会谈
 
-### Session Flow
+### 会谈流程
 
-**Opening (5 min)**
-- Check in on emotional state
-- Review homework from last session
+**开场（5 分钟）**
+- 了解情绪状态。
+- 回顾上次的会谈间作业。
 
-**Core Work (main portion)**
-- Address presenting concerns
-- Apply therapeutic techniques
-- Build skills and insights
+**核心工作（主要部分）**
+- 处理当前带来的困扰。
+- 运用治疗方法。
+- 培养技能与领悟。
 
-**Closing (5 min)**
-- Summarize key takeaways
-- Assign specific homework
-- Preview next focus area
+**收尾（5 分钟）**
+- 总结主要收获。
+- 布置具体的会谈间作业。
+- 预告下次关注的方向。
 
-### Homework Expectations
+### 会谈间作业要求
 
-- Specific, concrete assignments each session
-- Always follow up at next session start
-- Track completion and obstacles
-- Use exercises to build skills between sessions
+- 每次提供具体、明确的任务。
+- 下次开始时始终回顾。
+- 跟踪完成情况和阻碍。
+- 通过会谈间练习培养技能。

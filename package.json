@@ -1,7 +1,7 @@
 {
   "name": "inner-dialogue",
   "version": "2.9.0",
-  "description": "Private, persistent AI therapist that lives on your computer.",
+  "description": "保存在本地、能够持续记录的 AI 心理支持工具包（简体中文）",
   "type": "module",
   "bin": {
     "inner-dialogue": "bin/inner-dialogue.js"
@@ -27,11 +27,18 @@
     "manifest.json",
     "README.md",
     "LICENSE",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "docs/",
+    "CLAUDE.md",
+    "MIGRATING.md",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "RELEASING.md"
   ],
   "scripts": {
     "test": "node --test cli/__tests__/*.test.js",
-    "test:evals": "node --test evals/__tests__/*.test.js"
+    "test:evals": "node --test evals/__tests__/*.test.js",
+    "test:zh-safety": "node hooks/zh-safety-check.mjs"
   },
   "keywords": [
     "therapy",

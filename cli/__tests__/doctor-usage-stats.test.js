@@ -15,6 +15,10 @@ import path from 'node:path';
 
 import { doctor } from '../doctor.js';
 import { hashString } from '../lib/hash.js';
+import { packageFile } from '../lib/paths.js';
+
+// 恢复指令必须指向当前中文来源，不能重新下载上游英文包。
+const LOCAL_UPDATE = `node "${packageFile('bin', 'inner-dialogue.js')}" update --path`;
 
 // Exec-form registration for the safety-net hook (UserPromptSubmit) — every
 // fixture includes it so the only usage-stats findings in play are the ones
@@ -174,7 +178,7 @@ test('hook script missing: warning with update fix, others still ok, doctor pass
   assert.ok(registrationOk(result), 'registration still ok');
   const w = result.warnings.find((x) => x.includes('usage-stats hook script missing'));
   assert.ok(
-    w.includes('npx inner-dialogue@latest update --path'),
+    w.includes(LOCAL_UPDATE),
     'warning carries the one-line update fix'
   );
 });
@@ -189,7 +193,7 @@ test('reflection guidance missing: warning with update fix, others still ok, doc
   assert.ok(registrationOk(result), 'registration still ok');
   const w = result.warnings.find((x) => x.includes('usage-reflection guidance missing'));
   assert.ok(
-    w.includes('npx inner-dialogue@latest update --path'),
+    w.includes(LOCAL_UPDATE),
     'warning carries the one-line update fix'
   );
 });
@@ -208,7 +212,7 @@ test('SessionStart registration missing: warning with update fix, others ok, doc
     x.includes('usage-stats hook not registered in .claude/settings.json')
   );
   assert.ok(
-    w.includes('npx inner-dialogue@latest update --path'),
+    w.includes(LOCAL_UPDATE),
     'warning carries the one-line update fix'
   );
 });
@@ -250,7 +254,7 @@ test('hook hash mismatch: warning (not error) that it was modified, with --force
   assert.ok(warning, 'tamper warning present');
   assert.ok(!integrityOk(result), 'no integrity ok entry');
   assert.ok(
-    warning.includes('npx inner-dialogue@latest update --path') &&
+    warning.includes(LOCAL_UPDATE) &&
       warning.includes('--force'),
     'warning gives the --force restore path'
   );

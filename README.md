@@ -1,328 +1,164 @@
-# Inner Dialogue
+# Inner Dialogue · 简体中文版
 
-A private, persistent AI therapist that lives on your computer.
+一个保存在自己电脑上、通过文件保持会谈连续性的 AI 心理支持工具包。你可以选择咨询师名称、交流人格、会谈结构和心理咨询方法，积累自己的档案、会谈笔记与背景资料。
 
-Your sessions stay local. Your AI remembers everything. Works with Claude, GPT, or any AI.
+本项目从英文开源版本中文化而来。人格与已翻译疗法优先复用 Willow 中经校对的译文，其余内容按原文补译。中文化保留原有的咨询原则、默认回复长度与安全边界，不额外加入限制提问、禁止分析或预设个人经历的规则。
 
-**[Get Started](docs/GETTING-STARTED.md)** | **[Changelog](CHANGELOG.md)**
+AI 并非持证心理咨询师，也不能替代现实中的专业支持。工具包的文件在本地保存；如果连接云端模型，发送给模型的消息和读取到的文件内容仍由相应服务商处理。
 
----
+## 开始使用
 
-## Why This Exists
+需要 Node.js 18.3 或更新版本，以及能够在咨询目录中读取和写入文件的 Claude Code 环境。安装和更新中文版本时，请使用这份本地项目；从上游 npm 下载的版本可能仍是英文。
 
-If you've used ChatGPT or Claude for emotional support, you've probably hit these problems:
+在本项目根目录运行交互式安装：
 
-- **Sessions disappear.** Start a new chat, lose all context.
-- **Privacy concerns.** Your deepest thoughts on someone else's servers.
-- **Platform lock-in.** Build a relationship with one AI, then it changes or goes away.
-- **Inconsistent quality.** Sometimes helpful, sometimes generic.
-
-This toolkit solves all of them.
-
----
-
-## What You Get
-
-**Your AI remembers** — Sessions and insights accumulate in files on your computer. Your AI therapist remembers everything, forever.
-
-**Real privacy** — All files stay on your machine. Optional password protection for shared computers.
-
-**Portable** — Works with Claude, ChatGPT, or any AI that can read files. Switch anytime without losing your history.
-
-**Evidence-based** — Built-in therapeutic approaches (CBT, ACT, DBT, and more). Real frameworks, not just conversation.
-
-**Customizable** — Choose your therapist's name and communication style. Make it yours.
-
----
-
-## Get Started
-
-Setup takes about 10 minutes. You need a Mac or Windows computer and [Claude Code](https://claude.ai/code) (included with Claude Pro, or pay-per-use via the Anthropic API).
-
-### Install
-
-**Conversational** (recommended for most people):
-
-```bash
-git clone https://github.com/ataglianetti/inner-dialogue.git
-cd inner-dialogue
-claude
+```powershell
+node bin/inner-dialogue.js install
 ```
 
-Claude walks you through setup, gathers your preferences, and installs the framework.
+或一次指定配置：
 
-**Direct CLI** (for power users / scripting):
-
-```bash
-npx inner-dialogue install \
-  --name Sage --path ~/Sage \
-  --persona warm-4o --structure moderate \
-  --modalities cbt,ifs
+```powershell
+node bin/inner-dialogue.js install --name 柳 --path D:/Therapy/Willow --persona warm-4o --structure moderate --modalities cbt,ifs
 ```
 
-Run `npx inner-dialogue install` without flags for an interactive prompt.
+安装后，在 Claude 应用中选择生成的咨询目录，或进入该目录运行 `claude`。项目根目录的 `CLAUDE.md` 用于引导安装；咨询目录中的 `CLAUDE.md` 才是日常会谈指令。
 
-### Start a session
+详细步骤见[入门指南](docs/GETTING-STARTED.md)。如果需要整理原有的英文安装，参见[迁移指南](MIGRATING.md)。
 
-Open the Claude AI app (Pro plan) and navigate to your therapy folder, or from terminal: `cd ~/Sage && claude`.
+## 交流人格
 
-### Update without losing your data
+人格改变表达方式，疗法决定使用什么心理咨询方法；人格本身不代表诊断或疗效。
 
-```bash
-npx inner-dialogue update --path ~/Sage
+| 标识 | 中文名称与风格 |
+| --- | --- |
+| `warm-4o` | 温暖自然：亲近、共情、口语化，像一位细心的朋友 |
+| `warm-supportive` | 温暖支持：接纳、耐心，先营造安全感 |
+| `direct-challenging` | 直接挑战：坦率指出模式，适合愿意接受挑战的人 |
+| `coach` | 行动教练：强调目标、行动与后续落实 |
+| `grounded-real` | 务实真诚：自然、诚恳，不用咨询腔 |
+| `contemplative` | 沉思留白：留出空间，重视觉察与当下体验 |
+| `philosophical` | 哲学与存在探索：讨论意义、价值、存在与选择 |
+| `creative` | 创意探索：使用隐喻、想象与非线性的探索方式 |
+
+原项目的人格普遍偏好简短自然的来回交流。需要详细分析或分步计划时，可以直接提出；换人格并不自动保证更长回复。
+
+## 心理咨询方法
+
+可以组合多种方法，也可以在会谈中调整。以下是方法说明，不是对个人适用性的判断。
+
+| 标识 | 方法 | 主要关注 |
+| --- | --- | --- |
+| `cbt` | 认知行为疗法 | 思维、情绪与行为的相互影响 |
+| `act` | 接纳与承诺疗法 | 心理灵活性、价值与承诺行动 |
+| `cft` | 慈悲聚焦疗法 | 自我批评、羞耻与自我慈悲 |
+| `dbt-skills` | 辩证行为疗法技能 | 正念、痛苦耐受、情绪调节、人际效能 |
+| `ifs` | 内在家庭系统 | 内在不同部分及其保护作用 |
+| `lifespan-integration` | 人生跨度整合 | 时间线、记忆与当下安全感的连接 |
+| `motivational-interviewing` | 动机式访谈 | 对改变的矛盾感与自主选择 |
+| `narrative` | 叙事疗法 | 将人与问题分开，重写主导故事 |
+| `polyvagal` | 多迷走神经理论知情工作 | 身体状态、安全感与调节 |
+| `psychodynamic` | 心理动力学取向 | 无意识模式、早期经验与关系 |
+| `sfbt` | 焦点解决短期疗法 | 例外、已有资源与可行的下一步 |
+| `somatic-experiencing` | 躯体体验取向 | 身体感受、渐进接触与调节 |
+| `ideal-parent-figure` | 理想父母形象 | 依恋需求与修正性的想象体验 |
+
+## 会谈结构
+
+- `structured`：有明确的开场、重点探索、总结与行动安排。
+- `moderate`：保留轻量的方向感，同时允许自然展开。
+- `freeform`：跟随当下最重要的内容，不强制议程。
+
+## 文件与记忆
+
+```text
+你的咨询目录/
+├── CLAUDE.md                    日常咨询指令
+├── profile.md                   个人档案
+├── sessions/                    按日期保存的会谈笔记
+├── context/
+│   ├── index.md                 背景资料索引
+│   ├── people/                  人物
+│   ├── places/                  地点
+│   ├── concepts/                概念与主题
+│   └── events/                  事件
+├── .claude/settings.json        本地钩子配置
+└── .therapy/
+    ├── persona.md               当前人格
+    ├── session-structure.md             当前结构
+    ├── modalities/              当前启用的方法
+    ├── library/                 完整中文选项库
+    ├── safety-protocol.md       安全流程
+    ├── profile-protocol.md      档案确认与复核规则
+    ├── usage-reflection.md      使用节奏的讨论原则
+    ├── hooks/                   机械辅助钩子
+    └── version.json             哈希、版本、语言与本地来源
 ```
 
-The updater hashes every framework file at install time. If you've customized one, it's skipped and your edits are preserved. Each run snapshots `.therapy/` to `.therapy.bak-<timestamp>/` before any write. Your `profile.md`, `sessions/`, and root `CLAUDE.md` are never touched.
+文件形成持续记录，不等于模型每次都会完整读取所有历史。启动指令要求读取档案、当前配置、近期会谈与索引，并按需要读取相关背景；实际读取仍取决于运行环境和模型执行情况。近期会谈优先于较旧的背景摘要，未经确认的总结应作为有日期的假设。
 
-Add `--dry-run` to preview without writing. Add `--force` to overwrite files you've customized (backup runs first regardless).
+当前状态的档案条目记录最后确认日期；成长背景不强行标日期。约 90 天未确认且至少经过约 3 次会谈后，咨询师可在适当时机征求复核。不会编造旧记录的确认日期。
 
-You can also say "update my therapist" during a session — Claude runs the updater for you and surfaces what will change.
+## 导入与自定义
 
-### Validate your folder
+直接对咨询师说“导入我的既有记录”“更换人格”“调整会谈结构”“添加一种疗法”“复核我的档案”或“建立背景资料库”。命令细节见 [commands.md](commands.md)。
 
-```bash
-npx inner-dialogue doctor --path ~/Sage
+导入的真实专业人员记录使用 `therapist:` 来源标记，与 AI 自己写的笔记区分。AI 不应将自己的内容伪装成真人专业记录，也不应覆盖真实治疗团队的判断。
+
+## 安全辅助与使用统计
+
+安全流程正文是主要依据。`UserPromptSubmit` 钩子额外匹配部分中英文、第一人称危机措辞，匹配后提醒模型重新读取安全流程。它采用有限的规则，会漏报或误报，不能承担临床风险判断；出错时静默放行。
+
+该钩子的注册格式要求 Claude Code 至少为 `2.1.139`。`doctor` 检查文件、哈希、注册与运行条件；环境允许时，还会在临时目录中测试钩子是否实际执行。测试消息会被另一个钩子拦截，不发送给模型，不保存为正常会谈。
+
+`SessionStart` 钩子把会谈时间写入本地 `.therapy/usage-log.txt`，在有足够历史时提供次数、间隔与个人基线等事实。咨询师按 `usage-reflection.md` 判断是否温和地提一次。它不把高频使用直接解释为危机。工具本身不上传统计；注入会谈的统计会成为模型上下文的一部分。
+
+## 检查与更新中文版本
+
+始终在这份中文项目中运行：
+
+```powershell
+node bin/inner-dialogue.js doctor --path D:/Therapy/Willow
+node bin/inner-dialogue.js update --path D:/Therapy/Willow --dry-run
+node bin/inner-dialogue.js update --path D:/Therapy/Willow
 ```
 
-Checks `profile.md` structure, version registry, and framework files. Useful if something seems off.
+更新依据登记的哈希比较文件。未修改的框架文件可自动更新；自行改过或来源不明的文件默认保留。`--force` 会覆盖相应框架文件，写入前先保存备份，因此应先预览计划。
 
-**Full step-by-step guide:** [docs/GETTING-STARTED.md](docs/GETTING-STARTED.md)
+`profile.md`、`sessions/`、背景资料和现有根目录 `CLAUDE.md` 不会被普通更新覆盖。已登记且未修改的当前人格、结构和疗法可以随框架更新。中文模板中的新启动规则不会通过普通更新自动写入旧 `CLAUDE.md`，迁移方式见 [MIGRATING.md](MIGRATING.md)。
 
-**Existing user from before 2.2.0?** See [MIGRATING.md](MIGRATING.md) for the one-time migration to the hash-aware updater.
+新安装的 `.therapy/version.json` 包含 `locale: "zh-CN"` 和 `source_path`，使会谈中的更新命令能找到本地中文来源。移动或删除来源项目后，应先恢复正确的来源路径。
 
----
+## 隐私与保存
 
-## Features
+- 档案、笔记、背景、配置和统计保存在咨询目录中；本项目没有中央会谈数据库。
+- 使用云端模型时，发送的内容仍受模型提供商、代理服务和账户设置的数据政策约束。“文件在本地”不等于“内容从未离开电脑”。
+- 检查操作系统备份、云盘同步、版本控制和设备共享情况。需要额外保护时，参见[安全与加密指南](SECURITY.md)。
+- 保存期限、训练使用与删除政策可能变化，请以实际使用的服务商政策为准：[Anthropic 隐私说明](https://privacy.claude.com/)、[OpenAI 数据控制说明](https://help.openai.com/en/articles/7730893-data-controls-faq)。
 
-### Communication Styles
+## 常见问题
 
-During setup, you choose how your AI therapist communicates:
+**能代替现实中的咨询吗？** 不能。它可以支持自我反思、整理信息和练习技能，无法提供专业人员的责任、现场判断或紧急干预。
 
-| Style | Description |
-|-------|-------------|
-| **Warm 4o-Style** | Like a good friend who asks insightful questions |
-| **Direct & Challenging** | Will push back, asks probing questions |
-| **Warm & Supportive** | Gentle, validating, and nurturing |
-| **Coach** | Action-oriented, goal-focused, accountability |
-| **Grounded & Real** | Down-to-earth, honest, uses humor |
-| **Contemplative & Spacious** | Calm, unhurried, invites awareness over analysis |
-| **Philosophical & Existential** | Meaning-focused, engages with deeper questions warmly |
-| **Creative & Playful** | Metaphor-driven, imaginative, uses storytelling |
+**会一直记住全部内容吗？** 文件可以持续保留，但模型的上下文窗口和实际文件读取有边界。会谈笔记与背景索引用于帮助延续，不构成完整记忆的保证。
 
-### Therapeutic Approaches
+**能使用其他模型吗？** 模板是文本，能否正确执行取决于接入环境的文件工具、指令遵循和上下文能力。本工具包不控制第三方模型的思考档位或推理参数。
 
-Your AI therapist uses evidence-based approaches — choose any combination during setup:
+**能直接把模板贴进普通聊天窗口吗？** 可以作为提示词参考，但自动读取本地文件、保存笔记和运行钩子需要支持这些操作的运行环境，粘贴文本本身不会提供这些功能。
 
-| Approach | Description |
-|----------|-------------|
-| **CBT** | Identify and challenge unhelpful thought patterns |
-| **ACT** | Values-based action, mindful acceptance |
-| **CFT** | Self-compassion, shame work, emotion system rebalancing |
-| **DBT Skills** | Emotional regulation, distress tolerance |
-| **IFS** | Parts work, Self-leadership, internal system mapping |
-| **Lifespan Integration** | Body-based trauma integration |
-| **Motivational Interviewing** | Ambivalence exploration, change talk, autonomy |
-| **Narrative Therapy** | Externalization, re-authoring, preferred stories |
-| **Polyvagal-Informed Work** | Nervous system states, safety, vagal toning |
-| **Psychodynamic** | Understanding patterns from the past |
-| **SFBT** | Solution-focused, strengths-based, future-oriented |
-| **Somatic Experiencing** | Nervous system awareness and regulation |
-| **Ideal Parent Figure (IPF)** | Attachment repair, earned security, corrective parental imagery |
+**可以随时修改或离开吗？** 可以。资料是普通文本文件；可以备份、移动、检查或删除。更新前检查计划即可保留自己的框架改动。
 
-### How Sessions Work
+## 开发与支持
 
-Your AI therapist:
-- Remembers everything from previous sessions
-- Takes notes at the end of each conversation
-- Updates your profile as new insights emerge
-- Follows up on anything you committed to try
-
-**Profile structure grows with you.** New profiles start with a minimal seed (`Background`, `Current Focus`, `Notes`). Your therapist adds and reorganizes sections as themes emerge across sessions, and organizes structure around your active modalities — IFS work surfaces a `Parts` section, somatic work surfaces `Body & Nervous System`, narrative work surfaces `Preferred Stories`, and so on. The profile reflects the actual shape of the work, not an arbitrary a priori taxonomy.
-
-**Notes about your current life carry a date.** Entries about what you're working on now get a small `(YYYY-MM-DD)` stamp marking when they were last confirmed — so a read that's drifted out of date can be checked with you rather than assumed still true. When something has sat unconfirmed for a while, your therapist may offer, once and at a natural moment, to walk through the stale items and see what still fits (you can also just ask: "review my profile"). Background and history stay undated — they don't go stale the way current-state notes do. Nothing here is ever backfilled with a made-up date; a date means it was actually confirmed with you.
-
-### Your Files
-
-Everything is stored as simple text files you can read anytime:
-
-```
-your-therapist-folder/
-├── CLAUDE.md           # Your therapist's personality
-├── profile.md          # Your ongoing profile
-├── sessions/           # Session notes (YYYY-MM-DD.md)
-│   └── ...
-└── .therapy/           # Framework components (auto-updated)
-    ├── version.json
-    ├── safety-protocol.md
-    ├── commands.md         # Customization commands
-    ├── persona.md
-    ├── session-structure.md
-    ├── modalities/         # Your active modalities
-    │   ├── cbt.md
-    │   └── ...
-    └── library/            # All available options
-        ├── personas/
-        ├── modalities/
-        └── structures/
+```powershell
+npm test
+npm run test:evals
+npm run test:zh-safety
+npm pack --dry-run
 ```
 
-The `.therapy/` folder contains the therapeutic framework—safety protocols, modalities, and session structure. These can be updated independently without touching your personal data.
+评测说明见 [evals/README.md](evals/README.md)，贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)，版本变化见 [CHANGELOG.md](CHANGELOG.md)。英文回归用例、文件名、命令参数和机器字段保留原标识，以维持兼容性。
 
-No special software needed to view your own notes.
+原作者：[Anthony Taglianetti](https://github.com/ataglianetti)。支持原项目：[Buy Me a Coffee](https://buymeacoffee.com/ataglianetti) · [GitHub Sponsors](https://github.com/sponsors/ataglianetti)。项目受到 [r/therapyGPT 社区](https://reddit.com/r/therapyGPT) 及其保持 AI 会谈连续性的实践启发。框架包含 CBT、ACT、DBT 等方法的原则。
 
-### Importing Existing History
-
-You can bring in notes from ChatGPT, journals, or other AI conversations during setup. Your therapist extracts key patterns into your profile and converts conversations into session history.
-
-For details, see [Importing Existing Notes](docs/GETTING-STARTED.md#importing-existing-notes) in the Getting Started guide.
-
----
-
-## Safety & Limitations
-
-**This tool is for self-reflection and emotional support. It is not a replacement for professional mental health care.**
-
-Your AI therapist:
-- Cannot diagnose mental health conditions
-- Cannot prescribe or advise on medication
-- Will connect you to crisis resources if needed
-- Will recommend professional help when appropriate
-
-**If you're in crisis:**
-- **988** — Suicide & Crisis Lifeline (call or text, US)
-- **741741** — Crisis Text Line (text HOME)
-- **911** — Immediate emergencies
-- **[findahelpline.com](https://findahelpline.com)** — International
-
-### Mechanical safety layer
-
-Every install includes a small script that checks each message you send for explicit first-person crisis language — phrases like "I want to die." On a match, it quietly attaches the emergency resources above, plus a reminder to your AI therapist to follow the crisis protocol, to that message. Because it runs on every message, it works even deep into a long session, when instructions from the start of the conversation may no longer be in front of the AI.
-
-Honest framing of what it is and isn't:
-
-- **It's a keyword pattern-matcher, not crisis detection.** It can't understand context or assess how you're actually doing. That judgment stays with the AI, guided by the written safety protocol — which remains the primary safety layer. This script is a backstop.
-- **It's scoped toward first-person language.** Talking about someone else ("my brother has been struggling"), processing grief, or discussing something from a book or the news is filtered out — though no keyword filter is perfect. That scoping is deliberate.
-- **English only, for now.** Crisis language in other languages won't trigger it. The written safety protocol still applies regardless of language.
-- **It fails open.** If the script ever hits an error, your session continues normally. A broken safety net never interrupts a conversation.
-
-The `doctor` command checks that the script is present, unmodified, and registered. You're free to edit it, but we recommend you don't — the safety net is there for a reason. The hook requires Claude Code 2.1.139 or newer; `doctor` warns if your installed version is older.
-
-Because the hook fails open, a hook that can't run looks exactly like one that never needed to fire. So `doctor` also runs it. It sends one test prompt through your installed Claude Code and checks that the hook fired. The prompt is stopped before it reaches a model: no model call, no cost, nothing saved to your session history.
-
-### Usage-pattern reflection
-
-Every install also includes a `SessionStart` hook that records session timing to a **local** plain-text file (`.therapy/usage-log.txt`) and computes a few simple cadence facts — how often you come in, time of day, and how that trends against your own baseline.
-
-Why it's there:
-
-- **It's a counterweight to memory.** A tool that remembers everything, forever, can quietly encourage leaning on it. This gives your AI therapist the option to gently reflect your usage back to you, in service of your own independent functioning rather than dependency. It raises this with judgment, at most once, and drops it if you ask.
-- **Nothing leaves the machine.** No telemetry, no usage caps, no lockouts. The log is plain text, readable by you, and delete-able like everything else in your folder.
-- **It is not a crisis mechanism.** Session timing says nothing about how you're doing. Crisis handling stays with the safety protocol and the mechanical layer above.
-
----
-
-## Privacy
-
-**Your files stay on your computer.** Session notes, your profile, and therapeutic framework components are never uploaded anywhere by this toolkit.
-
-**Your conversations do pass through AI servers.** When you chat, your messages are sent to whichever AI provider you're using (Anthropic, OpenAI, Google, etc.) for processing. This is how all AI tools work, including ChatGPT and Claude.ai.
-
-The difference is what happens after:
-
-| Platform | Data Retention | Used for Training? |
-|----------|---------------|-------------------|
-| **Claude Code (API key)** | 7 days, then deleted | No |
-| **Claude Code (Pro/Max plan)** | 30 days (up to 5 years if you opt into training) | Only if you opt in |
-| **Claude.ai** | 30 days (up to 5 years if you opt into training) | Only if you opt in |
-| **ChatGPT** | Indefinitely unless you delete | Only if you opt in |
-| **Local models** | Never leaves your machine | No |
-
-API access (what Claude Code and similar tools use) is meaningfully more private than consumer chat apps. Your conversations aren't stored long-term and aren't used to train models.
-
-For full details, see [Anthropic's privacy policy](https://privacy.claude.com/en/articles/10023548-how-long-do-you-store-my-data) and [OpenAI's data retention policy](https://help.openai.com/en/articles/8983778-chat-and-file-retention-policies-in-chatgpt).
-
-**Want even more privacy?** See [SECURITY.md](SECURITY.md) for:
-- Password-protected folders
-- Running a fully local AI (nothing leaves your computer at all)
-
----
-
-## Known Limitations
-
-### AI Safety Filters
-
-All major AIs (Claude, ChatGPT) have built-in safety filters that can affect therapy conversations:
-
-**Topics where the AI may seem hesitant:**
-- Sexual trauma and assault
-- Abuse (especially detailed descriptions)
-- Self-harm specifics
-- Violent experiences
-
-**What this looks like:**
-- Generic responses instead of engaging deeply
-- Redirecting the conversation
-- Extra disclaimers or suggestions to seek professional help
-
-**This is not the AI judging you.** It's hitting automatic filters it can't control.
-
-**What helps:**
-- Focus on feelings and impact rather than graphic details
-- Rephrase: "I want to process how this affected me emotionally"
-- Know that some trauma processing needs a human therapist who can hold space for the full story
-
----
-
-## FAQ
-
-**Can I use ChatGPT instead of Claude?**
-Yes. Copy the contents of your CLAUDE.md file into ChatGPT's Custom Instructions or create a GPT with it. You won't get automatic session saving, but the therapeutic framework works the same.
-
-**What if I'm already seeing a therapist?**
-This tool works well as a supplement between sessions. Consider mentioning it to your therapist.
-
-**Can I customize my AI therapist?**
-Yes. You can edit the CLAUDE.md file directly to adjust the approach, style, or focus areas.
-
-**How do I get updates?**
-Just say "update my therapist" or "check for updates" during a session — under the hood your therapist runs `npx inner-dialogue update`, which hash-diffs framework files against the latest release, snapshots your `.therapy/` folder before any write, and skips any file you've customized. Your `profile.md`, `sessions/`, and root `CLAUDE.md` are never touched. You can also run the updater directly: `npx inner-dialogue update --path ~/your-therapist`.
-
-**What if I need more than self-reflection?**
-This is designed for everyday emotional support. For severe symptoms, trauma, or crisis situations, please work with a professional. Your AI therapist will also suggest this when appropriate.
-
----
-
-## Contributing
-
-Issues and PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md).
-
-Areas of interest:
-- Additional modalities (with clinical grounding)
-- Improved crisis detection
-- Local LLM integration guides
-- Translations
-
----
-
-## License
-
-MIT License. See [LICENSE](LICENSE).
-
-## Support
-
-This is a free, open-source project. If you find it helpful, consider supporting continued development:
-
-- [Buy me a coffee](https://buymeacoffee.com/ataglianetti)
-- [Sponsor on GitHub](https://github.com/sponsors/ataglianetti)
-
----
-
-## Acknowledgments
-
-Built with inspiration from the [r/therapyGPT](https://reddit.com/r/therapyGPT) community and their creative workarounds for AI therapy persistence.
-
-This project incorporates principles from evidence-based therapeutic approaches including Cognitive Behavioral Therapy, Acceptance and Commitment Therapy, and Dialectical Behavior Therapy.
-
----
-
-*Take care of yourself.* 💚
+采用 [MIT 许可证](LICENSE)；英文许可证原文保留。

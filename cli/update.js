@@ -2,7 +2,7 @@ import { readFile, writeFile, mkdir, readdir, unlink, copyFile } from 'node:fs/p
 import { existsSync } from 'node:fs';
 import { join, dirname } from 'node:path';
 
-import { therapyPaths, packageFile } from './lib/paths.js';
+import { therapyPaths, packageFile, PACKAGE_ROOT } from './lib/paths.js';
 import { loadFramework } from './lib/framework.js';
 import {
   readVersionJson,
@@ -366,6 +366,9 @@ export async function update(opts) {
 
   const newVersion = { ...existing };
   newVersion.kit_version = pkgJson.version;
+  // 后续更新继续指向当前中文工具包，避免误用上游英文 npm 包。
+  newVersion.locale = 'zh-CN';
+  newVersion.source_path = PACKAGE_ROOT;
   newVersion.files = { ...oldFiles };
   newVersion.last_update = new Date().toISOString().slice(0, 10);
 

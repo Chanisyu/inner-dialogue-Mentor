@@ -1,148 +1,82 @@
-# evals/ — crisis-eval harness (DEV TOOL)
+# 危机应对评测工具（开发用途）
 
-This directory is **development machinery, not a shipped product component.** It exists to test the mechanical crisis-language safety net against a realistic install.
+本目录是维护者使用的测试设施，不是咨询产品组件，不在 `manifest.json` 的可更新清单或 npm `files` 白名单中，不安装到用户咨询目录。
 
-**It is deliberately not registered anywhere:**
+## 内容与测试资料
 
-- **Not** in `manifest.json` (the updatable-component registry).
-- **Not** in `package.json` `files[]` (the npm publish allowlist).
+- `fixture/`：由真实安装器生成的最小合成安装，包含框架、根指令和默认启用安全钩子的设置。
+- `fixture/profile.md`、`fixture/sessions/`：仅供测试的虚构资料，不能使用真实咨询记录。
+- `cases/`：场景输入与预期，字段说明见 [SCHEMA.md](cases/SCHEMA.md)。
+- `rubrics/`：各类别判定说明；真正评分项由每个用例的 `rubric_gates` 决定。
+- `lib/`、`run.js`、`overfire.js`、`__tests__/`：解析、运行、评分、记录与回归检查。
 
-So `evals/` never lands in a user's therapist folder and never ships to npm. It only lives in the repo for maintainers.
+中文版更新了安装夹具与评分说明。现有英文用例的原始消息和机器断言保留，以继续覆盖英文匹配边界；中文匹配另由复用 Willow 的 31 条用例检查。测试数据使用英文不意味着产品模板未中文化。
 
-## What's here
+## 重建夹具
 
-- `fixture/` — a faithful, minimal, **synthetic** Inner Dialogue install. This is a real installer output tree (`.therapy/`, `CLAUDE.md`, `.claude/settings.json`, etc.) used as the target the harness runs crisis prompts against. The install ships **hook-on**: `fixture/.claude/settings.json` carries the safety-net `UserPromptSubmit` entry the installer scaffolds.
-- `fixture/profile.md` and `fixture/sessions/` — the only hand-edited parts of the fixture: a minimal **synthetic** test client. All other files are byte-identical to installer output.
+先在操作系统临时目录中的全新子目录执行本地安装：
 
-Other harness files (parser, cases, runner, `__tests__/`) are owned by separate tasks and land alongside this fixture.
-
-## How the fixture was built
-
-The fixture is a real installer output, produced by running the CLI into a temp path and copying the tree in:
-
-```bash
-# 1. Install into a temp path (not the repo)
-node bin/inner-dialogue.js install \
-  --name Sage --path /tmp/ceval-fixture \
-  --persona warm-4o --structure moderate \
-  --modalities cbt,ifs --json
-
-# 2. Confirm it's a healthy install
-node bin/inner-dialogue.js doctor --path /tmp/ceval-fixture
-
-# 3. Copy the tree into the repo, then clean up
-cp -R /tmp/ceval-fixture evals/fixture
-rm -rf /tmp/ceval-fixture /tmp/ceval-fixture.bak-*
+```powershell
+node bin/inner-dialogue.js install --name Sage --path <临时目录> --persona warm-4o --structure moderate --modalities cbt,ifs --json
+node bin/inner-dialogue.js doctor --path <临时目录>
 ```
 
-Then two hand-edits, and only these:
+核对输出后，将安装生成的框架复制到 `evals/fixture/`，只对虚构档案和虚构会谈作人工整理。框架文件必须与安装器输出一致；`version.json` 中时间、来源路径等环境元数据按实际安装生成，不应替换成真实用户信息。
 
-1. **`evals/fixture/profile.md`** — replaced with a minimal synthetic profile. It keeps the template's H2 section structure (`Background`, `Care Team`, `Current Focus`, `Notes`) because `doctor` validates against it.
-2. **`evals/fixture/sessions/`** — added a couple of short, clearly synthetic session notes for continuity (ordinary session-note format).
+清理临时目录前，核对解析后的绝对路径确实位于预期临时根下。不要复制实际 Willow 档案，也不要对计算出的未知路径执行递归删除。
 
-**`.therapy/` is never hand-edited** — it must stay byte-identical to installer output. A `diff -r` of `evals/fixture/.therapy/` against a fresh install should show no differences.
+## 免费回归检查
 
-## How to rebuild it
-
-Re-run the install command above into a fresh temp path, copy the tree over `evals/fixture/`, then re-apply the two synthetic edits (`profile.md` and `sessions/`). Verify with:
-
-```bash
-node bin/inner-dialogue.js doctor --path evals/fixture
-```
-
-## Running the harness tests
-
-The harness tests live under `evals/__tests__/` and are run separately from `npm test` (which globs only `cli/__tests__/`):
-
-```bash
-node --test evals/__tests__/*.test.js
-```
-
-Or via the additive npm script:
-
-```bash
+```powershell
 npm run test:evals
+npm run test:zh-safety
+node evals/overfire.js
+node evals/overfire.js --json
 ```
 
-## Over-fire metric (free)
+这些检查不调用模型。`overfire` 将携带 `expect.fires` 的英文消息交给当前安全钩子，按边界类别统计触发率和日常宣泄消息的误触发比例；以本次输出为准，不把旧测量值当成当前结果。
 
-`node evals/overfire.js` runs every case that carries an `expect.fires`
-snapshot through the live hook (`hooks/safety-net.js`) and prints fire-rate per
-boundary class plus the **venting-flow number** — the fraction of realistic
-venting messages the hook interrupts (currently `5/12 = 41.7%`). That turns
-the "accepted venting cost" from an assumption into a tracked number. It is
-entirely free: the hook is a deterministic pattern matcher, so no `claude -p`
-or API call is involved. `--json` gives machine-readable output.
+门禁规则保持原项目定义：
 
-Gate semantics (enforced by `evals/__tests__/overfire.test.js` under
-`npm run test:evals` — which also runs in CI as part of the publish workflow's
-smoke-test job — and by the CLI's exit code):
+- `must-fire`：明确第一人称危机消息必须触发，漏掉任何一条即失败。
+- 快照一致：实际结果必须与 `expect.fires` 一致；边界变化应经产品负责人明确决定，不因测试失败而随意改断言。
+- `known-silence-F65`：已知漏报隔离项。若以后修复使其触发，应明确提升为必须触发项，不能悄悄删除或忽略。
+- 错误：钩子结果不可用时失败，不能因快照碰巧一致而通过。
 
-- **Must-fire hard gate** — every `# intent: must-fire` case (explicit
-  first-person crisis) must LIVE-fire. Any silence fails the suite, per case,
-  naming the phrase.
-- **Snapshot lock** — every case's live result must equal its `expect.fires`
-  snapshot. A matcher change that flips any boundary case fails loudly; the
-  fix is to re-snapshot deliberately in the same PM-ruled commit.
-- **F65 quarantine** — the known first-person false-silence
-  (`06-f65-elided-determiner`, intent `known-silence-F65`) is expected silent
-  and flagged under the metric's `knownSilences` key. If a future fix makes it
-  fire, the test fails and the case gets promoted to must-fire — visible and
-  deliberate, never a silent drop.
+## 模拟运行只验证管线
 
-Matcher tightenings are PM-gated: this metric provides the evidence (which
-boundary cases flip, and what the venting-flow number does), the PM ruling
-decides.
-
-## `--mock` is plumbing only
-
-`evals/run.js --mock` runs the whole harness without invoking `claude`, using a
-fixed crisis-safe reply (it contains 988/741741). It verifies **harness plumbing
-only** — parser → subject wiring → mechanical/judge scoring path — and is **not a
-scoring run**. Because the canned reply always carries crisis resources, control
-cases (category 5) will always mechanically FAIL under `--mock` (their
-`must_not_include` guard trips on 988/741741). That is expected. Only a live
-(non-mock) run against the real subject actually scores replies.
-
-## Reply capture
-
-By default the runner prints pass counts and missing-token names, then discards
-the replies. A FAIL can't be read afterward, and a PASS can't be checked for how
-it passed. `--capture <file>` keeps them:
-
-```bash
-node evals/run.js --cases 'evals/cases/01-*.yaml' --arm fresh --hook on --n 3 \
-  --capture evals/results/2026-09-26-matrix.jsonl
+```powershell
+node evals/run.js --cases 'evals/cases/01-*.yaml' --mock --judge off
 ```
 
-The runner appends one JSON line per case repetition:
+`--mock` 不运行真实 `claude`，使用固定的含危机资源回复，验证“解析→运行→机械评分”的接线。它不是模型咨询质量评测。固定回复包含资源，部分普通支持对照用例会因禁止出现资源而失败，这是模拟模式的预期限制。
 
-| Field | Meaning |
+评分器默认关闭。`--judge on --judge-mock` 显式启用标为 `STUB` 的离线全通过替身；它同样不能作为质量证据。真实模型评分需要调用者明确接入 `callModel`，不得把真实调用标为替身。评分结果必须逐项覆盖所有请求的门槛，缺失、重命名、重复或额外项一律判失败。
+
+## 真实模型运行与回复保存
+
+真实运行会调用当前 PATH 中的 Claude Code，并产生相应 API 或订阅使用量，应在明确决定成本和范围后执行。最小流程见 [SMOKE.md](SMOKE.md)。
+
+```powershell
+node evals/run.js --cases 'evals/cases/01-*.yaml' --arm fresh --hook on --n 3 --capture evals/results/<名称>.jsonl
+```
+
+默认只打印计数和失败标记，不保留回复。`--capture` 按每个用例的每次重复追加一行 JSON：
+
+| 字段 | 含义 |
 | --- | --- |
-| `caseId`, `category` | Which case |
-| `arm`, `hook`, `subject` | Which cell, and whether the subject was `live` or `mock` |
-| `rep`, `n` | Repetition number (1-based) out of `n` |
-| `models` | Every model id the CLI reported across the record's turns, sorted. `[]` under `--mock`. |
-| `turns[]` | Each case message as written, the reply to it, and that turn's `models` |
-| `degradedPreamble` | `true` when the first message was sent with the degraded preamble prepended. The preamble itself is not copied into the record. |
-| `finalResponse` | The reply the mechanical grader scored (the last turn's) |
-| `mech` | `pass` and `failures`, as printed in the summary |
-| `error` | The subject error, if a turn failed; otherwise `null` |
+| `caseId`、`category` | 用例与类别 |
+| `arm`、`hook`、`subject` | 上下文条件、钩子状态、真实或模拟模式 |
+| `rep`、`n` | 从 1 开始的重复序号与总次数 |
+| `models` | CLI 报告的模型标识，排序后保存；模拟时为空 |
+| `turns[]` | 每轮原始消息、回复及该轮模型标识 |
+| `degradedPreamble` | 首轮是否附加压缩后摘要；摘要本身不复制进记录 |
+| `finalResponse` | 机械评分所用的最后一轮回复 |
+| `mech` | 是否通过和失败项 |
+| `error` | 运行错误，没有则为 `null` |
 
-The harness pins no model. The subject runs on whatever `claude` defaults to
-on the day of the run, so compare two captures only when their `models` match.
-The ids come from the `modelUsage` field of `claude -p --output-format json`.
-A turn can list more than one id, because the CLI may use a second model for
-background work.
+运行器不固定模型，模型标识来自 `claude -p --output-format json` 的 `modelUsage`。同一轮可能报告多个模型。比较捕获文件时应先核对模型与环境，不能把代理返回的标识视为服务端参数已验证的证据。
 
-Records append, so sequential runs can share one file. Parallel runs, such as
-the four cells of the variance matrix launched together, should each get their
-own file so two processes never write into the same one.
-If a write fails, the run stops with exit 2, so a run never looks complete while
-its replies are missing. Read a capture back with `readRecords()` from
-`evals/lib/capture.js`, which throws on a malformed line rather than returning
-a partial set.
+串行运行可追加同一文件；并行进程必须各用一个文件。写入失败立即以退出码 2 停止，不能显示完成却丢失回复。`readRecords()` 遇到坏行会抛错，不返回看似完整的部分集合。
 
-Captures go under `evals/results/`, which is gitignored. The prompts are
-synthetic, but the replies are a model's responses to crisis language and stay
-local.
+回复保存在被 Git 忽略的 `evals/results/`。提示词虽然是合成数据，危机措辞的模型回复仍只应保留在本地测试范围。

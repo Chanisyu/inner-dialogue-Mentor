@@ -14,6 +14,10 @@ import path from 'node:path';
 
 import { doctor } from '../doctor.js';
 import { hashString } from '../lib/hash.js';
+import { packageFile } from '../lib/paths.js';
+
+// 恢复指令必须指向当前中文来源，不能重新下载上游英文包。
+const LOCAL_UPDATE = `node "${packageFile('bin', 'inner-dialogue.js')}" update --path`;
 
 // Exec-form registration (the shape update/install write). Plain single-quoted
 // string on purpose: ${CLAUDE_PROJECT_DIR} is a literal placeholder, not a
@@ -136,7 +140,7 @@ const registrationWarning = (r) =>
 const warningsCarryFix = (r) =>
   r.warnings
     .filter((w) => w.includes('safety-net'))
-    .every((w) => w.includes('npx inner-dialogue@latest update --path'));
+    .every((w) => w.includes(LOCAL_UPDATE));
 
 test('both present: ok entries, no safety-net warnings', async () => {
   const result = await runDoctor(makeInstall());
@@ -221,7 +225,7 @@ test('settings.json unparseable: named as malformed, no "run update" prescriptio
   );
   for (const w of result.warnings) {
     assert.ok(
-      !w.includes('npx inner-dialogue@latest update'),
+      !w.includes(' update --path'),
       `no warning prescribes update: ${w}`
     );
   }
@@ -261,7 +265,7 @@ test('hook hash mismatch: warning (not error) with posture and --force restore p
     'warning carries the posture'
   );
   assert.ok(
-    warning.includes('npx inner-dialogue@latest update --path') &&
+    warning.includes(LOCAL_UPDATE) &&
       warning.includes('--force'),
     'warning gives the --force restore path'
   );

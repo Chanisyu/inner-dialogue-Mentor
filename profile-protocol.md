@@ -1,53 +1,53 @@
 <!-- version: 1.0.0 -->
-# Profile Provenance Protocol
+# 档案来源与确认规则
 
-`profile.md` is read back as ground truth at every session start. A wrong or stale inference written there — a mischaracterized pattern, a relationship read wrong, a belief the client has since moved past — steers future sessions from a picture that no longer fits, quietly, forever. The context library already solved this for the world around the client: a synthesis is a hypothesis with a date on it. This ports that discipline to the client's own standing picture — lightly. The profile is client-readable and stays readable prose; it does not sprout the context library's flag machinery.
+每次开始时，`profile.md` 都会被重新读取，作为对来访者的持续理解。错误或过时的推断，例如误读关系、误写模式、对方已经改变的信念，会悄悄持续影响后续会谈。背景资料库已经采用“带日期的假设摘要”处理外部世界的信息；这里把同样原则轻量地用于来访者本人的档案。档案仍保持可供本人阅读的自然文字，不引入资料库的标记系统。
 
-Three pieces: date-stamped writes, a session-start review ritual, and a client-initiated command.
+规则包括：写入日期、会谈开始时核对，以及来访者主动发起的复核命令。
 
-## 1. Date-stamped writes
+## 1. 写入日期
 
-Every profile addition or material revision carries a date. Format: a trailing italic `*(YYYY-MM-DD)*` on the bullet or paragraph — unobtrusive, reads naturally to the client.
+每条新增或实质修改的记录，在条目或段落末尾标注斜体日期 `*(YYYY-MM-DD)*`。
 
-> - Keeps circling back to whether he's "doing enough" at work, even after the promotion *(2026-07-11)*
+> - 即使升职之后，仍反复担心自己在工作中“做得够不够好” *(2026-07-11)*
 
-Rules, applied during the session-end profile update:
+会谈结束更新档案时：
 
-- **New content** → today's date.
-- **Material revision** of existing content → replace its date with today's.
-- **Confirmed in a live session** — the client said something that re-validates a standing claim → refresh its date. A refreshed date is a promise that the claim was true as of a live session; **never refresh a date you didn't actually re-confirm** (same discipline the context library's dates carry).
-- **Never bulk-refresh.** Untouched content keeps its old date — that staleness *is* the signal the review ritual reads. Refreshing everything at once destroys it.
+- **新增内容：**使用当天日期。
+- **实质修改：**将原日期改为当天。
+- **当面重新确认：**对方本次的话再次证实了既有记录，才刷新日期。新日期表示已在实际会谈中确认；**没有确认，就不刷新。**
+- **不批量刷新。**未讨论的内容保留旧日期，过时本身就是核对信号，全部刷新会毁掉这个信号。
 
-### What gets dated — and what doesn't
+### 哪些内容标日期
 
-Date **current-state** content: `Current Focus`, `Notes`, and any current-state H2 that emerges (cognitive patterns, parts, body/nervous-system, change talk, and the like). These are claims about how things *are now*, and "now" goes stale.
+“当前关注”“备注”，以及后来形成的认知模式、内在部分、身体与神经系统、改变性谈话等当前状态章节，需要日期，因为“现在怎样”会变化。
 
-**`Background` and formative-history sections are exempt — undated by design.** Formative history doesn't go stale the way a current-state read does: who someone was shaped by doesn't expire. Dating it would invite a pointless "is your childhood still true?" review. Leave it clean.
+**“背景”和成长史不标日期。**成长经历不像当前状态那样过时，无须反复询问童年是否仍然如此。
 
-## 2. The review ritual
+## 2. 开始时的复核
 
-At session start, after the normal reads, check the profile's **current-state** content for staleness. The trigger — deliberately session-relative, not pure wall-clock, so an infrequent client isn't nagged every third visit:
+完成常规读取后，检查当前状态条目是否过时。触发条件结合实际会谈次数，而不是只看日历：
 
-> Any current-state item dated more than **~90 days** ago, **and** at least **~3 session files in `sessions/` dated after that item** — i.e. the client has actually been in three or more times since the claim was last confirmed and it still went untouched.
+> 某条当前状态记录距今超过约 **90 天**，并且 `sessions/` 中在该日期之后已有约 **3 份会谈记录**，期间却一直没有重新确认。
 
-(Count from `sessions/` filenames — they are `YYYY-MM-DD.md`.)
+按 `YYYY-MM-DD.md` 文件名计数。
 
-**Undated legacy content** has no date to measure from, so treat the ~90-day clause as already satisfied — but the ~3-sessions clause still applies, measured against **total session history**: only offer once the record holds at least ~3 sessions. This is what keeps a brand-new client (or one you've only seen once or twice) from being asked to review notes there's barely been time to form. See *Migration*.
+旧的无日期内容无法计算时间，视为满足约 90 天条件，但仍需总历史中至少约 3 次会谈。这样，新来访者或只来过一两次的人，不会被要求复核尚未形成的档案。
 
-If the trigger is met **and the session opens neutrally**, offer — **once**, at a natural lull, in the seeding-offer's spirit:
+满足条件且开场平稳时，在自然停顿处**只提一次**：
 
-> "A few things in my notes about you are from a while back. Want to take five minutes to check they still ring true?"
+> “我有几条关于你的记录已经是前一阵的了，愿意花五分钟看看现在还准确吗？”
 
-- **The person outranks the housekeeping.** Never open a heavy or emotionally-loaded session with this. If the client arrives with something pressing, stay with it and let the offer wait for a lull or a later session — the notes can wait, the person can't. This is the same rule the seeding offer carries.
-- **If they engage** → walk the stale items conversationally, **one at a time, as questions not assertions**: "I've got that you're focused on X — is that still where it's at?" Update, delete, or leave per their answer; refresh the date on whatever they confirm. Hold each item as a hypothesis you're offering back for confirmation, never as a fact you're reporting.
-- **If they decline** → write a dated marker into `profile.md` — an HTML comment, `<!-- profile review offered and declined: YYYY-MM-DD -->` — and don't re-offer for **~30 days**. Same *kind* of anti-nag marker as the seeding decline, but time-boxed rather than permanent: a profile goes stale again over time, so the offer should be able to return after a while, where seeding is a one-time event that never re-fires. They can still ask for the walk-through any time (see §3).
+- **人的需要优先。**不以此开启沉重或情绪强烈的会谈。先处理迫切内容，等停顿或以后再提；记录可以等，人不能。
+- **愿意参与：**逐条以问题而非断言核对：“我记着你主要关注 X，现在还是这样吗？”按回答更新、删除或保留，确认后刷新日期。把每条都作为待确认的假设。
+- **拒绝：**在档案中写下 `<!-- profile review offered and declined: YYYY-MM-DD -->`，约 **30 天**内不再次提议。这与一次性的资料库建档拒绝标记不同：档案会再次过时，可以在以后重新提议。对方随时仍可主动要求复核。
 
-## 3. The command
+## 3. 主动复核命令
 
-`.therapy/commands.md` carries **"review my profile"** — the client-initiated version of the same walk-through, available any time regardless of the staleness trigger. It is also the on-demand migration path: each review naturally backfills dates as items get confirmed.
+`.therapy/commands.md` 中的“复核我的档案”（`review my profile`）可随时发起同一流程，不受过时条件限制。它也可用于旧档案迁移：每次确认时自然补日期。
 
-## Migration — legacy undated profiles
+## 迁移旧的无日期档案
 
-Existing profiles are entirely undated. **Do not fabricate dates.** An invented date is a false provenance claim — worse than none, because it launders a stale inference as freshly confirmed. This is the same content-integrity rule the whole framework runs on.
+**不编造日期。**虚构日期比缺失更糟，会把过时推断伪装成刚刚确认。
 
-Undated current-state content is treated as **"stale, provenance unknown"** — exactly what the first review ritual is for. It satisfies the staleness (~90-day) clause of the trigger; the ~3-sessions gate still applies (measured against total session history — see §2), so the review only surfaces once there's a real record behind it. After one or two reviews, the profile converges to fully dated through confirmation alone, with nothing fabricated along the way.
+无日期的当前状态视为“过时、来源时间未知”，满足约 90 天条件，但仍需总历史至少约 3 次会谈。经过一两次复核，档案可仅凭真实确认逐渐补齐日期，无须虚构。

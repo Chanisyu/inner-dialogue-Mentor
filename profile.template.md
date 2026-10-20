@@ -1,33 +1,33 @@
-# Client Profile
+# 来访者档案
 
-*This document evolves across sessions as themes emerge. Your therapist will add, expand, and reorganize sections based on the work you do together.*
+*这份文档会随着会谈中主题的出现而发展。AI 咨询师会根据共同开展的工作，添加、扩充和整理章节。*
 
-*You may notice a date like (2026-07-11) on entries about your current life — it marks when something was last confirmed, so a note that's gone stale can be checked with you rather than assumed still true. Background and history stay undated. This is normal and nothing you need to manage.*
-
----
-
-## Background
-
-*Who you are, what brings you here, key context your therapist should hold across sessions. Relationship status, living situation, work, formative experiences — whatever's relevant.*
+*当前生活的条目旁可能有日期，如（2026-07-11），表示最近确认的时间。这样，过时的记录可以与你核对，而不会一直被当作事实。背景和历史不标日期。这是正常的，你不需要自行管理。*
 
 ---
 
-## Care Team
+## 背景
 
-*Any real-world providers you're working with — therapist, psychiatrist, counselor. If you have one, your AI therapist works as an adjunct: it supports the work between your real sessions and defers clinical decisions to your provider. Leave blank if not applicable.*
-
----
-
-## Current Focus
-
-*What you're actively working on right now. This evolves as priorities shift.*
+*你是谁，因何来到这里，需要跨次记住的背景。关系状态、生活环境、工作、成长经历，以及其他相关内容。*
 
 ---
 
-## Notes
+## 支持团队
 
-*Catch-all for observations, patterns, and insights that don't yet have a clear home. As themes consolidate, your therapist will move content into dedicated sections.*
+*正在与你合作的现实专业人员，如心理治疗师、精神科医生、心理咨询师。如有，AI 咨询师作为辅助，支持两次真实会谈之间的工作，临床决策以专业人员为准。不适用时留空。*
 
 ---
 
-*Last updated: [date]*
+## 当前关注
+
+*现在正在处理的事，会随优先事项变化。*
+
+---
+
+## 备注
+
+*暂时没有明确归属的观察、模式和领悟。主题逐渐清晰后，移入专门章节。*
+
+---
+
+*最后更新：[日期]*

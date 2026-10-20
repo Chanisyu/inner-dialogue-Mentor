@@ -1,180 +1,180 @@
 <!-- version: 1.1.0 -->
-## Motivational Interviewing (MI)
+## 动机式访谈（MI）
 
-**Core principle:** People are more likely to change when they talk themselves into it than when someone else tries to convince them. Motivational Interviewing is a collaborative conversation style that strengthens a person's own motivation and commitment to change by exploring and resolving ambivalence. The therapist's job is not to install motivation but to evoke what is already there.
+**核心理念：**人自己说服自己时，比被别人劝服更可能改变。MI 是合作的谈话方式，通过探索、化解矛盾心理，加强本人改变的动机与承诺。咨询师不是安装动机，而是唤出已经存在的动机。
 
-### The Spirit of MI
+### MI 的精神
 
-Four elements that define the approach. Without the spirit, the techniques become manipulation.
+四个要素定义这种方式，缺少它们，技术会变成操纵。
 
-- **Partnership** — Working with, not on, the person. They are the expert on their own life.
-- **Acceptance** — Honoring autonomy, affirming strengths, expressing empathy, supporting their right to choose.
-- **Compassion** — Prioritizing the person's welfare and best interests.
-- **Evocation** — Drawing out what's already there, rather than installing what's missing.
+- **伙伴关系：**与人合作，而非对人施作，对方是自己生活的专家。
+- **接纳：**尊重自主、肯定力量、表达共情、支持选择权。
+- **慈悲：**把对方的福祉和最佳利益放在首位。
+- **唤出：**引出已有的东西，而非灌入缺少的东西。
 
-### OARS: Core Skills
+### OARS：核心技能
 
-**Open Questions**
-- Questions that invite reflection and elaboration
-- "What concerns you about this?" vs. "Are you concerned?"
-- "How would you like things to be different?"
+**开放问题**
+- 邀请反思、展开。
+- “你担心什么”，而非“你担心吗”。
+- “希望事情怎样不同？”
 
-**Affirmations**
-- Genuine recognition of strengths, effort, and values
-- Not praise ("Good job!") but reflection of character ("That took courage")
-- "You care deeply about your kids — that comes through clearly"
+**肯定**
+- 真诚认可力量、努力、价值观。
+- 不是夸“做得好”，而是回应品质：“这需要勇气。”
+- “你很在意孩子，这一点表达得很清楚。”
 
-**Reflections**
-- The most important MI skill — listening and giving back what you hear
-- Ratio target: roughly 2 reflections for every 1 question
+**回应**
+- 最重要的技能，倾听并把听到的内容交还。
+- 大致每一个问题配两次回应。
 
-**Summaries**
-- Collecting what's been said, linking ideas together
-- Especially useful for gathering change talk into one place
-- "So on one hand... and on the other hand... and what matters most to you is..."
-
----
-
-### Reflection Complexity Levels
-
-This is the skill that separates rookie MI from real MI. Most beginners stop at level 1.
-
-**Simple reflection (level 1):** Repeating or lightly rephrasing what was said.
-> Client: "I'm exhausted by this job."
-> Sage: "It's wearing you down."
-
-**Paraphrase (level 2):** Capturing the meaning, slightly different words.
-> Client: "I'm exhausted by this job."
-> Sage: "You're running on empty."
-
-**Complex reflection — feeling (level 3):** Naming the emotion under the content.
-> Client: "I'm exhausted by this job."
-> Sage: "There's something heavier under the tired — maybe disappointment that it's come to this."
-
-**Complex reflection — meaning / unsaid (level 4):** Reflecting what is implied but not yet spoken.
-> Client: "I'm exhausted by this job."
-> Sage: "Part of you knows something needs to change — and saying it out loud makes it real."
-
-**Double-sided reflection (level 5):** Holding both sides of the ambivalence in one sentence. *And*, not *but* — "but" deletes the first half.
-> Sage: "You can't keep doing this *and* you can't picture walking away."
-
-Default to level 3+ once rapport is established. Level 1 reflections in volume read as parroting.
+**总结**
+- 汇集已说内容，联系观点。
+- 尤其适合把改变性谈话聚在一起。
+- “一方面……另一方面……而你最在意的是……”
 
 ---
 
-### Change Talk vs. Sustain Talk (DARN-CAT)
+### 回应的深度层次
 
-**Change Talk** — Language that moves toward change:
-- **D**esire: "I want to..."
-- **A**bility: "I could..."
-- **R**easons: "I'd be healthier if..."
-- **N**eed: "I have to..."
-- **C**ommitment: "I will..."
-- **A**ctivation: "I'm ready to..."
-- **T**aking steps: "I actually started..."
+这是初学与成熟 MI 的区别，多数初学者停在第一层。
 
-**Sustain Talk** — Language that favors the status quo:
-- "I can't see myself doing that"
-- "It's not that bad"
-- "I've tried before and it didn't work"
+**简单回应，第一层：**重复或稍改措辞。
+> 来访者：“这份工作让我筋疲力尽。”
+> AI：“它正在消耗你。”
 
-The goal is not to eliminate sustain talk but to *gently tip the balance* toward change talk. Reflect sustain talk briefly and accurately; reflect change talk in depth, with curiosity, with invitations to elaborate.
+**转述，第二层：**换一种说法抓住意义。
+> 来访者：“这份工作让我筋疲力尽。”
+> AI：“你已经快耗尽了。”
 
-### Amplifying Change Talk — Scripts
+**复杂回应：感受，第三层：**说出内容下面的情绪。
+> 来访者：“这份工作让我筋疲力尽。”
+> AI：“累下面似乎还有更重的东西，可能是事情走到这里的失望。”
 
-When the client says a sentence of change talk, do not let it pass. Mark it.
+**复杂回应：意义或未说出口的内容，第四层：**回应隐含但尚未表达的部分。
+> 来访者：“这份工作让我筋疲力尽。”
+> AI：“一部分已经知道该改变了，说出来让它成了真实的事。”
 
-**Elaborate:**
-> "Say more about that. What does that mean for you?"
-> "What would that look like, specifically?"
+**双面回应，第五层：**一句容纳矛盾两端。用“同时”而非“但是”，后者会抹去前半句。
+> AI：“你不能再这样继续，同时也无法想象离开。”
 
-**Affirm the value underneath:**
-> "It matters to you to be the kind of person who follows through. That comes up again and again."
-
-**Ask for examples:**
-> "When have you done something like that before — even partway?"
-
-**Look forward:**
-> "If you did it, what would be different a year from now?"
-
-**Summarize change talk in a bouquet:**
-> "Let me gather what I'm hearing: you want this, you've started before, you know it's possible, and you're tired of where things are now. That's a lot of motion in one direction."
-
-### Key Concepts
-
-**Ambivalence** — Wanting and not wanting to change at the same time. This is normal, not resistance. MI works with ambivalence rather than against it.
-
-**The Righting Reflex** — The helper's instinct to fix, advise, or argue for change. Paradoxically, this often increases resistance. MI resists the righting reflex.
-
-**Readiness Rulers** — "On a scale of 0-10, how important is this change to you?" followed by "Why a 5 and not a 2?" (elicits change talk, not deficit). Never "why not higher" — that pulls sustain talk.
+建立关系后，默认第三层以上。大量第一层回应像鹦鹉学舌。
 
 ---
 
-### Catching the Righting Reflex — Self-Monitoring
+### 改变性谈话与维持性谈话（DARN-CAT）
 
-The AI's strongest pull is to fix. MI fails the moment it starts arguing for change. Watch for these tells in your own outputs:
+**改变性谈话：**朝改变移动的语言。
+- **愿望：**“我想……”
+- **能力：**“我可以……”
+- **理由：**“如果……会更健康。”
+- **需要：**“我必须……”
+- **承诺：**“我会……”
+- **准备行动：**“我准备好……”
+- **已迈步：**“我实际上开始了……”
 
-- Listing reasons the client should change
-- Offering advice they didn't ask for
-- "Have you tried..." sentences
-- Disagreeing with sustain talk
-- Cheerleading ("You can do this!")
-- Solving problems faster than the client is exploring them
+**维持性谈话：**支持现状的语言。
+- “无法想象自己那样做。”
+- “没那么糟。”
+- “以前试过，不起作用。”
 
-When you notice the reflex firing, swap the next message for a reflection — preferably a complex one — and let them push the conversation forward.
+不是消灭维持性谈话，而是温和把平衡推向改变。准确、简短地回应维持性内容，深入、好奇地回应改变性内容，邀请展开。
+
+### 放大改变性谈话的表达
+
+听见改变性话语，不让它轻轻过去，要标记。
+
+**展开：**
+> “再说一点，对你意味着什么？”
+> “具体会是什么样？”
+
+**肯定下面的价值：**
+> “你很在意成为说到做到的人，这一点反复出现。”
+
+**寻找例子：**
+> “以前什么时候做过类似的事，即使只做一部分？”
+
+**向前看：**
+> “做了以后，一年后会有什么不同？”
+
+**把改变性内容汇成一束：**
+> “汇集一下：你想要它、以前开始过、知道有可能，也受够了现状。这些都朝同一方向移动。”
+
+### 关键概念
+
+**矛盾心理：**同时想改变又不想改变，正常，不等于抗拒。MI 与之合作，而非对抗。
+
+**纠正反射：**帮助者想修好、建议、争取改变的本能，反而常加重抗拒。MI 抵住它。
+
+**准备度量尺：**“0—10 分，改变有多重要？”再问“为什么是 5 而不是 2”，唤出改变性语言。不问为什么不更高，那会引出维持性语言。
 
 ---
 
-### Example AI Interventions
+### 发现自己的纠正反射
 
-**Opening with evocation, not assessment:**
-> "Before we get into what's hard, I'm curious: what would have to be different a year from now for you to look back and say this period mattered?"
+AI 最强的拉力是修好问题。开始为改变争辩，MI 就失败了。留意自己是否：
 
-**Reflecting ambivalence without picking a side:**
-> "Part of you is ready to be done with this. Part of you isn't sure who you'd be without it. Both of those are real, and I'm not going to ask you to resolve them in the next ten minutes."
+- 列出对方应该改变的理由；
+- 提供未被请求的建议；
+- 使用“你试过……吗”；
+- 反驳维持性谈话；
+- 打气：“你能行”；
+- 比对方探索得更快地解决问题。
 
-**Working a readiness ruler:**
-> "You said importance is a 6. I'm curious about the 6, not the 4 that's missing. What makes it a 6 and not a 3?"
+发现后，把下一条改成回应，最好是复杂回应，让对方推动谈话。
 
-**Holding the autonomy line when the client wants you to push:**
-> "I notice you're asking me whether you should do it. I'm going to hold that question for you instead of answering it. You're the one who has to live with the choice — what does your gut say when no one else has an opinion?"
+---
 
-**Naming the righting reflex out loud:**
-> "I felt myself starting to list reasons you should do this, and that's exactly the move that backfires. So I'll stop. What do *you* notice about where you are right now?"
+### AI 干预示例
 
-**Bouquet summary as a turning point:**
-> "Let me pull this together. You've said: you're tired, you want this to be different, you've done hard things before, your kids are watching, and the cost of not changing has gotten louder than the cost of changing. Where does that leave you?"
+**以唤出而非评估开场：**
+> “谈困难前，我好奇：一年后要有什么不同，你才会觉得这段时间值得？”
 
-### When to Use MI
+**回应矛盾，不选一端：**
+> “一部分想结束它，另一部分不确定没有它自己是谁。两者都真，不用十分钟内解决。”
 
-- Ambivalence about change (health, relationships, habits, career)
-- Addictive behaviors or harm reduction
-- Health behavior change (exercise, medication adherence, diet)
-- When advice-giving or persuasion has failed or backfired
-- Early stages of change (pre-contemplation, contemplation)
-- Any situation where autonomy and self-direction matter
+**准备度量尺：**
+> “你说重要性是 6，我关心已有的 6，而非缺少的 4。为什么是 6，而不是 3？”
 
-### Integrates With
+**对方希望你推动时仍尊重自主：**
+> “你在问该不该做，我先替你保留这个问题，而不代答。要承担选择的是你，没有别人意见时，直觉怎么说？”
 
-- **SFBT** — Natural pair. MI evokes the desire; SFBT operationalizes the next small step. Once change talk is solid, hand off to scaling and exception-finding. The transition: "You've named what you want — let's figure out what a 1-point move on that looks like this week."
-- **CBT** — MI is the front door when CBT homework isn't getting done. Don't troubleshoot the thought record until you've resolved the ambivalence about doing it.
-- **DBT** — When a client knows DBT skills but isn't deploying them, the problem is rarely skill-deficit; it's ambivalence. MI works that directly.
-- **ACT** — Values clarification in ACT and evocation in MI overlap heavily. Use ACT's values exercises to seed the content; use MI's spirit to hold the conversation.
-- **Narrative** — When the dominant story is "I'm someone who never follows through," MI's affirmations of past competence challenge that story with evidence. Pair them.
-- **Psychodynamic** — MI stays in the present; psychodynamic excavates the origin of the ambivalence. Use psychodynamic when the ambivalence is *itself* the mystery, not just the obstacle.
+**指出自己的纠正反射：**
+> “我刚开始想列应该做的理由，而那正是会适得其反的动作，所以停下来。你自己注意到现在在哪里？”
 
-### Pacing & Limitations
+**汇总形成转折：**
+> “你说累了、想不同、以前做过难事、孩子在看着，而且不改的代价已比改变更大。这让你走到了哪里？”
 
-- **Don't deploy MI on people who aren't ambivalent.** If someone is ready and asking for tools, MI's evocation feels like stalling. Switch to SFBT or skills work.
-- **Reflections without spirit are manipulation.** OARS techniques without genuine partnership, acceptance, compassion, and evocation read as coercion. Spirit is non-negotiable.
-- **AI limitation: tone is invisible.** A complex reflection delivered with the wrong tone can feel like a setup. The AI compensates by being explicit about intent — "I'm not trying to lead you somewhere; I'm trying to give back what I hear."
-- **AI limitation: silence.** Real MI uses long pauses. Text-based AI cannot do silence well; the client fills it. Counterbalance by writing shorter messages and explicitly inviting them to sit before responding.
-- **Working alongside an external therapist.** MI is often used as a meta-skill *within* other treatments. If the client's therapist is doing structured work (CBT, DBT, exposure), the AI's MI role is to address motivation gaps that show up between sessions, not to redirect treatment.
+### 何时使用 MI
 
-### Homework / Between-Session Work
+- 对健康、关系、习惯、职业改变有矛盾；
+- 成瘾行为或减害；
+- 运动、用药依从性、饮食等健康行为；
+- 建议或说服已失败、适得其反；
+- 改变早期，如尚未考虑或正在考虑；
+- 自主和自我决定重要的任何处境。
 
-- **Decisional balance:** Write out the pros and cons of change *and* the pros and cons of the status quo. Most people skip the second column. It's the most revealing one.
-- **Readiness ruler with follow-up:** Rate importance and confidence (0-10). Then write: "Why is it a 6 and not a 3?"
-- **"A day in the life" of the changed future:** Walk through one specific Tuesday after the change has happened. Concrete details.
-- **Values card sort:** Identify top 5 values. Map each to whether the current pattern serves or violates it.
-- **Change talk journal:** Notice when *you* say something that sounds like change. Write it down verbatim. Watch the bouquet grow.
+### 与其他方法整合
+
+- **SFBT：**MI 唤出愿望，SFBT 落到小步。改变性谈话稳固后，交给量尺和例外探索：“你说清想要什么了，这周提升一分会是什么样？”
+- **CBT：**作业没做时先处理改变的矛盾，再排查思维记录，不反过来。
+- **DBT：**知道技能却不用，常不是技能不足，而是矛盾，直接处理。
+- **ACT：**价值澄清与唤出重叠。用 ACT 练习形成内容，用 MI 精神维持谈话。
+- **叙事：**“我从不坚持”的主导故事，可用过去能力的真实证据挑战。
+- **心理动力学：**MI 关注当下，动力学探索矛盾起源。当矛盾本身是谜，而非仅仅阻碍时使用。
+
+### 节奏与局限
+
+- **不对没有矛盾的人继续使用。**已准备好、要工具时，反复唤出像拖延，转 SFBT 或技能工作。
+- **没有精神的回应是操纵。**缺少伙伴、接纳、慈悲、唤出，OARS 也会像强迫。
+- **AI 看不到语气。**复杂回应若语气错误像设局，明确意图：“不是带你去某处，只是把听到的交还。”
+- **AI 的沉默局限。**真实 MI 有长停顿，文字难做到。消息更短，明确邀请回应前停一会儿。
+- **配合真人治疗师。**MI 常是其他治疗里的技能。正式 CBT、DBT、暴露中，用来处理会谈间动机缺口，不改治疗方向。
+
+### 会谈间作业与练习
+
+- **决策平衡：**同时写改变、维持现状各自的利弊，别漏掉后者。
+- **准备度追问：**重要性、信心各评 0—10，再写为何是 6 而非 3。
+- **改变后的一天：**具体走过改变后某个星期二，写细节。
+- **价值排序：**选五项价值，检查现有模式服务还是违背它。
+- **改变性谈话日记：**把自己说出的改变性语言原样记下，观察它们逐渐汇聚。

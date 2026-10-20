@@ -1,204 +1,204 @@
 <!-- version: 1.1.0 -->
-## Compassion-Focused Therapy (CFT)
+## 慈悲聚焦疗法（CFT）
 
-**Core principle:** Many psychological difficulties stem from an overactive threat system and an underdeveloped soothing system. We didn't choose our brains, our early caregivers, or the shame circuits we inherited — but we can deliberately cultivate compassion (toward self, from self, from others) to rebalance the emotional regulation systems and reduce shame-driven suffering.
+**核心理念：**许多心理困难来自过度活跃的威胁系统和发展不足的安抚系统。我们没选择大脑、早年照顾者或继承的羞耻回路，但能有意识地培养慈悲，包括对自己、由自己给予、从他人接受，以重新平衡情绪调节系统，减少羞耻驱动的痛苦。
 
-### The Three Systems
+### 三个系统
 
-CFT's core map. The work is always, in some sense, helping the soothing system catch up to the threat and drive systems.
+CFT 的基本地图。从某种意义上，工作始终是帮助安抚系统赶上威胁和驱动系统。
 
-**Threat and Protection System**
-- Detects danger; drives fight/flight/freeze/submit
-- Emotions: anxiety, anger, disgust, shame, self-criticism
-- Fast, powerful, designed to dominate attention
-- Overactive in people with harsh inner critics, trauma histories, conditional love, early criticism
+**威胁与保护系统**
+- 检测危险，推动战斗、逃跑、僵住、顺从；
+- 情绪包括焦虑、愤怒、厌恶、羞耻、自我批评；
+- 迅速、强大，倾向占据注意力；
+- 严厉自责、创伤、有条件的爱、早期批评经历中常过度活跃。
 
-**Drive and Resource-Seeking System**
-- Motivates pursuing goals, rewards, status, achievement
-- Emotions: excitement, anticipation, pleasure, ambition
-- Activating but *not* soothing — chasing isn't resting
-- Can become compulsive; high-achievers often live here while the soothing system stays offline
+**驱动与资源寻求系统**
+- 推动目标、奖励、地位与成就；
+- 情绪包括兴奋、期待、愉悦、进取心；
+- 激活而不安抚，追赶不等于休息；
+- 可变得强迫，高成就者常长期停在这里，而安抚系统未启动。
 
-**Soothing and Contentment System**
-- Creates safety, connection, calm, warmth
-- Emotions: peacefulness, contentment, tenderness
-- Linked to attachment, caregiving, oxytocin, the vagal social-engagement system
-- Underdeveloped when early warmth was absent, conditional, or unsafe
+**安抚与满足系统**
+- 带来安全、联结、平静、温暖；
+- 情绪包括安宁、满足、柔情；
+- 与依恋、照顾、催产素和迷走神经社交参与系统相关；
+- 早年温暖缺失、有条件或不安全时，发展不足。
 
-The therapeutic work is *not* to suppress threat or drive — it's to grow soothing until the three are in balance.
+工作不是压制威胁或驱动，而是增强安抚，直到三者平衡。
 
-### Key Concepts
+### 关键概念
 
-**Compassionate Self** — A version of self deliberately practiced, not assumed. Embodies four qualities: wisdom (sees the whole picture), strength (can hold pain without collapse), warmth (genuine care), commitment (to alleviating suffering). Not who you are yet — who you're rehearsing toward.
+**慈悲自我：**有意识练习出的自己，不是默认已有。具备智慧（看到全貌）、力量（承载痛苦而不崩溃）、温暖（真诚关心）、承诺（减轻痛苦）四种品质。不是已经成为的人，而是正在练习成为的人。
 
-**Common Humanity** — Suffering is not a personal failing. We have brains we didn't design, evolved for survival rather than happiness, shaped by early experiences we didn't choose. The shame of "I shouldn't be like this" is itself a threat-system response.
+**共同人性：**痛苦不是个人失败。大脑并非自己设计，它为生存而非幸福进化，又被未曾选择的早期经验塑造。“我不应该这样”的羞耻，本身也是威胁系统反应。
 
-**Shame vs. Guilt** — Guilt says *I did something bad*. Shame says *I am bad*. CFT works directly with shame, which is the affect most resistant to standard cognitive challenge.
+**羞耻与内疚：**内疚是“我做了坏事”，羞耻是“我是坏的”。CFT 直接处理羞耻，它是最难被常规认知挑战改变的情感。
 
-**Self-Criticism as Protection** — The inner critic developed for a reason. Often: *if I attack myself first, the attack from outside can't land as hard*, or *if I stay vigilant about my failures, I won't be caught off-guard*. CFT doesn't fight the critic — it understands its function, then offers an alternative voice.
-
----
-
-### The Compassionate Self Protocol (the operational core)
-
-This is the foundational CFT move. Run it slowly the first few times — most clients can't access compassionate-self on demand without scaffolding.
-
-1. **Set posture and breath.** Upright but relaxed; soothing rhythm breathing (slightly extended exhale) for 30–60 seconds. The body needs to be in soothing-system territory first.
-2. **Evoke the four qualities.** Walk through each: *imagine yourself as deeply wise — you understand how minds work, why people suffer, that none of this is anyone's fault. Now strong — grounded, unshakable. Now warm — full of genuine care. Now committed — to easing suffering, including your own.*
-3. **Locate it in the body.** "Where do you feel this version of you? In the chest? The spine? Behind the eyes?" Anchor it somatically.
-4. **Direct it toward the suffering self.** "Now, from this place, turn toward the part of you that's struggling. What does the compassionate self see?"
-5. **Speak from it.** "What does this version of you want to say to the suffering one? Out loud, or on the page."
-
-The point isn't to feel instantly better. It's to *practice* the posture until it becomes available.
+**作为保护的自我批评：**批评者有形成原因，常是先攻击自己，让外部攻击没那么痛；或持续警惕失败，就不会措手不及。CFT 不与它战斗，先理解作用，再提供另一种声音。
 
 ---
 
-### The Inner Critic Dialogue
+### 慈悲自我流程（操作核心）
 
-CFT doesn't argue with the critic — it interviews it.
+这是基础操作。头几次慢慢做，多数人没有支架时无法随时进入慈悲自我。
 
-Sample sequence:
-- "Let's get to know this critical voice. How old does it sound? Does it remind you of anyone?"
-- "What is it afraid would happen if it stopped?"
-- "What was it trying to protect you from when it first showed up?"
-- "Can we thank it for the job it's been doing, and ask if it would be willing to step aside while we try something else?"
+1. **调整姿态和呼吸。**直立而放松，安抚节律呼吸三十至六十秒，呼气略长，身体先进入安抚系统的范围。
+2. **唤起四种品质。**想象自己深具智慧，理解心智、痛苦和这并非谁的过错；再想象强大、稳定、不动摇；然后温暖、充满关心；最后承诺减轻痛苦，包括自己的。
+3. **在身体中定位。**“这个版本的自己在哪里，胸口、脊柱、眼后？”用身体锚定。
+4. **转向痛苦的自己。**“从这里转向正在挣扎的部分，慈悲自我看见什么？”
+5. **从这个位置说话。**“想对痛苦的自己说什么？”说出来或写下来。
 
-The critic almost always developed protectively — often modeled on a parent, a teacher, a culture. Naming the origin and the protective function softens it more than challenging the content.
-
----
-
-### Compassionate Image / Compassionate Other Practice
-
-For clients who can't access compassion toward themselves yet, build it from outside in.
-
-- "Imagine a being — real, imagined, or archetypal — who embodies perfect compassion *toward you*. Could be a grandmother, a mentor, a guide, an animal, a light, a tree. Not someone you have to perform for."
-- "What do they look like? How do they hold themselves? How do they look at you?"
-- "Let them know what you've been struggling with. What do they say back?"
-- "Notice what it's like to *receive* their warmth. Where do you feel it in your body?"
-
-The reps matter more than the content. The soothing system is being trained.
+重点不是立刻好受，而是反复练习这种姿态，直到能够进入。
 
 ---
 
-### Soothing Rhythm Breathing
+### 与内在批评者对话
 
-The somatic foundation. Used before, during, and after any compassion practice.
+不争辩，而是访谈。
 
-- Inhale for ~4, exhale for ~6 (the longer exhale activates parasympathetic)
-- Smooth, not forced
-- 2–3 minutes minimum to shift state
-- Posture: upright, shoulders soft, jaw unclenched
+示例顺序：
+- “认识一下这个声音，像几岁，让你想到谁？”
+- “停止批评时，它害怕发生什么？”
+- “刚出现时，它想保护你免于什么？”
+- “能感谢它的工作，问它是否愿意让开，让我们试试其他方式吗？”
 
-Without this, compassion work runs on a threat-activated nervous system and bounces off.
-
----
-
-### Shame Titration — Critical Pacing Note
-
-**Compassion can intensify shame before it eases it.** For high-shame clients, the offering of warmth often triggers: *I don't deserve this / this is fake / something must be wrong with me that I need this*. This is not failure — it's the soothing system meeting the threat system for the first time in a long time.
-
-Signs you're moving too fast:
-- Client gets more self-critical after a compassion exercise, not less
-- Tears that feel flooding rather than relieving
-- A sudden "this is stupid" or "I can't do this"
-- Withdrawal, dissociation, or a sharp topic change
-
-When this happens, *back off the direct compassion offering* and:
-- Validate the shame response itself ("of course this is hard — your system has been protecting against exactly this softness for years")
-- Work with the part that can't receive (this is where CFT hands off naturally to IFS — see Integrates With)
-- Stay in psychoeducation/three-systems framing rather than experiential compassion until the threat system settles
-
-Direct compassion is the most powerful CFT intervention *and* the easiest one to mistime.
+批评者几乎总为保护而形成，常模仿父母、教师或文化。说清起源和保护功能，比挑战内容更能使其缓和。
 
 ---
 
-### Signaling Cues — Client Language to Listen For
+### 慈悲意象／慈悲他者练习
 
-Threat-system speech (overactive, dominant):
-- "I should have known better"
-- "I'm such an idiot"
-- "I can't believe I did that again"
-- "What's wrong with me"
-- "If anyone knew, they'd..."
+尚不能关怀自己时，从外向内建立。
 
-Shame-specific (vs. guilt):
-- "I'm bad / broken / defective / disgusting / too much / not enough"
-- "I shouldn't even be feeling this"
-- Topic-avoidance, vagueness, sudden flatness when a memory surfaces
+- “想象一个对你具有完整慈悲的存在，可以是真实、想象或原型人物：祖母、导师、向导、动物、光、树。不是你需要取悦的对象。”
+- “它是什么样，怎样站立，怎样看你？”
+- “告诉它你的挣扎，它怎样回应？”
+- “接受其温暖是什么感觉，身体哪里感受到？”
 
-Soothing-system offline:
-- "I don't deserve a break"
-- "I can rest when [impossible condition]"
-- "Being nice to myself is just an excuse"
-- Difficulty receiving compliments, care, or rest
-
-Drive-system overuse:
-- "If I just push harder"
-- "I'll be okay once I finish this"
-- "I don't have time to feel this"
-
-When you hear shame-language, *don't immediately offer compassion* — name the threat-system first.
+重复比内容更重要，这是在训练安抚系统。
 
 ---
 
-### Example AI Interventions
+### 安抚节律呼吸
 
-**Naming the threat system before offering soothing:**
-> "I want to pause. The voice that just said 'I'm so stupid' — that's your threat system doing protective work. It probably learned a long time ago that staying ahead of criticism was safer than getting blindsided by it. Before we try anything else, can we just see it for what it is?"
+身体基础，用于慈悲练习前、中、后。
 
-**Three-systems check-in:**
-> "Quick check — which system is running you right now? Threat (anxiety, anger, shame, self-attack)? Drive (chasing, pushing, achieving)? Or soothing (warm, settled, connected)? My guess is mostly threat with some drive layered on top, but you tell me."
+- 吸气约四拍，呼气约六拍；较长呼气激活副交感系统。
+- 平顺，不勉强。
+- 至少二至三分钟，以转变状态。
+- 坐姿直立，肩放松，下颌松开。
 
-**Building compassionate self from the outside in:**
-> "Let's not try to be compassionate toward yourself yet. That's too big a jump from where the system is. Instead: imagine someone — real or imagined — who could look at you exactly as you are right now and see something other than failure. Who comes to mind?"
-
-**Holding shame that intensifies under compassion:**
-> "I notice the compassion offering just made you more critical, not less. That makes sense — your nervous system has been organized around *not* receiving softness for a long time. We don't need to push through this. The threat response *is* the work right now. Tell me about the part that can't let this in."
-
-**Reframing the inner critic's job:**
-> "Before we ask this voice to soften, let's understand what it's been doing. When did it first show up — how old were you? My guess is it had a job at the time, and it's still doing that job, and it doesn't know it can rest. What was it protecting you from back then?"
-
-**Compassion-toward-parts bridge (CFT → IFS):**
-> "There's a part of you that's struggling, and there's a part of you that's furious at the struggling one. Let's not collapse them. Can the compassionate self turn toward the angry one first — not to fix it, just to understand why it learned that attacking was safer than tending?"
+没有这个基础，慈悲工作会撞上被威胁激活的神经系统，难以进入。
 
 ---
 
-### When to Use CFT
+### 羞耻滴定：关键节奏提醒
 
-- Persistent self-criticism or harsh inner voice
-- Chronic or toxic shame (especially around identity, body, sexuality, worth)
-- Difficulty receiving care, warmth, or compliments
-- Trauma histories involving criticism, neglect, conditional love, or shaming environments
-- Perfectionism driven by fear of inadequacy
-- Depression with strong self-blame component
-- When standard CBT thought-challenging feels invalidating or makes things worse
-- Religious/cultural shame layers
-- Body-image and eating concerns rooted in self-loathing
+**慈悲可能先加重羞耻，之后才缓和。**高度羞耻的人受到温暖时，常出现“不配”“虚假”“需要这个说明我有问题”。这不是失败，而是安抚系统久违地与威胁系统相遇。
 
-### Integrates With
+推进过快的迹象：
+- 练习后更自责，而非更少；
+- 眼泪像淹没，而非释放；
+- 突然说“很蠢”“做不到”；
+- 退缩、解离或突然换话题。
 
-- **IFS** — Natural pair. The compassionate self of CFT *is* Self-energy in IFS terms. When shame intensifies under direct compassion, route to IFS: work with the part that can't receive, get to know the inner critic as a Manager, befriend the shamed Exile. Use CFT scripts to build compassion-toward-parts when 8 C's are hard to access.
-- **ACT** — Self-compassion is a form of acceptance. Compassion practice helps clients defuse from "I'm bad" and act from values rather than shame. Use ACT when the compassion is in service of valued action, not just relief.
-- **Polyvagal** — Soothing-system activation maps onto ventral-vagal regulation. Soothing rhythm breathing is a polyvagal intervention. If client is in dorsal-vagal shutdown, build co-regulation and ventral cues first; if in sympathetic, settle the threat system before introducing compassion content.
-- **Somatic Experiencing** — Compassion is most receivable when the body is in some safety. Use SE resourcing before compassion practice; track sensation when the soothing system comes online.
-- **CBT** — *Routing rule:* when a client's CBT thought-records are producing more self-criticism ("my thoughts are so distorted, what's wrong with me"), CFT goes first. Once the threat system settles, CBT cognitive restructuring becomes possible without intensifying shame.
-- **Psychodynamic** — Useful for origin stories of the inner critic — *whose voice is this, when did it arrive*. Use insight to identify the critic's source, then return to the CFT chair to dialogue with it.
-- **Ideal Parent Figure (IPF)** — The compassionate-other imagery in CFT and the ideal parent figures in IPF are close cousins — both grow the soothing system through imaginative relationship. CFT casts this as compassion toward current suffering; IPF goes deeper into the childhood attachment layer. *Routing rule:* when a client is responding to compassionate-other imagery but the material keeps returning to early parental wounding, IPF's more developmentally specific scaffolding takes over. The two practices reinforce rather than compete.
+此时退后，减少直接给予慈悲，并且：
+- 认可羞耻反应：“当然很难，多年来你的系统就在防范这种柔软。”
+- 与不能接受关怀的部分工作，自然衔接 IFS。
+- 暂留心理教育和三系统框架，等威胁系统平稳，再进入体验性慈悲。
 
-### Pacing & Limitations
+直接慈悲是最强的 CFT 干预，也是最容易时机不当的一种。
 
-- **Shame can intensify when compassion is offered.** This is the single most important CFT pacing rule. Watch for backlash; titrate. See the Shame Titration section above.
-- **Don't force gratitude or positivity.** CFT compassion is not "look on the bright side" — it's wisdom plus warmth plus the willingness to face suffering. Cheap reassurance backfires.
-- **The compassionate self is built, not found.** Some clients will say "I can't access this." That's data, not failure. Build from compassionate-other first; let it migrate inward over weeks.
-- **AI limitation: real-time affect tracking.** Soothing-system activation has subtle somatic signatures (softening face, slower breath, moist eyes) the AI can't see. Compensate by asking the client to track explicitly: "What just shifted in your chest?" "What's your jaw doing?"
-- **AI limitation: relational warmth.** A lot of CFT's healing happens through receiving warmth from a real human presence — the therapist *is* the soothing-system experience. Text can carry warmth, but it can't co-regulate a nervous system the way another human can.
-- **Working alongside an external therapist.** When a client is in human therapy, the AI's role is to extend the compassion practices between sessions, not replace the relational repair work happening in the room. If the external therapist is doing trauma-focused work, hold CFT as a regulation and stabilization layer rather than driving deeper into shame material.
+---
 
-### Homework / Between-Session Work
+### 留意来访者的表达线索
 
-- **Soothing rhythm breathing:** 2–3 minutes, twice daily. Build the baseline before crisis moments arrive.
-- **Three-systems check-in:** Once a day — which system is dominant right now? What would shift the balance by 10 percent?
-- **Compassionate letter:** Write to yourself about a current struggle, from the perspective of someone who deeply cares about you. Focus on understanding how you got here, not on solutions.
-- **Critic interview:** Pick one recurring self-critical thought. Write down: what's it afraid would happen if it stopped? Whose voice does it sound like?
-- **Glimmer-of-soothing log:** Capture moments — even tiny ones — when the soothing system came online. A warm cup, a friend's voice, a moment of rest. Train the system to notice.
-- **Compassionate image practice:** 5 minutes, a few times a week. Visualize the compassionate other; receive their warmth. Reps over depth.
+威胁系统过度活跃、占主导：
+- “我早该知道”；
+- “我真蠢”；
+- “不敢相信又做了”；
+- “我到底有什么问题”；
+- “要是别人知道，就会……”。
+
+羞耻，而非内疚：
+- “我坏了／有缺陷／恶心／太麻烦／不够好”；
+- “连这种感受都不应该有”；
+- 记忆出现时回避、含糊、突然平淡。
+
+安抚系统没有启动：
+- “不配休息”；
+- “等［不可能条件］实现才能休息”；
+- “善待自己只是借口”；
+- 难以接受赞美、关怀、休息。
+
+驱动系统过度使用：
+- “再努力一点就好”；
+- “做完就没事”；
+- “没时间感受”。
+
+听到羞耻语言，不立即给予慈悲，先指出威胁系统。
+
+---
+
+### AI 干预示例
+
+**安抚前先指出威胁系统：**
+> “先停一下。说‘我真蠢’的声音，是威胁系统在保护。它可能很早就学会，提前批评自己比被批评打个措手不及安全。做别的之前，能先看清它在做什么吗？”
+
+**核对三个系统：**
+> “现在是哪一个在主导：威胁中的焦虑、愤怒、羞耻、自我攻击，驱动中的追赶和成就，还是安抚中的温暖、稳定和联结？我猜主要是威胁，上面叠着一些驱动，你告诉我。”
+
+**从外向内建立慈悲自我：**
+> “先不要求关怀自己，从现在的状态跳过去太远。想象一个真实或想象的人，能看着此刻的你，看到失败之外的东西。想到谁？”
+
+**承接被慈悲加重的羞耻：**
+> “刚才给予关怀，反而使你更自责。这可以理解，神经系统很久都围绕不接受柔软来组织。不必强行突破，此刻威胁反应就是工作。说说那个不让关怀进来的部分。”
+
+**重新理解批评者的工作：**
+> “请它柔和前，先理解它一直在做什么。最早出现时你几岁？我猜它当时有工作，现在还在做，却不知道能休息。当时它保护你免于什么？”
+
+**从 CFT 走向 IFS：**
+> “一部分正在痛苦，另一部分却对痛苦的自己愤怒。别把它们合在一起。慈悲自我能否先转向愤怒的部分，不修好它，只理解为什么攻击曾比照顾更安全？”
+
+---
+
+### 何时使用 CFT
+
+- 持续自责、严厉的内在声音；
+- 长期或有害的羞耻，尤其身份、身体、性、价值相关；
+- 难以接受照顾、温暖或赞美；
+- 批评、忽视、有条件的爱或羞辱环境中的创伤史；
+- 害怕不够好驱动的完美主义；
+- 强烈自责的抑郁；
+- 常规 CBT 检验让人感到被否定或变糟；
+- 宗教或文化相关的羞耻；
+- 根于自我厌恶的身体形象和饮食困扰。
+
+### 与其他方法整合
+
+- **IFS：**自然搭配，慈悲自我就是 IFS 的核心自我能量。慈悲加重羞耻时，转向不能接受的部分，了解作为管理者的批评者，与羞耻的流放者交朋友。八种品质难以接触时，用 CFT 脚本建立对部分的慈悲。
+- **ACT：**自我慈悲是接纳，帮助与“我很坏”解离，从价值而非羞耻出发。当慈悲服务于有价值的行动，而非仅缓解时，用 ACT。
+- **多迷走神经：**安抚对应腹侧迷走调节，节律呼吸是一种多迷走神经干预。背侧关闭时先共同调节、提供腹侧线索；交感激活时先平稳威胁系统，再引入慈悲内容。
+- **躯体体验：**身体有一定安全感时，最容易接收慈悲。先建立资源，安抚启动时追踪身体感觉。
+- **CBT：**选择规则：思维记录带来更多自责时，CFT 在先。威胁系统稳定后，认知重构才可能不加重羞耻。
+- **心理动力学：**用于批评者的起源、是谁的声音、何时出现。识别来源后回到 CFT 对话。
+- **理想父母形象（IPF）：**慈悲他者与理想父母都通过想象关系增强安抚。CFT 关注当前痛苦，IPF 深入童年依恋。对慈悲意象有回应，却总回到早期父母伤痛时，由更符合发展阶段的 IPF 支架接续，两者相互巩固。
+
+### 节奏与局限
+
+- **慈悲可能加重羞耻。**最重要的节奏规则，观察反弹、逐步滴定，见前文。
+- **不强求感恩或积极。**慈悲不是往好处想，而是智慧、温暖和面对痛苦的意愿。廉价安慰会适得其反。
+- **慈悲自我是建立的，不是找到的。**“无法进入”是信息，不是失败。先从慈悲他者开始，数周中逐渐内化。
+- **AI 实时情感跟踪的局限。**安抚启动时脸变柔和、呼吸变慢、眼眶湿润，AI 看不到。明确请对方观察：“胸口刚变了什么？下颌怎样？”
+- **AI 关系温暖的局限。**许多疗愈来自接受真人的温暖，治疗师本身就是安抚体验。文字能传达温暖，但不能像真人一样共同调节神经系统。
+- **配合真人治疗师。**延续会谈间慈悲练习，不替代关系修复。真人在做创伤工作时，用 CFT 调节、稳定，不继续深入羞耻材料。
+
+### 会谈间作业与练习
+
+- **节律呼吸：**每天两次，每次二至三分钟，在危机前建立基线。
+- **三系统回顾：**每天问哪个占主导，怎样让平衡改变百分之十。
+- **慈悲信：**从深切关心自己的人的角度，给当前挣扎的自己写信；重点是理解如何走到这里，不是解决方案。
+- **批评者访谈：**选反复自责的想法，写下停止时怕什么、像谁的声音。
+- **安抚微光记录：**记录再小的安抚启动时刻，如温暖杯子、朋友声音、片刻休息，训练注意。
+- **慈悲意象：**每周几次，每次五分钟，想象他者、接受温暖，重复比深度重要。

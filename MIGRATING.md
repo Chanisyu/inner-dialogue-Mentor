@@ -1,153 +1,83 @@
-# Migrating an Existing Therapy Folder
+# 迁移与更新指南
 
-If you set up Inner Dialogue before version 2.2.0, your therapy folder uses the old prompt-driven install layout. The folder still works for sessions, but the new `npx inner-dialogue update` command can't safely tell which framework files are original versus customized — it'll warn you about every file as "unknown origin" and skip them.
+本指南适用于当前本地中文项目。更新来源应是这份项目，而不是上游英文 npm 包。
 
-This guide walks you through a one-time migration. After it, regular `npx inner-dialogue update` runs work normally, and you get all the latest safety protocols, modalities, and personas.
+## 先检查计划
 
-**Your personal data (`profile.md`, `sessions/`, root `CLAUDE.md`) is never touched.** The migration only refreshes framework files.
+在本项目根目录运行：
 
----
-
-## Before you start
-
-1. **Locate your therapy folder.** Common paths:
-   - `~/Sage` (or whatever you named your therapist)
-   - `~/Documents/Sage`
-   - Wherever you chose during setup
-
-2. **Make a manual backup if you want extra safety.** The migration creates one automatically (`.therapy.bak-<timestamp>/`), but if you want a belt-and-suspenders copy:
-   ```bash
-   cp -r ~/Sage ~/Sage-pre-migration
-   ```
-
-3. **Make sure you have Node.js** (you probably do if Claude Code works). Check with `node --version` — anything 18.3 or newer is fine.
-
----
-
-## Step 1: Preview what will change
-
-```bash
-npx inner-dialogue@latest update --path ~/Sage --force --dry-run
+```powershell
+node bin/inner-dialogue.js doctor --path D:/Therapy/Willow
+node bin/inner-dialogue.js update --path D:/Therapy/Willow --dry-run
 ```
 
-(Replace `~/Sage` with your folder path.)
+请替换示例路径。`--dry-run` 只显示计划，不写入。不要将源码目录误当作咨询目录。
 
-You'll see something like:
+## 正常更新
 
-```
-Added (18):
-  .therapy/library/personas/contemplative.md
-  .therapy/library/modalities/ifs.md
-  ... (new personas, modalities, structures since your install)
-
-Force-overwritten (2):
-  .therapy/safety-protocol.md  (was: unknown origin)
-  .therapy/commands.md         (was: unknown origin)
+```powershell
+node bin/inner-dialogue.js update --path D:/Therapy/Willow
 ```
 
-This is the dry run — nothing is written yet. The "Added" list is new content shipped since your install. The "Force-overwritten" list is framework files being refreshed with the current versions.
+安装记录中的哈希用来识别框架文件是否被改过：
 
-If you see anything under "Force-overwritten" that you intentionally customized (rare for end users), the original will still be saved in the automatic backup — but pause and check first.
+| 文件或情况 | 默认处理 |
+| --- | --- |
+| 已登记且与登记哈希一致的框架文件 | 随当前来源更新 |
+| 新增框架组件 | 安装到相应位置 |
+| 已登记且未修改的当前人格、结构、疗法 | 可以更新 |
+| 自行修改或来源无法确定的框架文件 | 跳过并说明原因 |
+| `profile.md`、`sessions/`、`context/` 中的个人内容 | 保留 |
+| 现有根目录 `CLAUDE.md` | 普通更新始终保留 |
+| 现有 `.claude/settings.json` | 不整体覆盖；必要时仅合并缺失的框架钩子 |
+| 缺失的背景索引、目录或初始设置 | 按模板补建 |
 
----
+写入前会生成 `.therapy.bak-时间戳` 备份。钩子合并也会先备份设置文件，并使用原子写入；JSON 语法有误时保留原文件，提示手工修复。
 
-## Step 2: Apply the migration
+## 用户改动与未知来源
 
-```bash
-npx inner-dialogue@latest update --path ~/Sage --force
+旧版登记信息可能缺少文件哈希。程序不会假设这些文件可以安全覆盖：已经与当前来源一致的文件可以登记，其余显示为未知来源或用户修改。
+
+先比较现有文件与项目模板。如确实希望用当前中文框架替换这些改动，再使用：
+
+```powershell
+node bin/inner-dialogue.js update --path D:/Therapy/Willow --force --dry-run
+node bin/inner-dialogue.js update --path D:/Therapy/Willow --force
 ```
 
-This:
+`--force` 作用于框架文件，仍不会让普通更新重写根目录 `CLAUDE.md` 或个人记录。请检查 `forced_overwrites`、`skipped_user_edited` 和设置合并计划。
 
-- Snapshots `.therapy/` to `.therapy.bak-<timestamp>/` first
-- Overwrites the legacy framework files with current versions
-- Adds new library files (personas, modalities, structures shipped since your install)
-- Generates a fresh `version.json` with per-file hashes for future updates
-- Leaves `profile.md`, `sessions/`, and the root `CLAUDE.md` exactly as they were
+## 将旧英文启动指令换成中文
 
-Output ends with a `Backup:` line — note that path in case you need to roll back.
+普通更新会提供中文组件，但保留原有 `CLAUDE.md`。因此，旧安装不一定会自动取得新版的启动读取、背景库复核或中文时间信号规则。
 
----
+有两种方式：
 
-## Step 3: Verify
+1. **手工迁移。** 备份现有 `CLAUDE.md`，参考中文 `CLAUDE.template.md` 合并相关段落，保留原有的咨询师名称和你明确需要的自定义内容。模板中的占位符需替换，不能原样作为安装结果使用。
+2. **原位重新安装。** 先备份咨询目录，明确指定原有名称、人格、结构和疗法，再运行安装命令。例如：
 
-```bash
-npx inner-dialogue@latest doctor --path ~/Sage
+```powershell
+node bin/inner-dialogue.js install --force --name 柳 --path D:/Therapy/Willow --persona warm-4o --structure moderate --modalities cbt,ifs
 ```
 
-You should see "All checks passed." If anything fails (most commonly: profile.md has a missing H2 section), it'll tell you what to fix.
+重新安装会按模板生成新的 `CLAUDE.md` 并刷新框架，因而可能覆盖你在这些文件里的自定义内容。安装器保留已有 `profile.md`、`sessions/` 和背景内容；已有设置不整体覆盖。不同于普通更新，这一步会重建启动指令，请先确认指定配置正确。
 
-Also confirm a regular update is now a no-op:
+也可以建立全新的中文咨询目录，再通过会谈中的导入流程整理旧笔记。背景库从历史提炼条目时需经本人确认，并保留 `Provisional` 等来源标记。
 
-```bash
-npx inner-dialogue@latest update --path ~/Sage --dry-run
-```
+## 很早的安装
 
-Expected output: `Dry run — no files written.` (no Updates, Added, or Skipped sections). That means you're on the current framework and future updates will work normally.
+旧版可能包含不再使用的启动脚本或旧元数据格式。更新计划会列出可识别的旧启动器移除和新登记项；真正的个人数据仍不应被当作框架更新目标。
 
----
+若旧目录没有有效安装记录，请先备份并检查报错。可按上面的原位重新安装方式建立当前框架，或建立新目录后导入记录，不要凭文件名批量删除旧资料。
 
-## Step 4: Start a session
+## 回退
 
-Open the Claude AI app (Pro plan) and navigate to your therapy folder, or from Terminal:
+备份包含更新前的框架状态。需要回退时先关闭正在使用该目录的会谈，保留当前目录的副本，再从相应 `.therapy.bak-时间戳` 复制所需文件；设置文件使用它自己的备份恢复。
 
-```bash
-cd ~/Sage && claude
-```
+恢复范围应与本次改动一致，不要用旧备份覆盖更新后产生的个人会谈笔记。可以用编辑器比较文件后逐项恢复；不要直接执行不加核对的递归删除命令。
 
-Your therapist will read the refreshed framework files and continue from your existing profile and session history.
+## 保留中文更新来源
 
----
+新安装或实际应用更新后，`.therapy/version.json` 会记录 `locale: "zh-CN"` 与 `source_path`。会谈中的更新命令使用这个来源路径调用本地 CLI。
 
-## Rolling back
-
-If something looks wrong after migration, your old `.therapy/` is in `.therapy.bak-<timestamp>/`. To restore:
-
-```bash
-cd ~/Sage
-mv .therapy .therapy.failed-migration
-mv .therapy.bak-<timestamp> .therapy
-```
-
-(Replace `<timestamp>` with the actual folder name — `ls -d ~/Sage/.therapy.bak-*` shows it.)
-
-Your profile and sessions weren't touched, so they're already correct.
-
----
-
-## What didn't get touched
-
-Just to be explicit, the migration **does not** modify:
-
-| File | Why |
-|---|---|
-| `profile.md` | Your accumulated profile data |
-| `sessions/*.md` | Your session history |
-| Root `CLAUDE.md` | Your therapist's persona file |
-| `.therapy/persona.md`, `session-structure.md`, `modalities/*.md` | Your active configuration choices |
-
-If you want to refresh those active config files to match the latest library content, ask your therapist during a session ("switch persona" / "add modality" / "change session structure") or copy from `.therapy/library/<kind>/<slug>.md` to the active slot manually.
-
----
-
-## If you used a pre-1.0.0 monolithic install
-
-If your folder predates the `.therapy/` split-file architecture (a single big `CLAUDE.md` with everything inline, no `.therapy/` directory at all), you need a full reinstall:
-
-1. Read your existing `CLAUDE.md` to recall your therapist name, persona, modalities, and session structure
-2. Run a fresh install over the same folder:
-   ```bash
-   npx inner-dialogue@latest install \
-     --force --path ~/YourFolder \
-     --name YourName --persona <slug> \
-     --structure <slug> --modalities <slugs>
-   ```
-3. `--force` lets install overwrite the legacy `CLAUDE.md`. Your `profile.md` and `sessions/` are still preserved by install.
-
-If you'd rather have Claude walk you through this, open the inner-dialogue repo and say "migrate my existing therapist" — Claude will read your old CLAUDE.md and run the install for you.
-
----
-
-## Questions?
-
-See [GETTING-STARTED.md](docs/GETTING-STARTED.md) for the normal install/update flow, or [open an issue](https://github.com/ataglianetti/inner-dialogue/issues).
+移动项目后应同步调整来源路径，或从新位置明确运行上述命令。版本号不变但文件内容变化时，更新仍会依据内容哈希识别差异。此中文化没有自动发布到上游 npm。

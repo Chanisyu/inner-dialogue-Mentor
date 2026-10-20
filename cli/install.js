@@ -16,22 +16,8 @@ import {
   SETTINGS_REL_PATH,
 } from './lib/settings.js';
 
-const PERSONA_LABELS = {
-  'warm-4o': 'Warm 4o-Style',
-  'direct-challenging': 'Direct & Challenging',
-  'warm-supportive': 'Warm & Supportive',
-  coach: 'Coach',
-  'grounded-real': 'Grounded & Real',
-  contemplative: 'Contemplative & Spacious',
-  philosophical: 'Philosophical & Existential',
-  creative: 'Creative & Playful',
-};
-
-const STRUCTURE_LABELS = {
-  structured: 'Structured',
-  moderate: 'Moderate',
-  freeform: 'Freeform',
-};
+// 展示名称来自共用中文词表；选项 slug 保持原有值，确保安装和更新兼容。
+import { PERSONA_LABELS, STRUCTURE_LABELS, MODALITY_LABELS } from './lib/locale.js';
 
 async function prompt(rl, question, fallback) {
   const a = (await rl.question(question)).trim();
@@ -47,40 +33,40 @@ async function gatherInteractive(partial) {
 
     const name =
       partial.name ||
-      (await prompt(rl, 'Therapist name [Sage]: ', 'Sage'));
+      (await prompt(rl, '咨询师名称 [Sage]：', 'Sage'));
 
     const defaultPath = join(homedir(), name);
     const path =
       partial.path ||
-      (await prompt(rl, `Storage path [${defaultPath}]: `, defaultPath));
+      (await prompt(rl, `保存目录 [${defaultPath}]：`, defaultPath));
 
     let persona = partial.persona;
     if (!persona) {
-      stdout.write('\nCommunication styles:\n');
+      stdout.write('\n沟通风格：\n');
       personas.forEach((p, i) =>
         stdout.write(`  ${i + 1}. ${PERSONA_LABELS[p] || p} (${p})\n`)
       );
-      const ans = await prompt(rl, 'Select [1]: ', '1');
+      const ans = await prompt(rl, '选择 [1]：', '1');
       persona = personas[Number(ans) - 1] || personas[0];
     }
 
     let structure = partial.structure;
     if (!structure) {
-      stdout.write('\nSession structures:\n');
+      stdout.write('\n会谈结构：\n');
       structures.forEach((s, i) =>
         stdout.write(`  ${i + 1}. ${STRUCTURE_LABELS[s] || s} (${s})\n`)
       );
-      const ans = await prompt(rl, 'Select [2]: ', '2');
+      const ans = await prompt(rl, '选择 [2]：', '2');
       structure = structures[Number(ans) - 1] || 'moderate';
     }
 
     let selectedModalities = partial.modalities;
     if (!selectedModalities) {
-      stdout.write('\nTherapeutic approaches:\n');
-      modalities.forEach((m, i) => stdout.write(`  ${i + 1}. ${m}\n`));
+      stdout.write('\n咨询取向：\n');
+      modalities.forEach((m, i) => stdout.write(`  ${i + 1}. ${MODALITY_LABELS[m] || m} (${m})\n`));
       const ans = await prompt(
         rl,
-        'Select numbers comma-separated [1]: ',
+        '选择编号，多个编号用逗号分隔 [1]：',
         '1'
       );
       selectedModalities = ans
