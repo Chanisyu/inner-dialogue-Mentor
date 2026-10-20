@@ -9,6 +9,8 @@ import { packageFile, therapyPaths, expandHome } from './lib/paths.js';
 import { loadFramework, listLibrary, libraryAbsolute } from './lib/framework.js';
 import { emptyVersionJson, recordFile, writeVersionJson } from './lib/version.js';
 import { hashString } from './lib/hash.js';
+// 先按原流程完成安装，再在明确选择时启用独立朋友扩展。
+import { enableDualMode, readInteraction } from './lib/interaction.js';
 import {
   applySafetyNetMerge,
   applyHookMerge,
@@ -136,6 +138,8 @@ export async function install(rawOpts) {
   if (errs.length) throw new Error(errs.join('\n'));
 
   const paths = therapyPaths(opts.path);
+  // 重新安装会写咨询入口；双模式启用时必须先停用，避免绕过咨询基线保护。
+  if ((await readInteraction(paths.root))?.enabled) throw new Error('双模式已启用，不能重新安装覆盖咨询入口；请先停用双模式。');
 
   if (existsSync(paths.therapy) && !opts.force) {
     throw new Error(
@@ -275,5 +279,6 @@ export async function install(rawOpts) {
     modalities: opts.modalities,
     files_written: Object.keys(versionData.files).length + 1,
     settings_merge: settingsMerge,
+    ...(rawOpts.dualMode ? { dual_mode: await enableDualMode({ path: paths.root }) } : {}),
   };
 }

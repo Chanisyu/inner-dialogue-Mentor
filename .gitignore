@@ -54,3 +54,7 @@ evals/results/
 
 # 本地 npm 打包产物。
 /*.tgz
+
+# 双模式运行生成的朋友交流记录和待核对假设，不进入源码。
+/friend-sessions/
+/friend-hypotheses/

@@ -185,3 +185,7 @@ node "{project_root}/bin/inner-dialogue.js" doctor --path "{storage_path}" --jso
 ### 修改 CLI
 
 改参数或输出结构属于不兼容变化，需主版本。改版本登记格式要兼容迁移。影响用户时更新发布和入门文档。发布前在临时目录执行完整安装验证。
+
+## 可选朋友／咨询双模式
+
+用户明确希望双模式时，读取 `docs/DUAL-MODE.md`，在原安装命令增加 `--dual-mode`；已有目录用 `dual-mode --path <目录> --dry-run` 先预览，再启用。普通安装默认维持原咨询模式。双模式不提供咨询回复长度选择；朋友模式选择人格和篇幅后永久锁定当前对话。

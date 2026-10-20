@@ -97,5 +97,15 @@
         "structures/freeform.md"
       ]
     }
+  },
+  "extensions": {
+    "dual-mode": {
+      "version": "1.0.0",
+      "optional": true,
+      "description": "朋友模式独立人格和篇幅，一次选择后锁定；原咨询正文及依赖冻结。",
+      "source": "interaction/",
+      "enable_command": "inner-dialogue dual-mode --path <目录>",
+      "runtime": "hooks/session-mode.cjs"
+    }
   }
 }

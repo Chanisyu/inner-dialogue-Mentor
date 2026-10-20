@@ -162,3 +162,7 @@ npm pack --dry-run
 原作者：[Anthony Taglianetti](https://github.com/ataglianetti)。支持原项目：[Buy Me a Coffee](https://buymeacoffee.com/ataglianetti) · [GitHub Sponsors](https://github.com/sponsors/ataglianetti)。项目受到 [r/therapyGPT 社区](https://reddit.com/r/therapyGPT) 及其保持 AI 会谈连续性的实践启发。框架包含 CBT、ACT、DBT 等方法的原则。
 
 采用 [MIT 许可证](LICENSE)；英文许可证原文保留。
+
+## 可选双模式扩展
+
+本中文版本增加可选的朋友／咨询双模式。朋友可以选择四种人格及四种篇幅，设置按对话锁定；咨询沿用原有正文、人格和篇幅要求。普通安装默认不开启。已有目录先运行 `dual-mode --dry-run` 预览，详见 [双模式使用说明](docs/DUAL-MODE.md)及[执行与修改说明书](docs/DUAL-MODE-IMPLEMENTATION.md)。

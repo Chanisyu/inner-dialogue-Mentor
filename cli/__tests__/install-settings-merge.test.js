@@ -183,23 +183,16 @@ test('install --force over existing settings appends the hook entry, backup firs
     );
 
     const baks = settingsBackups(root);
-    assert.equal(baks.length, 1, 'exactly one settings backup created');
-    // The two merges run in the same second and share one backup filename; the
-    // usage-stats merge re-snapshots after the safety-net append, so the
-    // surviving backup is a genuine pre-write snapshot (unrelated key intact,
-    // SessionStart not yet registered).
-    const bak = JSON.parse(
-      readFileSync(path.join(root, '.claude', baks[0]), 'utf8')
-    );
-    assert.deepEqual(
-      bak.customKey,
-      { keep: 'me' },
-      'backup holds a pre-merge snapshot'
-    );
-    assert.ok(
-      !bak.hooks.SessionStart,
-      'backup predates the usage-stats SessionStart registration'
-    );
+    // 两次合并可能落在同一秒，也可能跨秒；验证实际返回的备份集合，
+    // 不用机器速度或时间边界决定测试成败。每份都必须保留无关配置，
+    // 并发生在使用统计钩子写入前；不改变原有备份实现。
+    const expectedBackups = [...new Set(merges.map(m => path.basename(m.backup)))].sort();
+    assert.deepEqual(baks.sort(), expectedBackups, 'every reported backup exists, with no extra backup');
+    for (const filename of baks) {
+      const bak = JSON.parse(readFileSync(path.join(root, '.claude', filename), 'utf8'));
+      assert.deepEqual(bak.customKey, { keep: 'me' }, 'backup holds a pre-merge snapshot');
+      assert.ok(!bak.hooks.SessionStart, 'backup predates the usage-stats registration');
+    }
 
     // No stray temp files from the atomic write
     const leftovers = readdirSync(path.join(root, '.claude')).filter(

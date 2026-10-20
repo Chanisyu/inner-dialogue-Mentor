@@ -4,6 +4,8 @@ import { readFile } from 'node:fs/promises';
 import { install } from '../cli/install.js';
 import { update } from '../cli/update.js';
 import { doctor } from '../cli/doctor.js';
+// 双模式为可选扩展，独立命令不改变普通咨询安装的默认行为。
+import { dualMode } from '../cli/lib/interaction.js';
 import { packageFile } from '../cli/lib/paths.js';
 // 输出边界统一中文化，保留 JSON 字段及命令参数的稳定接口。
 import { PERSONA_LABELS, STRUCTURE_LABELS, MODALITY_LABELS, localizeResult, zhMessage } from '../cli/lib/locale.js';
@@ -14,6 +16,7 @@ const HELP = `inner-dialogue — 本地 AI 心理支持工具包（简体中文�
   inner-dialogue install   [参数]   创建新的咨询师目录
   inner-dialogue update    [参数]   更新现有目录的框架文件
   inner-dialogue doctor    [参数]   检查目录完整性
+  inner-dialogue dual-mode [参数]   预览、启用、检查或停用双模式
   inner-dialogue --version          显示版本
   inner-dialogue --help             显示帮助
 
@@ -23,6 +26,7 @@ const HELP = `inner-dialogue — 本地 AI 心理支持工具包（简体中文�
   --persona <slug>           人格，例如 warm-4o、grounded-real、coach
   --structure <slug>         structured、moderate、freeform
   --modalities <a,b,c>       疗法选项，逗号分隔，例如 cbt,ifs
+  --dual-mode               安装后启用可选双模式
   --force                   在现有 .therapy/ 上重新安装
   --json                    以 JSON 输出结果
 
@@ -31,6 +35,13 @@ const HELP = `inner-dialogue — 本地 AI 心理支持工具包（简体中文�
   --dry-run                 仅显示计划，不写入文件
   --force                   覆盖已由用户修改的框架文件
   --json                    以 JSON 输出结果
+
+双模式参数：
+  --path <目录>              已安装的咨询师目录
+  --dry-run                 预览，完全不写文件
+  --status                  只读检查双模式与咨询基线
+  --disable                 恢复原咨询入口
+  --json                    输出结构化结果
 
 检查参数：
   --path <目录>              咨询目录，默认当前目录
@@ -71,6 +82,18 @@ function printSettingsMerge(merges, dryRun) {
 
 function printResult(result, json) {
   // 普通文本与 JSON 的诊断内容保持同一语言，路径和状态值不变。
+  // 扩展结果独立展示，避免被普通安装或旧更新结果的字段结构误识别。
+  if (result.kind === 'dual-mode') {
+    if (json) process.stdout.write(JSON.stringify(result, null, 2) + '\n');
+    else {
+      if (result.dry_run) process.stdout.write('仅预览，未写入文件。\n');
+      if (result.message) process.stdout.write(result.message + '\n');
+      for (const file of result.plan?.writes || []) process.stdout.write('  文件：' + file + '\n');
+      for (const message of [...(result.errors || []), ...(result.warnings || [])]) process.stdout.write('  检查：' + message + '\n');
+      if (result.backup) process.stdout.write('  备份：' + result.backup + '\n');
+    }
+    return;
+  }
   result = localizeResult(result);
   if (json) {
     process.stdout.write(JSON.stringify(result, null, 2) + '\n');
@@ -84,6 +107,7 @@ function printResult(result, json) {
         `  疗法：${result.modalities.map((slug) => MODALITY_LABELS[slug] || slug).join('、')}\n`
     );
     printSettingsMerge(result.settings_merge);
+    if (result.dual_mode) process.stdout.write('\n已启用双模式；新对话先选模式，朋友再选人格与篇幅。\n');
     process.stdout.write(
       `\n开始咨询：在 Claude 应用中打开 ${result.path}，或进入该目录运行 \`claude\`。\n`
     );
@@ -206,6 +230,7 @@ async function main() {
         options: {
           ...commonOptions,
           name: { type: 'string' },
+          'dual-mode': { type: 'boolean' },
           persona: { type: 'string' },
           structure: { type: 'string' },
           modalities: { type: 'string' },
@@ -221,6 +246,9 @@ async function main() {
         },
         strict: true,
       });
+    } else if (command === 'dual-mode') {
+      parsed = parseArgs({ args: rest, options: { path: { type: 'string' }, json: { type: 'boolean' }, 'dry-run': { type: 'boolean' }, status: { type: 'boolean' }, disable: { type: 'boolean' } }, strict: true });
+      if (parsed.values.status && parsed.values.disable) throw new Error('--status 与 --disable 不能同时使用');
     } else if (command === 'doctor') {
       parsed = parseArgs({
         args: rest,
@@ -246,6 +274,7 @@ async function main() {
         persona: v.persona,
         structure: v.structure,
         modalities: parseList(v.modalities),
+        dualMode: v['dual-mode'],
         force: v.force,
         json: v.json,
       });
@@ -255,6 +284,8 @@ async function main() {
         dryRun: v['dry-run'],
         force: v.force,
       });
+    } else if (command === 'dual-mode') {
+      result = await dualMode({ path: v.path || process.cwd(), dryRun: v['dry-run'], status: v.status, disable: v.disable });
     } else {
       result = await doctor({ path: v.path || process.cwd() });
     }

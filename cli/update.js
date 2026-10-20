@@ -11,6 +11,8 @@ import {
   recordFile,
 } from './lib/version.js';
 import { hashString } from './lib/hash.js';
+// 双模式的咨询依赖冻结；其 update 只处理独立朋友扩展。
+import { readInteraction, refreshDualMode } from './lib/interaction.js';
 import { snapshotTherapy } from './lib/backup.js';
 import {
   planSafetyNetMerge,
@@ -48,6 +50,7 @@ async function readIfExists(p) {
 
 export async function update(opts) {
   const paths = therapyPaths(opts.path);
+  if ((await readInteraction(paths.root))?.enabled) return refreshDualMode(opts);
 
   if (!existsSync(paths.therapy)) {
     throw new Error(

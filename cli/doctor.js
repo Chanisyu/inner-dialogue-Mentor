@@ -7,6 +7,8 @@ import { readVersionJson } from './lib/version.js';
 import { hashFile } from './lib/hash.js';
 import { hasSafetyNetHook, hasHook, USAGE_STATS_DESC } from './lib/settings.js';
 import { runHookProbe } from './lib/hook-probe.js';
+// 仅在扩展存在时追加检查，不改变普通咨询目录的检查契约。
+import { auditInteraction } from './lib/interaction.js';
 
 // Minimal seed sections. Profiles are expected to evolve beyond these — the
 // LLM is instructed to add H2s as themes emerge and reorganize around active
@@ -380,6 +382,16 @@ export async function doctor(opts) {
       'context/ folder missing — the subject-level context library is a newer feature. Run `inner-dialogue update` to scaffold it.'
     );
   }
+
+  // 咨询基线、路由和模式钩子需要同时完整，不能只因文件存在就报成功。
+  try {
+    const interaction = await auditInteraction(paths.root);
+    if (interaction.enabled) {
+      errors.push(...interaction.errors);
+      warnings.push(...interaction.warnings);
+      if (!interaction.errors.length) ok.push('双模式入口、锁定钩子及原咨询基线完整');
+    }
+  } catch (err) { errors.push('双模式配置检查失败：' + err.message); }
 
   return {
     ok: errors.length === 0,
