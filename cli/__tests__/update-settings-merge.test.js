@@ -7,6 +7,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { mergeRuntimeHooks } from '../lib/runtime-logging.js';
+import { mergeArchiveHooks } from '../lib/transcript-archiving.js';
 import { spawnSync } from 'node:child_process';
 import {
   chmodSync,
@@ -186,7 +187,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
       'unrelated custom key preserved'
     );
     const entries = settings.hooks.UserPromptSubmit;
-    assert.equal(entries.length, 3, '保留原时间钩子，追加安全与日志钩子');
+    assert.equal(entries.length, 4, '保留原时间钩子，追加安全、日志与归档指针钩子');
     assert.equal(
       entries[0].hooks[0].command,
       'date "+%A %Y-%m-%d %H:%M"',
@@ -196,7 +197,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
 
     // The usage-stats hook is registered under a fresh SessionStart group.
     const sessionStart = settings.hooks.SessionStart;
-    assert.equal(sessionStart.length, 2, '使用统计与运行日志各一个启动钩子');
+    assert.equal(sessionStart.length, 3, '使用统计、运行日志与归档各一个启动钩子');
     assert.deepEqual(
       sessionStart[0],
       CANONICAL_USAGE_STATS_ENTRY,
@@ -205,11 +206,12 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
 
     const baks = settingsBackups(root);
     // 校验实际返回的备份集合，既不依赖同秒合并，也不漏掉独立日志注册的备份。
-    assert.deepEqual(baks.sort(), [...new Set(merges.map(m => path.basename(m.backup)))].sort());
+    assert.deepEqual(baks.sort(), [...new Set([...merges.map(m => m.backup), res.json.plan.archiving.backup].filter(Boolean).map(file => path.basename(file)))].sort());
     for (const filename of baks) {
       const bak = JSON.parse(readFileSync(path.join(root, '.claude', filename), 'utf8'));
       assert.deepEqual(bak.customKey, { keep: 'me' }, '备份保留原有配置');
-      if (filename.startsWith('settings.json.bak-runtime-log-')) assert.ok(!JSON.stringify(bak).includes('runtime-log.cjs'));
+      if (filename.startsWith('settings.json.bak-archive-')) assert.ok(!JSON.stringify(bak).includes('transcript-archive.cjs'));
+      else if (filename.startsWith('settings.json.bak-runtime-log-')) assert.ok(!JSON.stringify(bak).includes('runtime-log.cjs'));
       else assert.ok(!bak.hooks.SessionStart, '原钩子备份早于使用统计注册');
     }
 
@@ -253,7 +255,7 @@ test('second run is idempotent: no duplicate entry, no new backup', () => {
       )
     );
     assert.equal(safetyNetEntries.length, 1, 'exactly one safety-net entry');
-    assert.deepEqual(settingsBackups(root).sort(), [...new Set(first.json.plan.settings_merge.map(m => path.basename(m.backup)))].sort(), '第二次更新没有新增备份');
+    assert.deepEqual(settingsBackups(root).sort(), [...new Set([...first.json.plan.settings_merge.map(m => m.backup), first.json.plan.archiving.backup].filter(Boolean).map(file => path.basename(file)))].sort(), '第二次更新没有新增备份');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -492,7 +494,7 @@ test('both hooks already registered via shell-form command strings is a no-op', 
       },
     };
     // 本例隔离原有两种 shell 注册的去重；运行日志观察器预先完整注册。
-    const before = JSON.stringify(mergeRuntimeHooks(JSON.stringify(shellForm)), null, 2) + '\n';
+    const before = JSON.stringify(mergeArchiveHooks(JSON.stringify(mergeRuntimeHooks(JSON.stringify(shellForm)))), null, 2) + '\n';
     writeFileSync(settingsPath, before);
 
     const res = runJson(['update', '--path', root], 'shell-form no-op');
@@ -538,7 +540,7 @@ test('update registers the SessionStart usage-stats hook without disturbing the 
 
     // A SessionStart group is created with the canonical matcher and command.
     const sessionStart = settings.hooks.SessionStart;
-    assert.equal(sessionStart.length, 2, '使用统计与运行日志各一个启动钩子');
+    assert.equal(sessionStart.length, 3, '使用统计、运行日志与归档各一个启动钩子');
     assert.equal(
       sessionStart[0].matcher,
       'startup|resume|clear|compact',
@@ -553,7 +555,7 @@ test('update registers the SessionStart usage-stats hook without disturbing the 
     // The two pre-existing UserPromptSubmit hooks are untouched.
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      3,
+      4,
       '保留两个原有钩子，并追加一个运行日志观察钩子'
     );
     assert.equal(
@@ -597,10 +599,10 @@ test('second update does not double-register the SessionStart usage-stats hook',
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      3,
+      4,
       '两个原有钩子和一个日志观察钩子均未重复注册'
     );
-    assert.deepEqual(settingsBackups(root).sort(), [...new Set(first.json.plan.settings_merge.map(m => path.basename(m.backup)))].sort(), '第二次更新没有新增备份');
+    assert.deepEqual(settingsBackups(root).sort(), [...new Set([...first.json.plan.settings_merge.map(m => m.backup), first.json.plan.archiving.backup].filter(Boolean).map(file => path.basename(file)))].sort(), '第二次更新没有新增备份');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

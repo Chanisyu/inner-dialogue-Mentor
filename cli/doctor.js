@@ -10,6 +10,7 @@ import { runHookProbe } from './lib/hook-probe.js';
 // 仅在扩展存在时追加检查，不改变普通咨询目录的检查契约。
 import { auditInteraction } from './lib/interaction.js';
 import { RUNTIME_LOG_DESCS } from './lib/runtime-logging.js';
+import { ARCHIVE_DESCS } from './lib/transcript-archiving.js';
 
 // Minimal seed sections. Profiles are expected to evolve beyond these — the
 // LLM is instructed to add H2s as themes emerge and reorganize around active
@@ -389,6 +390,13 @@ export async function doctor(opts) {
     if (!existsSync(paths.runtimeLogHook)) warnings.push('运行日志脚本缺失；请执行本地 update 恢复。');
     if (RUNTIME_LOG_DESCS.every(desc => hasHook(claudeSettings, desc))) ok.push('统一运行日志钩子已完整注册');
     else warnings.push('运行日志模块存在，但部分观察事件未注册；请检查设置或执行本地 update。');
+  }
+
+  // 归档为独立扩展，检查已登记安装的文件与三种事件，不读取私人原文。
+  if (existsSync(packageFile('hooks/transcript-archive.cjs')) && existsSync(paths.root + '/.therapy/archive-version.json')) {
+    for (const rel of ['.therapy/hooks/transcript-archive.cjs', '.therapy/transcript-protocol.md']) if (!existsSync(paths.root + '/' + rel)) warnings.push('原文归档组件缺失：' + rel);
+    if (ARCHIVE_DESCS.every(desc => hasHook(claudeSettings, desc))) ok.push('主动收尾归档钩子已完整注册');
+    else warnings.push('主动收尾归档钩子注册不完整，请执行本地 update。');
   }
 
   // 咨询基线、路由和模式钩子需要同时完整，不能只因文件存在就报成功。

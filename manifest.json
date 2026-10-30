@@ -1,8 +1,20 @@
 {
-  "version": "1.6.0",
+  "version": "1.7.0",
   "description": "Inner Dialogue 可更新组件（简体中文）",
   "base_url": "https://raw.githubusercontent.com/ataglianetti/inner-dialogue/main/",
   "components": {
+    "transcript-archive": {
+      "file": "hooks/transcript-archive.cjs",
+      "target": ".therapy/hooks/transcript-archive.cjs",
+      "required": true,
+      "description": "独立归档组件：模型确认主动收尾后请求，Stop 补齐最终回应并保存精简 JSONL 与 Markdown；由 archive-version.json 管理。"
+    },
+    "transcript-protocol": {
+      "file": "transcript-protocol.md",
+      "target": ".therapy/transcript-protocol.md",
+      "required": true,
+      "description": "主动收尾与按需读取原文的规则，通过独立钩子加载，保留已冻结咨询正文。"
+    },
     "safety-protocol": {
       "file": "safety-protocol.md",
       "target": ".therapy/safety-protocol.md",

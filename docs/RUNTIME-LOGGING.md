@@ -26,6 +26,8 @@
 
 观察事件对应 `session.start`、`prompt.submitted`、`tool.start`、`tool.success`、`tool.failure`、`session.end`。模式模块另写 `mode.selected`、`tool.denied`、`mode.failure`；CLI 写 `command.complete`、`command.failure`、`settings.merge_skipped`。
 
+主动收尾归档另写 `archive.complete`、`archive.failure`；安装或更新未能完整接入归档时，CLI 写 `archive.setup_incomplete`。这些事件仍只含诊断元数据，JSONL 对话底稿和 Markdown 阅读版另存于咨询目录的 `transcripts/`，不放入运行日志。
+
 同一操作可能有一条观察记录和一条模式拦截记录，这是不同阶段的诊断证据，不应直接按日志行数统计会谈或故障次数。当前观察器未从 shell 错误正文提取退出码，因此不能假定每条失败事件均含 `exit_code`。
 
 ## 隐私与容量

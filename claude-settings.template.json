@@ -33,6 +33,18 @@
             ]
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/transcript-archive.cjs"
+            ]
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -56,6 +68,18 @@
             "command": "node",
             "args": [
               "${CLAUDE_PROJECT_DIR}/.therapy/hooks/runtime-log.cjs"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/transcript-archive.cjs"
             ]
           }
         ]
@@ -112,6 +136,20 @@
             "command": "node",
             "args": [
               "${CLAUDE_PROJECT_DIR}/.therapy/hooks/runtime-log.cjs"
+            ]
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/transcript-archive.cjs"
             ]
           }
         ]

@@ -58,3 +58,6 @@ evals/results/
 # 双模式运行生成的朋友交流记录和待核对假设，不进入源码。
 /friend-sessions/
 /friend-hypotheses/
+
+# 逐字对话归档仅在私人咨询目录保存，不进入源码仓库。
+/transcripts/

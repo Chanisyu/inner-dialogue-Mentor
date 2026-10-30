@@ -181,7 +181,7 @@ function deniedTool(root, payload, state) {
   const text = raw.toLowerCase();
   const clinical = /\.therapy\/(persona\.md|modalities(?:\/|\b)|session-structure\.md|modes\/counseling\.md|library\/(?:personas|modalities|structures)(?:\/|\b))/.test(text) || /\.therapy\/\*/.test(text);
   const friend = /\.therapy\/(friend-personas(?:\/|\b)|friend-lengths(?:\/|\b)|friend-memory\.md|modes\/friend\.md)/.test(text);
-  const protectedAsset = /\.therapy\/(conversations\/|interaction\.json|modes\/|friend-personas\/|friend-lengths\/|friend-memory\.md|persona\.md|modalities\/|session-structure\.md|commands\.md|.*protocol\.md|hooks\/)/.test(text) || /(?:^|\/)claude\.md\b/.test(text) || /\.claude\/settings\.json/.test(text);
+  const protectedAsset = /\.therapy\/(archive-state\/|archive-version\.json|conversations\/|interaction\.json|modes\/|friend-personas\/|friend-lengths\/|friend-memory\.md|persona\.md|modalities\/|session-structure\.md|commands\.md|.*protocol\.md|hooks\/)/.test(text) || /(?:^|\/)claude\.md\b/.test(text) || /\.claude\/settings\.json/.test(text);
   const writeTool = ['Write', 'Edit', 'MultiEdit', 'NotebookEdit'].includes(name);
   // 针对已发生的朋友启动路径错误给出正确位置；不复制、迁移或另建同名个人资料。
   // 只检查资料工具的目标路径，不把搜索正文或普通聊天中的路径示例当成文件操作。

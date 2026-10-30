@@ -12,6 +12,7 @@ import { hashString } from './lib/hash.js';
 // 先按原流程完成安装，再在明确选择时启用独立朋友扩展。
 import { enableDualMode, readInteraction } from './lib/interaction.js';
 import { applyRuntimeLogging } from './lib/runtime-logging.js';
+import { applyArchiving } from './lib/transcript-archiving.js';
 import {
   applySafetyNetMerge,
   applyHookMerge,
@@ -275,6 +276,8 @@ export async function install(rawOpts) {
   await writeTemplateClaudeMd(paths.claudeMd, opts.name);
 
   await writeVersionJson(paths.versionJson, versionData);
+  // 独立归档只增加钩子与规则；安装期间不导入、读取或保存任何历史对话。
+  const archiving = await applyArchiving(paths.root);
 
   return {
     ok: true,
@@ -285,6 +288,7 @@ export async function install(rawOpts) {
     modalities: opts.modalities,
     files_written: Object.keys(versionData.files).length + 1,
     settings_merge: settingsMerge,
+    archiving,
     ...(rawOpts.dualMode ? { dual_mode: await enableDualMode({ path: paths.root }) } : {}),
   };
 }

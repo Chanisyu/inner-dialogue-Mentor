@@ -172,7 +172,7 @@ test('install --force over existing settings appends the hook entry, backup firs
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      3,
+      4,
       'appended, not replaced'
     );
     assert.equal(safetyNetEntries(settings).length, 1, 'one safety-net entry');
@@ -186,13 +186,14 @@ test('install --force over existing settings appends the hook entry, backup firs
     // 两次合并可能落在同一秒，也可能跨秒；验证实际返回的备份集合，
     // 不用机器速度或时间边界决定测试成败。每份都必须保留无关配置，
     // 并发生在使用统计钩子写入前；不改变原有备份实现。
-    const expectedBackups = [...new Set(merges.map(m => path.basename(m.backup)))].sort();
+    const expectedBackups = [...new Set([...merges.map(m => m.backup), res.json.archiving.backup].filter(Boolean).map(file => path.basename(file)))].sort();
     assert.deepEqual(baks.sort(), expectedBackups, 'every reported backup exists, with no extra backup');
     for (const filename of baks) {
       const bak = JSON.parse(readFileSync(path.join(root, '.claude', filename), 'utf8'));
       assert.deepEqual(bak.customKey, { keep: 'me' }, 'backup holds a pre-merge snapshot');
       // 日志注册备份发生在原有两钩子注册之后；其他备份仍须早于使用统计注册。
-      if (filename.startsWith('settings.json.bak-runtime-log-')) assert.ok(!JSON.stringify(bak).includes('runtime-log.cjs'));
+      if (filename.startsWith('settings.json.bak-archive-')) assert.ok(!JSON.stringify(bak).includes('transcript-archive.cjs'));
+      else if (filename.startsWith('settings.json.bak-runtime-log-')) assert.ok(!JSON.stringify(bak).includes('runtime-log.cjs'));
       else assert.ok(!bak.hooks.SessionStart, 'backup predates the usage-stats registration');
     }
 
@@ -371,7 +372,7 @@ test('install --force registers the SessionStart usage-stats hook without distur
     // referencing usage-stats.js.
     const sessionStart = settings.hooks.SessionStart;
     assert.ok(
-      Array.isArray(sessionStart) && sessionStart.length === 2,
+      Array.isArray(sessionStart) && sessionStart.length === 3,
       'SessionStart group created'
     );
     assert.equal(
@@ -392,7 +393,7 @@ test('install --force registers the SessionStart usage-stats hook without distur
     // The two pre-existing UserPromptSubmit hooks are untouched.
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      3,
+      4,
       '保留两个原有钩子，并追加一个运行日志观察钩子'
     );
     assert.equal(
@@ -441,7 +442,7 @@ test('second install --force does not double-register the SessionStart usage-sta
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      3,
+      4,
       '两个原有钩子和一个日志观察钩子均未重复注册'
     );
   } finally {

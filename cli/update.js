@@ -15,6 +15,7 @@ import { hashString } from './lib/hash.js';
 import { readInteraction, refreshDualMode } from './lib/interaction.js';
 import { snapshotTherapy } from './lib/backup.js';
 import { planRuntimeLogging, applyRuntimeLogging } from './lib/runtime-logging.js';
+import { archivePlan, applyArchiving } from './lib/transcript-archiving.js';
 import {
   planSafetyNetMerge,
   planHookMerge,
@@ -335,6 +336,8 @@ export async function update(opts) {
     }));
   }
 
+  const archive = await archivePlan(paths.root);
+  plan.archiving = { writes: archive.writes, skipped: archive.skipped, ...(archive.settingsError ? { settings_error: archive.settingsError } : {}) };
   if (opts.dryRun) {
     return { ok: true, dry_run: true, plan, legacy_schema: isLegacySchema };
   }
@@ -344,7 +347,7 @@ export async function update(opts) {
     plan.new_files.length +
     (plan.forced_overwrites?.length || 0) +
     plan.legacy_removed.length +
-    plan.scaffolded.length +
+    plan.scaffolded.length + archive.writes.length +
     plan.settings_merge.filter(
       (m) =>
         m.action === 'add_safety_net_hook' ||
@@ -464,6 +467,7 @@ export async function update(opts) {
   }
 
   await writeVersionJson(paths.versionJson, newVersion);
+  plan.archiving = await applyArchiving(paths.root);
 
   return {
     ok: true,

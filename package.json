@@ -34,7 +34,8 @@
     "SECURITY.md",
     "CONTRIBUTING.md",
     "RELEASING.md",
-    "interaction/"
+    "interaction/",
+    "transcript-protocol.md"
   ],
   "scripts": {
     "test": "node --test cli/__tests__/*.test.js",

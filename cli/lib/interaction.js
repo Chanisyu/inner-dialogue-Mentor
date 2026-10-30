@@ -10,6 +10,7 @@ import { createHash, randomUUID } from 'node:crypto';
 import { packageFile } from './paths.js';
 import modeRuntime from '../../hooks/session-mode.cjs';
 import { mergeRuntimeHooks } from './runtime-logging.js';
+import { archivePlan, applyArchiving } from './transcript-archiving.js';
 
 export const INTERACTION_CONFIG = '.therapy/interaction.json';
 const SNAPSHOT = '.therapy/modes/counseling.md';
@@ -156,7 +157,8 @@ export async function enableDualMode(opts) {
     const managedBefore = previous?.files?.[asset.target] || previous?.protected_files?.[asset.target];
     if (hash !== asset.hash && hash !== managedBefore) throw new Error('目标已有未受管理的内容，已停止：' + asset.target);
   }
-  const plan = { action: 'enable', writes: targets.map(a => a.target).concat(['.claude/settings.json', INTERACTION_CONFIG]), preserves_counseling: true };
+  const archive = await archivePlan(root);
+  const plan = { action: 'enable', writes: [...new Set(targets.map(a => a.target).concat(['.claude/settings.json', INTERACTION_CONFIG], archive.writes))], archiving: { writes: archive.writes, skipped: archive.skipped, ...(archive.settingsError ? { settings_error: archive.settingsError } : {}) }, preserves_counseling: true };
   if (opts.dryRun) return { ok: true, kind: 'dual-mode', dry_run: true, plan };
   const stamp = new Date().toISOString().replace(/[:.]/g, '-') + '-' + randomUUID().slice(0, 8);
   const backupRel = '.therapy/dual-mode-backups/' + stamp;
@@ -175,6 +177,7 @@ export async function enableDualMode(opts) {
     await atomicWrite(join(root, INTERACTION_CONFIG), JSON.stringify(next, null, 2) + '\n');
     await atomicWrite(settingsPath, JSON.stringify(merged, null, 2) + '\n');
     await atomicWrite(join(root, 'CLAUDE.md'), assets.find(a => a.target === 'CLAUDE.md').content);
+    plan.archiving = await applyArchiving(root);
     const audit = await auditInteraction(root);
     if (audit.errors.length) throw new Error(audit.errors.join('\n'));
   } catch (err) {
@@ -212,7 +215,8 @@ export async function refreshDualMode(opts) {
     if (current && current !== cfg.files[a.target]) skipped.push(a.target);
     else writes.push(a);
   }
-  const plan = { action: 'refresh-friend-extension', writes: writes.map(a => a.target).concat(repairHooks ? ['.claude/settings.json'] : []), skipped_user_edited: skipped, preserves_counseling: true };
+  const archive = await archivePlan(root);
+  const plan = { action: 'refresh-friend-extension', writes: [...new Set(writes.map(a => a.target).concat(repairHooks ? ['.claude/settings.json'] : [], archive.writes))], skipped_user_edited: [...skipped, ...archive.skipped], ...(archive.settingsError ? { archive_settings_error: archive.settingsError } : {}), preserves_counseling: true };
   if (opts.dryRun) return { ok: true, kind: 'dual-mode', dry_run: true, plan };
   for (const a of writes) {
     const current = existsSync(join(root, a.target)) ? digest(await readFile(join(root, a.target))) : null;
@@ -222,6 +226,7 @@ export async function refreshDualMode(opts) {
   }
   if (repairHooks) await atomicWrite(settingsPath, JSON.stringify(mergedSettings, null, 2) + '\n');
   if (writes.length) await atomicWrite(join(root, INTERACTION_CONFIG), JSON.stringify(cfg, null, 2) + '\n');
+  plan.archiving = await applyArchiving(root);
   return { ok: true, kind: 'dual-mode', enabled: true, plan, message: '已检查朋友扩展；咨询正文和依赖未升级。若要升级咨询框架，先停用双模式，单独检查原框架更新，再重新启用。' };
 }
 

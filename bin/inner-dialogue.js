@@ -82,6 +82,15 @@ function printSettingsMerge(merges, dryRun) {
   }
 }
 
+/** 将独立归档部署结果同时展示给普通终端用户，不能只在 JSON 中暴露失败。 */
+function printArchiving(archive, dryRun) {
+  if (!archive) return;
+  if (archive.writes?.length) process.stdout.write(dryRun ? '\n将更新主动收尾归档组件。\n' : '\n已更新主动收尾归档组件。\n');
+  if (archive.backup) process.stdout.write('  归档设置备份：' + archive.backup + '\n');
+  for (const file of archive.skipped || []) process.stdout.write('  已保留归档组件的本地修改：' + file + '\n');
+  if (archive.settings_error) process.stdout.write('  归档尚未完整接入：' + archive.settings_error + '\n');
+}
+
 function printResult(result, json) {
   // 普通文本与 JSON 的诊断内容保持同一语言，路径和状态值不变。
   // 扩展结果独立展示，避免被普通安装或旧更新结果的字段结构误识别。
@@ -93,6 +102,8 @@ function printResult(result, json) {
       for (const file of result.plan?.writes || []) process.stdout.write('  文件：' + file + '\n');
       for (const message of [...(result.errors || []), ...(result.warnings || [])]) process.stdout.write('  检查：' + message + '\n');
       if (result.backup) process.stdout.write('  备份：' + result.backup + '\n');
+      printArchiving(result.plan?.archiving, result.dry_run);
+      if (result.plan?.archive_settings_error) process.stdout.write('  归档尚未完整接入：' + result.plan.archive_settings_error + '\n');
     }
     return;
   }
@@ -109,6 +120,7 @@ function printResult(result, json) {
         `  疗法：${result.modalities.map((slug) => MODALITY_LABELS[slug] || slug).join('、')}\n`
     );
     printSettingsMerge(result.settings_merge);
+    printArchiving(result.archiving);
     if (result.dual_mode) process.stdout.write('\n已启用双模式；新对话先选模式，朋友再选人格与篇幅。\n');
     process.stdout.write(
       `\n开始咨询：在 Claude 应用中打开 ${result.path}，或进入该目录运行 \`claude\`。\n`
@@ -157,6 +169,7 @@ function printResult(result, json) {
       );
     }
     printSettingsMerge(p.settings_merge, result.dry_run);
+    printArchiving(p.archiving, result.dry_run);
     if (p.registered_on_migration && p.registered_on_migration.length) {
       process.stdout.write(
         `\n纳入新登记表（${p.registered_on_migration.length}）：\n`
@@ -298,6 +311,9 @@ async function main() {
     }
     record({ event: result.ok === false ? 'command.failure' : 'command.complete', level: result.ok === false ? 'error' : 'info', ...(result.ok === false ? { error: { code: 'ERROR' } } : {}) });
     for (const merge of result.settings_merge || result.plan?.settings_merge || []) if (merge.action === 'skipped') record({ event: 'settings.merge_skipped', level: 'warn', error: merge.reason });
+    // 与其他配置跳过一致，仅记录固定元数据，不把配置正文或用户对话写入日志。
+    const archive = result.archiving || result.plan?.archiving;
+    if (archive?.settings_error || result.plan?.archive_settings_error) record({ event: 'archive.setup_incomplete', level: 'warn' });
     printResult(result, v.json);
     return result.ok === false ? 1 : 0;
   } catch (err) {
