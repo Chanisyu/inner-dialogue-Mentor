@@ -35,7 +35,11 @@
     "CONTRIBUTING.md",
     "RELEASING.md",
     "interaction/",
-    "transcript-protocol.md"
+    "transcript-protocol.md",
+    "shared-memory-protocol.md",
+    "client-entry.md",
+    "AGENTS.therapy.template.md",
+    "AGENTS.md"
   ],
   "scripts": {
     "test": "node --test cli/__tests__/*.test.js",

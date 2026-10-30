@@ -187,7 +187,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
       'unrelated custom key preserved'
     );
     const entries = settings.hooks.UserPromptSubmit;
-    assert.equal(entries.length, 4, '保留原时间钩子，追加安全、日志与归档指针钩子');
+    assert.equal(entries.length, 5, '保留原时间钩子，追加安全、日志、归档与共享资料钩子');
     assert.equal(
       entries[0].hooks[0].command,
       'date "+%A %Y-%m-%d %H:%M"',
@@ -197,7 +197,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
 
     // The usage-stats hook is registered under a fresh SessionStart group.
     const sessionStart = settings.hooks.SessionStart;
-    assert.equal(sessionStart.length, 3, '使用统计、运行日志与归档各一个启动钩子');
+    assert.equal(sessionStart.length, 4, '统计、运行日志、归档与共享资料各一个启动钩子');
     assert.deepEqual(
       sessionStart[0],
       CANONICAL_USAGE_STATS_ENTRY,
@@ -540,7 +540,7 @@ test('update registers the SessionStart usage-stats hook without disturbing the 
 
     // A SessionStart group is created with the canonical matcher and command.
     const sessionStart = settings.hooks.SessionStart;
-    assert.equal(sessionStart.length, 3, '使用统计、运行日志与归档各一个启动钩子');
+    assert.equal(sessionStart.length, 4, '统计、运行日志、归档与共享资料各一个启动钩子');
     assert.equal(
       sessionStart[0].matcher,
       'startup|resume|clear|compact',
@@ -555,7 +555,7 @@ test('update registers the SessionStart usage-stats hook without disturbing the 
     // The two pre-existing UserPromptSubmit hooks are untouched.
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      4,
+      5,
       '保留两个原有钩子，并追加一个运行日志观察钩子'
     );
     assert.equal(
@@ -599,8 +599,8 @@ test('second update does not double-register the SessionStart usage-stats hook',
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      4,
-      '两个原有钩子和一个日志观察钩子均未重复注册'
+      5,
+      '原有钩子、日志、归档和共享资料钩子均未重复注册'
     );
     assert.deepEqual(settingsBackups(root).sort(), [...new Set([...first.json.plan.settings_merge.map(m => m.backup), first.json.plan.archiving.backup].filter(Boolean).map(file => path.basename(file)))].sort(), '第二次更新没有新增备份');
   } finally {

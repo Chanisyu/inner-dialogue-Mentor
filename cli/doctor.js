@@ -10,7 +10,7 @@ import { runHookProbe } from './lib/hook-probe.js';
 // 仅在扩展存在时追加检查，不改变普通咨询目录的检查契约。
 import { auditInteraction } from './lib/interaction.js';
 import { RUNTIME_LOG_DESCS } from './lib/runtime-logging.js';
-import { ARCHIVE_DESCS } from './lib/transcript-archiving.js';
+import { ARCHIVE_DESCS, MEMORY_DESCS, CODEX_EVENTS } from './lib/transcript-archiving.js';
 
 // Minimal seed sections. Profiles are expected to evolve beyond these — the
 // LLM is instructed to add H2s as themes emerge and reorganize around active
@@ -397,6 +397,16 @@ export async function doctor(opts) {
     for (const rel of ['.therapy/hooks/transcript-archive.cjs', '.therapy/transcript-protocol.md']) if (!existsSync(paths.root + '/' + rel)) warnings.push('原文归档组件缺失：' + rel);
     if (ARCHIVE_DESCS.every(desc => hasHook(claudeSettings, desc))) ok.push('主动收尾归档钩子已完整注册');
     else warnings.push('主动收尾归档钩子注册不完整，请执行本地 update。');
+    // 只检查项目内资产和事件配置，不读取私有正文、不修改 Codex 的用户信任状态。
+    for (const rel of ['AGENTS.md', '.therapy/client-entry.md', '.therapy/shared-memory-protocol.md', '.therapy/hooks/local-storage.cjs', '.therapy/hooks/codex-runtime.cjs', '.therapy/hooks/codex-transcript.cjs', '.therapy/hooks/shared-memory.cjs']) if (!existsSync(paths.root + '/' + rel)) warnings.push('跨客户端组件缺失：' + rel);
+    if (MEMORY_DESCS.every(desc => hasHook(claudeSettings, desc))) ok.push('Claude 共享资料保存钩子已完整注册');
+    else warnings.push('Claude 共享资料保存钩子不完整，请执行本地 update。');
+    try {
+      const codexSettings = JSON.parse(await readFile(paths.root + '/.codex/hooks.json', 'utf8'));
+      const complete = CODEX_EVENTS.every(event => hasHook(codexSettings, { event, marker: 'codex-runtime.cjs' }));
+      if (complete) ok.push('Codex 生命周期配置完整；是否信任及实际执行需在客户端确认');
+      else warnings.push('Codex 生命周期钩子不完整，请执行本地 update。');
+    } catch { warnings.push('Codex hooks.json 缺失或无法解析，请检查设置。'); }
   }
 
   // 咨询基线、路由和模式钩子需要同时完整，不能只因文件存在就报成功。

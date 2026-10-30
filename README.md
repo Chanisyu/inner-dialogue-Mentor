@@ -8,7 +8,7 @@ AI 并非持证心理咨询师，也不能替代现实中的专业支持。工�
 
 ## 开始使用
 
-需要 Node.js 18.3 或更新版本，以及能够在咨询目录中读取和写入文件的 Claude Code 环境。安装和更新中文版本时，请使用这份本地项目；从上游 npm 下载的版本可能仍是英文。
+需要 Node.js 18.3 或更新版本，以及能够在咨询目录中读取和写入文件的 Claude Code 或 Codex 本地环境。安装和更新中文版本时，请使用这份本地项目；从上游 npm 下载的版本可能仍是英文。
 
 在本项目根目录运行交互式安装：
 
@@ -22,7 +22,7 @@ node bin/inner-dialogue.js install
 node bin/inner-dialogue.js install --name 柳 --path D:/Therapy/Willow --persona warm-4o --structure moderate --modalities cbt,ifs
 ```
 
-安装后，在 Claude 应用中选择生成的咨询目录，或进入该目录运行 `claude`。项目根目录的 `CLAUDE.md` 用于引导安装；咨询目录中的 `CLAUDE.md` 才是日常会谈指令。
+安装后，在 Claude 应用或 Codex 中选择生成的咨询目录作为主目录，也可进入该目录运行 `claude` 或 `codex`。两个客户端共用档案、背景、摘要及原文，分别保留每条对话的设置。首次使用 Codex 时按客户端要求信任钩子，详见[跨客户端使用说明](docs/CROSS-CLIENT.md)。项目根目录的入口用于安装维护，咨询目录中的入口才用于日常对话。
 
 详细步骤见[入门指南](docs/GETTING-STARTED.md)。如果需要整理原有的英文安装，参见[迁移指南](MIGRATING.md)。
 

@@ -1,4 +1,4 @@
-// <!-- version: 1.0.0 -->
+// <!-- version: 1.1.0 -->
 /**
  * 统一本地运行日志及只观察、不拦截操作的 Claude Code 钩子。
  * 仅保存白名单元数据；聊天、工具正文、命令、搜索词和原始异常文本均不落盘。
@@ -93,9 +93,12 @@ function writeEvent(root, entry, options = {}) {
       component: token(entry.component) || 'runtime', event: token(entry.event) || 'unknown',
     };
     if (typeof entry.session_id === 'string' && /^[0-9a-f-]{36}$/i.test(entry.session_id)) row.session_id = entry.session_id;
+    // 客户端与原生线程标识只作为来源元数据，便于关联同一咨询目录里的独立对话。
+    if (['claude-code', 'codex'].includes(entry.client)) row.client = entry.client;
+    if (typeof entry.native_session_id === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9_-]{0,159}$/.test(entry.native_session_id)) row.native_session_id = entry.native_session_id;
     if (token(entry.hook_event)) row.hook_event = entry.hook_event;
     if (token(entry.tool_name)) row.tool_name = entry.tool_name;
-    if (typeof entry.tool_use_id === 'string' && /^toolu_[a-zA-Z0-9_-]{1,100}$/.test(entry.tool_use_id)) row.tool_use_id = entry.tool_use_id;
+    if (typeof entry.tool_use_id === 'string' && /^(?:toolu_|call_)[a-zA-Z0-9_-]{1,100}$/.test(entry.tool_use_id)) row.tool_use_id = entry.tool_use_id;
     if (['install', 'update', 'doctor', 'dual-mode'].includes(entry.command)) row.command = entry.command;
     if (['friend', 'counseling'].includes(entry.mode)) row.mode = entry.mode;
     const relative = safeFile(root || process.cwd(), entry.file);
@@ -126,6 +129,7 @@ function observe(payload, root = resolveRoot(payload)) {
   return writeEvent(root, {
     component: 'observer', event: names[event], level: event === 'PostToolUseFailure' ? 'error' : 'info',
     session_id: payload.session_id, hook_event: event, tool_name: payload.tool_name, tool_use_id: payload.tool_use_id,
+    client: payload.client || 'claude-code', native_session_id: payload.native_session_id,
     file: payload.tool_input?.file_path || payload.tool_input?.path, duration_ms: payload.duration_ms,
     ...(event === 'PostToolUseFailure' ? { error: payload.error || { code: 'TOOL_ERROR' } } : {}),
   });

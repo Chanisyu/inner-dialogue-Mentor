@@ -45,6 +45,18 @@
             ]
           }
         ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/shared-memory.cjs"
+            ]
+          }
+        ]
       }
     ],
     "SessionStart": [
@@ -83,6 +95,18 @@
             ]
           }
         ]
+      },
+      {
+        "matcher": "startup|resume|clear|compact",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/shared-memory.cjs"
+            ]
+          }
+        ]
       }
     ],
     "PreToolUse": [
@@ -94,6 +118,18 @@
             "command": "node",
             "args": [
               "${CLAUDE_PROJECT_DIR}/.therapy/hooks/runtime-log.cjs"
+            ]
+          }
+        ]
+      },
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node",
+            "args": [
+              "${CLAUDE_PROJECT_DIR}/.therapy/hooks/shared-memory.cjs"
             ]
           }
         ]

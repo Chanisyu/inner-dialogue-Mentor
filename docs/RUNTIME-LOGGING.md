@@ -21,12 +21,15 @@
 | `hook_event`、`tool_name`、`tool_use_id` | 输入符合白名单时保存的钩子、工具与工具调用标识 |
 | `file` | 项目内相对路径；项目外路径仅记录为 `[outside-project]` |
 | `command`、`mode` | 白名单中的 CLI 子命令或对话模式，不是完整命令行 |
+| `client`、`native_session_id` | Claude Code 或 Codex 的来源及可用的原生线程标识；内部 session_id 用于项目内关联 |
 | `duration_ms`、`exit_code` | 调用方明确提供有效数值时保存；不根据缺失值推测 |
 | `error.code`、`error.message` | 固定错误分类与对应说明，不是原始异常或工具输出 |
 
 观察事件对应 `session.start`、`prompt.submitted`、`tool.start`、`tool.success`、`tool.failure`、`session.end`。模式模块另写 `mode.selected`、`tool.denied`、`mode.failure`；CLI 写 `command.complete`、`command.failure`、`settings.merge_skipped`。
 
 主动收尾归档另写 `archive.complete`、`archive.failure`；安装或更新未能完整接入归档时，CLI 写 `archive.setup_incomplete`。这些事件仍只含诊断元数据，JSONL 对话底稿和 Markdown 阅读版另存于咨询目录的 `transcripts/`，不放入运行日志。
+
+跨客户端保存另写 `memory.committed`、`memory.conflict`、`memory.rolled_back`、`memory.recovery_completed`、`memory.failure`，Codex 适配失败写 `client.failure`。候选稿与恢复正文只保留在私有状态区，不进入本日志。Codex 按已安装版本支持的事件记录，工具失败从已报告的结果归类，不假定和 Claude 事件完全相同。
 
 同一操作可能有一条观察记录和一条模式拦截记录，这是不同阶段的诊断证据，不应直接按日志行数统计会谈或故障次数。当前观察器未从 shell 错误正文提取退出码，因此不能假定每条失败事件均含 `exit_code`。
 

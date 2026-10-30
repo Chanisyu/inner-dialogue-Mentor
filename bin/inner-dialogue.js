@@ -85,10 +85,12 @@ function printSettingsMerge(merges, dryRun) {
 /** 将独立归档部署结果同时展示给普通终端用户，不能只在 JSON 中暴露失败。 */
 function printArchiving(archive, dryRun) {
   if (!archive) return;
-  if (archive.writes?.length) process.stdout.write(dryRun ? '\n将更新主动收尾归档组件。\n' : '\n已更新主动收尾归档组件。\n');
+  if (archive.writes?.length) process.stdout.write(dryRun ? '\n将更新原文归档与跨客户端共享组件。\n' : '\n已更新原文归档与跨客户端共享组件。\n');
   if (archive.backup) process.stdout.write('  归档设置备份：' + archive.backup + '\n');
   for (const file of archive.skipped || []) process.stdout.write('  已保留归档组件的本地修改：' + file + '\n');
   if (archive.settings_error) process.stdout.write('  归档尚未完整接入：' + archive.settings_error + '\n');
+  if (archive.codex_error) process.stdout.write('  Codex 尚未完整接入：' + archive.codex_error + '\n');
+  if (archive.codex_backup) process.stdout.write('  Codex 设置备份：' + archive.codex_backup + '\n');
 }
 
 function printResult(result, json) {
@@ -123,7 +125,7 @@ function printResult(result, json) {
     printArchiving(result.archiving);
     if (result.dual_mode) process.stdout.write('\n已启用双模式；新对话先选模式，朋友再选人格与篇幅。\n');
     process.stdout.write(
-      `\n开始咨询：在 Claude 应用中打开 ${result.path}，或进入该目录运行 \`claude\`。\n`
+      `\n开始咨询：在 Claude 应用或 Codex 中打开 ${result.path} 为主目录，或进入该目录运行 \`claude\`／\`codex\`。Codex 首次使用请检查钩子信任。\n`
     );
     return;
   }
@@ -313,7 +315,7 @@ async function main() {
     for (const merge of result.settings_merge || result.plan?.settings_merge || []) if (merge.action === 'skipped') record({ event: 'settings.merge_skipped', level: 'warn', error: merge.reason });
     // 与其他配置跳过一致，仅记录固定元数据，不把配置正文或用户对话写入日志。
     const archive = result.archiving || result.plan?.archiving;
-    if (archive?.settings_error || result.plan?.archive_settings_error) record({ event: 'archive.setup_incomplete', level: 'warn' });
+    if (archive?.settings_error || archive?.codex_error || result.plan?.archive_settings_error) record({ event: 'archive.setup_incomplete', level: 'warn' });
     printResult(result, v.json);
     return result.ok === false ? 1 : 0;
   } catch (err) {

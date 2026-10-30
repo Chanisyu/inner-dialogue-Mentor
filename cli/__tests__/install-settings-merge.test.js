@@ -172,7 +172,7 @@ test('install --force over existing settings appends the hook entry, backup firs
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      4,
+      5,
       'appended, not replaced'
     );
     assert.equal(safetyNetEntries(settings).length, 1, 'one safety-net entry');
@@ -372,7 +372,7 @@ test('install --force registers the SessionStart usage-stats hook without distur
     // referencing usage-stats.js.
     const sessionStart = settings.hooks.SessionStart;
     assert.ok(
-      Array.isArray(sessionStart) && sessionStart.length === 3,
+      Array.isArray(sessionStart) && sessionStart.length === 4,
       'SessionStart group created'
     );
     assert.equal(
@@ -393,7 +393,7 @@ test('install --force registers the SessionStart usage-stats hook without distur
     // The two pre-existing UserPromptSubmit hooks are untouched.
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      4,
+      5,
       '保留两个原有钩子，并追加一个运行日志观察钩子'
     );
     assert.equal(
@@ -442,8 +442,8 @@ test('second install --force does not double-register the SessionStart usage-sta
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      4,
-      '两个原有钩子和一个日志观察钩子均未重复注册'
+      5,
+      '原有钩子、日志、归档和共享资料钩子均未重复注册'
     );
   } finally {
     rmSync(dir, { recursive: true, force: true });

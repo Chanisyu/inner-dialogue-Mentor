@@ -337,7 +337,7 @@ export async function update(opts) {
   }
 
   const archive = await archivePlan(paths.root);
-  plan.archiving = { writes: archive.writes, skipped: archive.skipped, ...(archive.settingsError ? { settings_error: archive.settingsError } : {}) };
+  plan.archiving = { writes: archive.writes, skipped: archive.skipped, ...(archive.settingsError ? { settings_error: archive.settingsError } : {}), ...(archive.codexError ? { codex_error: archive.codexError } : {}) };
   if (opts.dryRun) {
     return { ok: true, dry_run: true, plan, legacy_schema: isLegacySchema };
   }

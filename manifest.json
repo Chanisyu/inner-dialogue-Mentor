@@ -1,8 +1,44 @@
 {
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "Inner Dialogue 可更新组件（简体中文）",
   "base_url": "https://raw.githubusercontent.com/ataglianetti/inner-dialogue/main/",
   "components": {
+    "codex-runtime": {
+      "file": "hooks/codex-runtime.cjs",
+      "target": ".therapy/hooks/codex-runtime.cjs",
+      "required": true,
+      "description": "Codex 主对话生命周期适配；由 archive-version.json 管理，不修改全局配置。"
+    },
+    "codex-transcript": {
+      "file": "hooks/codex-transcript.cjs",
+      "target": ".therapy/hooks/codex-transcript.cjs",
+      "required": true,
+      "description": "Codex 真实可见原文解析与稳定会话身份映射。"
+    },
+    "local-storage": {
+      "file": "hooks/local-storage.cjs",
+      "target": ".therapy/hooks/local-storage.cjs",
+      "required": true,
+      "description": "跨客户端本地路径、原子发布和私有状态存储工具。"
+    },
+    "shared-memory": {
+      "file": "hooks/shared-memory.cjs",
+      "target": ".therapy/hooks/shared-memory.cjs",
+      "required": true,
+      "description": "共享资料版本、候选稿提交、并发冲突校验与事务恢复。"
+    },
+    "client-entry": {
+      "file": "client-entry.md",
+      "target": ".therapy/client-entry.md",
+      "required": true,
+      "description": "两个客户端共用业务入口的启动规则。"
+    },
+    "shared-memory-protocol": {
+      "file": "shared-memory-protocol.md",
+      "target": ".therapy/shared-memory-protocol.md",
+      "required": true,
+      "description": "模型按需重读、按统一入口提交共享资料的协议。"
+    },
     "transcript-archive": {
       "file": "hooks/transcript-archive.cjs",
       "target": ".therapy/hooks/transcript-archive.cjs",

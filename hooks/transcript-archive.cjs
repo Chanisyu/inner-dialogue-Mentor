@@ -1,4 +1,4 @@
-// <!-- version: 1.0.0 -->
+// <!-- version: 1.1.0 -->
 /**
  * 主动收尾归档：启动钩子只登记来源位置，模型明确请求后才在 Stop 保存对话。
  * 不注册退出事件，不通过关键词自动猜测结束，不记录工具正文或内部推理。
@@ -131,6 +131,17 @@ function extract(rows) {
 function stateFile(root, id) { return inside(root, '.therapy/archive-state/' + validId(id) + '.json'); }
 function readState(root, id) { return JSON.parse(FS.readFileSync(stateFile(root, id), 'utf8')); }
 
+/** 来源适配分别校验真实身份，再交给各自解析器；旧 Claude 状态和已发布快照不迁移。 */
+function readMessages(state, id) {
+  if (state.client === 'codex') {
+    const adapter = require('./codex-transcript.cjs');
+    const info = adapter.source(state.transcript_path, state.native_session_id);
+    if (info.session_id !== id) throw new Error('Codex 归档登记与内部会话不一致。');
+    return adapter.extract(readRows(info.file));
+  }
+  return extract(readRows(sourceFile(state.transcript_path, id)));
+}
+
 /** 双模式按真实锁定读取模式；普通目录采用咨询模式，不自行制造朋友选择。 */
 function modeFor(root, id) {
   const config = PATH.join(root, '.therapy/interaction.json');
@@ -143,11 +154,11 @@ function modeFor(root, id) {
 /** 该命令仅在模型确认用户主动收尾后调用；不立即保存正文，等待最终回应的 Stop。 */
 function request(root, id) {
   id = validId(id);
-  const state = readState(root, id), messages = extract(readRows(sourceFile(state.transcript_path, id)));
+  const state = readState(root, id), messages = readMessages(state, id);
   const lastUser = messages.findLast(m => m.role === 'user');
   if (!lastUser) throw new Error('没有可归档的用户发言。');
   const mode = modeFor(root, id);
-  state.pending = { user_id: lastUser.id, requested_at: new Date().toISOString(), before_assistant_id: messages.findLast(m => m.role === 'assistant')?.id || null, ...mode };
+  state.pending = { user_id: lastUser.id, requested_at: new Date().toISOString(), before_assistant_id: messages.findLast(m => m.role === 'assistant')?.id || null, ...(state.turn_id ? { turn_id: state.turn_id } : {}), ...mode };
   atomic(stateFile(root, id), JSON.stringify(state, null, 2) + '\n');
   return { ok: true, pending: true, message: '已登记主动收尾；最终回应完成后才归档。' };
 }
@@ -191,7 +202,7 @@ function publish(root, id, meta, messages) {
     const indexFile = inside(root, 'transcripts/index.json');
     const index = FS.existsSync(indexFile) ? JSON.parse(FS.readFileSync(indexFile, 'utf8')) : { schema: 1, sessions: {} };
     if (index.schema !== 1 || !index.sessions || Array.isArray(index.sessions)) throw new Error('原文索引损坏，未覆盖。');
-    const entry = { session_id: id, ...meta.settings, mode: meta.mode, started_at: messages[0]?.timestamp || null, last_message_at: messages.at(-1)?.timestamp || null, message_count: messages.length, jsonl: rel + '/conversation.jsonl', markdown: rel + '/conversation.md' };
+    const entry = { session_id: id, ...(meta.client ? { client: meta.client, native_session_id: meta.native_session_id } : {}), ...meta.settings, mode: meta.mode, started_at: messages[0]?.timestamp || null, last_message_at: messages.at(-1)?.timestamp || null, message_count: messages.length, jsonl: rel + '/conversation.jsonl', markdown: rel + '/conversation.md' };
     index.sessions[id] = entry;
     atomic(indexFile, JSON.stringify(index, null, 2) + '\n');
     return entry;
@@ -204,8 +215,8 @@ function finish(root, payload) {
   if (!FS.existsSync(file)) return { archived: false };
   const state = readState(root, id);
   if (!state.pending) return { archived: false };
-  const messages = extract(readRows(sourceFile(state.transcript_path, id)));
-  if (messages.findLast(m => m.role === 'user')?.id !== state.pending.user_id) { delete state.pending; atomic(file, JSON.stringify(state, null, 2) + '\n'); return { archived: false, cancelled: true }; }
+  const messages = readMessages(state, id);
+  if ((state.pending.turn_id && payload.turn_id !== state.pending.turn_id) || messages.findLast(m => m.role === 'user')?.id !== state.pending.user_id) { delete state.pending; atomic(file, JSON.stringify(state, null, 2) + '\n'); return { archived: false, cancelled: true }; }
   const finalText = payload.last_assistant_message;
   if (typeof finalText !== 'string' || !finalText) throw new Error('Stop 缺少最终展示文字，未冒充完整归档。');
   const last = messages.at(-1);
@@ -217,12 +228,12 @@ function finish(root, payload) {
   }
   const settings = modeFor(root, id);
   if (settings.mode !== state.pending.mode) throw new Error('收尾期间模式不一致，未归档。');
-  const meta = { type: 'conversation', schema: 1, session_id: id, mode: settings.mode, settings, source: 'claude-code-visible-messages' };
+  const meta = { type: 'conversation', schema: 1, session_id: id, mode: settings.mode, settings, source: state.client === 'codex' ? 'codex-visible-messages' : 'claude-code-visible-messages', ...(state.client === 'codex' ? { client: 'codex', native_session_id: state.native_session_id } : {}) };
   const saved = publish(root, id, meta, messages);
   delete state.pending;
   state.last_archive = saved;
   atomic(file, JSON.stringify(state, null, 2) + '\n');
-  LOG?.writeEvent(root, { component: 'archive', event: 'archive.complete', session_id: id });
+  LOG?.writeEvent(root, { component: 'archive', event: 'archive.complete', session_id: id, client: state.client || 'claude-code' });
   return { archived: true, ...saved };
 }
 
@@ -230,10 +241,20 @@ function finish(root, payload) {
 function runHook(root, payload) {
   const event = payload.hook_event_name;
   if (event === 'Stop') { finish(root, payload); return {}; }
+  if (['Interrupt', 'PreCompact'].includes(event)) {
+    const file = stateFile(root, validId(payload.session_id));
+    if (FS.existsSync(file)) { const state = readState(root, payload.session_id); delete state.pending; atomic(file, JSON.stringify(state, null, 2) + '\n'); }
+    return {};
+  }
   if (!['SessionStart', 'UserPromptSubmit'].includes(event)) return {};
   const id = validId(payload.session_id), file = stateFile(root, id);
   const state = FS.existsSync(file) ? readState(root, id) : { schema: 1, session_id: id };
-  state.transcript_path = sourceFile(payload.transcript_path, id);
+  if (payload.client === 'codex') {
+    const info = require('./codex-transcript.cjs').source(payload.transcript_path, payload.native_session_id);
+    if (info.session_id !== id) throw new Error('Codex 会话映射不一致。');
+    state.transcript_path = info.file; state.client = 'codex'; state.native_session_id = info.thread_id;
+    state.turn_id = payload.turn_id || null;
+  } else state.transcript_path = sourceFile(payload.transcript_path, id);
   // SessionStart 也可能来自中断恢复或压缩；旧请求不能跨生命周期自动触发。
   delete state.pending;
   atomic(file, JSON.stringify(state, null, 2) + '\n');
