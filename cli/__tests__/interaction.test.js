@@ -186,3 +186,30 @@ test('更新修复丢失朋友文件与模式钩子，同时维持咨询基线',
   assert.deepEqual((await auditInteraction(root)).errors, []);
   assert.deepEqual(await readFile(join(root, '.therapy/modes/counseling.md')), before);
 });
+
+/** 用已登记的旧朋友资产模拟升级，验证路径修复能部署且不会覆盖共享资料和咨询配置。 */
+test('已安装目录更新朋友路径规则与钩子，同时保留全部既有个人资料', async t => {
+  const root = await fixture(t, true);
+  const oldAssets = { '.therapy/modes/friend.md': '# 合成旧朋友规则\n', '.therapy/hooks/session-mode.cjs': '// 合成旧模式钩子\n' };
+  const cfg = await readInteraction(root);
+  for (const [rel, content] of Object.entries(oldAssets)) {
+    await writeFile(join(root, rel), content, 'utf8');
+    cfg.files[rel] = digest(Buffer.from(content));
+  }
+  await writeFile(join(root, '.therapy/interaction.json'), JSON.stringify(cfg));
+  await writeFile(join(root, 'profile.md'), '# 档案\n合成背景，更新时保留。\n');
+  await writeFile(join(root, 'sessions/2026-10-20.md'), '# 合成咨询记录\n');
+  const before = await tree(root);
+  const preview = await update({ path: root, dryRun: true });
+  assert.deepEqual(await tree(root), before);
+  for (const rel of Object.keys(oldAssets)) assert.ok(preview.plan.writes.includes(rel));
+  const result = await update({ path: root });
+  assert.equal(result.plan.preserves_counseling, true);
+  const after = await tree(root);
+  for (const [rel, hash] of Object.entries(before)) {
+    if (Object.hasOwn(oldAssets, rel) || rel === '.therapy/interaction.json') continue;
+    assert.equal(after[rel], hash, rel);
+  }
+  assert.ok((await readFile(join(root, '.therapy/hooks/session-mode.cjs'), 'utf8')).includes('INNER_DIALOGUE_PATHS'));
+  assert.deepEqual((await auditInteraction(root)).errors, []);
+});

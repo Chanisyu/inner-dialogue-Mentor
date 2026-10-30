@@ -136,13 +136,31 @@ function resolveState(root, payload) {
   return inherited ? selectState(root, id, inherited.choice, inherited.origin) : null;
 }
 
-/** 将当前状态压成必要提示；咨询提示不包含任何朋友人格或篇幅规则。 */
-function contextFor(id, state) {
+/** 将朋友背景资料定位到安装根目录，避免把规则所在的 .therapy 当成资料根目录。 */
+function friendPaths(root) {
+  const projectRoot = PATH.resolve(root);
+  return {
+    project_root: projectRoot,
+    profile: PATH.join(projectRoot, 'profile.md'),
+    context_index: PATH.join(projectRoot, 'context', 'index.md'),
+    sessions: PATH.join(projectRoot, 'sessions'),
+    friend_sessions: PATH.join(projectRoot, 'friend-sessions'),
+    friend_hypotheses: PATH.join(projectRoot, 'friend-hypotheses'),
+  };
+}
+
+/**
+ * 将当前状态压成必要提示；咨询提示仍保持原文，不包含朋友设置或资料路径。
+ * 朋友分支逐次提供安装根目录下的绝对路径，恢复或工作目录变化后也无需猜测。
+ */
+function contextFor(id, state, root = PATH.resolve(__dirname, '..', '..')) {
   if (!state) return 'INNER_DIALOGUE_PENDING ' + JSON.stringify({ session_id: id }) + '\n尚未选择。按 CLAUDE.md 先选模式；未明确两项朋友设置前不能擅自锁定。';
   const choice = { session_id: id, ...validateChoice(state) };
   const text = LOCK_MARKER + JSON.stringify(choice);
   if (state.mode === 'counseling') return text + '\n咨询模式已锁定。完整读取 .therapy/modes/counseling.md，按原咨询正文执行。本对话不调整模式、人格或篇幅。';
-  return text + '\n朋友模式已锁定。读取 .therapy/modes/friend.md、.therapy/friend-personas/' + state.persona + '.md、.therapy/friend-lengths/' + state.length + '.md。不得加载咨询人格或疗法；任何设置调整需新建对话。';
+  return text + '\n朋友模式已锁定。读取 .therapy/modes/friend.md、.therapy/friend-personas/' + state.persona + '.md、.therapy/friend-lengths/' + state.length + '.md。不得加载咨询人格或疗法；任何设置调整需新建对话。' +
+    '\nINNER_DIALOGUE_PATHS ' + JSON.stringify(friendPaths(root)) +
+    '\n背景资料使用上列绝对路径；profile.md、context 和会谈目录与根 CLAUDE.md 同级，不在 .therapy 中。读取失败时核对这些路径并重试，不得把读取失败当作没有历史或声称已读。';
 }
 
 /**
@@ -158,6 +176,13 @@ function deniedTool(root, payload, state) {
   const friend = /\.therapy\/(friend-personas(?:\/|\b)|friend-lengths(?:\/|\b)|friend-memory\.md|modes\/friend\.md)/.test(text);
   const protectedAsset = /\.therapy\/(conversations\/|interaction\.json|modes\/|friend-personas\/|friend-lengths\/|friend-memory\.md|persona\.md|modalities\/|session-structure\.md|commands\.md|.*protocol\.md|hooks\/)/.test(text) || /(?:^|\/)claude\.md\b/.test(text) || /\.claude\/settings\.json/.test(text);
   const writeTool = ['Write', 'Edit', 'MultiEdit', 'NotebookEdit'].includes(name);
+  // 针对已发生的朋友启动路径错误给出正确位置；不复制、迁移或另建同名个人资料。
+  // 只检查资料工具的目标路径，不把搜索正文或普通聊天中的路径示例当成文件操作。
+  const backgroundPath = String(input.file_path || input.path || input.pattern || '').replaceAll('\\', '/').toLowerCase();
+  const misplacedBackground = /(?:^|\/)\.therapy\/(?:profile\.md\b|(?:context|sessions|friend-sessions|friend-hypotheses)(?:\/|$))/.test(backgroundPath);
+  if (state?.mode === 'friend' && ['Read', 'Glob', 'Grep', 'Write', 'Edit', 'MultiEdit'].includes(name) && misplacedBackground) {
+    return '朋友背景资料不在 .therapy 中。请使用安装根目录下的正确路径：' + JSON.stringify(friendPaths(root)) + '。读取失败后应纠正路径重试，不得新建错误位置的档案或索引。';
+  }
   // 朋友搜索限定在背景或明确文件，避免全目录搜索把咨询配置片段带入上下文。
   if (state?.mode === 'friend' && name === 'Grep' && (!input.path || PATH.resolve(root, input.path) === PATH.resolve(root))) return '朋友模式搜索请限定到 profile.md、sessions、context 或明确的背景文件。';
   if (writeTool && protectedAsset) return '锁定对话不能修改模式状态或咨询配置；请在项目管理中处理。';
@@ -179,7 +204,7 @@ function runHook(payload, root) {
     const reason = deniedTool(root, payload, state);
     return reason ? { hookSpecificOutput: { hookEventName: event, permissionDecision: 'deny', permissionDecisionReason: reason } } : {};
   }
-  return { hookSpecificOutput: { hookEventName: event, additionalContext: contextFor(id, state) } };
+  return { hookSpecificOutput: { hookEventName: event, additionalContext: contextFor(id, state, root) } };
 }
 
 /** 解析本地工具参数，只接受固定键，避免拼接 shell 或任意文件写入。 */

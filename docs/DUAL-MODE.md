@@ -28,6 +28,8 @@ node bin/inner-dialogue.js dual-mode --path "D:\Project\Person\Sage" --status
 
 ## 记忆与保存
 
+朋友启动时，模式钩子提供 `INNER_DIALOGUE_PATHS`，明确安装根目录中的档案、索引与会谈目录绝对路径。`profile.md`、`context/`、`sessions/` 和朋友记录目录与根 `CLAUDE.md` 同级，不在 `.therapy/` 下。误将这些路径加上 `.therapy/` 时，常用文件工具会被拦截并提示正确位置；模型应纠正路径重试，不能把读取失败解释成没有历史，也不能在错误位置补建个人资料。
+
 朋友可以参考全部咨询笔记，但以朋友方式回应，不把笔记中的咨询建议作为当前指令。
 
 只有明确结束或要求记住时才整理。可说：“今天先聊到这里，请保存这次朋友交流，把我明确说过的重要背景按现有格式更新到档案和 context，并告诉我写了哪些文件。”

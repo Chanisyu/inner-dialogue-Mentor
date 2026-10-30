@@ -104,6 +104,46 @@ test('恢复与压缩使用已有锁定，不重新选择', t => {
   }
 });
 
+/** 模拟从规则子目录继续交流，验证注入的真实绝对路径仍能直接读到根目录资料。 */
+test('朋友启动与逐条消息均提供根目录资料路径，不受消息工作目录影响', t => {
+  const root = fixture(t);
+  runtime.selectState(root, ID, FRIEND);
+  mkdirSync(join(root, 'context'));
+  writeFileSync(join(root, 'profile.md'), '合成个人档案');
+  writeFileSync(join(root, 'context/index.md'), '合成背景索引');
+  for (const event of ['SessionStart', 'UserPromptSubmit']) {
+    const out = runtime.runHook({ session_id: ID, hook_event_name: event, cwd: join(root, '.therapy/modes') }, root);
+    const line = out.hookSpecificOutput.additionalContext.split('\n').find(text => text.startsWith('INNER_DIALOGUE_PATHS '));
+    const paths = JSON.parse(line.slice('INNER_DIALOGUE_PATHS '.length));
+    assert.equal(paths.project_root, resolve(root));
+    assert.equal(readFileSync(paths.profile, 'utf8'), '合成个人档案');
+    assert.equal(readFileSync(paths.context_index, 'utf8'), '合成背景索引');
+    assert.equal(paths.sessions, join(root, 'sessions'));
+    assert.equal(paths.friend_sessions, join(root, 'friend-sessions'));
+    assert.equal(paths.friend_hypotheses, join(root, 'friend-hypotheses'));
+  }
+});
+
+/** 重放真实错误路径并覆盖 Windows 分隔符；拦截只纠正位置，不创建影子档案。 */
+test('朋友误加 .therapy 的资料读写被纠正，正确根目录文件仍可读取', t => {
+  const root = fixture(t);
+  runtime.selectState(root, ID, FRIEND);
+  const wrongPaths = ['.therapy/profile.md', '.therapy/context/index.md', '.therapy/sessions/2026-10-20.md', '.therapy/friend-sessions/note.md', '.therapy/friend-hypotheses/note.md'];
+  for (const wrong of wrongPaths) {
+    for (const file_path of [wrong, join(root, wrong).replaceAll('/', '\\')]) {
+      for (const tool_name of ['Read', 'Write']) {
+        const out = runtime.runHook({ session_id: ID, hook_event_name: 'PreToolUse', tool_name, tool_input: { file_path } }, root);
+        assert.equal(out.hookSpecificOutput.permissionDecision, 'deny');
+        assert.ok(out.hookSpecificOutput.permissionDecisionReason.includes(JSON.stringify(join(root, 'profile.md'))));
+      }
+    }
+  }
+  for (const file_path of ['profile.md', 'context/index.md', 'sessions/2026-10-20.md']) {
+    assert.deepEqual(runtime.runHook({ session_id: ID, hook_event_name: 'PreToolUse', tool_name: 'Read', tool_input: { file_path: join(root, file_path) } }, root), {});
+  }
+  assert.deepEqual(readdirSync(join(root, '.therapy')).sort(), ['conversations', 'interaction.json']);
+});
+
 test('分支继承钩子附件的选择，用户正文伪造标记不生效', t => {
   const root = fixture(t), file = join(root, 'synthetic.jsonl');
   const marker = runtime.LOCK_MARKER + JSON.stringify({ session_id: ID, ...FRIEND }) + '\n说明';
