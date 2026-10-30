@@ -1,5 +1,5 @@
 {
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "Inner Dialogue 可更新组件（简体中文）",
   "base_url": "https://raw.githubusercontent.com/ataglianetti/inner-dialogue/main/",
   "components": {
@@ -32,6 +32,12 @@
       "target": ".therapy/hooks/usage-stats.js",
       "required": true,
       "description": "会谈开始时提供使用节奏的机械统计，仅提供事实供咨询师判断；出错时静默放行。"
+    },
+    "runtime-log": {
+      "file": "hooks/runtime-log.cjs",
+      "target": ".therapy/hooks/runtime-log.cjs",
+      "required": true,
+      "description": "统一本地运行日志：观察会话与工具事件，记录模式及 CLI 错误；白名单元数据、不记录正文，文件自动轮转。"
     },
     "usage-reflection": {
       "file": "usage-reflection.md",

@@ -6,6 +6,7 @@
 
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { mergeRuntimeHooks } from '../lib/runtime-logging.js';
 import { spawnSync } from 'node:child_process';
 import {
   chmodSync,
@@ -157,7 +158,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
     // (SessionStart). Assert the merge SET rather than a single item.
     const merges = res.json.plan.settings_merge;
     assert.ok(Array.isArray(merges), 'plan.settings_merge is an array');
-    assert.equal(merges.length, 2, 'both hooks merged');
+    assert.equal(merges.length, 3, '安全、使用统计与运行日志三组合并');
     for (const m of merges) {
       assert.equal(m.path, '.claude/settings.json');
       assert.ok(
@@ -167,7 +168,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
     }
     assert.deepEqual(
       merges.map((m) => m.action).sort(),
-      ['add_safety_net_hook', 'add_usage_stats_hook'],
+      ['add_runtime_log_hooks', 'add_safety_net_hook', 'add_usage_stats_hook'],
       'the merge set adds the safety-net (UserPromptSubmit) and usage-stats (SessionStart) hooks'
     );
 
@@ -185,7 +186,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
       'unrelated custom key preserved'
     );
     const entries = settings.hooks.UserPromptSubmit;
-    assert.equal(entries.length, 2, 'appended, not replaced');
+    assert.equal(entries.length, 3, '保留原时间钩子，追加安全与日志钩子');
     assert.equal(
       entries[0].hooks[0].command,
       'date "+%A %Y-%m-%d %H:%M"',
@@ -195,7 +196,7 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
 
     // The usage-stats hook is registered under a fresh SessionStart group.
     const sessionStart = settings.hooks.SessionStart;
-    assert.equal(sessionStart.length, 1, 'one SessionStart entry');
+    assert.equal(sessionStart.length, 2, '使用统计与运行日志各一个启动钩子');
     assert.deepEqual(
       sessionStart[0],
       CANONICAL_USAGE_STATS_ENTRY,
@@ -203,23 +204,14 @@ test('merge appends exec-form entry, preserves existing content, snapshots first
     );
 
     const baks = settingsBackups(root);
-    assert.equal(baks.length, 1, 'exactly one settings backup created');
-    // The two merges run in the same second and share one backup filename; the
-    // usage-stats merge re-snapshots after the safety-net append, so the
-    // surviving backup is a genuine pre-write snapshot (unrelated key intact,
-    // SessionStart not yet registered).
-    const bak = JSON.parse(
-      readFileSync(path.join(root, '.claude', baks[0]), 'utf8')
-    );
-    assert.deepEqual(
-      bak.customKey,
-      { keep: 'me' },
-      'backup holds a pre-merge snapshot'
-    );
-    assert.ok(
-      !bak.hooks.SessionStart,
-      'backup predates the usage-stats SessionStart registration'
-    );
+    // 校验实际返回的备份集合，既不依赖同秒合并，也不漏掉独立日志注册的备份。
+    assert.deepEqual(baks.sort(), [...new Set(merges.map(m => path.basename(m.backup)))].sort());
+    for (const filename of baks) {
+      const bak = JSON.parse(readFileSync(path.join(root, '.claude', filename), 'utf8'));
+      assert.deepEqual(bak.customKey, { keep: 'me' }, '备份保留原有配置');
+      if (filename.startsWith('settings.json.bak-runtime-log-')) assert.ok(!JSON.stringify(bak).includes('runtime-log.cjs'));
+      else assert.ok(!bak.hooks.SessionStart, '原钩子备份早于使用统计注册');
+    }
 
     // F19: the merge writes via temp-file + rename. Nothing but the settings
     // file and its backup may remain in .claude/ — no stray temp files.
@@ -261,7 +253,7 @@ test('second run is idempotent: no duplicate entry, no new backup', () => {
       )
     );
     assert.equal(safetyNetEntries.length, 1, 'exactly one safety-net entry');
-    assert.equal(settingsBackups(root).length, 1, 'no second backup created');
+    assert.deepEqual(settingsBackups(root).sort(), [...new Set(first.json.plan.settings_merge.map(m => path.basename(m.backup)))].sort(), '第二次更新没有新增备份');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -279,7 +271,7 @@ test('malformed settings.json is reported, untouched, and does not change the ex
 
     // Both merges (safety-net + usage-stats) skip on malformed JSON.
     const merges = res.json.plan.settings_merge;
-    assert.equal(merges.length, 2, 'both merges skip on malformed JSON');
+    assert.equal(merges.length, 3, '损坏设置使三组合并均跳过');
     for (const m of merges) {
       assert.equal(m.action, 'skipped');
       assert.ok(m.reason, 'skip carries a reason');
@@ -308,10 +300,10 @@ test('--dry-run reports the merge without writing', () => {
     assert.equal(res.json.dry_run, true);
 
     const merges = res.json.plan.settings_merge;
-    assert.equal(merges.length, 2, 'both hooks planned');
+    assert.equal(merges.length, 3, '预览包含三组钩子');
     assert.deepEqual(
       merges.map((m) => m.action).sort(),
-      ['add_safety_net_hook', 'add_usage_stats_hook'],
+      ['add_runtime_log_hooks', 'add_safety_net_hook', 'add_usage_stats_hook'],
       'both the safety-net and usage-stats hooks are planned'
     );
 
@@ -499,7 +491,8 @@ test('both hooks already registered via shell-form command strings is a no-op', 
         ],
       },
     };
-    const before = JSON.stringify(shellForm, null, 2) + '\n';
+    // 本例隔离原有两种 shell 注册的去重；运行日志观察器预先完整注册。
+    const before = JSON.stringify(mergeRuntimeHooks(JSON.stringify(shellForm)), null, 2) + '\n';
     writeFileSync(settingsPath, before);
 
     const res = runJson(['update', '--path', root], 'shell-form no-op');
@@ -537,7 +530,7 @@ test('update registers the SessionStart usage-stats hook without disturbing the 
     // added.
     assert.deepEqual(
       res.json.plan.settings_merge.map((m) => m.action),
-      ['add_usage_stats_hook'],
+      ['add_usage_stats_hook', 'add_runtime_log_hooks'],
       'only the SessionStart usage-stats hook is merged'
     );
 
@@ -545,7 +538,7 @@ test('update registers the SessionStart usage-stats hook without disturbing the 
 
     // A SessionStart group is created with the canonical matcher and command.
     const sessionStart = settings.hooks.SessionStart;
-    assert.equal(sessionStart.length, 1, 'one SessionStart entry');
+    assert.equal(sessionStart.length, 2, '使用统计与运行日志各一个启动钩子');
     assert.equal(
       sessionStart[0].matcher,
       'startup|resume|clear|compact',
@@ -560,8 +553,8 @@ test('update registers the SessionStart usage-stats hook without disturbing the 
     // The two pre-existing UserPromptSubmit hooks are untouched.
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      2,
-      'UserPromptSubmit count unchanged (stays 2)'
+      3,
+      '保留两个原有钩子，并追加一个运行日志观察钩子'
     );
     assert.equal(
       settings.hooks.UserPromptSubmit[0].hooks[0].command,
@@ -583,7 +576,7 @@ test('second update does not double-register the SessionStart usage-stats hook',
     const first = runJson(['update', '--path', root], 'first update');
     assert.deepEqual(
       first.json.plan.settings_merge.map((m) => m.action),
-      ['add_usage_stats_hook'],
+      ['add_usage_stats_hook', 'add_runtime_log_hooks'],
       'first run merges the usage-stats hook'
     );
 
@@ -604,10 +597,10 @@ test('second update does not double-register the SessionStart usage-stats hook',
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      2,
-      'UserPromptSubmit count still 2'
+      3,
+      '两个原有钩子和一个日志观察钩子均未重复注册'
     );
-    assert.equal(settingsBackups(root).length, 1, 'no second backup created');
+    assert.deepEqual(settingsBackups(root).sort(), [...new Set(first.json.plan.settings_merge.map(m => path.basename(m.backup)))].sort(), '第二次更新没有新增备份');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }

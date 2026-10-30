@@ -9,6 +9,7 @@ import { join, dirname, resolve, relative, isAbsolute } from 'node:path';
 import { createHash, randomUUID } from 'node:crypto';
 import { packageFile } from './paths.js';
 import modeRuntime from '../../hooks/session-mode.cjs';
+import { mergeRuntimeHooks } from './runtime-logging.js';
 
 export const INTERACTION_CONFIG = '.therapy/interaction.json';
 const SNAPSHOT = '.therapy/modes/counseling.md';
@@ -64,6 +65,7 @@ async function extensionAssets(name) {
     ['interaction/friend.md', '.therapy/modes/friend.md'],
     ['interaction/friend-memory.md', '.therapy/friend-memory.md'],
     ['hooks/session-mode.cjs', '.therapy/hooks/session-mode.cjs'],
+    ['hooks/runtime-log.cjs', '.therapy/hooks/runtime-log.cjs'],
     ...modeRuntime.PERSONAS.map(p => ['interaction/personas/' + p + '.md', '.therapy/friend-personas/' + p + '.md']),
     ...modeRuntime.LENGTHS.map(p => ['interaction/lengths/' + p + '.md', '.therapy/friend-lengths/' + p + '.md']),
   ];
@@ -141,7 +143,8 @@ export async function enableDualMode(opts) {
   if (!existsSync(join(root, '.therapy/version.json'))) throw new Error('请先安装咨询师目录，再启用双模式。');
   const settingsPath = join(root, '.claude/settings.json');
   const settingsRaw = existsSync(settingsPath) ? await readFile(settingsPath, 'utf8') : '{}\n';
-  const merged = mergeModeHooks(settingsRaw);
+  // 日志观察独立于咨询基线，不修改受保护的原安全或使用统计脚本。
+  const merged = mergeRuntimeHooks(JSON.stringify(mergeModeHooks(settingsRaw)));
   if (merged.disableAllHooks === true) throw new Error('项目禁用了钩子，不能可靠启用对话锁定。');
   const name = therapistName(entry.toString('utf8'));
   const assets = await extensionAssets(name);
@@ -198,7 +201,7 @@ export async function refreshDualMode(opts) {
   if (fatal.length) throw new Error(fatal.join('\n'));
   const settingsPath = join(root, '.claude/settings.json');
   const settingsRaw = await readFile(settingsPath, 'utf8');
-  const mergedSettings = mergeModeHooks(settingsRaw);
+  const mergedSettings = mergeRuntimeHooks(JSON.stringify(mergeModeHooks(settingsRaw)));
   const repairHooks = JSON.stringify(mergedSettings) !== JSON.stringify(JSON.parse(settingsRaw));
   const assets = await extensionAssets(cfg.therapist);
   const writes = [], skipped = [];

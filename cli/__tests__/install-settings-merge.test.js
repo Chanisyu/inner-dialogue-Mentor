@@ -150,7 +150,7 @@ test('install --force over existing settings appends the hook entry, backup firs
     // (SessionStart). Assert the merge SET rather than a single item.
     const merges = res.json.settings_merge;
     assert.ok(Array.isArray(merges), 'result.settings_merge is an array');
-    assert.equal(merges.length, 2, 'both hooks merged');
+    assert.equal(merges.length, 3, '安全、使用统计与运行日志三组合并');
     for (const m of merges) {
       assert.equal(m.path, '.claude/settings.json');
       assert.ok(
@@ -160,7 +160,7 @@ test('install --force over existing settings appends the hook entry, backup firs
     }
     assert.deepEqual(
       merges.map((m) => m.action).sort(),
-      ['add_safety_net_hook', 'add_usage_stats_hook'],
+      ['add_runtime_log_hooks', 'add_safety_net_hook', 'add_usage_stats_hook'],
       'the merge set adds the safety-net (UserPromptSubmit) and usage-stats (SessionStart) hooks'
     );
 
@@ -172,7 +172,7 @@ test('install --force over existing settings appends the hook entry, backup firs
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      2,
+      3,
       'appended, not replaced'
     );
     assert.equal(safetyNetEntries(settings).length, 1, 'one safety-net entry');
@@ -191,7 +191,9 @@ test('install --force over existing settings appends the hook entry, backup firs
     for (const filename of baks) {
       const bak = JSON.parse(readFileSync(path.join(root, '.claude', filename), 'utf8'));
       assert.deepEqual(bak.customKey, { keep: 'me' }, 'backup holds a pre-merge snapshot');
-      assert.ok(!bak.hooks.SessionStart, 'backup predates the usage-stats registration');
+      // 日志注册备份发生在原有两钩子注册之后；其他备份仍须早于使用统计注册。
+      if (filename.startsWith('settings.json.bak-runtime-log-')) assert.ok(!JSON.stringify(bak).includes('runtime-log.cjs'));
+      else assert.ok(!bak.hooks.SessionStart, 'backup predates the usage-stats registration');
     }
 
     // No stray temp files from the atomic write
@@ -213,7 +215,8 @@ test('second install --force is idempotent: no duplicate entry, no new backup', 
     );
     const first = runJson([...INSTALL_ARGS(root), '--force'], 'first force');
     assert.equal(first.json.ok, true);
-    assert.equal(first.json.settings_merge.length, 2, 'both hooks merged');
+    assert.equal(first.json.settings_merge.length, 3, '三组钩子均已合并');
+    const firstBackups = settingsBackups(root).sort();
 
     const second = runJson([...INSTALL_ARGS(root), '--force'], 'second force');
     assert.equal(second.status, 0);
@@ -235,7 +238,7 @@ test('second install --force is idempotent: no duplicate entry, no new backup', 
       1,
       'exactly one usage-stats entry'
     );
-    assert.equal(settingsBackups(root).length, 1, 'no second backup created');
+    assert.deepEqual(settingsBackups(root).sort(), firstBackups, '第二次安装没有新增备份');
   } finally {
     rmSync(dir, { recursive: true, force: true });
   }
@@ -256,7 +259,7 @@ test('install --force with malformed settings skips with a reason, file untouche
 
     // Both merges (safety-net + usage-stats) skip on malformed JSON.
     const merges = res.json.settings_merge;
-    assert.equal(merges.length, 2, 'both merges skip on malformed JSON');
+    assert.equal(merges.length, 3, '损坏设置使三组合并均跳过');
     for (const m of merges) {
       assert.equal(m.action, 'skipped');
       assert.ok(m.reason, 'skip carries a reason');
@@ -298,7 +301,7 @@ test(
 
       // Both merges downgrade to a skip carrying the fs error.
       const merges = res.json.settings_merge;
-      assert.equal(merges.length, 2, 'both merges skip on the fs failure');
+      assert.equal(merges.length, 3, '文件系统失败使三组合并均跳过');
       for (const m of merges) {
         assert.equal(m.action, 'skipped');
         assert.ok(
@@ -358,7 +361,7 @@ test('install --force registers the SessionStart usage-stats hook without distur
     // added.
     assert.deepEqual(
       res.json.settings_merge.map((m) => m.action),
-      ['add_usage_stats_hook'],
+      ['add_usage_stats_hook', 'add_runtime_log_hooks'],
       'only the SessionStart usage-stats hook is merged'
     );
 
@@ -368,7 +371,7 @@ test('install --force registers the SessionStart usage-stats hook without distur
     // referencing usage-stats.js.
     const sessionStart = settings.hooks.SessionStart;
     assert.ok(
-      Array.isArray(sessionStart) && sessionStart.length === 1,
+      Array.isArray(sessionStart) && sessionStart.length === 2,
       'SessionStart group created'
     );
     assert.equal(
@@ -389,8 +392,8 @@ test('install --force registers the SessionStart usage-stats hook without distur
     // The two pre-existing UserPromptSubmit hooks are untouched.
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      2,
-      'UserPromptSubmit count unchanged (stays 2)'
+      3,
+      '保留两个原有钩子，并追加一个运行日志观察钩子'
     );
     assert.equal(
       settings.hooks.UserPromptSubmit[0].hooks[0].command,
@@ -417,7 +420,7 @@ test('second install --force does not double-register the SessionStart usage-sta
     const first = runJson([...INSTALL_ARGS(root), '--force'], 'first force');
     assert.deepEqual(
       first.json.settings_merge.map((m) => m.action),
-      ['add_usage_stats_hook'],
+      ['add_usage_stats_hook', 'add_runtime_log_hooks'],
       'first run merges the usage-stats hook'
     );
 
@@ -438,8 +441,8 @@ test('second install --force does not double-register the SessionStart usage-sta
     );
     assert.equal(
       settings.hooks.UserPromptSubmit.length,
-      2,
-      'UserPromptSubmit count still 2'
+      3,
+      '两个原有钩子和一个日志观察钩子均未重复注册'
     );
   } finally {
     rmSync(dir, { recursive: true, force: true });

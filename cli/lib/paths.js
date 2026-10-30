@@ -38,6 +38,9 @@ export function therapyPaths(root) {
     usageStatsHook: join(r, '.therapy', 'hooks', 'usage-stats.js'),
     usageReflection: join(r, '.therapy', 'usage-reflection.md'),
     usageLog: join(r, '.therapy', 'usage-log.txt'),
+    // 运行诊断与咨询内容分开存放，不将错误记录当作来访者的长期记忆。
+    runtimeLogHook: join(r, '.therapy', 'hooks', 'runtime-log.cjs'),
+    runtimeLog: join(r, '.therapy', 'logs', 'runtime.jsonl'),
     library: join(r, '.therapy', 'library'),
     libraryPersonas: join(r, '.therapy', 'library', 'personas'),
     libraryModalities: join(r, '.therapy', 'library', 'modalities'),

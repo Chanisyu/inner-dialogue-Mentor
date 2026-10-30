@@ -14,6 +14,7 @@ import { hashString } from './lib/hash.js';
 // 双模式的咨询依赖冻结；其 update 只处理独立朋友扩展。
 import { readInteraction, refreshDualMode } from './lib/interaction.js';
 import { snapshotTherapy } from './lib/backup.js';
+import { planRuntimeLogging, applyRuntimeLogging } from './lib/runtime-logging.js';
 import {
   planSafetyNetMerge,
   planHookMerge,
@@ -123,6 +124,8 @@ export async function update(opts) {
     USAGE_STATS_DESC
   );
   if (usageMergePlan) plan.settings_merge.push(usageMergePlan);
+  const runtimeMergePlan = await planRuntimeLogging(paths.claudeSettings);
+  if (runtimeMergePlan) plan.settings_merge.push(runtimeMergePlan);
 
   for (const f of framework) {
     if (isProtected(f.target)) continue;
@@ -345,7 +348,8 @@ export async function update(opts) {
     plan.settings_merge.filter(
       (m) =>
         m.action === 'add_safety_net_hook' ||
-        m.action === 'add_usage_stats_hook'
+        m.action === 'add_usage_stats_hook' ||
+        m.action === 'add_runtime_log_hooks'
     ).length;
   const willMigrateRegistry =
     isLegacySchema && plan.unchanged.length > 0;
@@ -434,6 +438,13 @@ export async function update(opts) {
     add_usage_stats_hook: USAGE_STATS_DESC,
   };
   for (const item of plan.settings_merge) {
+    // 日志事件整组写入一次；其失败与其他辅助钩子相同，报告但不覆盖损坏设置。
+    if (item.action === 'add_runtime_log_hooks') {
+      const merged = await applyRuntimeLogging(paths.claudeSettings);
+      if (merged.merged) item.backup = merged.backup;
+      else { item.action = 'skipped'; item.reason = merged.reason || 'Runtime log settings merge skipped.'; }
+      continue;
+    }
     const desc = MERGE_DESC_BY_ACTION[item.action];
     if (!desc) continue;
     // applyHookMerge is fail-soft: an fs failure inside the merge comes

@@ -7,6 +7,12 @@
 const FS = require('node:fs');
 const PATH = require('node:path');
 const CRYPTO = require('node:crypto');
+// 老安装可能尚未复制日志模块；记录能力缺失不能使原有模式锁定失效。
+let RUNTIME_LOG;
+try { RUNTIME_LOG = require('./runtime-log.cjs'); } catch { RUNTIME_LOG = null; }
+
+/** 只传入固定操作名和必要元数据，原始聊天、命令及状态正文不会传给日志器。 */
+function record(root, entry) { return RUNTIME_LOG?.writeEvent(root, { component: 'session-mode', ...entry }); }
 
 const PERSONAS = Object.freeze(['warm-talkative', 'light-humor', 'rational-companion', 'interest-companion']);
 const LENGTHS = Object.freeze(['concise', 'standard', 'detailed', 'deep']);
@@ -77,6 +83,7 @@ function selectState(root, id, choice, origin = 'selected') {
   } finally {
     if (FS.existsSync(temp)) FS.unlinkSync(temp);
   }
+  record(root, { event: 'mode.selected', session_id: id, mode: selected.mode });
   return state;
 }
 
@@ -202,6 +209,7 @@ function runHook(payload, root) {
   const event = payload.hook_event_name || 'SessionStart';
   if (event === 'PreToolUse') {
     const reason = deniedTool(root, payload, state);
+    if (reason) record(root, { event: 'tool.denied', level: 'warn', session_id: id, tool_name: payload.tool_name, file: payload.tool_input?.file_path || payload.tool_input?.path, error: { code: 'POLICY_DENIED' } });
     return reason ? { hookSpecificOutput: { hookEventName: event, permissionDecision: 'deny', permissionDecisionReason: reason } } : {};
   }
   return { hookSpecificOutput: { hookEventName: event, additionalContext: contextFor(id, state, root) } };
@@ -222,9 +230,12 @@ function argumentsFor(argv) {
 /** 命令行设置不读取 stdin；钩子 stdin 设置限时，避免错误注册挂住聊天。 */
 async function main() {
   let event = 'SessionStart';
+  let root = PATH.resolve(__dirname, '..', '..');
+  let activeSession;
   try {
     const args = argumentsFor(process.argv.slice(2));
-    const root = PATH.resolve(args.root || PATH.join(__dirname, '..', '..'));
+    root = PATH.resolve(args.root || PATH.join(__dirname, '..', '..'));
+    activeSession = args.session;
     if (args.select || args.status) {
       const state = args.select ? selectState(root, args.session, { mode: args.mode, ...(args.persona !== undefined ? { persona: args.persona } : {}), ...(args.length !== undefined ? { length: args.length } : {}) }) : readState(root, args.session);
       process.stdout.write(JSON.stringify({ ok: true, state }) + '\n');
@@ -239,9 +250,11 @@ async function main() {
       process.stdin.on('error', err => { clearTimeout(timer); reject(err); });
     });
     const payload = JSON.parse(raw);
+    activeSession = payload.session_id;
     event = payload.hook_event_name || event;
     process.stdout.write(JSON.stringify(runHook(payload, root)) + '\n');
   } catch (err) {
+    record(root, { event: 'mode.failure', level: 'error', session_id: activeSession, hook_event: event, error: err instanceof SyntaxError ? err : { code: 'MODE_ERROR' } });
     if (process.argv.includes('--select') || process.argv.includes('--status')) {
       process.stdout.write(JSON.stringify({ ok: false, error: err.message }) + '\n');
       process.exitCode = 1;

@@ -11,6 +11,7 @@ import { emptyVersionJson, recordFile, writeVersionJson } from './lib/version.js
 import { hashString } from './lib/hash.js';
 // 先按原流程完成安装，再在明确选择时启用独立朋友扩展。
 import { enableDualMode, readInteraction } from './lib/interaction.js';
+import { applyRuntimeLogging } from './lib/runtime-logging.js';
 import {
   applySafetyNetMerge,
   applyHookMerge,
@@ -261,6 +262,11 @@ export async function install(rawOpts) {
       });
     }
   }
+
+  // 一次合并完整运行日志观察事件，避免逐事件备份覆盖或重复注册。
+  const runtimeMerge = await applyRuntimeLogging(paths.claudeSettings);
+  if (runtimeMerge.merged) settingsMerge.push({ path: SETTINGS_REL_PATH, action: 'add_runtime_log_hooks', backup: runtimeMerge.backup });
+  else if (runtimeMerge.code !== 'already_registered') settingsMerge.push({ path: SETTINGS_REL_PATH, action: 'skipped', reason: runtimeMerge.reason });
 
   if (!existsSync(paths.contextIndex)) {
     await copyFile(packageFile('context', 'index.template.md'), paths.contextIndex);

@@ -113,6 +113,8 @@ node bin/inner-dialogue.js install --name 柳 --path D:/Therapy/Willow --persona
 
 `SessionStart` 钩子把会谈时间写入本地 `.therapy/usage-log.txt`，在有足够历史时提供次数、间隔与个人基线等事实。咨询师按 `usage-reflection.md` 判断是否温和地提一次。它不把高频使用直接解释为危机。工具本身不上传统计；注入会谈的统计会成为模型上下文的一部分。
 
+统一运行日志保存在 `.therapy/logs/runtime.jsonl`，记录会话启动、工具成功或失败、模式拦截及 CLI 结果，供按会话 ID 排错。只保存诊断元数据，不保存聊天、档案、工具输出正文、命令或原始错误文本。每个文件约 2 MiB 后轮转，保留三个历史文件；新安装默认启用，已有目录通过本地 `update` 接入。说明和查看方法见[运行日志](docs/RUNTIME-LOGGING.md)。
+
 ## 检查与更新中文版本
 
 始终在这份中文项目中运行：

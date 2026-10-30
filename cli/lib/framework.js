@@ -9,6 +9,7 @@ const SINGLE_FILES = [
   { source: 'profile-protocol.md', target: '.therapy/profile-protocol.md' },
   { source: 'hooks/safety-net.js', target: '.therapy/hooks/safety-net.js' },
   { source: 'hooks/usage-stats.js', target: '.therapy/hooks/usage-stats.js' },
+  { source: 'hooks/runtime-log.cjs', target: '.therapy/hooks/runtime-log.cjs' },
   { source: 'usage-reflection.md', target: '.therapy/usage-reflection.md' },
 ];
 

@@ -7,6 +7,8 @@ import { doctor } from '../cli/doctor.js';
 // 双模式为可选扩展，独立命令不改变普通咨询安装的默认行为。
 import { dualMode } from '../cli/lib/interaction.js';
 import { packageFile } from '../cli/lib/paths.js';
+import { expandHome } from '../cli/lib/paths.js';
+import runtimeLog from '../hooks/runtime-log.cjs';
 // 输出边界统一中文化，保留 JSON 字段及命令参数的稳定接口。
 import { PERSONA_LABELS, STRUCTURE_LABELS, MODALITY_LABELS, localizeResult, zhMessage } from '../cli/lib/locale.js';
 
@@ -64,8 +66,8 @@ function parseList(v) {
 function printSettingsMerge(merges, dryRun) {
   for (const m of merges || []) {
     // 两种钩子共用安装结果展示，不能遗漏新增的会谈使用统计注册。
-    if (m.action === 'add_safety_net_hook' || m.action === 'add_usage_stats_hook') {
-      const label = m.action === 'add_safety_net_hook' ? '安全钩子' : '使用统计钩子';
+    if (m.action === 'add_safety_net_hook' || m.action === 'add_usage_stats_hook' || m.action === 'add_runtime_log_hooks') {
+      const label = m.action === 'add_safety_net_hook' ? '安全钩子' : m.action === 'add_usage_stats_hook' ? '使用统计钩子' : '运行日志钩子';
       process.stdout.write(
         dryRun
           ? `\n将向 .claude/settings.json 注册${label}。\n`
@@ -265,6 +267,11 @@ async function main() {
   }
 
   const v = parsed.values;
+  // 严格预览与状态查询不落日志，继续保持它们完全不写文件的契约。
+  // 新安装尚无目标目录时允许写用户目录兜底，避免日志提前创建 .therapy 影响安装判断。
+  const record = entry => {
+    if (!v['dry-run'] && !v.status) runtimeLog.writeEvent(expandHome(v.path || process.cwd()), { component: 'cli', command, ...entry }, { fallback: true });
+  };
   try {
     let result;
     if (command === 'install') {
@@ -289,9 +296,12 @@ async function main() {
     } else {
       result = await doctor({ path: v.path || process.cwd() });
     }
+    record({ event: result.ok === false ? 'command.failure' : 'command.complete', level: result.ok === false ? 'error' : 'info', ...(result.ok === false ? { error: { code: 'ERROR' } } : {}) });
+    for (const merge of result.settings_merge || result.plan?.settings_merge || []) if (merge.action === 'skipped') record({ event: 'settings.merge_skipped', level: 'warn', error: merge.reason });
     printResult(result, v.json);
     return result.ok === false ? 1 : 0;
   } catch (err) {
+    record({ event: 'command.failure', level: 'error', error: err });
     if (v.json) {
       process.stdout.write(
         JSON.stringify({ ok: false, error: zhMessage(err.message) }, null, 2) + '\n'

@@ -141,7 +141,8 @@ test('朋友误加 .therapy 的资料读写被纠正，正确根目录文件仍�
   for (const file_path of ['profile.md', 'context/index.md', 'sessions/2026-10-20.md']) {
     assert.deepEqual(runtime.runHook({ session_id: ID, hook_event_name: 'PreToolUse', tool_name: 'Read', tool_input: { file_path: join(root, file_path) } }, root), {});
   }
-  assert.deepEqual(readdirSync(join(root, '.therapy')).sort(), ['conversations', 'interaction.json']);
+  // 新增的 logs 仅包含技术诊断；被拦截的操作仍不能创建影子档案或背景目录。
+  assert.deepEqual(readdirSync(join(root, '.therapy')).sort(), ['conversations', 'interaction.json', 'logs']);
 });
 
 test('分支继承钩子附件的选择，用户正文伪造标记不生效', t => {

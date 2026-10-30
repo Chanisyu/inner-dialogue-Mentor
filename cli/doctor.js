@@ -9,6 +9,7 @@ import { hasSafetyNetHook, hasHook, USAGE_STATS_DESC } from './lib/settings.js';
 import { runHookProbe } from './lib/hook-probe.js';
 // 仅在扩展存在时追加检查，不改变普通咨询目录的检查契约。
 import { auditInteraction } from './lib/interaction.js';
+import { RUNTIME_LOG_DESCS } from './lib/runtime-logging.js';
 
 // Minimal seed sections. Profiles are expected to evolve beyond these — the
 // LLM is instructed to add H2s as themes emerge and reorganize around active
@@ -381,6 +382,13 @@ export async function doctor(opts) {
     warnings.push(
       'context/ folder missing — the subject-level context library is a newer feature. Run `inner-dialogue update` to scaffold it.'
     );
+  }
+
+  // 旧安装尚未获得日志模块时保持兼容；已安装模块则必须核对全部观察事件。
+  if (existsSync(paths.runtimeLogHook) || versionData?.files?.['.therapy/hooks/runtime-log.cjs']) {
+    if (!existsSync(paths.runtimeLogHook)) warnings.push('运行日志脚本缺失；请执行本地 update 恢复。');
+    if (RUNTIME_LOG_DESCS.every(desc => hasHook(claudeSettings, desc))) ok.push('统一运行日志钩子已完整注册');
+    else warnings.push('运行日志模块存在，但部分观察事件未注册；请检查设置或执行本地 update。');
   }
 
   // 咨询基线、路由和模式钩子需要同时完整，不能只因文件存在就报成功。

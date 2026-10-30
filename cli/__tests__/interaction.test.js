@@ -66,7 +66,7 @@ test('原咨询入口 CRLF 与中文原始字节完整保存，临床依赖和�
   }
   assert.deepEqual((await auditInteraction(root)).errors, []);
   const cfg = await readInteraction(root);
-  assert.equal(Object.keys(cfg.files).length, 12);
+  assert.equal(Object.keys(cfg.files).length, 13);
 });
 
 test('安装选项可直接启用双模式，普通安装参数仍有效', async t => {
@@ -136,7 +136,9 @@ test('停用保留后来增加的其他设置和钩子', async t => {
   await disableDualMode({ path: root });
   const final = JSON.parse(await readFile(file, 'utf8'));
   assert.equal(final.extraPreference, '保留');
-  assert.equal(final.hooks.PreToolUse[0].hooks[0].command, 'user-hook');
+  // 停用只移除模式钩子；运行日志与用户后来添加的钩子均应保留。
+  assert.ok(final.hooks.PreToolUse.some(group => group.hooks.some(hook => hook.command === 'user-hook')));
+  assert.ok(final.hooks.PreToolUse.some(group => JSON.stringify(group).includes('runtime-log.cjs')));
   assert.ok(!JSON.stringify(final).includes('session-mode.cjs'));
 });
 
