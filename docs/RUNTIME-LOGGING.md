@@ -11,6 +11,23 @@
 
 严格预览 `--dry-run` 和状态查询 `--status` 完全不写日志，保持其只读含义。
 
+## 字段与事件对照
+
+| 字段 | 含义与保存条件 |
+| --- | --- |
+| `schema`、`timestamp`、`pid` | 日志格式版本、记录时的 UTC 时间、写入进程编号 |
+| `level`、`component`、`event` | 严重程度、产生记录的模块、操作名称 |
+| `session_id` | 输入中存在符合格式的会话标识时保存，用于关联同一次交流 |
+| `hook_event`、`tool_name`、`tool_use_id` | 输入符合白名单时保存的钩子、工具与工具调用标识 |
+| `file` | 项目内相对路径；项目外路径仅记录为 `[outside-project]` |
+| `command`、`mode` | 白名单中的 CLI 子命令或对话模式，不是完整命令行 |
+| `duration_ms`、`exit_code` | 调用方明确提供有效数值时保存；不根据缺失值推测 |
+| `error.code`、`error.message` | 固定错误分类与对应说明，不是原始异常或工具输出 |
+
+观察事件对应 `session.start`、`prompt.submitted`、`tool.start`、`tool.success`、`tool.failure`、`session.end`。模式模块另写 `mode.selected`、`tool.denied`、`mode.failure`；CLI 写 `command.complete`、`command.failure`、`settings.merge_skipped`。
+
+同一操作可能有一条观察记录和一条模式拦截记录，这是不同阶段的诊断证据，不应直接按日志行数统计会谈或故障次数。当前观察器未从 shell 错误正文提取退出码，因此不能假定每条失败事件均含 `exit_code`。
+
 ## 隐私与容量
 
 不保存聊天正文、档案内容、工具输入输出正文、shell 命令、搜索词、凭据、原始异常文字或堆栈。错误文字仅用于转换为固定分类；外部文件路径只标为项目外，不保存其个人绝对路径。
@@ -53,3 +70,9 @@ Get-Content -LiteralPath "D:\Project\Person\Sage\.therapy\logs\runtime.jsonl" |
 模型没有发起必要的文件读取、不准确地声称已保存、对话质量或理解错误，不一定产生程序异常，不能仅靠本日志自动发现。网络与模型提供商内部的问题也只有在客户端报告相应事件时才能被记录。原客户端会话日志仍可用于补充排查。
 
 事件输入按照 Claude Code 的官方钩子说明处理：<https://code.claude.com/docs/en/hooks>。观察器不返回拦截决定，也不添加聊天上下文。
+
+## 已有验证记录
+
+2026-10-30 的日志功能实现提交 `22ff9cd` 已执行以下检查：主测试 233 项，226 通过、7 项平台跳过；评测工具测试 204 项，203 通过、1 项平台跳过；中文安全检查 31/31 通过，均无失败。打包预览确认包含日志模块、注册辅助模块和说明文档，没有包含个人运行日志。
+
+本地安装核对确认 Sage 的咨询正文及个人资料保持原字节，并成功写入更新结果和日志就绪验证记录。这些结果证明所测实现与部署行为，不表示所有客户端故障都可捕获，也不代表真实模型每轮已执行全部钩子。
