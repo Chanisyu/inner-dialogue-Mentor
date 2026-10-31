@@ -19,7 +19,7 @@ node bin/inner-dialogue.js update --path "D:\Project\Person\Sage"
 
 共享资料保存先取得基线，再准备候选稿，由本地工具校验并发布。另一客户端或用户手动修改使旧稿失效；模型应重读、重新合并，不能直接覆盖。写入竞争时明确提示稍后重试；成功提交按写锁串行执行。多文件发布失败时回滚，崩溃遗留事务在确认旧进程死亡后恢复；恢复目标又被外部修改时停止自动处理。
 
-新摘要使用 `sessions/日期-内部会话ID.md` 或 `friend-sessions/日期-内部会话ID.md`，同日不同对话不覆盖。旧日期摘要和已归档原文保留原位置，不扫描或重新导入。档案仍是 `profile.md`，背景仍是 `context/`，原文仍是 `transcripts/`。
+新摘要分别使用 `sessions/日期-内部会话ID.md`、`friend-sessions/日期-内部会话ID.md` 或 `assistant-sessions/日期-内部会话ID.md`，同日不同对话不覆盖。旧日期摘要和已归档原文保留原位置，不扫描或重新导入。档案仍是 `profile.md`，背景仍是 `context/`，原文仍是 `transcripts/`。两个客户端均可在没有历史的新对话中选择[助手模式](ASSISTANT-MODE.md)。
 
 ## 文件职责
 

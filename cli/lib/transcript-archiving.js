@@ -19,6 +19,7 @@ const ASSETS = [
   ['hooks/local-storage.cjs', '.therapy/hooks/local-storage.cjs'], ['hooks/codex-transcript.cjs', '.therapy/hooks/codex-transcript.cjs'],
   ['hooks/session-mode.cjs', '.therapy/hooks/session-mode.cjs'],
   ['hooks/codex-runtime.cjs', '.therapy/hooks/codex-runtime.cjs'], ['hooks/shared-memory.cjs', '.therapy/hooks/shared-memory.cjs'],
+  ['hooks/usage-stats-context.cjs', '.therapy/hooks/usage-stats-context.cjs'],
   ['shared-memory-protocol.md', '.therapy/shared-memory-protocol.md'], ['client-entry.md', '.therapy/client-entry.md'],
 ];
 const REGISTRY = '.therapy/archive-version.json';

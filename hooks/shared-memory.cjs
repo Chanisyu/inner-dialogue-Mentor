@@ -9,9 +9,11 @@ const FS = require('node:fs');
 const PATH = require('node:path');
 const CRYPTO = require('node:crypto');
 const S = require('./local-storage.cjs');
+const MODE = require('./session-mode.cjs');
 let LOG;
 try { LOG = require('./runtime-log.cjs'); } catch { LOG = null; }
-const SHARED = ['context', 'sessions', 'friend-sessions', 'friend-hypotheses'];
+// 助手摘要纳入同一基线和写锁，其他客户端的修改也会使旧候选稿失效。
+const SHARED = ['context', 'sessions', 'friend-sessions', 'friend-hypotheses', 'assistant-sessions'];
 const REVISION = '.therapy/shared-state.json';
 const LOCK = '.therapy/memory-write.lock';
 
@@ -33,8 +35,8 @@ function mode(root, id) {
   const file = S.inside(root, '.therapy/interaction.json');
   if (!FS.existsSync(file) || S.read(file).enabled !== true) return 'counseling';
   const selected = S.read(S.inside(root, '.therapy/conversations/' + S.uuid(id) + '.json'));
-  if (selected.session_id !== id || selected.locked !== true || !['friend', 'counseling'].includes(selected.mode)) throw new Error('请先完成本条对话的模式锁定。');
-  return selected.mode;
+  if (selected.session_id !== id || selected.locked !== true) throw new Error('请先完成本条对话的模式锁定。');
+  return MODE.validateChoice(selected).mode;
 }
 
 /** 只接受档案、既定主题和本会话摘要；旧会话摘要不作为本次保存的覆盖目标。 */
@@ -42,7 +44,8 @@ function allowed(rel, id, selected) {
   if (typeof rel !== 'string' || rel.includes('\\') || /[\0\r\n:]/.test(rel) || rel.split('/').some(p => !p || p === '.' || p === '..')) return false;
   if (rel === 'profile.md' || rel === 'context/index.md') return true;
   if (/^context\/(people|places|concepts|events)\/[^/]+\.md$/.test(rel)) return true;
-  const dirs = selected === 'friend' ? ['friend-sessions', 'friend-hypotheses'] : ['sessions'];
+  // 未知模式不能默认取得咨询摘要权限；恢复旧事务仍保留原有两种模式的授权范围。
+  const dirs = { friend: ['friend-sessions', 'friend-hypotheses'], counseling: ['sessions'], assistant: ['assistant-sessions'] }[selected] || [];
   return dirs.some(dir => new RegExp('^' + dir + '/\\d{4}-\\d{2}-\\d{2}-' + S.uuid(id) + '\\.md$').test(rel));
 }
 
@@ -140,7 +143,8 @@ function begin(root, id) {
     value.base = { token, revision: current.revision, fingerprint: S.hash(JSON.stringify(files)) };
     S.json(statePath(root, id), value);
     const draft = '.therapy/memory-drafts/' + id + '/' + token + '.json';
-    return { ok: true, base_token: token, revision: current.revision, mode: selected, date, draft: S.inside(root, draft), summary: (selected === 'friend' ? 'friend-sessions/' : 'sessions/') + date + '-' + id + '.md', hypotheses: selected === 'friend' ? 'friend-hypotheses/' + date + '-' + id + '.md' : null };
+    const summaryDir = { friend: 'friend-sessions', counseling: 'sessions', assistant: 'assistant-sessions' }[selected];
+    return { ok: true, base_token: token, revision: current.revision, mode: selected, date, draft: S.inside(root, draft), summary: summaryDir + '/' + date + '-' + id + '.md', hypotheses: selected === 'friend' ? 'friend-hypotheses/' + date + '-' + id + '.md' : null };
   } finally { release(root, own); }
 }
 
@@ -212,7 +216,7 @@ function denied(root, payload, id) {
   if (tool === 'Bash') {
     const command = String(input.command || '').replaceAll('\\', '/');
     const writes = /(?:\b(?:rm|mv|cp|del|copy|move|tee|out-file|set-content|add-content|remove-item|move-item|copy-item|new-item)\b|writefilesync|appendfilesync|writefile|appendfile|\.write_text\b|\s>{1,2})/i.test(command);
-    const mentionsData = /(?:profile\.md|(?:^|[\s/"'])context(?:\/|[\s"'])|(?:friend-)?sessions\/|friend-hypotheses\/)/i.test(command);
+    const mentionsData = /(?:profile\.md|(?:^|[\s/"'])context(?:\/|[\s"'])|(?:(?:friend|assistant)-)?sessions(?:\/|[\s"']|$)|friend-hypotheses\/)/i.test(command);
     // Codex 通常通过执行工具读取文件，也要阻止它在另一事务发布途中读取半完成资料。
     if (mentionsData && FS.existsSync(S.inside(root, LOCK))) return '共享资料正在保存或等待恢复，请稍后通过共享保存工具检查。';
     if (writes && mentionsData) return '命令会直接改写共享资料，请使用共享保存工具提交候选稿。';

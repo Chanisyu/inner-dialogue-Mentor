@@ -100,7 +100,7 @@ function writeEvent(root, entry, options = {}) {
     if (token(entry.tool_name)) row.tool_name = entry.tool_name;
     if (typeof entry.tool_use_id === 'string' && /^(?:toolu_|call_)[a-zA-Z0-9_-]{1,100}$/.test(entry.tool_use_id)) row.tool_use_id = entry.tool_use_id;
     if (['install', 'update', 'doctor', 'dual-mode'].includes(entry.command)) row.command = entry.command;
-    if (['friend', 'counseling'].includes(entry.mode)) row.mode = entry.mode;
+    if (['friend', 'counseling', 'assistant'].includes(entry.mode)) row.mode = entry.mode;
     const relative = safeFile(root || process.cwd(), entry.file);
     if (relative !== undefined) row.file = relative;
     if (Number.isFinite(entry.duration_ms) && entry.duration_ms >= 0) row.duration_ms = Math.round(entry.duration_ms);

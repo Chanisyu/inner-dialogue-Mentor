@@ -3,6 +3,12 @@
   "description": "Inner Dialogue 可更新组件（简体中文）",
   "base_url": "https://raw.githubusercontent.com/ataglianetti/inner-dialogue/main/",
   "components": {
+    "usage-stats-context": {
+      "file": "hooks/usage-stats-context.cjs",
+      "target": ".therapy/hooks/usage-stats-context.cjs",
+      "required": true,
+      "description": "使用统计输出适配；保留原统计记录，助手和未选择模式不接收使用节奏建议。"
+    },
     "codex-runtime": {
       "file": "hooks/codex-runtime.cjs",
       "target": ".therapy/hooks/codex-runtime.cjs",
@@ -154,9 +160,9 @@
   },
   "extensions": {
     "dual-mode": {
-      "version": "1.0.0",
+      "version": "1.1.0",
       "optional": true,
-      "description": "朋友模式独立人格和篇幅，一次选择后锁定；原咨询正文及依赖冻结。",
+      "description": "咨询、朋友与助手模式；助手仅加载资料导航及存储协议，朋友独立人格和篇幅，按对话锁定；原咨询正文及依赖冻结。",
       "source": "interaction/",
       "enable_command": "inner-dialogue dual-mode --path <目录>",
       "runtime": "hooks/session-mode.cjs"

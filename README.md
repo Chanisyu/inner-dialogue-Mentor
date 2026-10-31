@@ -168,4 +168,4 @@ npm pack --dry-run
 
 ## 可选双模式扩展
 
-本中文版本增加可选的朋友／咨询双模式。朋友可以选择四种人格及四种篇幅，设置按对话锁定；咨询沿用原有正文、人格和篇幅要求。普通安装默认不开启。已有目录先运行 `dual-mode --dry-run` 预览，详见 [双模式使用说明](docs/DUAL-MODE.md)及[执行与修改说明书](docs/DUAL-MODE-IMPLEMENTATION.md)。
+本中文版本提供可选的咨询、朋友和助手模式，保留 `dual-mode` 命令名兼容已有安装。朋友可以选择四种人格及四种篇幅；咨询沿用原有正文；助手只读取个人资料和相关历史，不加载项目的身份、风格或回复篇幅设定。设置按对话锁定，普通安装默认不开启。已有目录先运行 `dual-mode --dry-run` 预览，已启用目录通过本地 `update` 升级。详见[助手模式](docs/ASSISTANT-MODE.md)、[模式使用说明](docs/DUAL-MODE.md)及[原双模式执行说明书](docs/DUAL-MODE-IMPLEMENTATION.md)。

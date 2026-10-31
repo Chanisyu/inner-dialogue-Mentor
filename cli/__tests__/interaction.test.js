@@ -66,7 +66,7 @@ test('原咨询入口 CRLF 与中文原始字节完整保存，临床依赖和�
   }
   assert.deepEqual((await auditInteraction(root)).errors, []);
   const cfg = await readInteraction(root);
-  assert.equal(Object.keys(cfg.files).length, 13);
+  assert.equal(Object.keys(cfg.files).length, 16);
 });
 
 test('安装选项可直接启用双模式，普通安装参数仍有效', async t => {

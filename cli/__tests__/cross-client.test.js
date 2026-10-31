@@ -289,7 +289,7 @@ test('损坏 Codex 设置和本地自定义入口区块原样保留，不覆盖�
   fs.writeFileSync(config, '{BROKEN');
   const result = await applyArchiving(f.root);
   assert.ok(result.codex_error); assert.equal(fs.readFileSync(config, 'utf8'), '{BROKEN');
-  const file = join(f.root, 'AGENTS.md'); fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('本地咨询师', '用户自定义的入口'));
+  const file = join(f.root, 'AGENTS.md'); fs.writeFileSync(file, fs.readFileSync(file, 'utf8').replace('本地对话目录', '用户自定义的入口'));
   const custom = fs.readFileSync(file);
   const changed = await applyArchiving(f.root);
   assert.ok(changed.skipped.includes('AGENTS.md')); assert.deepEqual(fs.readFileSync(file), custom);

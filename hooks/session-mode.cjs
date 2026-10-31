@@ -1,5 +1,5 @@
 /*
- * 可选双模式的本地会话状态与钩子。
+ * 可选多模式的本地会话状态与钩子；兼容既有 dual-mode 安装与状态格式。
  * 此脚本会直接复制到安装目录；仅依赖 Node 内置模块，不依赖源码位置。
  * 只保存会话设置，不保存聊天正文；临床规则仍由原咨询入口负责。
  */
@@ -16,6 +16,8 @@ function record(root, entry) { return RUNTIME_LOG?.writeEvent(root, { component:
 
 const PERSONAS = Object.freeze(['warm-talkative', 'light-humor', 'rational-companion', 'interest-companion']);
 const LENGTHS = Object.freeze(['concise', 'standard', 'detailed', 'deep']);
+// 模式枚举只增加助手分支；既有会话仍按原值恢复，不隐式迁移已锁定选择。
+const MODES = Object.freeze(['counseling', 'friend', 'assistant']);
 const LOCK_MARKER = 'INNER_DIALOGUE_LOCK ';
 
 /** 校验真实会话 UUID，禁止路径分隔符或任意文件名成为写入位置。 */
@@ -26,12 +28,12 @@ function sessionId(value) {
   return value.toLowerCase();
 }
 
-/** 咨询不能携带朋友设置；朋友必须明确提供两项，不设置隐含默认值。 */
+/** 只有朋友模式接受人格和篇幅；助手与咨询均拒绝这些参数，避免残留配置串入。 */
 function validateChoice(choice) {
-  if (!choice || !['friend', 'counseling'].includes(choice.mode)) throw new Error('模式必须是 friend 或 counseling。');
-  if (choice.mode === 'counseling') {
-    if (choice.persona !== undefined || choice.length !== undefined) throw new Error('咨询模式不能设置朋友人格或回复长度。');
-    return { mode: 'counseling' };
+  if (!choice || !MODES.includes(choice.mode)) throw new Error('模式必须是 friend、counseling 或 assistant。');
+  if (choice.mode !== 'friend') {
+    if (choice.persona !== undefined || choice.length !== undefined) throw new Error((choice.mode === 'assistant' ? '助手' : '咨询') + '模式不能设置朋友人格或回复长度。');
+    return { mode: choice.mode };
   }
   if (!PERSONAS.includes(choice.persona)) throw new Error('请选择有效的朋友人格。');
   if (!LENGTHS.includes(choice.length)) throw new Error('请选择有效的朋友回复长度。');
@@ -153,6 +155,9 @@ function friendPaths(root) {
     sessions: PATH.join(projectRoot, 'sessions'),
     friend_sessions: PATH.join(projectRoot, 'friend-sessions'),
     friend_hypotheses: PATH.join(projectRoot, 'friend-hypotheses'),
+    assistant_sessions: PATH.join(projectRoot, 'assistant-sessions'),
+    transcript_index: PATH.join(projectRoot, 'transcripts', 'index.json'),
+    original_materials: PATH.join(projectRoot, '原始材料'),
   };
 }
 
@@ -165,6 +170,9 @@ function contextFor(id, state, root = PATH.resolve(__dirname, '..', '..')) {
   const choice = { session_id: id, ...validateChoice(state) };
   const text = LOCK_MARKER + JSON.stringify(choice);
   if (state.mode === 'counseling') return text + '\n咨询模式已锁定。完整读取 .therapy/modes/counseling.md，按原咨询正文执行。本对话不调整模式、人格或篇幅。';
+  // 此分支只注入资料导航与保存协议位置，不复用朋友或咨询的身份、风格和篇幅正文。
+  if (state.mode === 'assistant') return text + '\n读取 .therapy/modes/assistant.md，并按 .therapy/assistant-memory.md 处理明确的保存请求。' +
+    '\nINNER_DIALOGUE_PATHS ' + JSON.stringify(friendPaths(root));
   return text + '\n朋友模式已锁定。读取 .therapy/modes/friend.md、.therapy/friend-personas/' + state.persona + '.md、.therapy/friend-lengths/' + state.length + '.md。不得加载咨询人格或疗法；任何设置调整需新建对话。' +
     '\nINNER_DIALOGUE_PATHS ' + JSON.stringify(friendPaths(root)) +
     '\n背景资料使用上列绝对路径；profile.md、context 和会谈目录与根 CLAUDE.md 同级，不在 .therapy 中。读取失败时核对这些路径并重试，不得把读取失败当作没有历史或声称已读。';
@@ -181,19 +189,24 @@ function deniedTool(root, payload, state) {
   const text = raw.toLowerCase();
   const clinical = /\.therapy\/(persona\.md|modalities(?:\/|\b)|session-structure\.md|modes\/counseling\.md|library\/(?:personas|modalities|structures)(?:\/|\b))/.test(text) || /\.therapy\/\*/.test(text);
   const friend = /\.therapy\/(friend-personas(?:\/|\b)|friend-lengths(?:\/|\b)|friend-memory\.md|modes\/friend\.md)/.test(text);
-  const protectedAsset = /\.therapy\/(archive-state\/|archive-version\.json|memory-state\/|memory-journal\/|shared-state\.json|conversations\/|interaction\.json|modes\/|friend-personas\/|friend-lengths\/|friend-memory\.md|persona\.md|modalities\/|session-structure\.md|commands\.md|.*protocol\.md|client-entry\.md|hooks\/)/.test(text) || /(?:^|\/)(?:claude|agents)\.md\b/.test(text) || /\.(?:claude\/settings\.json|codex\/(?:hooks\.json|config\.toml))/.test(text);
+  const assistant = /\.therapy\/(assistant-memory\.md|modes\/assistant\.md)/.test(text);
+  const protectedAsset = /\.therapy\/(archive-state\/|archive-version\.json|memory-state\/|memory-journal\/|shared-state\.json|conversations\/|interaction\.json|modes\/|friend-personas\/|friend-lengths\/|(?:friend|assistant)-memory\.md|persona\.md|modalities\/|session-structure\.md|commands\.md|.*protocol\.md|client-entry\.md|hooks\/)/.test(text) || /(?:^|\/)(?:claude|agents)\.md\b/.test(text) || /\.(?:claude\/settings\.json|codex\/(?:hooks\.json|config\.toml))/.test(text);
   const writeTool = ['Write', 'Edit', 'MultiEdit', 'NotebookEdit'].includes(name);
   // 针对已发生的朋友启动路径错误给出正确位置；不复制、迁移或另建同名个人资料。
   // 只检查资料工具的目标路径，不把搜索正文或普通聊天中的路径示例当成文件操作。
   const backgroundPath = String(input.file_path || input.path || input.pattern || '').replaceAll('\\', '/').toLowerCase();
-  const misplacedBackground = /(?:^|\/)\.therapy\/(?:profile\.md\b|(?:context|sessions|friend-sessions|friend-hypotheses)(?:\/|$))/.test(backgroundPath);
-  if (state?.mode === 'friend' && ['Read', 'Glob', 'Grep', 'Write', 'Edit', 'MultiEdit'].includes(name) && misplacedBackground) {
-    return '朋友背景资料不在 .therapy 中。请使用安装根目录下的正确路径：' + JSON.stringify(friendPaths(root)) + '。读取失败后应纠正路径重试，不得新建错误位置的档案或索引。';
+  const misplacedBackground = /(?:^|\/)\.therapy\/(?:profile\.md\b|(?:context|sessions|friend-sessions|friend-hypotheses|assistant-sessions|transcripts)(?:\/|$))/.test(backgroundPath);
+  const backgroundMode = ['friend', 'assistant'].includes(state?.mode);
+  if (backgroundMode && ['Read', 'Glob', 'Grep', 'Write', 'Edit', 'MultiEdit'].includes(name) && misplacedBackground) {
+    return '背景资料不在 .therapy 中。请使用安装根目录下的正确路径：' + JSON.stringify(friendPaths(root)) + '。读取失败后应纠正路径重试，不得新建错误位置的档案或索引。';
   }
   // 朋友搜索限定在背景或明确文件，避免全目录搜索把咨询配置片段带入上下文。
-  if (state?.mode === 'friend' && name === 'Grep' && (!input.path || PATH.resolve(root, input.path) === PATH.resolve(root))) return '朋友模式搜索请限定到 profile.md、sessions、context 或明确的背景文件。';
+  if (backgroundMode && name === 'Grep' && (!input.path || PATH.resolve(root, input.path) === PATH.resolve(root))) return '资料搜索请限定到 profile.md、sessions、context 或明确的背景文件。';
   if (writeTool && protectedAsset) return '锁定对话不能修改模式状态或咨询配置；请在项目管理中处理。';
-  if (!state && (clinical || friend || /(?:profile\.md|sessions\/|context\/)/.test(text))) return '尚未完成模式选择，先按入口完成选择。';
+  if (!state && (clinical || friend || assistant || /(?:profile\.md|sessions\/|context\/)/.test(text))) return '尚未完成模式选择，先按入口完成选择。';
+  // 助手可读取旧交流资料，但不加载会塑造咨询／朋友行为的规则与使用节奏建议。
+  if (state?.mode === 'assistant' && (clinical || friend || /\.therapy\/(commands\.md|profile-protocol\.md|usage-reflection\.md|library(?:\/|\b))/.test(text))) return '助手模式只读取个人资料、相关历史和公共保存协议，不加载咨询或朋友行为配置。';
+  if (state && state.mode !== 'assistant' && assistant) return '当前模式不加载助手分支的资料入口或保存规则。';
   if (state?.mode === 'friend' && clinical) return '朋友模式不能读取或加载咨询人格、疗法、结构或咨询入口。';
   if (state?.mode === 'counseling' && friend) return '咨询模式不能加载朋友人格、篇幅或朋友交流规则。';
   // 不拦截合法的一次性设置命令；其写入路径由脚本严格校验并排他发布。
@@ -265,5 +278,5 @@ async function main() {
     }
   }
 }
-module.exports = { PERSONAS, LENGTHS, LOCK_MARKER, sessionId, validateChoice, readState, selectState, inheritedChoice, resolveState, contextFor, deniedTool, runHook };
+module.exports = { MODES, PERSONAS, LENGTHS, LOCK_MARKER, sessionId, validateChoice, readState, selectState, inheritedChoice, resolveState, contextFor, deniedTool, runHook };
 if (require.main === module) main();

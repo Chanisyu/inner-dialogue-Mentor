@@ -147,8 +147,9 @@ function modeFor(root, id) {
   const config = PATH.join(root, '.therapy/interaction.json');
   if (!FS.existsSync(config) || JSON.parse(FS.readFileSync(config, 'utf8')).enabled !== true) return { mode: 'counseling' };
   const state = JSON.parse(FS.readFileSync(PATH.join(root, '.therapy/conversations', id + '.json'), 'utf8'));
-  if (!state.locked || state.session_id !== id || !['friend', 'counseling'].includes(state.mode)) throw new Error('归档前尚未可靠锁定模式。');
-  return state.mode === 'friend' ? { mode: state.mode, persona: state.persona, length: state.length } : { mode: state.mode };
+  if (!state.locked || state.session_id !== id) throw new Error('归档前尚未可靠锁定模式。');
+  // 使用与模式选择相同的校验，助手原文不携带朋友人格或篇幅，也不回退成咨询。
+  return require('./session-mode.cjs').validateChoice(state);
 }
 
 /** 该命令仅在模型确认用户主动收尾后调用；不立即保存正文，等待最终回应的 Stop。 */

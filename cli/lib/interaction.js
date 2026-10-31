@@ -1,6 +1,6 @@
 /**
- * 可选双模式的安装、预览、审计和回滚。
- * 核心约束：原咨询入口逐字归档，咨询依赖冻结；只维护朋友扩展文件。
+ * 可选多模式的安装、预览、审计和回滚；dual-mode 命令名保留以兼容旧安装。
+ * 核心约束：原咨询入口逐字归档，咨询依赖冻结；独立维护朋友与助手扩展。
  * 个人资料不参与框架更新或迁移重写，朋友记忆仍由明确的保存请求驱动。
  */
 import { readFile, writeFile, mkdir, rename, readdir } from 'node:fs/promises';
@@ -65,6 +65,9 @@ async function extensionAssets(name) {
     ['interaction/entry.template.md', 'CLAUDE.md'],
     ['interaction/friend.md', '.therapy/modes/friend.md'],
     ['interaction/friend-memory.md', '.therapy/friend-memory.md'],
+    ['interaction/assistant.md', '.therapy/modes/assistant.md'],
+    ['interaction/assistant-memory.md', '.therapy/assistant-memory.md'],
+    ['hooks/usage-stats-context.cjs', '.therapy/hooks/usage-stats-context.cjs'],
     ['hooks/session-mode.cjs', '.therapy/hooks/session-mode.cjs'],
     ['hooks/runtime-log.cjs', '.therapy/hooks/runtime-log.cjs'],
     ...modeRuntime.PERSONAS.map(p => ['interaction/personas/' + p + '.md', '.therapy/friend-personas/' + p + '.md']),
@@ -86,6 +89,18 @@ export function mergeModeHooks(raw) {
   if (settings.hooks !== undefined && (!settings.hooks || typeof settings.hooks !== 'object' || Array.isArray(settings.hooks))) throw new Error('hooks 配置结构异常。');
   settings.hooks = settings.hooks || {};
   for (const event of EVENTS) {
+    if (settings.hooks[event] !== undefined && !Array.isArray(settings.hooks[event])) throw new Error('hooks.' + event + ' 必须是数组。');
+  }
+  // 仅替换工具包的标准统计注册；自定义命令不猜测、不覆盖。原脚本作为固定参数保留，
+  // 以兼容旧 doctor 的登记检查；包装层会先记录统计，再按已锁定模式过滤输出。
+  for (const group of settings.hooks.SessionStart || []) {
+    for (const hook of group.hooks || []) {
+      if (hook.command === 'node' && Array.isArray(hook.args) && hook.args.length === 1 && hook.args[0] === '${CLAUDE_PROJECT_DIR}/.therapy/hooks/usage-stats.js') {
+        hook.args = ['${CLAUDE_PROJECT_DIR}/.therapy/hooks/usage-stats-context.cjs', hook.args[0]];
+      }
+    }
+  }
+  for (const event of EVENTS) {
     const groups = settings.hooks[event];
     if (groups !== undefined && !Array.isArray(groups)) throw new Error('hooks.' + event + ' 必须是数组。');
     const present = (groups || []).some(g => Array.isArray(g.hooks) && g.hooks.some(h => String(h.command || '').includes(MARKER) || (Array.isArray(h.args) && h.args.some(a => String(a).includes(MARKER)))));
@@ -98,6 +113,10 @@ export function mergeModeHooks(raw) {
 
 /** 停用只移除明确引用本脚本的项，不删除其他插件注册或后续用户配置。 */
 function removeModeHooks(settings) {
+  // 停用模式选择时恢复标准统计注册；只识别本扩展生成的确切参数，不碰第三方包装器。
+  for (const group of settings.hooks?.SessionStart || []) for (const hook of group.hooks || []) {
+    if (hook.command === 'node' && JSON.stringify(hook.args) === JSON.stringify(['${CLAUDE_PROJECT_DIR}/.therapy/hooks/usage-stats-context.cjs', '${CLAUDE_PROJECT_DIR}/.therapy/hooks/usage-stats.js'])) hook.args = [hook.args[1]];
+  }
   for (const event of EVENTS) {
     if (!Array.isArray(settings.hooks?.[event])) continue;
     settings.hooks[event] = settings.hooks[event].map(g => ({ ...g, hooks: (g.hooks || []).filter(h => !String(h.command || '').includes(MARKER) && !(Array.isArray(h.args) && h.args.some(a => String(a).includes(MARKER)))) })).filter(g => g.hooks.length);
@@ -170,7 +189,7 @@ export async function enableDualMode(opts) {
   const modalityDir = join(root, '.therapy/modalities');
   const protectedPaths = [...PROTECTED, ...(existsSync(modalityDir) ? (await readdir(modalityDir)).filter(n => n.endsWith('.md')).map(n => '.therapy/modalities/' + n) : [])];
   for (const rel of protectedPaths) if (existsSync(join(root, rel))) protectedFiles[rel] = digest(await readFile(join(root, rel)));
-  const next = { schema_version: 1, enabled: true, extension_version: '1.0.0', therapist: name, created_at: new Date().toISOString(), backup_relative: backupRel, counseling_sha256: digest(entry), protected_files: protectedFiles, files: Object.fromEntries(assets.map(a => [a.target, a.hash])) };
+  const next = { schema_version: 1, enabled: true, extension_version: '1.1.0', therapist: name, created_at: new Date().toISOString(), backup_relative: backupRel, counseling_sha256: digest(entry), protected_files: protectedFiles, files: Object.fromEntries(assets.map(a => [a.target, a.hash])) };
   try {
     // 先部署依赖与原文副本，最后切换入口；新窗口不会读到缺失依赖的路由。
     for (const a of targets.filter(a => a.target !== 'CLAUDE.md')) await atomicWrite(join(root, a.target), a.content);
@@ -191,8 +210,8 @@ export async function enableDualMode(opts) {
 }
 
 /**
- * 双模式启用后的 update 只刷新未被用户修改的朋友资产。
- * 咨询正文与依赖冻结；即使 --force 也不借此覆盖咨询基线或朋友自定义。
+ * 启用模式选择后的 update 只刷新未被用户修改的扩展资产。
+ * 咨询正文与依赖冻结；即使 --force 也不借此覆盖咨询基线或分支自定义。
  */
 export async function refreshDualMode(opts) {
   const root = resolve(opts.path);
@@ -216,7 +235,8 @@ export async function refreshDualMode(opts) {
     else writes.push(a);
   }
   const archive = await archivePlan(root, { deferAssets: writes.map(a => a.target) });
-  const plan = { action: 'refresh-friend-extension', writes: [...new Set(writes.map(a => a.target).concat(repairHooks ? ['.claude/settings.json'] : [], archive.writes))], skipped_user_edited: [...skipped, ...archive.skipped], archiving: { writes: archive.writes, skipped: archive.skipped, ...(archive.settingsError ? { settings_error: archive.settingsError } : {}), ...(archive.codexError ? { codex_error: archive.codexError } : {}) }, preserves_counseling: true };
+  const configChanged = writes.length > 0 || cfg.extension_version !== '1.1.0';
+  const plan = { action: 'refresh-friend-extension', writes: [...new Set(writes.map(a => a.target).concat(repairHooks ? ['.claude/settings.json'] : [], configChanged ? [INTERACTION_CONFIG] : [], archive.writes))], skipped_user_edited: [...skipped, ...archive.skipped], archiving: { writes: archive.writes, skipped: archive.skipped, ...(archive.settingsError ? { settings_error: archive.settingsError } : {}), ...(archive.codexError ? { codex_error: archive.codexError } : {}) }, preserves_counseling: true };
   if (opts.dryRun) return { ok: true, kind: 'dual-mode', dry_run: true, plan };
   for (const a of writes) {
     const current = existsSync(join(root, a.target)) ? digest(await readFile(join(root, a.target))) : null;
@@ -225,9 +245,12 @@ export async function refreshDualMode(opts) {
     cfg.files[a.target] = a.hash;
   }
   if (repairHooks) await atomicWrite(settingsPath, JSON.stringify(mergedSettings, null, 2) + '\n');
-  if (writes.length) await atomicWrite(join(root, INTERACTION_CONFIG), JSON.stringify(cfg, null, 2) + '\n');
+  if (configChanged) {
+    cfg.extension_version = '1.1.0';
+    await atomicWrite(join(root, INTERACTION_CONFIG), JSON.stringify(cfg, null, 2) + '\n');
+  }
   plan.archiving = await applyArchiving(root);
-  return { ok: true, kind: 'dual-mode', enabled: true, plan, message: '已检查朋友扩展；咨询正文和依赖未升级。若要升级咨询框架，先停用双模式，单独检查原框架更新，再重新启用。' };
+  return { ok: true, kind: 'dual-mode', enabled: true, plan, message: '已检查朋友与助手扩展；咨询正文和依赖未升级。新建无历史对话可选择助手模式。若要升级咨询框架，先停用模式选择，单独检查原框架更新，再重新启用。' };
 }
 
 /** 停用恢复咨询原文；保留状态与备份，避免删除可追溯记录。 */

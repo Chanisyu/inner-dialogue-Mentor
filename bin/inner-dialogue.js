@@ -18,7 +18,7 @@ const HELP = `inner-dialogue — 本地 AI 心理支持工具包（简体中文�
   inner-dialogue install   [参数]   创建新的咨询师目录
   inner-dialogue update    [参数]   更新现有目录的框架文件
   inner-dialogue doctor    [参数]   检查目录完整性
-  inner-dialogue dual-mode [参数]   预览、启用、检查或停用双模式
+  inner-dialogue dual-mode [参数]   预览、启用、检查或停用咨询／朋友／助手模式
   inner-dialogue --version          显示版本
   inner-dialogue --help             显示帮助
 
@@ -28,7 +28,7 @@ const HELP = `inner-dialogue — 本地 AI 心理支持工具包（简体中文�
   --persona <slug>           人格，例如 warm-4o、grounded-real、coach
   --structure <slug>         structured、moderate、freeform
   --modalities <a,b,c>       疗法选项，逗号分隔，例如 cbt,ifs
-  --dual-mode               安装后启用可选双模式
+  --dual-mode               安装后启用咨询／朋友／助手模式
   --force                   在现有 .therapy/ 上重新安装
   --json                    以 JSON 输出结果
 
@@ -38,7 +38,7 @@ const HELP = `inner-dialogue — 本地 AI 心理支持工具包（简体中文�
   --force                   覆盖已由用户修改的框架文件
   --json                    以 JSON 输出结果
 
-双模式参数：
+模式选择参数（命令名兼容旧版）：
   --path <目录>              已安装的咨询师目录
   --dry-run                 预览，完全不写文件
   --status                  只读检查双模式与咨询基线
@@ -123,7 +123,7 @@ function printResult(result, json) {
     );
     printSettingsMerge(result.settings_merge);
     printArchiving(result.archiving);
-    if (result.dual_mode) process.stdout.write('\n已启用双模式；新对话先选模式，朋友再选人格与篇幅。\n');
+    if (result.dual_mode) process.stdout.write('\n已启用咨询／朋友／助手模式；新对话先选模式，只有朋友模式再选人格与篇幅。\n');
     process.stdout.write(
       `\n开始咨询：在 Claude 应用或 Codex 中打开 ${result.path} 为主目录，或进入该目录运行 \`claude\`／\`codex\`。Codex 首次使用请检查钩子信任。\n`
     );

@@ -13,6 +13,7 @@ const MODE = require('./session-mode.cjs');
 const ARCHIVE = require('./transcript-archive.cjs');
 const MEMORY = require('./shared-memory.cjs');
 const LOG = require('./runtime-log.cjs');
+const USAGE = require('./usage-stats-context.cjs');
 
 /** 将旧脚本的输出转换成当前事件上下文；超时或格式错误明确记录，正文不写技术日志。 */
 function legacy(root, script, payload) {
@@ -41,7 +42,10 @@ function inherit(root, payload) {
 /** 工具输入按实际操作检查：补丁逐个验证文件，统一执行命令补齐 command 字段。 */
 function toolPayload(payload) {
   const input = payload.tool_input || {};
-  return { ...payload, tool_input: { ...input, ...(input.cmd && !input.command ? { command: input.cmd } : {}) } };
+  // 原生 Codex 使用执行工具名；统一映射到既有命令检查，避免只保护名为 Bash 的调用。
+  const nativeName = String(payload.tool_name || '').split('.').at(-1);
+  const tool = ['exec_command', 'shell', 'shell_command'].includes(nativeName) ? 'Bash' : payload.tool_name;
+  return { ...payload, tool_name: tool, tool_input: { ...input, ...(input.cmd && !input.command ? { command: input.cmd } : {}) } };
 }
 
 /** 只转换事件，不生成对话正文；正常 Stop 没有归档请求时不保存文件。 */
@@ -73,9 +77,9 @@ function runHook(root, raw) {
   if (!['SessionStart', 'UserPromptSubmit'].includes(event)) return {};
   const contexts = [MODE.runHook(payload, root), ARCHIVE.runHook(root, payload), MEMORY.runHook(root, payload)].map(out => out.hookSpecificOutput?.additionalContext).filter(Boolean);
   if (event === 'SessionStart') {
-    const usage = legacy(root, 'usage-stats.js', payload);
+    const usage = USAGE.collect(root, payload);
     if (usage) contexts.push(usage);
-    contexts.push('本条是 Codex 中独立开启的本咨询师对话。恢复使用原锁定；其他客户端未保存的对话不会实时进入本窗口。');
+    contexts.push('本条是 Codex 中独立开启的本地对话。恢复使用原锁定；其他客户端未保存的交流不会实时进入本窗口。');
   } else {
     const safety = legacy(root, 'safety-net.js', payload);
     if (safety) contexts.push(safety);
