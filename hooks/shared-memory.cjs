@@ -17,6 +17,22 @@ const SHARED = ['context', 'sessions', 'friend-sessions', 'friend-hypotheses', '
 const REVISION = '.therapy/shared-state.json';
 const LOCK = '.therapy/memory-write.lock';
 
+/**
+ * 只列当前实际存在的摘要目录。首次保存前的缺失目录是正常状态，不创建空目录掩盖读取问题；
+ * 文件占位、链接和权限异常仍报告错误，不能与“尚无摘要”混淆。所有模式共用此导航。
+ */
+function sources(root) {
+  const summary_directories = [];
+  for (const name of ['sessions', 'friend-sessions', 'assistant-sessions']) {
+    const path = S.inside(root, name);
+    let stat;
+    try { stat = FS.lstatSync(path); } catch (err) { if (err.code === 'ENOENT') continue; throw err; }
+    if (!stat.isDirectory() || stat.isSymbolicLink()) throw new Error('摘要来源不是普通目录：' + name);
+    summary_directories.push(path);
+  }
+  return { summary_directories };
+}
+
 /** 所有内部状态只按已校验的会话标识定位，不能让模型任意指定恢复或写入位置。 */
 function statePath(root, id) { return S.inside(root, '.therapy/memory-state/' + S.uuid(id) + '.json'); }
 function state(root, id) {
@@ -237,18 +253,18 @@ function runHook(root, payload) {
   value.client = payload.client || 'claude-code'; value.native_session_id = payload.native_session_id || id;
   delete value.base; S.json(file, value);
   const current = revision(root);
-  return { hookSpecificOutput: { hookEventName: event, additionalContext: 'INNER_DIALOGUE_MEMORY ' + JSON.stringify({ session_id: id, client: value.client, revision: current.revision, project_root: root, protocol: PATH.join(root, '.therapy/shared-memory-protocol.md') }) + '\n先读取共享资料规则。与上一轮版本不同时重读已变化的档案、索引和相关摘要。所有共享写入使用 begin/commit；旧咨询正文的日期摘要路径由本协议返回的会话独立路径替代，其他业务规则不变。' } };
+  return { hookSpecificOutput: { hookEventName: event, additionalContext: 'INNER_DIALOGUE_MEMORY ' + JSON.stringify({ session_id: id, client: value.client, revision: current.revision, project_root: root, protocol: PATH.join(root, '.therapy/shared-memory-protocol.md'), ...sources(root) }) + '\n先读取共享资料规则。跨摘要目录搜索前调用 shared-memory.cjs --sources --session "' + id + '"，只搜索返回的 summary_directories；列表为空时跳过，不硬编码尚不存在的目录。与上一轮版本不同时重读已变化的档案、索引和相关摘要。所有共享写入使用 begin/commit；旧咨询正文的日期摘要路径由本协议返回的会话独立路径替代，其他业务规则不变。' } };
 }
 
-/** 命令只接受 begin/status/commit；钩子失败明确报告，工具检查失败时拒绝写入。 */
+/** sources 是无状态的只读查询；其他命令仍按会话基线和候选稿协议执行。 */
 async function main() {
   const root = PATH.resolve(__dirname, '..', '..'), args = process.argv.slice(2);
   let payload, id;
   try {
     if (!args.length) { payload = await S.input(); id = payload.session_id; const out = runHook(root, payload); if (Object.keys(out).length) process.stdout.write(JSON.stringify(out) + '\n'); return; }
-    if (!['--begin', '--status', '--commit'].includes(args[0]) || args[1] !== '--session' || ![3, 5].includes(args.length) || (args[0] === '--commit' ? args[3] !== '--draft' : args.length !== 3)) throw new Error('共享保存参数不正确。');
+    if (!['--begin', '--status', '--commit', '--sources'].includes(args[0]) || args[1] !== '--session' || ![3, 5].includes(args.length) || (args[0] === '--commit' ? args[3] !== '--draft' : args.length !== 3)) throw new Error('共享保存参数不正确。');
     id = S.uuid(args[2]);
-    const out = args[0] === '--begin' ? begin(root, id) : args[0] === '--commit' ? commit(root, id, args[4]) : { ok: true, ...revision(root), session: state(root, id) };
+    const out = args[0] === '--sources' ? { ok: true, ...sources(root) } : args[0] === '--begin' ? begin(root, id) : args[0] === '--commit' ? commit(root, id, args[4]) : { ok: true, ...revision(root), session: state(root, id) };
     process.stdout.write(JSON.stringify(out) + '\n');
   } catch (err) {
     LOG?.writeEvent(root, { component: 'memory', event: 'memory.failure', level: 'error', session_id: id, error: err });
@@ -257,5 +273,5 @@ async function main() {
     else process.stderr.write('共享资料上下文加载失败，请检查运行日志。\n');
   }
 }
-module.exports = { begin, commit, revision, inventory, allowed, recover, denied, runHook, touched };
+module.exports = { begin, commit, revision, inventory, allowed, recover, denied, runHook, touched, sources };
 if (require.main === module) main();
