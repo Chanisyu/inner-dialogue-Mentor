@@ -398,7 +398,7 @@ export async function doctor(opts) {
     if (ARCHIVE_DESCS.every(desc => hasHook(claudeSettings, desc))) ok.push('主动收尾归档钩子已完整注册');
     else warnings.push('主动收尾归档钩子注册不完整，请执行本地 update。');
     // 只检查项目内资产和事件配置，不读取私有正文、不修改 Codex 的用户信任状态。
-    for (const rel of ['AGENTS.md', '.therapy/client-entry.md', '.therapy/shared-memory-protocol.md', '.therapy/hooks/local-storage.cjs', '.therapy/hooks/codex-runtime.cjs', '.therapy/hooks/codex-transcript.cjs', '.therapy/hooks/shared-memory.cjs']) if (!existsSync(paths.root + '/' + rel)) warnings.push('跨客户端组件缺失：' + rel);
+    for (const rel of ['AGENTS.md', '.therapy/client-entry.md', '.therapy/shared-memory-protocol.md', '.therapy/hooks/local-storage.cjs', '.therapy/hooks/codex-runtime.cjs', '.therapy/hooks/codex-transcript.cjs', '.therapy/hooks/codex-history.cjs', '.therapy/hooks/shared-memory.cjs']) if (!existsSync(paths.root + '/' + rel)) warnings.push('跨客户端组件缺失：' + rel);
     if (MEMORY_DESCS.every(desc => hasHook(claudeSettings, desc))) ok.push('Claude 共享资料保存钩子已完整注册');
     else warnings.push('Claude 共享资料保存钩子不完整，请执行本地 update。');
     try {

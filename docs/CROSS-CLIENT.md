@@ -45,6 +45,10 @@ node bin/inner-dialogue.js update --path "D:\Project\Person\Sage"
 
 Codex 原始记录不是稳定接口。当前支持完成条目和旧版可见事件两种布局；未知正文块、身份不符、损坏记录或来源超过 64 MiB 时明确失败，不猜测或截断。真实界面中的历史记录仍由客户端自身管理。工具保护是对正常工具调用的兜底，不是操作系统安全沙箱。
 
+对于有分页序号或父线程的 Codex 对话，归档通过本机 App Server 的 `thread/read` 和 `thread/turns/list` 完整分页读取当前可见历史，包含客户端保留的继承记录；不手工拼接可能重叠或已回滚的文件。接口只读，不恢复线程或调用模型。桌面环境优先使用 `CODEX_APP_RUNTIME_CLI_PATH`；其他环境可将 `INNER_DIALOGUE_CODEX_CLI` 设为支持这些接口的本机程序绝对路径。接口不可用、分页不完整或与当前分段不一致时归档失败，保留旧快照，不降级保存局部记录。旧式无分页、无继承的单文件仍走原解析流程。接口依据见 [OpenAI App Server 文档](https://learn.chatgpt.com/docs/app-server#list-thread-turns)。
+
+维护时可显式补齐旧版本的局部归档：`node "<私人目录>/.therapy/hooks/transcript-archive.cjs" --repair --session "<内部会话ID>"`。只允许已收尾、已有快照且没有新交流的 Codex 会话；旧消息及最终回应必须与客户端历史一致。新完整快照原子更新索引，旧快照和其他会话保留。该命令不会重新整理摘要或档案，也不自动归档旧收尾之后新增的消息。
+
 配置使用本机可识别的六种共同事件：SessionStart、UserPromptSubmit、PreToolUse、PostToolUse、Stop、PreCompact。新消息、恢复和压缩撤销未完成归档请求；关闭窗口不归档。运行日志区分客户端，Codex 的失败工具结果从 PostToolUse 转为失败事件；记录依赖客户端提供的实际结果。
 
 参考：[Codex 项目指令](https://learn.chatgpt.com/docs/agent-configuration/agents-md)、[钩子与信任](https://learn.chatgpt.com/docs/hooks)、[项目主目录](https://learn.chatgpt.com/docs/projects)。

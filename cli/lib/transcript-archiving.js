@@ -17,6 +17,7 @@ export const CODEX_EVENTS = ['SessionStart', 'UserPromptSubmit', 'PreToolUse', '
 const ASSETS = [
   ['hooks/transcript-archive.cjs', '.therapy/hooks/transcript-archive.cjs'], ['transcript-protocol.md', '.therapy/transcript-protocol.md'],
   ['hooks/local-storage.cjs', '.therapy/hooks/local-storage.cjs'], ['hooks/codex-transcript.cjs', '.therapy/hooks/codex-transcript.cjs'],
+  ['hooks/codex-history.cjs', '.therapy/hooks/codex-history.cjs'],
   ['hooks/session-mode.cjs', '.therapy/hooks/session-mode.cjs'],
   ['hooks/codex-runtime.cjs', '.therapy/hooks/codex-runtime.cjs'], ['hooks/shared-memory.cjs', '.therapy/hooks/shared-memory.cjs'],
   ['hooks/usage-stats-context.cjs', '.therapy/hooks/usage-stats-context.cjs'],

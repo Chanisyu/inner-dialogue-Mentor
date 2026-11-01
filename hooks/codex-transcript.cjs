@@ -1,4 +1,4 @@
-// <!-- version: 1.0.0 -->
+// <!-- version: 1.1.0 -->
 /**
  * Codex 来源适配器：只读取客户端已经保存的可见发言，绝不导出推理或工具载荷。
  * 优先使用完成事件中的用户和助手条目，避免把模型请求中的注入、压缩回放当原话。
@@ -34,7 +34,7 @@ function source(file, native) {
   if (header.type !== 'session_meta' || !header.payload?.id) throw new Error('无法识别 Codex 会话头，未猜测来源身份。');
   const id = nativeId(header.payload.id);
   if (native !== id && native !== header.payload.session_id) throw new Error('Codex 来源与当前会话不一致。');
-  return { file, thread_id: id, session_id: conversationId(id), cwd: header.payload.cwd, parent_thread_id: header.payload.forked_from_id || header.payload.parent_thread_id || null };
+  return { file, thread_id: id, session_id: conversationId(id), cwd: header.payload.cwd, parent_thread_id: header.payload.forked_from_id || header.payload.parent_thread_id || null, paginated: Number.isSafeInteger(header.ordinal) };
 }
 
 /** 已完成条目的正文块有两种大小写形式；附件只留下原始条目回查引用。 */
@@ -114,4 +114,41 @@ function normalize(payload, root) {
   }
   return { ...payload, session_id: info.session_id, client: 'codex', native_session_id: info.thread_id };
 }
-module.exports = { nativeId, conversationId, source, extract, normalize };
+
+/**
+ * 分页或继承会话只信任客户端完整历史，不拼接可能重叠、回滚或属于父线程后续的文件。
+ * 当前分段仍用于校验最新发言与精确时间；接口落后或缺项时失败，不伪称归档成功。
+ * 旧式无分页、无继承的单文件继续使用原解析器，保留 Node 18 的兼容路径。
+ */
+function conversation(info, root, readHistory = require('./codex-history.cjs').read) {
+  const rows = FS.readFileSync(info.file, 'utf8').split('\n').filter(line => line.trim()).map(line => JSON.parse(line));
+  const recent = extract(rows);
+  if (!info.paginated && !info.parent_thread_id) return { messages: recent, coverage: { method: 'single-rollout', complete: true } };
+  const history = readHistory(info.thread_id);
+  const key = value => process.platform === 'win32' ? PATH.resolve(value).toLowerCase() : PATH.resolve(value);
+  if (history.thread?.id !== info.thread_id || typeof history.thread.cwd !== 'string' || key(history.thread.cwd) !== key(root) || !Array.isArray(history.turns)) throw new Error('完整历史与当前对话或资料目录不一致。');
+  const messages = [], ids = new Set(), times = new Map(recent.map(m => [m.id, m.timestamp]));
+  for (const turn of history.turns) {
+    if (!Array.isArray(turn.items)) throw new Error('完整历史缺少轮次正文。');
+    for (const item of turn.items) {
+      if (!['userMessage', 'agentMessage'].includes(item.type)) continue;
+      if (item.type === 'agentMessage' && item.phase && !['commentary', 'final_answer'].includes(item.phase)) continue;
+      if (typeof item.id !== 'string' || !item.id || ids.has(item.id)) throw new Error('完整历史发言缺少标识或标识重复。');
+      const data = body(item.type === 'agentMessage' ? { content: [{ type: 'text', text: item.text }] } : item, item.id);
+      if (!data.text && !data.attachments.length) continue;
+      ids.add(item.id);
+      // 只有第一条用户消息可以使用该轮明确记录的开始时间；其他未知消息时间不补造。
+      const firstUser = item.type === 'userMessage' && item.id === turn.items.find(i => i.type === 'userMessage')?.id;
+      const timestamp = times.get(item.id) || (firstUser && Number.isFinite(turn.startedAt) ? new Date(turn.startedAt * 1000).toISOString() : null);
+      messages.push({ type: 'message', id: item.id, role: item.type === 'userMessage' ? 'user' : 'assistant', timestamp, ...data });
+    }
+  }
+  const byId = new Map(messages.map(m => [m.id, m]));
+  for (const m of recent) {
+    const full = byId.get(m.id);
+    if (!full || full.role !== m.role || full.text !== m.text || JSON.stringify(full.attachments) !== JSON.stringify(m.attachments)) throw new Error('Codex 完整历史尚未包含当前分段的全部可见消息，未归档。');
+  }
+  if (!messages.some(m => m.role === 'user')) throw new Error('完整历史没有用户发言。');
+  return { messages, coverage: { method: 'codex-app-server', complete: true, turn_count: history.turns.length } };
+}
+module.exports = { nativeId, conversationId, source, extract, normalize, conversation };

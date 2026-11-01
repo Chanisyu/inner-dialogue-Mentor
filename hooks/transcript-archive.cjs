@@ -132,12 +132,12 @@ function stateFile(root, id) { return inside(root, '.therapy/archive-state/' + v
 function readState(root, id) { return JSON.parse(FS.readFileSync(stateFile(root, id), 'utf8')); }
 
 /** 来源适配分别校验真实身份，再交给各自解析器；旧 Claude 状态和已发布快照不迁移。 */
-function readMessages(state, id) {
+function readMessages(root, state, id) {
   if (state.client === 'codex') {
     const adapter = require('./codex-transcript.cjs');
     const info = adapter.source(state.transcript_path, state.native_session_id);
     if (info.session_id !== id) throw new Error('Codex 归档登记与内部会话不一致。');
-    return adapter.extract(readRows(info.file));
+    return adapter.conversation(info, root).messages;
   }
   return extract(readRows(sourceFile(state.transcript_path, id)));
 }
@@ -155,13 +155,18 @@ function modeFor(root, id) {
 /** 该命令仅在模型确认用户主动收尾后调用；不立即保存正文，等待最终回应的 Stop。 */
 function request(root, id) {
   id = validId(id);
-  const state = readState(root, id), messages = readMessages(state, id);
+  const state = readState(root, id), messages = readMessages(root, state, id);
   const lastUser = messages.findLast(m => m.role === 'user');
   if (!lastUser) throw new Error('没有可归档的用户发言。');
   const mode = modeFor(root, id);
-  state.pending = { user_id: lastUser.id, requested_at: new Date().toISOString(), before_assistant_id: messages.findLast(m => m.role === 'assistant')?.id || null, ...(state.turn_id ? { turn_id: state.turn_id } : {}), ...mode };
+  state.pending = { user_id: lastUser.id, requested_at: new Date().toISOString(), before_assistant_id: messages.findLast(m => m.role === 'assistant')?.id || null, message_count: messages.length, prefix_hash: fingerprint(messages), ...(state.turn_id ? { turn_id: state.turn_id } : {}), ...mode };
   atomic(stateFile(root, id), JSON.stringify(state, null, 2) + '\n');
   return { ok: true, pending: true, message: '已登记主动收尾；最终回应完成后才归档。' };
+}
+
+/** 完整性比较只使用真实消息标识、正文和附件，来源时间补齐不应导致内容被误判改变。 */
+function fingerprint(messages) {
+  return CRYPTO.createHash('sha256').update(JSON.stringify(messages.map(m => ({ id: m.id, role: m.role, text: m.text, attachments: m.attachments })))).digest('hex');
 }
 
 /** Markdown 是 JSONL 的只读派生视图；动态围栏保证原文中的 Markdown 不破坏发言边界。 */
@@ -216,8 +221,9 @@ function finish(root, payload) {
   if (!FS.existsSync(file)) return { archived: false };
   const state = readState(root, id);
   if (!state.pending) return { archived: false };
-  const messages = readMessages(state, id);
+  const messages = readMessages(root, state, id);
   if ((state.pending.turn_id && payload.turn_id !== state.pending.turn_id) || messages.findLast(m => m.role === 'user')?.id !== state.pending.user_id) { delete state.pending; atomic(file, JSON.stringify(state, null, 2) + '\n'); return { archived: false, cancelled: true }; }
+  if (state.pending.prefix_hash && (messages.length < state.pending.message_count || fingerprint(messages.slice(0, state.pending.message_count)) !== state.pending.prefix_hash)) throw new Error('收尾期间历史范围缩小或正文改变，未发布局部归档。');
   const finalText = payload.last_assistant_message;
   if (typeof finalText !== 'string' || !finalText) throw new Error('Stop 缺少最终展示文字，未冒充完整归档。');
   const last = messages.at(-1);
@@ -236,6 +242,36 @@ function finish(root, payload) {
   atomic(file, JSON.stringify(state, null, 2) + '\n');
   LOG?.writeEvent(root, { component: 'archive', event: 'archive.complete', session_id: id, client: state.client || 'claude-code' });
   return { archived: true, ...saved };
+}
+
+/**
+ * 显式修复只能扩充已经收尾的 Codex 快照。旧消息必须保持有序且正文一致，末轮用户及
+ * 最终回答必须一致；有后续聊天、来源缺失或内容冲突时拒绝，不能借修复补触发新归档。
+ * 发布复用不可变快照和原子索引；保留旧局部快照及其他会话，不改摘要、档案或客户端记录。
+ */
+function repair(root, id) {
+  id = validId(id);
+  const file = stateFile(root, id), state = readState(root, id);
+  if (state.client !== 'codex' || state.pending || !state.last_archive) throw new Error('只能修复已完成收尾的 Codex 归档。');
+  const index = JSON.parse(FS.readFileSync(inside(root, 'transcripts/index.json'), 'utf8'));
+  const previous = index.sessions?.[id];
+  if (!previous || previous.jsonl !== state.last_archive.jsonl || !previous.jsonl.startsWith('transcripts/' + id + '/')) throw new Error('旧归档索引与会话登记不一致。');
+  const oldRows = readRows(inside(root, previous.jsonl)), old = oldRows.slice(1), meta = oldRows[0];
+  if (meta.session_id !== id || meta.client !== 'codex' || meta.native_session_id !== state.native_session_id || meta.mode !== modeFor(root, id).mode || !old.length) throw new Error('旧归档身份或模式不一致。');
+  const messages = readMessages(root, state, id);
+  if (messages.findLast(m => m.role === 'user')?.id !== old.findLast(m => m.role === 'user')?.id || messages.at(-1)?.role !== 'assistant' || messages.at(-1)?.text !== old.at(-1)?.text) throw new Error('旧收尾后已有新交流或最终回应不一致，不能通过修复归档。');
+  let position = -1;
+  for (const m of old) {
+    const next = messages.findIndex((candidate, n) => n > position && (candidate.id === m.id || (m === old.at(-1) && m.id.startsWith('stop:') && n === messages.length - 1)));
+    const candidate = messages[next];
+    if (!candidate || candidate.role !== m.role || candidate.text !== m.text || JSON.stringify(candidate.attachments) !== JSON.stringify(m.attachments)) throw new Error('完整历史与旧快照不一致，未覆盖索引。');
+    position = next;
+  }
+  if (messages.length === old.length) return { ok: true, repeated: true, ...previous };
+  const saved = publish(root, id, { ...meta, coverage: { method: 'codex-app-server', complete: true, repaired: true } }, messages);
+  state.last_archive = saved; atomic(file, JSON.stringify(state, null, 2) + '\n');
+  LOG?.writeEvent(root, { component: 'archive', event: 'archive.repaired', session_id: id, client: 'codex' });
+  return { ok: true, previous_message_count: old.length, ...saved };
 }
 
 /** 普通轮次只登记来源及规则指针；新消息、恢复和压缩均撤销未完成请求，不补存正文。 */
@@ -269,9 +305,9 @@ async function main() {
   try {
     const args = process.argv.slice(2);
     if (args.length) {
-      if (args.length !== 3 || !['--request', '--status'].includes(args[0]) || args[1] !== '--session') throw new Error('参数应为 --request 或 --status，后跟 --session 和真实会话 ID。');
+      if (args.length !== 3 || !['--request', '--status', '--repair'].includes(args[0]) || args[1] !== '--session') throw new Error('参数应为 --request、--status 或 --repair，后跟 --session 和真实会话 ID。');
       id = validId(args[2]);
-      process.stdout.write(JSON.stringify(args[0] === '--request' ? request(root, id) : { ok: true, state: readState(root, id) }) + '\n');
+      process.stdout.write(JSON.stringify(args[0] === '--request' ? request(root, id) : args[0] === '--repair' ? repair(root, id) : { ok: true, state: readState(root, id) }) + '\n');
       return;
     }
     let raw = '';
@@ -292,5 +328,5 @@ async function main() {
   }
 }
 
-module.exports = { validId, extract, readRows, currentBranch, request, finish, runHook, markdown };
+module.exports = { validId, extract, readRows, currentBranch, request, finish, repair, runHook, markdown };
 if (require.main === module) main();
