@@ -25,13 +25,15 @@
 | `duration_ms`、`exit_code` | 调用方明确提供有效数值时保存；不根据缺失值推测 |
 | `error.code`、`error.message` | 固定错误分类与对应说明，不是原始异常或工具输出 |
 
-观察事件对应 `session.start`、`prompt.submitted`、`tool.start`、`tool.success`、`tool.failure`、`session.end`。模式模块另写 `mode.selected`、`tool.denied`、`mode.failure`；CLI 写 `command.complete`、`command.failure`、`settings.merge_skipped`。
+观察事件对应 `session.start`、`prompt.submitted`、`tool.start`、`tool.success`、`tool.failure`、`session.end`。Codex 结果不明确时记录 `tool.result_unknown`（warn），进程仍在运行时记录 `tool.running`（info）；两者均不表示已经成功，也不等于已经确认失败。模式模块另写 `mode.selected`、`tool.denied`、`mode.failure`；CLI 写 `command.complete`、`command.failure`、`settings.merge_skipped`。
 
-主动收尾归档另写 `archive.complete`、`archive.failure`；安装或更新未能完整接入归档时，CLI 写 `archive.setup_incomplete`。这些事件仍只含诊断元数据，JSONL 对话底稿和 Markdown 阅读版另存于咨询目录的 `transcripts/`，不放入运行日志。
+主动收尾归档另写 `archive.complete`、`archive.failure`；显式补归档成功写 `archive.repaired`。安装或更新未能完整接入归档时，CLI 写 `archive.setup_incomplete`。这些事件仍只含诊断元数据，JSONL 对话底稿和 Markdown 阅读版另存于咨询目录的 `transcripts/`，不放入运行日志。
 
 跨客户端保存另写 `memory.committed`、`memory.conflict`、`memory.rolled_back`、`memory.recovery_completed`、`memory.failure`，Codex 适配失败写 `client.failure`。候选稿与恢复正文只保留在私有状态区，不进入本日志。Codex 按已安装版本支持的事件记录，工具失败从已报告的结果归类，不假定和 Claude 事件完全相同。
 
-同一操作可能有一条观察记录和一条模式拦截记录，这是不同阶段的诊断证据，不应直接按日志行数统计会谈或故障次数。当前观察器未从 shell 错误正文提取退出码，因此不能假定每条失败事件均含 `exit_code`。
+同一操作可能有一条观察记录和一条模式拦截记录，这是不同阶段的诊断证据，不应直接按日志行数统计会谈或故障次数。Codex 使用明确的结构化结果，或同一线程、同一轮次、同一调用的原生完成记录；本机版本的 PostToolUse 可能只提供 stdout，不能据此默认成功。非零退出码优先判失败，明确提供的退出码和耗时会保存。工具文本一律不作为状态证据，即使它形似执行器头、含错误字样或 JSON `exit_code` 字段。未发布或无法关联的结果记为未知，不能假定每条失败事件均有退出码。已记录为运行中的调用若没有后续完成回调，也不会自动补写成功。
+
+原生记录的查询只在当前已校验的来源文件内有界读取；不会搜索其他聊天来猜测结果。历史版本产生的旧日志保持原样，更新后的识别规则用于新事件。相关事件输入形状参见 [OpenAI Hooks 文档](https://learn.chatgpt.com/docs/hooks#posttooluse)。
 
 ## 隐私与容量
 

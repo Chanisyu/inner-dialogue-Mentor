@@ -1,4 +1,4 @@
-// <!-- version: 1.1.0 -->
+// <!-- version: 1.2.0 -->
 /**
  * 统一本地运行日志及只观察、不拦截操作的 Claude Code 钩子。
  * 仅保存白名单元数据；聊天、工具正文、命令、搜索词和原始异常文本均不落盘。
@@ -98,7 +98,7 @@ function writeEvent(root, entry, options = {}) {
     if (typeof entry.native_session_id === 'string' && /^[a-zA-Z0-9][a-zA-Z0-9_-]{0,159}$/.test(entry.native_session_id)) row.native_session_id = entry.native_session_id;
     if (token(entry.hook_event)) row.hook_event = entry.hook_event;
     if (token(entry.tool_name)) row.tool_name = entry.tool_name;
-    if (typeof entry.tool_use_id === 'string' && /^(?:toolu_|call_)[a-zA-Z0-9_-]{1,100}$/.test(entry.tool_use_id)) row.tool_use_id = entry.tool_use_id;
+    if (typeof entry.tool_use_id === 'string' && (/^(?:toolu_|call_)[a-zA-Z0-9_-]{1,100}$/.test(entry.tool_use_id) || /^exec-[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(entry.tool_use_id))) row.tool_use_id = entry.tool_use_id;
     if (['install', 'update', 'doctor', 'dual-mode'].includes(entry.command)) row.command = entry.command;
     if (['friend', 'counseling', 'assistant'].includes(entry.mode)) row.mode = entry.mode;
     const relative = safeFile(root || process.cwd(), entry.file);
@@ -126,11 +126,16 @@ function observe(payload, root = resolveRoot(payload)) {
   if (!payload || typeof payload !== 'object' || !EVENTS.includes(payload.hook_event_name)) return writeEvent(root, { component: 'observer', event: 'input.invalid', level: 'error', error: { code: 'INVALID_INPUT' } });
   const event = payload.hook_event_name;
   const names = { SessionStart: 'session.start', UserPromptSubmit: 'prompt.submitted', PreToolUse: 'tool.start', PostToolUse: 'tool.success', PostToolUseFailure: 'tool.failure', SessionEnd: 'session.end' };
+  // Claude 的既有 PostToolUse 语义保持不变；Codex 必须有明确成功证据才能写 success。
+  const codexResult = payload.client === 'codex' && event === 'PostToolUse';
+  const status = payload.tool_result_status;
+  const uncertain = codexResult && !['success', 'running'].includes(status);
+  const observed = codexResult ? status === 'success' ? 'tool.success' : status === 'running' ? 'tool.running' : 'tool.result_unknown' : names[event];
   return writeEvent(root, {
-    component: 'observer', event: names[event], level: event === 'PostToolUseFailure' ? 'error' : 'info',
+    component: 'observer', event: observed, level: event === 'PostToolUseFailure' ? 'error' : uncertain ? 'warn' : 'info',
     session_id: payload.session_id, hook_event: event, tool_name: payload.tool_name, tool_use_id: payload.tool_use_id,
     client: payload.client || 'claude-code', native_session_id: payload.native_session_id,
-    file: payload.tool_input?.file_path || payload.tool_input?.path, duration_ms: payload.duration_ms,
+    file: payload.tool_input?.file_path || payload.tool_input?.path, duration_ms: payload.duration_ms, exit_code: payload.exit_code,
     ...(event === 'PostToolUseFailure' ? { error: payload.error || { code: 'TOOL_ERROR' } } : {}),
   });
 }

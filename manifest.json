@@ -3,6 +3,12 @@
   "description": "Inner Dialogue 可更新组件（简体中文）",
   "base_url": "https://raw.githubusercontent.com/ataglianetti/inner-dialogue/main/",
   "components": {
+    "tool-result": {
+      "file": "hooks/tool-result.cjs",
+      "target": ".therapy/hooks/tool-result.cjs",
+      "required": true,
+      "description": "Codex 工具结果归一化；关联原生执行元数据，区分成功、失败、运行中及未知，原始正文不写日志。"
+    },
     "codex-history": {
       "file": "hooks/codex-history.cjs",
       "target": ".therapy/hooks/codex-history.cjs",

@@ -19,6 +19,8 @@ const ASSETS = [
   ['hooks/local-storage.cjs', '.therapy/hooks/local-storage.cjs'], ['hooks/codex-transcript.cjs', '.therapy/hooks/codex-transcript.cjs'],
   ['hooks/codex-history.cjs', '.therapy/hooks/codex-history.cjs'],
   ['hooks/session-mode.cjs', '.therapy/hooks/session-mode.cjs'],
+  // 先发布新增依赖，再替换会在启动时 require 它的运行时，避免升级窗口短暂缺失模块。
+  ['hooks/tool-result.cjs', '.therapy/hooks/tool-result.cjs'],
   ['hooks/codex-runtime.cjs', '.therapy/hooks/codex-runtime.cjs'], ['hooks/shared-memory.cjs', '.therapy/hooks/shared-memory.cjs'],
   ['hooks/usage-stats-context.cjs', '.therapy/hooks/usage-stats-context.cjs'],
   ['shared-memory-protocol.md', '.therapy/shared-memory-protocol.md'], ['client-entry.md', '.therapy/client-entry.md'],

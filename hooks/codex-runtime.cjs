@@ -1,4 +1,4 @@
-// <!-- version: 1.0.0 -->
+// <!-- version: 1.1.0 -->
 /**
  * Codex 主对话的生命周期适配。共用原模式、归档和共享资料逻辑，只转换客户端边界。
  * 安全与统计仍调用已安装的原脚本，不改写冻结的咨询依赖；子 Agent 不代替用户会谈。
@@ -14,6 +14,7 @@ const ARCHIVE = require('./transcript-archive.cjs');
 const MEMORY = require('./shared-memory.cjs');
 const LOG = require('./runtime-log.cjs');
 const USAGE = require('./usage-stats-context.cjs');
+const RESULT = require('./tool-result.cjs');
 
 /** 将旧脚本的输出转换成当前事件上下文；超时或格式错误明确记录，正文不写技术日志。 */
 function legacy(root, script, payload) {
@@ -54,8 +55,9 @@ function runHook(root, raw) {
   const payload = toolPayload(CODEX.normalize(raw, root)), event = payload.hook_event_name;
   inherit(root, payload);
   if (['SessionStart', 'UserPromptSubmit', 'PreToolUse', 'PostToolUse', 'SessionEnd'].includes(event)) {
-    const failed = event === 'PostToolUse' && (payload.tool_response?.is_error === true || Number(payload.tool_response?.exit_code) > 0);
-    LOG.observe({ ...payload, ...(failed ? { hook_event_name: 'PostToolUseFailure', error: { code: 'TOOL_ERROR' } } : {}) }, root);
+    // PostToolUse 只说明执行器返回了结果，不等于成功；未知结果和运行中进程单独记录。
+    const outcome = event === 'PostToolUse' ? RESULT.resolve(payload) : null;
+    LOG.observe({ ...payload, ...(outcome ? { tool_result_status: outcome.status, exit_code: outcome.exit_code, duration_ms: outcome.duration_ms ?? payload.duration_ms } : {}), ...(outcome?.status === 'failure' ? { hook_event_name: 'PostToolUseFailure', error: { code: 'TOOL_ERROR' } } : {}) }, root);
   }
   if (event === 'PreToolUse') {
     const guarded = MEMORY.runHook(root, payload);
